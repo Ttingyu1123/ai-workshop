@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 安全與隱私 — 用 AI 之前一定要知道的事</title>
+  <meta name="description" content="醫療人員使用 AI 的安全與隱私必修課 — 病人隱私去識別化、AI 幻覺、免費工具資料使用、責任界線。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI 安全與隱私 — 用 AI 之前一定要知道的事">
+  <meta property="og:description" content="醫療人員使用 AI 的安全與隱私必修課 — 病人隱私去識別化、AI 幻覺、免費工具資料使用、責任界線。">
+  <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/ai-safety.html">
+  <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="index.html#core" class="active">基礎必修</a>
+        <a href="index.html#create">創作應用</a>
+        <a href="index.html#advanced">進階實戰</a>
+        <a href="index.html#extras">番外工具</a>
+        <span class="nav-divider"></span>
+        <a href="https://tingyudeco.com" target="_blank" class="nav-external">作品集 ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">Part 3・必修</div>
+    <h1>AI 安全與隱私</h1>
+    <p>用 AI 之前一定要知道的事</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <nav class="toc" aria-label="目錄">
+      <ol>
+        <li><a href="#why">為什麼這是必修</a></li>
+        <li><a href="#privacy">病人隱私與去識別化</a></li>
+        <li><a href="#hallucination">AI 幻覺</a></li>
+        <li><a href="#data-usage">免費工具的資料使用</a></li>
+        <li><a href="#responsibility">責任界線</a></li>
+        <li><a href="#checklist">使用前檢查清單</a></li>
+      </ol>
+    </nav>
+
+    <!-- ─── Why ─── -->
+    <section id="why">
+      <h2>為什麼這是必修</h2>
+      <p>醫療工作有兩個一般辦公室場景沒有的特殊性：你手上的資料是<strong>病人的隱私</strong>，你講出去的話有<strong>專業責任</strong>。這兩件事讓「隨手把資料貼進 AI」這個動作，風險比在其他行業高出很多。</p>
+      <p>這堂課不是要嚇你不敢用 AI，而是要讓你安全地用。學完這章，你會知道哪些資訊不能貼、AI 講錯話時怎麼抓出來、免費工具的資料政策長怎樣、出錯時責任在誰身上。之後每一堂創作應用課（文字、圖像、影片）都建立在這個基礎上。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>🔒 病人資料</strong>
+          <p>姓名、病歷號、影像、對話紀錄——只要能連回特定病人，就是需要保護的資訊。</p>
+        </div>
+        <div class="card">
+          <strong>⚖️ 專業責任</strong>
+          <p>AI 產出的內容一旦你拿去用，署名、審核、後果都是你的，不是 AI 的。</p>
+        </div>
+        <div class="card">
+          <strong>💊 錯誤的代價</strong>
+          <p>AI 編個錯的旅遊景點沒關係；編錯藥物劑量或編出一篇不存在的文獻，代價完全不同等級。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Privacy ─── -->
+    <section id="privacy">
+      <h2>病人隱私與去識別化</h2>
+      <p>這是本頁的核心。原則很簡單：<strong>任何會讓人猜到「這是誰」的資訊，都不該貼進 AI 對話框</strong>。</p>
+
+      <h3>什麼算「可識別資訊」</h3>
+      <div class="card">
+        <ul>
+          <li><strong>直接識別</strong> — 姓名、病歷號、身分證字號、電話、住址</li>
+          <li><strong>間接識別</strong> — 生日＋性別＋居住地區的組合、少見疾病＋小地區（例如「南投某鄉鎮唯一一位罕見疾病患者」）、特殊職業＋年齡＋科別</li>
+          <li><strong>影像中的資訊</strong> — 照片裡的臉、明顯刺青或胎記、病房門牌／床頭卡、X 光片上燒錄的姓名與病歷號</li>
+        </ul>
+      </div>
+      <p>單一項目看起來無害，但<strong>組合起來就可能定位到特定病人</strong>——這是去識別化最容易失手的地方。</p>
+
+      <h3>去識別化實作範例</h3>
+      <div class="card-grid">
+        <div class="card" style="border-left: 4px solid var(--danger);">
+          <strong>❌ 原文（不要這樣貼）</strong>
+          <p style="margin-top: 0.5rem;">王小明，78 歲男性，病歷號 A123456789，住台北市信義區，因肺癌合併肋膜積水於本院胸腔科就診，過去有糖尿病和乙型肝炎病史，太太陳美玲是主要照顧者。</p>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--success);">
+          <strong>✅ 去識別化後</strong>
+          <p style="margin-top: 0.5rem;">一位高齡男性病患，因肺癌合併肋膜積水於胸腔科就診，同時有糖尿病與慢性病毒性肝炎病史，由配偶擔任主要照顧者。</p>
+        </div>
+      </div>
+      <p>拿掉的是姓名、病歷號、確切年齡、居住地區；保留的是<strong>臨床上有意義的資訊</strong>（診斷、共病、照顧者角色）。這樣 AI 還是能給出有用的回應，但已經無法回推到特定病人。</p>
+
+      <div class="prompt-block">
+        <div class="prompt-label">正確示範 — 去識別化後的案例描述</div>
+        <div class="prompt-content">請幫我針對以下情境草擬一份衛教說明：
+
+一位高齡男性病患，因慢性阻塞性肺病（COPD）合併急性感染住院，出院後需要學習正確使用吸入劑，同時有輕度認知功能退化，由家屬協助日常用藥管理。
+
+請用淺顯的語言說明吸入劑的正確使用步驟，並提醒需要家屬留意的注意事項。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="box-danger">
+        <h4>拿不準就不要貼</h4>
+        <p>去識別化做得夠不夠，沒有 AI 幫你把關——<strong>責任在使用者，不在 AI</strong>。如果一個案例特殊到「怎麼改寫都還是看得出是誰」（例如全院唯一一例的罕見疾病），最安全的做法是完全不描述真實案例，改用假設情境或教科書上的典型案例。</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Hallucination ─── -->
+    <section id="hallucination">
+      <h2>AI 幻覺</h2>
+      <p>AI 會用非常流暢、非常有自信的語氣講錯話——這叫「幻覺」（hallucination）。它不是偶爾當機才會發生，而是語言模型的本質：它預測「聽起來合理的下一個字」，不是在資料庫裡查證。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>💊 藥物劑量</strong>
+          <p>可能給出過期指引、錯誤劑量單位換算，或混淆相似藥名。</p>
+        </div>
+        <div class="card">
+          <strong>📚 文獻引用</strong>
+          <p>最危險的一種——AI 會編出格式完全正確、但根本不存在的論文標題、作者、期刊、DOI。</p>
+        </div>
+        <div class="card">
+          <strong>📊 統計數字</strong>
+          <p>盛行率、死亡率、有效率這類數字容易被「四捨五入到聽起來合理」，但未必有真實來源支持。</p>
+        </div>
+      </div>
+
+      <div class="box-tip">
+        <strong>唯一的原則：</strong>AI 給的任何數字和引用，都要回原始來源核對。查不到原始出處的文獻，當它不存在；對不上原廠仿單或最新治療指引的劑量，以原始來源為準。
+      </div>
+
+      <div class="analogy">
+        AI 的回答像實習醫師的口頭報告——流暢、有條理、講得很有自信，但 order 開出去之前，你一定會自己看過 lab data 再簽名。對 AI 的輸出，用同樣的態度：聽它報告，自己核對數據。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Data Usage ─── -->
+    <section id="data-usage">
+      <h2>免費工具的資料使用</h2>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 資訊更新於 2026 年 7 月 — 各家政策會不定期調整，實際規則以官方公告和帳號內的設定畫面為準。</p>
+
+      <p>三家常用的免費 AI 工具，預設狀態下都<strong>可能把你的對話內容用於模型訓練</strong>，但都提供關閉選項：</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>ChatGPT</strong>
+          <p>免費版和付費個人版預設會用對話訓練模型。可在「設定 → 資料控制 → 改善模型（Improve the model for everyone）」關閉，關閉後套用到未來的新對話。</p>
+        </div>
+        <div class="card">
+          <strong>Claude</strong>
+          <p>消費版（含免費版）預設會用於訓練，可在「設定 → 隱私設定」關閉；官方也提供 Incognito（隱身）對話模式，該次對話一律不用於訓練。</p>
+        </div>
+        <div class="card">
+          <strong>Gemini</strong>
+          <p>只要「Gemini Apps 活動紀錄」是開啟狀態，對話就可能被用來改善服務與訓練模型；關閉活動紀錄可以退出，但代價是不會保留對話歷史。</p>
+        </div>
+      </div>
+
+      <div class="box-tip">
+        <strong>關掉訓練選項，不等於資料完全不留存。</strong>各家仍會基於安全審核、法規遵循等理由保留或使用部分資料，細節請直接看各家官方的隱私權說明，不要只憑坊間文章判斷。這也是為什麼「去識別化」比「關掉一個設定」更重要——設定會變，去識別化的紀律不會過時。
+      </div>
+
+      <h3>機構帳號 vs 個人帳號</h3>
+      <p>如果你的醫院、診所有簽約採購的「企業版」或「機構版」AI 帳號，資料處理條款通常跟免費個人帳號不同（例如承諾不用於訓練、資料留在特定地區）。<strong>用機構帳號處理工作內容，比用個人免費帳號安全</strong>——但仍然要先去識別化，機構條款保護的是資料流向，不是你貼了什麼進去。</p>
+
+      <div class="box-tip">
+        使用任何 AI 工具前，先確認是否符合你所屬機構的資訊安全政策與服務條款。院內若有明確規範「哪些資料不能上傳到外部服務」，那條規範的優先權高於這一頁的建議。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Responsibility ─── -->
+    <section id="responsibility">
+      <h2>責任界線</h2>
+      <p>記住一句話：<strong>AI 輔助，不等於 AI 決策</strong>。</p>
+
+      <div class="card">
+        <ul>
+          <li><strong>署名的人負全責</strong> — 不管衛教內容、病摘、社群文案是不是 AI 生成的，掛你名字發出去，內容正確性就是你的責任。</li>
+          <li><strong>臨床決策不能外包給 AI</strong> — AI 可以幫你整理資訊、草擬文字、提供思考角度，但診斷、治療計畫、用藥決策這些事，決定權和責任都在你，不在工具。</li>
+          <li><strong>對病人使用前，你有驗收義務</strong> — 任何要給病人看、給病人聽的 AI 產出內容（衛教單張、對話腳本、影片旁白），發布前都要親自看過一遍，確認資訊正確、語氣合適、沒有幻覺內容。</li>
+        </ul>
+      </div>
+
+      <p>這個原則貫穿整個工作坊——<a href="ai-writing.html">Part 2 AI 文字應用</a>寫的病摘草稿、<a href="ai-image.html">Part 4 AI 圖像</a>生成的衛教插圖，都要回到這裡的驗收標準：你是最後一道關卡，不是 AI。</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Checklist ─── -->
+    <section id="checklist">
+      <h2>使用前檢查清單</h2>
+      <p>每次要把資料貼進 AI，或把 AI 產出的內容用出去之前，花 30 秒問自己這 5 個問題：</p>
+
+      <div class="card">
+        <ul style="list-style: none; padding-left: 0;">
+          <li style="margin-bottom: 0.75rem;">☐ 這段內容含有可識別特定病人的資訊嗎？（姓名、病歷號、罕見疾病＋地區組合⋯⋯）</li>
+          <li style="margin-bottom: 0.75rem;">☐ AI 給的數字和文獻引用，我核對過原始來源了嗎？</li>
+          <li style="margin-bottom: 0.75rem;">☐ 這個用法符合我所屬機構的資訊安全政策嗎？</li>
+          <li style="margin-bottom: 0.75rem;">☐ 如果這份產出出了錯，責任算在誰身上？我準備好承擔了嗎？</li>
+          <li style="margin-bottom: 0;">☐ 我用的這個工具，資料使用政策我知道嗎（免費版／機構版、會不會被用來訓練）？</li>
+        </ul>
+      </div>
+
+      <div class="box-success">
+        <h4>五個都打勾，才算準備好</h4>
+        <p>這份清單不是要拖慢你的工作，而是把原本容易忽略的判斷，變成一個固定的、幾秒鐘就能跑完的習慣。養成習慣之後，你會發現大部分時候答案都是「沒問題」——但那少數「有問題」的時候，這份清單就是擋下事故的最後一道防線。</p>
+      </div>
+    </section>
+
+    <!-- ─── Navigation ─── -->
+    <div class="nav-links">
+      <a href="ai-writing.html" class="nav-link">← Part 2 — AI 文字應用</a>
+      <a href="index.html" class="nav-link">回目錄</a>
+      <a href="ai-image.html" class="nav-link primary">Part 4 — AI 圖像生成 →</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 TingYu's Deco — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function copyPrompt(btn) {
+    const content = btn.parentElement;
+    const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+  </script>
+
+</body>
+</html>

@@ -30,11 +30,10 @@
       <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
       <nav class="site-nav">
         <a href="index.html" class="active">首頁</a>
-        <a href="ai-fundamentals.html">AI 基礎</a>
-        <a href="ai-image.html">AI 圖像</a>
-        <a href="ai-video.html">AI 影片</a>
-        <a href="google-flow.html">Google Flow</a>
-        <a href="ai-agent.html">AI Agent</a>
+        <a href="#core">基礎必修</a>
+        <a href="#create">創作應用</a>
+        <a href="#advanced">進階實戰</a>
+        <a href="#extras">番外工具</a>
         <span class="nav-divider"></span>
         <a href="https://tingyudeco.com" target="_blank" class="nav-external">作品集 ↗</a>
       </nav>
@@ -50,77 +49,133 @@
 
   <main class="container">
 
-    <a href="ai-fundamentals.html" class="workshop-card">
-      <span class="card-tag tag-recommend">Part 1</span>
-      <h3>AI 到底在幹嘛</h3>
-      <div class="subtitle">AI 基礎概念</div>
-      <div class="desc">
-        LLM、Agent、API、Token⋯⋯ 這些天天聽到的詞到底是什麼？用醫療人員聽得懂的語言，一次搞懂 AI 的核心概念。
-      </div>
-    </a>
+    <section id="core">
+      <h2>🎯 基礎必修</h2>
+      <p style="color: var(--text-light); font-family: var(--font-hand);">觀念、日常應用、安全底線 — 這三課適用於所有人，建議先讀。</p>
 
-    <a href="ai-image.html" class="workshop-card">
-      <span class="card-tag tag-alt">Part 2</span>
-      <h3>AI 圖像生成</h3>
-      <div class="subtitle">從 Prompt 到衛教圖</div>
-      <div class="desc">
-        用 AI 生成衛教插圖、Infographic、社群圖卡。學會 Prompt 公式，搭配 GPT Image、Nano Banana Pro 產出專業級醫療視覺內容。
-      </div>
-    </a>
+      <a href="ai-fundamentals.html" class="workshop-card">
+        <span class="card-tag tag-recommend">Part 1</span>
+        <h3>AI 到底在幹嘛</h3>
+        <div class="subtitle">AI 基礎概念</div>
+        <div class="desc">
+          LLM、Agent、API、Token⋯⋯ 這些天天聽到的詞到底是什麼？用醫療人員聽得懂的語言，一次搞懂 AI 的核心概念。
+        </div>
+      </a>
 
-    <a href="ai-video.html" class="workshop-card">
-      <span class="card-tag tag-alt">Part 3</span>
-      <h3>AI 影片製作</h3>
-      <div class="subtitle">剪輯基礎到語音合成</div>
-      <div class="desc">
-        首尾幀、關鍵幀等剪輯觀念，搭配 AI 語音合成與影片生成工具，從素材到完整短影片的製作流程。
-      </div>
-    </a>
+      <a href="ai-writing.html" class="workshop-card">
+        <span class="card-tag tag-recommend">Part 2</span>
+        <h3>AI 文字應用</h3>
+        <div class="subtitle">每天都用得上的 AI</div>
+        <div class="desc">
+          衛教文案、醫囑白話化、英文文獻摘要、行政文書 — 使用頻率最高的 AI 應用，附一整組可直接複製的 Prompt 模板。
+        </div>
+      </a>
 
-    <a href="google-flow.html" class="workshop-card">
-      <span class="card-tag tag-experiment">Part 4</span>
-      <h3>Google Flow 實戰</h3>
-      <div class="subtitle">免費 AI 創作平台</div>
-      <div class="desc">
-        Google 實驗性 AI 工具集 — 圖像生成、影片製作、音樂創作，免費額度足夠日常使用。一站搞定所有視覺內容。
-      </div>
-    </a>
+      <a href="ai-safety.html" class="workshop-card">
+        <span class="card-tag tag-recommend">Part 3・必修</span>
+        <h3>AI 安全與隱私</h3>
+        <div class="subtitle">用 AI 之前一定要知道的事</div>
+        <div class="desc">
+          病人資料去識別化、AI 幻覺與查證、免費工具的資料政策、責任界線 — 醫療場景的必修課。
+        </div>
+      </a>
+    </section>
 
-    <a href="ai-agent.html" class="workshop-card">
-      <span class="card-tag tag-advanced">Part 5</span>
-      <h3>AI Agent 實作</h3>
-      <div class="subtitle">讓 AI 幫你工作</div>
-      <div class="desc">
-        Claude Code、Codex、Antigravity — 實際操作 AI Agent，從對話到自動化完成複雜任務。
-      </div>
-    </a>
+    <section id="create">
+      <h2>🎨 創作應用</h2>
+      <p style="color: var(--text-light); font-family: var(--font-hand);">衛教圖、短影片 — 從 Prompt 到成品的創作課。</p>
 
-    <a href="capcut.html" class="workshop-card">
-      <span class="card-tag tag-alt">番外・工具</span>
-      <h3>CapCut 剪輯實戰</h3>
-      <div class="subtitle">衛教影片的最後一哩路</div>
-      <div class="desc">
-        AI 生成的素材最後都要進剪輯軟體組裝。時間軸、自動字幕、配樂到匯出，一支手機就能完成。
-      </div>
-    </a>
+      <a href="ai-image.html" class="workshop-card">
+        <span class="card-tag tag-alt">Part 4</span>
+        <h3>AI 圖像生成</h3>
+        <div class="subtitle">從 Prompt 到衛教圖</div>
+        <div class="desc">
+          用 AI 生成衛教插圖、Infographic、社群圖卡。學會 Prompt 公式，搭配 GPT Image、Nano Banana Pro 產出專業級醫療視覺內容。
+        </div>
+      </a>
 
-    <a href="canva.html" class="workshop-card">
-      <span class="card-tag tag-alt">番外・工具</span>
-      <h3>Canva 設計入門</h3>
-      <div class="subtitle">排版加字的好幫手</div>
-      <div class="desc">
-        AI 生圖的中文字常出錯？用 Canva 模板排版、疊加繁中文字，衛教單張、簡報、社群圖卡一次搞定。
-      </div>
-    </a>
+      <a href="ai-video.html" class="workshop-card">
+        <span class="card-tag tag-alt">Part 5</span>
+        <h3>AI 影片製作</h3>
+        <div class="subtitle">剪輯基礎到語音合成</div>
+        <div class="desc">
+          首尾幀、關鍵幀等剪輯觀念，搭配 AI 語音合成與影片生成工具，從素材到完整短影片的製作流程。
+        </div>
+      </a>
 
-    <a href="github-pages.html" class="workshop-card">
-      <span class="card-tag tag-advanced">番外</span>
-      <h3>用 GitHub Pages 架網站</h3>
-      <div class="subtitle">從零開始的建站教學</div>
-      <div class="desc">
-        這個網站本身就是用 GitHub Pages 架的！從 HTML 基礎到部署上線，手把手帶你做出第一個網站。
-      </div>
-    </a>
+      <a href="google-flow.html" class="workshop-card">
+        <span class="card-tag tag-experiment">Part 6</span>
+        <h3>Google Flow 實戰</h3>
+        <div class="subtitle">免費 AI 創作平台</div>
+        <div class="desc">
+          Google 實驗性 AI 工具集 — 圖像生成、影片製作、音樂創作，免費額度足夠日常使用。一站搞定所有視覺內容。
+        </div>
+      </a>
+    </section>
+
+    <section id="advanced">
+      <h2>🚀 進階實戰</h2>
+      <p style="color: var(--text-light); font-family: var(--font-hand);">讓 AI 從「回答問題」升級成「幫你完成工作」。</p>
+
+      <a href="ai-agent.html" class="workshop-card">
+        <span class="card-tag tag-advanced">Part 7</span>
+        <h3>AI Agent 實作</h3>
+        <div class="subtitle">讓 AI 幫你工作</div>
+        <div class="desc">
+          Claude Code、Codex、Antigravity — 實際操作 AI Agent，從對話到自動化完成複雜任務。
+        </div>
+      </a>
+    </section>
+
+    <section id="extras">
+      <h2>🧰 番外工具</h2>
+      <p style="color: var(--text-light); font-family: var(--font-hand);">獨立成篇的工具教學 — 需要哪個看哪個。</p>
+
+      <a href="notebooklm.html" class="workshop-card">
+        <span class="card-tag tag-alt">番外・文獻工具</span>
+        <h3>NotebookLM 文獻閱讀</h3>
+        <div class="subtitle">只根據你給的資料回答</div>
+        <div class="desc">
+          上傳 guideline 和 paper，提問時每句回答都附出處。語音摘要通勤聽，讀書會、晨會準備的神器。
+        </div>
+      </a>
+
+      <a href="ai-transcribe.html" class="workshop-card">
+        <span class="card-tag tag-alt">番外・語音工具</span>
+        <h3>語音轉文字</h3>
+        <div class="subtitle">錄音變逐字稿</div>
+        <div class="desc">
+          會議、演講、讀書會錄音一鍵轉文字，再交給 AI 整理成會議紀錄與重點摘要。
+        </div>
+      </a>
+
+      <a href="capcut.html" class="workshop-card">
+        <span class="card-tag tag-alt">番外・剪輯工具</span>
+        <h3>CapCut 剪輯實戰</h3>
+        <div class="subtitle">衛教影片的最後一哩路</div>
+        <div class="desc">
+          AI 生成的素材最後都要進剪輯軟體組裝。時間軸、自動字幕、配樂到匯出，一支手機就能完成。
+        </div>
+      </a>
+
+      <a href="canva.html" class="workshop-card">
+        <span class="card-tag tag-alt">番外・設計工具</span>
+        <h3>Canva 設計入門</h3>
+        <div class="subtitle">排版加字的好幫手</div>
+        <div class="desc">
+          AI 生圖的中文字常出錯？用 Canva 模板排版、疊加繁中文字，衛教單張、簡報、社群圖卡一次搞定。
+        </div>
+      </a>
+
+      <a href="github-pages.html" class="workshop-card">
+        <span class="card-tag tag-advanced">番外・建站教學</span>
+        <h3>用 GitHub Pages 架網站</h3>
+        <div class="subtitle">從零開始的建站教學</div>
+        <div class="desc">
+          這個網站本身就是用 GitHub Pages 架的！從 HTML 基礎到部署上線，手把手帶你做出第一個網站。
+        </div>
+      </a>
+    </section>
 
     <p style="text-align: center; color: var(--text-light); font-family: var(--font-hand); margin-top: 2rem;">
       每堂課獨立完整，可單獨閱讀。建議依序學習。

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>語音轉文字 — 錄音變逐字稿完整教學</title>
+  <meta name="description" content="語音轉文字工具教學 — 會議、演講、讀書會錄音變逐字稿，再交給 AI 整理成會議紀錄與重點摘要。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="語音轉文字 — 錄音變逐字稿完整教學">
+  <meta property="og:description" content="語音轉文字工具教學 — 會議、演講、讀書會錄音變逐字稿，再交給 AI 整理成會議紀錄與重點摘要。">
+  <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/ai-transcribe.html">
+  <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="index.html#core">基礎必修</a>
+        <a href="index.html#create">創作應用</a>
+        <a href="index.html#advanced">進階實戰</a>
+        <a href="index.html#extras" class="active">番外工具</a>
+        <span class="nav-divider"></span>
+        <a href="https://tingyudeco.com" target="_blank" class="nav-external">作品集 ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">番外・語音工具</div>
+    <h1>語音轉文字</h1>
+    <p>錄音變逐字稿，再變會議紀錄</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <nav class="toc" aria-label="目錄">
+      <ol>
+        <li><a href="#use-cases">用在哪</a></li>
+        <li><a href="#tools">工具選擇</a></li>
+        <li><a href="#workflow">標準工作流</a></li>
+        <li><a href="#prompts">整理逐字稿的 Prompt</a></li>
+        <li><a href="#caution">注意事項</a></li>
+      </ol>
+    </nav>
+
+    <!-- ─── Use Cases ─── -->
+    <section id="use-cases">
+      <h2>用在哪</h2>
+      <p>只要是「有人說話、需要留下文字紀錄」的場合，語音轉文字都能省下大量手動打字的時間：</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>📋 會議記錄</strong>
+          <p>晨會、跨科討論、行政會議，錄音後轉逐字稿，比邊聽邊記更完整不遺漏。</p>
+        </div>
+        <div class="card">
+          <strong>🎤 演講／研討會</strong>
+          <p>研討會、繼續教育課程錄音，事後轉文字方便整理重點、寫心得報告。</p>
+        </div>
+        <div class="card">
+          <strong>📚 讀書會</strong>
+          <p>期刊讀書會的討論過程轉成文字，方便後續彙整成共識或教學資料。</p>
+        </div>
+        <div class="card">
+          <strong>🚶 口述筆記</strong>
+          <p>走路、開車時把想法直接講給手機聽，回程就有一份文字草稿可以修改。</p>
+        </div>
+      </div>
+
+      <div class="analogy">
+        傳統做法是護理師或住院醫師邊聽 attending 交班邊手寫、事後再謄成 discharge summary — 語音轉文字等於先把「聽寫」這一步自動化，你只需要專心校對和整理內容。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Tools ─── -->
+    <section id="tools">
+      <h2>工具選擇</h2>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 資訊更新於 2026 年 7 月 — 各工具的免費額度、支援語言以官方公告為準，使用前建議先確認最新條件。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>🇹🇼 雅婷逐字稿</strong>
+          <p>台灣人工智慧實驗室（AILabs）開發，針對台灣國語、台語、中英夾雜的口音優化，中文辨識品質在本地工具中相對突出。即時錄音轉文字功能免費使用；上傳既有音檔另有免費額度限制。有網頁版和 App。</p>
+        </div>
+        <div class="card">
+          <strong>✨ Google AI Studio（Gemini）</strong>
+          <p>把錄音檔上傳到 Google AI Studio，請 Gemini 轉成繁體中文逐字稿，效果不錯且免費，但單次處理的音檔長度有限制，較長的錄音需要分段上傳。</p>
+        </div>
+        <div class="card">
+          <strong>📝 Word／Teams 內建聽寫</strong>
+          <p>有 Microsoft 365 帳號的話，Word 的「口述」功能和 Teams 會議的「轉錄」功能都內建語音轉文字，開會時可以直接自動產生逐字稿，不需要額外工具。</p>
+        </div>
+        <div class="card">
+          <strong>🎬 CapCut 自動字幕</strong>
+          <p>如果來源是影片（例如手機錄的演講畫面），CapCut 的自動字幕功能本身也是一種語音轉文字，生成後可以直接複製字幕文字當逐字稿。詳見 <a href="capcut.html">番外 — CapCut 剪輯實戰</a>。</p>
+        </div>
+      </div>
+
+      <div class="box-tip">
+        <strong>怎麼選：</strong>純錄音轉逐字稿，中文口音優先選雅婷；已經在用 Google 工具鏈、想省一步操作，用 Google AI Studio；本身就有 Microsoft 365 帳號，直接用 Word／Teams 最方便；來源已經是影片檔，就用 CapCut 字幕順便解決。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Workflow ─── -->
+    <section id="workflow">
+      <h2>標準工作流</h2>
+      <p>不管用哪個工具轉出逐字稿，後續處理流程都一樣：</p>
+
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">Step 1</span> <strong>錄音</strong>
+        <p style="margin-top: 0.5rem;">手機或錄音筆全程錄下會議／演講，收音盡量靠近說話者，減少環境噪音。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--success);">
+        <span class="step-badge">Step 2</span> <strong>轉逐字稿</strong>
+        <p style="margin-top: 0.5rem;">用雅婷、Google AI Studio 或 Word／Teams 把錄音轉成文字，先不追求完美，能讀懂大意即可。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--warning);">
+        <span class="step-badge">Step 3</span> <strong>丟給 AI 整理</strong>
+        <p style="margin-top: 0.5rem;">把逐字稿貼給 ChatGPT／Gemini／Claude，請它整理成會議紀錄或重點摘要（見下方 Prompt）。這一步的技巧可以參考 <a href="ai-writing.html">Part 2 — AI 文字應用</a>。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--danger);">
+        <span class="step-badge">Step 4</span> <strong>人工校對</strong>
+        <p style="margin-top: 0.5rem;">逐句核對 AI 整理後的內容，尤其是專有名詞、數字、人名，確認沒有辨識錯誤或 AI 誤解語意。</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Prompts ─── -->
+    <section id="prompts">
+      <h2>整理逐字稿的 Prompt</h2>
+      <p>逐字稿本身通常很口語、有贅字、東拉西扯，直接丟給 AI 加上明確指示，就能整理成可用的文件。</p>
+
+      <div class="prompt-block">
+        <div class="prompt-label">逐字稿 → 結構化會議紀錄</div>
+        <div class="prompt-content">請把以下會議逐字稿整理成結構化會議紀錄，格式如下：
+
+1. 會議主題與時間（如逐字稿中有提及）
+2. 出席／發言者（依逐字稿內容判斷角色，不確定的標註「未知」）
+3. 討論重點（依議題分段條列）
+4. 決議事項（明確做出的決定）
+5. 待辦事項（項目 / 負責人 / 期限，若逐字稿沒提到負責人或期限就標註「待確認」）
+
+規則：
+- 只整理逐字稿中實際提到的內容，不要自行延伸或猜測
+- 保留專有名詞、數字、藥名的原始寫法，不要自行更改
+- 用條列式呈現，避免長段落
+
+逐字稿內容：
+[貼上逐字稿]<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">演講逐字稿 → 重點摘要＋金句</div>
+        <div class="prompt-content">請把以下演講逐字稿整理成兩個部分：
+
+【重點摘要】
+用條列式列出演講的 5-8 個核心重點，每點不超過 2 句話，依演講的邏輯順序排列。
+
+【金句】
+從逐字稿中挑出 2-3 句講者原話中最值得記住、最適合分享的句子，直接引用原文，不要改寫。
+
+規則：
+- 摘要只根據逐字稿內容，不要加入逐字稿沒提到的資訊
+- 專業術語、藥名、數字維持原文寫法
+- 若逐字稿有明顯口誤或跳題，摘要時以聽者能理解的邏輯順序呈現即可，不用照錄口誤
+
+演講逐字稿：
+[貼上逐字稿]<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Caution ─── -->
+    <section id="caution">
+      <h2>注意事項</h2>
+
+      <div class="box-danger">
+        <strong>錄音前務必取得同意：</strong>
+        <ul style="margin-bottom: 0;">
+          <li>錄下會議或演講前，先取得與會者或講者的同意，不要偷偷錄音</li>
+          <li>若討論內容涉及病人資料，逐字稿等同病歷等級的敏感資料，處理前務必先去識別化 — 去識別化原則詳見 <a href="ai-safety.html">Part 3 — AI 安全與隱私</a></li>
+          <li>逐字稿上傳到雲端工具（AI Studio、雅婷等）前，確認內容不含可辨識病人身分的資訊</li>
+        </ul>
+      </div>
+
+      <div class="box-tip">
+        <strong>校對時優先檢查這些：</strong>語音轉文字對醫學專有名詞、藥名、劑量、數字的辨識錯誤率明顯偏高（同音異字、數字聽錯都很常見），校對逐字稿時務必優先逐一核對這幾類內容，不要只看整體語意通不通順。
+      </div>
+    </section>
+
+    <!-- ─── Navigation ─── -->
+    <div class="nav-links">
+      <a href="notebooklm.html" class="nav-link">← 番外 — NotebookLM</a>
+      <a href="index.html" class="nav-link">回目錄</a>
+      <a href="capcut.html" class="nav-link">番外 — CapCut 剪輯 →</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 TingYu's Deco — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function copyPrompt(btn) {
+    const content = btn.parentElement;
+    const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+  </script>
+
+</body>
+</html>

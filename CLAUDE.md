@@ -14,15 +14,19 @@
 ai-workshop/
 ├── CLAUDE.md           # 本檔
 ├── style.css           # 全站共用樣式（Doodle 設計系統）
-├── index.html          # 首頁（課程卡片牆）
+├── index.html          # 首頁（分區卡片牆：#core / #create / #advanced / #extras）
 ├── ai-fundamentals.html # Part 1 — AI 基礎觀念
-├── ai-image.html       # Part 2 — AI 圖像生成
-├── ai-video.html       # Part 3 — AI 影片製作
-├── google-flow.html    # Part 4 — Google Flow 實戰
-├── ai-agent.html       # Part 5 — AI Agent 實作
-├── capcut.html         # 番外 — CapCut 剪輯（工具頁，不在主導航）
-├── canva.html          # 番外 — Canva 設計（工具頁，不在主導航）
-├── github-pages.html   # 番外 — GitHub Pages 建站（不在主導航）
+├── ai-writing.html     # Part 2 — AI 文字應用
+├── ai-safety.html      # Part 3 — AI 安全與隱私（必修）
+├── ai-image.html       # Part 4 — AI 圖像生成
+├── ai-video.html       # Part 5 — AI 影片製作
+├── google-flow.html    # Part 6 — Google Flow 實戰
+├── ai-agent.html       # Part 7 — AI Agent 實作
+├── notebooklm.html     # 番外 — NotebookLM 文獻工具
+├── ai-transcribe.html  # 番外 — 語音轉文字
+├── capcut.html         # 番外 — CapCut 剪輯
+├── canva.html          # 番外 — Canva 設計
+├── github-pages.html   # 番外 — GitHub Pages 建站
 ├── 404.html            # GitHub Pages 404（連結用 /ai-workshop/ 絕對路徑）
 ├── og-image.png        # OG 分享圖（doodle 插畫 1024x1024，與 website Insights 卡片同一張）
 ├── favicon-32.png      # favicon（從 og-image 聽診器笑臉裁出）
@@ -66,9 +70,11 @@ ai-workshop/
 ## 導航結構
 
 所有頁面共用 header/footer：
-- Header：✏️ AI Workshop logo → 首頁 / AI 基礎 / AI 圖像 / AI 影片 / Google Flow / AI Agent / 作品集 ↗
-- 番外頁（CapCut / Canva / GitHub Pages）**不進主導航**（會爆版）— 入口是首頁卡片 + 課程內交叉連結（ai-video → capcut、ai-image → canva、ai-agent → github-pages）
-- 番外頁閱讀順序（底部 nav-links）：ai-agent → capcut → canva → github-pages
+- Header 是**分區錨點導航**（不列單頁，永不爆版）：首頁 / 基礎必修(#core) / 創作應用(#create) / 進階實戰(#advanced) / 番外工具(#extras) / 作品集 ↗ — 錨點指向 index.html 的四個 section
+- 每頁把自己所屬分區的連結標 `.active`：Part 1-3 → #core、Part 4-6 → #create、Part 7 → #advanced、番外頁 → #extras
+- 閱讀鏈（底部 nav-links）：Part 1→2→3→4→5→6→7 → 番外 notebooklm → ai-transcribe → capcut → canva → github-pages
+- 課程分區：基礎必修（基礎/文字/安全）、創作應用（圖像/影片/Flow）、進階實戰（Agent）、番外工具（5 頁）
+- **新增課程不要動 header** — 只加 index 卡片和串閱讀鏈
 - Footer：© TingYu's Deco — AI Workshop + IG + GitHub + 作品集
 - 當前頁 nav link 加 `.active` class
 - 作品集連結：https://tingyudeco.com（外部連結）
@@ -86,11 +92,16 @@ ai-workshop/
 
 ### 內容
 - [ ] 加入用戶生成的圖片範例（ai-image.html 的 `<!-- TODO -->` 標記處）
+- [ ] 範例牆／學員作品頁（靜態 gallery + Google 表單收件，等有作品再做）
+- [x] AI 文字應用（ai-writing.html，Part 2）
+- [x] AI 安全與隱私（ai-safety.html，Part 3）
+- [x] NotebookLM 文獻工具（notebooklm.html，番外）
+- [x] 語音轉文字（ai-transcribe.html，番外）
 - [x] CapCut 教學頁面（capcut.html）
 - [x] Canva 教學頁面（canva.html）
 - [x] AI Agent 教學頁面（ai-agent.html，Part 5）
 - [x] GitHub Pages 建站教學頁面（github-pages.html）
-- [ ] 醫學筆記/衛教圖專區（待規劃）
+- [ ] 衛教單專區 → **獨立成站**（預計 >20 張，受眾是民眾非醫療人員，另開 repo，不放本站）
 
 ### 技術
 - [x] OG 圖片（og-image.png，doodle 插畫，與 website repo `public/images/insights/ai-workshop.png` 是同一張圖，換圖時要兩邊同步）

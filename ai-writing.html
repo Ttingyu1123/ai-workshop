@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 文字應用 — ChatGPT / Claude / Gemini 實戰</title>
+  <meta name="description" content="衛教文案、醫囑白話化、文獻摘要、公文草稿 — 醫療人員每天用得上的 AI 文字應用完整教學。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI 文字應用 — ChatGPT / Claude / Gemini 實戰">
+  <meta property="og:description" content="衛教文案、醫囑白話化、文獻摘要、公文草稿 — 醫療人員每天用得上的 AI 文字應用完整教學。">
+  <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/ai-writing.html">
+  <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="index.html#core" class="active">基礎必修</a>
+        <a href="index.html#create">創作應用</a>
+        <a href="index.html#advanced">進階實戰</a>
+        <a href="index.html#extras">番外工具</a>
+        <span class="nav-divider"></span>
+        <a href="https://tingyudeco.com" target="_blank" class="nav-external">作品集 ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">Part 2</div>
+    <h1>AI 文字應用</h1>
+    <p>每天都用得上的 AI</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <!-- TOC -->
+    <nav class="toc" aria-label="目錄">
+      <ol>
+        <li><a href="#why-first">為什麼先學文字</a></li>
+        <li><a href="#tools">三大對話工具</a></li>
+        <li><a href="#principles">對話四原則</a></li>
+        <li><a href="#templates">Prompt 模板庫</a></li>
+        <li><a href="#translation">翻譯與文獻閱讀</a></li>
+        <li><a href="#must-read">使用前必讀</a></li>
+      </ol>
+    </nav>
+
+    <!-- ─── Why First ─── -->
+    <section id="why-first">
+      <h2>為什麼先學文字</h2>
+      <p>這堂課看起來最不「AI」— 沒有酷炫的生圖、沒有會動的影片。但如果只能學一件事，應該是這件事：<span class="highlight">醫療人員實際用 AI 最頻繁的地方，是文字工作，不是圖像或影片</span>。</p>
+      <p>潤一段病摘、寫一張衛教單、翻一段英文摘要 — 這些事每天都在發生，而且用 AI 處理只需要打字，不用學任何介面、不用等生成時間。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>🔁 最高頻</strong>
+          <p>文書工作、衛教文案、文獻閱讀幾乎天天都要做，比生圖生影片的需求頻率高得多。</p>
+        </div>
+        <div class="card">
+          <strong>🚪 零門檻</strong>
+          <p>不用學工具介面、不用等待生成，打開對話框打字就能開始，是進入 AI 世界摩擦力最小的一步。</p>
+        </div>
+        <div class="card">
+          <strong>⚡ 馬上有感</strong>
+          <p>把一段生硬的醫囑丟給 AI，幾秒後拿回一段病人看得懂的說明 — 效益立刻感受得到。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Tools ─── -->
+    <section id="tools">
+      <h2>三大對話工具</h2>
+      <p>ChatGPT、Claude、Gemini 是目前最主流的三個對話式 AI，免費版都能滿足日常文字需求。</p>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 資訊更新於 2026 年 7 月 — 各家免費額度規則變動頻繁（依訊息則數、時間窗、功能而定），實際使用以官方公告為準。</p>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-recommend">入門首選</span>
+          <span class="tool-name"><a href="https://chatgpt.com" target="_blank">ChatGPT ↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>介面最直覺、中文表現好</li><li>通才型，什麼任務都能上手</li><li>能生圖、能語音對話</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>免費版有訊息則數限制，用量大時會自動降級成較輕量的模型</li><li>長文件偶爾會遺漏細節</li></ul></div>
+        </div>
+        <div class="tool-tip">免費版採「一段時間內限量、之後重置」的機制，額度會隨系統流量浮動。日常對話、寫初稿基本夠用。</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-alt">長文首選</span>
+          <span class="tool-name"><a href="https://claude.ai" target="_blank">Claude ↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>長文分析、寫作品質最強</li><li>語氣拿捏細膩，適合正式文書</li><li>閱讀長篇文獻表現穩定</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>免費版採滾動時間窗限制，實際則數依對話長度與複雜度浮動</li><li>不支援生圖</li></ul></div>
+        </div>
+        <div class="tool-tip">免費版只開放部分模型（旗艦模型通常保留給付費方案）。整理文獻、潤稿、寫正式文書時特別好用。</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-experiment">額度最寬鬆</span>
+          <span class="tool-name"><a href="https://gemini.google.com" target="_blank">Gemini ↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>有 Google 帳號就能用，免費額度相對大方</li><li>能整合搜尋，抓得到較新的資訊</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>中文寫作語氣略遜於前兩者</li><li>進階功能（如深度研究）在免費版限制較嚴</li></ul></div>
+        </div>
+        <div class="tool-tip">免費版每隔幾小時重置一次額度，升級付費方案可以拿到倍數提升。需要頻繁使用又想省錢時考慮它。</div>
+      </div>
+
+      <div class="box-tip">
+        <strong>入門任選一個就好。</strong>三者的免費版都能應付日常文字工作，差異主要在細節表現，不是能不能用。真正決定輸出品質的，是下一節要講的「對話技巧」，不是你選哪一家。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Principles ─── -->
+    <section id="principles">
+      <h2>對話四原則</h2>
+      <div class="analogy">對話四原則就像開會診單 — 寫清楚病史、問題、想要對方回答什麼，會診品質才會好。丟一句「這病人怎麼了」給會診醫師，得到的回覆一定籠統；AI 也一樣。</div>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong style="color: var(--primary);">① 給角色</strong>
+          <p style="font-size:0.9rem; margin: 0.5rem 0; font-style: italic; background: var(--highlighter-blue); padding: 4px 8px; border-radius: 4px;">你是一位衛教護理師…</p>
+          <p style="font-size:0.85rem; color: var(--text-light); margin:0;">讓 AI 用對的專業水準和語氣回答，不是萬用客服的語調</p>
+        </div>
+        <div class="card">
+          <strong style="color: var(--primary);">② 給背景</strong>
+          <p style="font-size:0.9rem; margin: 0.5rem 0; font-style: italic; background: var(--highlighter-blue); padding: 4px 8px; border-radius: 4px;">對象是 65 歲以上的糖尿病患者…</p>
+          <p style="font-size:0.85rem; color: var(--text-light); margin:0;">告訴 AI 讀者/情境是誰，內容才會對症下藥</p>
+        </div>
+        <div class="card">
+          <strong style="color: var(--primary);">③ 給格式</strong>
+          <p style="font-size:0.9rem; margin: 0.5rem 0; font-style: italic; background: var(--highlighter-blue); padding: 4px 8px; border-radius: 4px;">用列點呈現，300 字以內，語氣溫和不說教…</p>
+          <p style="font-size:0.85rem; color: var(--text-light); margin:0;">指定列點/表格、字數、語氣，省去來回修改</p>
+        </div>
+        <div class="card">
+          <strong style="color: var(--primary);">④ 迭代追問</strong>
+          <p style="font-size:0.9rem; margin: 0.5rem 0; font-style: italic; background: var(--highlighter-blue); padding: 4px 8px; border-radius: 4px;">再更口語一點、把第三點刪掉…</p>
+          <p style="font-size:0.85rem; color: var(--text-light); margin:0;">第一次不滿意就繼續在同一個對話裡改，不要重開新對話</p>
+        </div>
+      </div>
+
+      <h3>Before / After 對照</h3>
+      <div class="card-grid">
+        <div class="card">
+          <strong class="con">Before（沒有四原則）</strong>
+          <p style="margin: 0.5rem 0;">「幫我寫一份糖尿病衛教」</p>
+          <p style="font-size:0.85rem; color: var(--text-light); margin:0;">AI 只能猜對象、猜格式、猜長度，結果通常太籠統、太長，還要大改。</p>
+        </div>
+        <div class="card">
+          <strong class="pro">After（套用四原則）</strong>
+          <p style="margin: 0.5rem 0;">「你是衛教護理師，對象是 65 歲以上糖尿病患者，用列點呈現、300 字以內、語氣溫和。主題：血糖機使用步驟。」</p>
+          <p style="font-size:0.85rem; color: var(--text-light); margin:0;">角色、背景、格式一次到位，第一版通常就能直接用或小改即可。</p>
+        </div>
+      </div>
+
+      <div class="box-tip">
+        四個原則不用每次都寫滿。最容易被忽略、卻最有效的是<strong>迭代追問</strong> — 大部分人第一次結果不滿意就放棄或重新打一長串，其實只要接著說「再短一點」「換個語氣」就好，AI 會記得前面的內容。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Templates ─── -->
+    <section id="templates">
+      <h2>Prompt 模板庫</h2>
+      <p>四個最常用的醫療文字場景模板，複製後填入你的內容即可使用。</p>
+
+      <div class="prompt-block">
+        <div class="prompt-label">① 衛教文案生成</div>
+        <div class="prompt-content">你是一位衛教護理師，請根據以下需求撰寫衛教文案：
+
+主題：[例如：糖尿病足部護理]
+對象：[例如：65 歲以上第二型糖尿病患者]
+閱讀程度：[例如：國中程度，避免專業術語]
+字數：[例如：300 字以內]
+格式：列點呈現，附一句溫馨提醒收尾<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">② 醫囑/檢查說明白話化</div>
+        <div class="prompt-content">請把以下醫療專業說明，翻譯成病人和家屬聽得懂的白話文，保留關鍵資訊（例如需要禁食、需要停藥的項目），但拿掉不必要的術語：
+
+[貼上原始的醫囑或檢查說明文字]
+
+要求：用口語化的句子、避免專有名詞、必要時用比喻解釋，最後列出「病人需要注意的 3 件事」。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">③ 英文文獻快速摘要</div>
+        <div class="prompt-content">請閱讀以下論文摘要（Abstract），用中文整理成結構化重點：
+
+[貼上英文 Abstract]
+
+請包含：
+1. 研究目的（1-2 句）
+2. 研究方法（1-2 句）
+3. 主要發現（條列 3-5 點）
+4. 臨床意義／對實務的影響（1-2 句）
+5. 研究限制（如摘要有提及）
+
+專業術語保留英文原文，並附上中文翻譯。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">④ 行政文書草稿</div>
+        <div class="prompt-content">請幫我草擬一份[公文／簽呈／會議通知]，內容重點如下：
+
+主旨：[一句話說明這份文件要做什麼]
+對象：[收文單位或對象]
+重點內容：[條列你想傳達的重點，2-5 點]
+語氣：正式、簡潔，符合機關公文慣例
+格式：[例如：主旨/說明/辦法三段式，或會議通知需要的時間地點欄位]<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Translation ─── -->
+    <section id="translation">
+      <h2>翻譯與文獻閱讀</h2>
+      <p>處理整篇英文文獻時，AI 可以省下大量時間，但用法跟隨手翻譯一句話不一樣。</p>
+
+      <div class="card">
+        <ol>
+          <li><strong>先摘要，再決定要不要讀全文</strong> — 貼 Abstract 讓 AI 整理重點，判斷這篇是否值得花時間細讀</li>
+          <li><strong>術語對照一起要</strong> — 請 AI 保留專業術語的英文原文，並附中文翻譯，避免翻譯腔取代原本精確的用詞</li>
+          <li><strong>方法與結果分開處理</strong> — 統計方法、研究設計的細節容易在摘要式翻譯中被簡化，需要時單獨請 AI 逐段解釋</li>
+          <li><strong>摘要仍需對照原文</strong> — AI 整理的重點是幫助你快速抓方向，正式引用、寫入病歷或投稿前，一定要回頭核對原文</li>
+        </ol>
+      </div>
+
+      <div class="box-tip">
+        如果要一次處理<strong>多篇</strong>文獻（例如寫文獻回顧、找一整個主題的相關研究），單篇貼上對話框的做法會很沒效率。番外篇的 <a href="notebooklm.html">NotebookLM 教學</a> 更適合這種場景 — 一次匯入多篇 PDF，讓 AI 跨文獻比較、附來源引用。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Must Read ─── -->
+    <section id="must-read">
+      <h2>使用前必讀</h2>
+
+      <div class="box-danger">
+        <h4>⚠️ 病人可識別資訊一律不可貼入 AI</h4>
+        <p>姓名、病歷號、身分證字號、確切生日、住址、罕見病況組合等任何可能反推出病人身分的資訊，<strong>都不能貼進公開的 AI 對話框</strong>。要用真實案例練習，先去識別化。完整規範請見 <a href="ai-safety.html">Part 3 — AI 安全與隱私</a>。</p>
+      </div>
+
+      <div class="box-tip">
+        <strong>AI 生成的內容一定要人工核對</strong>，尤其是數字、劑量、日期、引用來源這類細節。AI 對語氣和結構的掌握通常很好，但對精確數值的可靠度不如人工核對 — 衛教單上寫錯一個劑量單位,後果不是排版問題。
+      </div>
+    </section>
+
+    <!-- ─── Navigation ─── -->
+    <div class="nav-links">
+      <a href="ai-fundamentals.html" class="nav-link">← Part 1 — AI 基礎</a>
+      <a href="index.html" class="nav-link">回目錄</a>
+      <a href="ai-safety.html" class="nav-link primary">Part 3 — AI 安全與隱私 →</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 TingYu's Deco — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function copyPrompt(btn) {
+    const content = btn.parentElement;
+    const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+  </script>
+
+</body>
+</html>

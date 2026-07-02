@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NotebookLM 文獻閱讀 — 番外工具</title>
+  <meta name="description" content="NotebookLM 完整教學 — 只根據你上傳的文獻回答並附出處，讀 guideline、備讀書會、準備報告的最佳幫手。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="NotebookLM 文獻閱讀 — 番外工具">
+  <meta property="og:description" content="NotebookLM 完整教學 — 只根據你上傳的文獻回答並附出處，讀 guideline、備讀書會、準備報告的最佳幫手。">
+  <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/notebooklm.html">
+  <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="index.html#core">基礎必修</a>
+        <a href="index.html#create">創作應用</a>
+        <a href="index.html#advanced">進階實戰</a>
+        <a href="index.html#extras" class="active">番外工具</a>
+        <span class="nav-divider"></span>
+        <a href="https://tingyudeco.com" target="_blank" class="nav-external">作品集 ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">番外・文獻工具</div>
+    <h1>NotebookLM 文獻閱讀</h1>
+    <p>只根據你上傳的資料回答 — 讀 guideline、備讀書會、寫報告的可靠幫手</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <nav class="toc" aria-label="目錄">
+      <ol>
+        <li><a href="#what-is-notebooklm">NotebookLM 是什麼</a></li>
+        <li><a href="#credits">免費額度與方案</a></li>
+        <li><a href="#basic-steps">基本操作</a></li>
+        <li><a href="#studio-features">產出功能</a></li>
+        <li><a href="#medical-scenarios">醫療應用情境</a></li>
+        <li><a href="#limitations">限制與注意</a></li>
+      </ol>
+    </nav>
+
+    <!-- ─── What is NotebookLM ─── -->
+    <section id="what-is-notebooklm">
+      <h2>NotebookLM 是什麼</h2>
+      <p><a href="https://notebooklm.google.com" target="_blank">NotebookLM</a> 是 Google 推出的「來源導向」AI 筆記工具。跟 ChatGPT、Gemini 這類一般對話式 AI 最大的不同在於：一般 AI 是憑訓練時記住的資料回答（可能過時、可能幻覺），NotebookLM 則是<strong>只根據你上傳的來源回答，而且每句話都附上出處連結</strong>，點下去就能跳回原文對應段落。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>📚 來源導向</strong>
+          <p>上傳 PDF、網頁、YouTube 影片等，AI 只用這些資料回答，不會用它自己的訓練記憶亂猜。</p>
+        </div>
+        <div class="card">
+          <strong>🔗 逐句附出處</strong>
+          <p>每個回答句子旁都有引用標記，點擊可以直接跳到來源文件的對應位置核對。</p>
+        </div>
+        <div class="card">
+          <strong>🎙️ 多元產出</strong>
+          <p>除了問答，還能把來源轉換成語音摘要、心智圖、簡報、測驗卡片等不同形式。</p>
+        </div>
+        <div class="card">
+          <strong>🗂️ 專案化管理</strong>
+          <p>每個「Notebook」對應一個主題或專案，來源、筆記、產出都收在同一個地方。</p>
+        </div>
+      </div>
+
+      <div class="analogy">
+        一般 AI 像是「憑印象回答問題的學長」— 講得頭頭是道，但你不確定他是不是記錯了。NotebookLM 像是「手上拿著病歷、每句話都指給你看出處的專科護理師」— 你問一句，她翻到病歷的那一頁指給你看，講的都有憑有據，不會憑空掰。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Credits ─── -->
+    <section id="credits">
+      <h2>免費額度與方案</h2>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 資訊更新於 2026 年 7 月 — 額度與方案名稱可能調整，以官方公告為準。</p>
+      <table>
+        <thead>
+          <tr><th>項目</th><th>免費方案</th><th>付費方案（Google AI Pro / Ultra）</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Notebook 數量</td><td>約 100 本</td><td>更高上限</td></tr>
+          <tr><td>單一 Notebook 來源數</td><td>約 50 個</td><td>更高上限</td></tr>
+          <tr><td>語音摘要 / 影片摘要</td><td>每日各約 3 次</td><td>更高次數</td></tr>
+          <tr><td>每日提問次數</td><td>約 50 次</td><td>更高次數</td></tr>
+        </tbody>
+      </table>
+      <div class="box-tip">
+        <strong>注意：</strong>免費額度已經足夠個人閱讀文獻、準備讀書會使用。付費方案是綁在 Google AI 訂閱（跟 Google Flow 用的是同一套方案，見 <a href="google-flow.html#credits">Part 6 — Google Flow 額度表</a>），主要差異在提高來源數上限與產出次數，不是解鎖全新功能。實際額度數字請以 NotebookLM 官方說明頁為準，本表僅供概估。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Basic Steps ─── -->
+    <section id="basic-steps">
+      <h2>基本操作</h2>
+      <p>NotebookLM 的操作流程很簡單，四步驟就能開始：</p>
+
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">Step 1</span> <strong>建立 Notebook</strong>
+        <p style="margin-top: 0.5rem;">登入 <a href="https://notebooklm.google.com" target="_blank">notebooklm.google.com</a>，點「新增」建立一個新專案。建議一個主題或一次讀書會建一本，方便之後回頭找。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--success);">
+        <span class="step-badge">Step 2</span> <strong>上傳來源</strong>
+        <p style="margin-top: 0.5rem;">支援 PDF（guideline、paper）、Google Docs、網址、YouTube 影片連結、純文字貼上等多種格式。同一本 Notebook 可以放多份來源，方便交叉比對。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--warning);">
+        <span class="step-badge">Step 3</span> <strong>提問</strong>
+        <p style="margin-top: 0.5rem;">在對話框直接用中文提問，AI 只根據已上傳的來源回答。問題越具體（例如指定比較哪幾份文件），答案越精準。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--danger);">
+        <span class="step-badge">Step 4</span> <strong>核對出處</strong>
+        <p style="margin-top: 0.5rem;">回答中每句話旁的引用標記可以點擊，直接跳到來源文件的對應段落。重要結論務必點回去看原文，不要只看 AI 摘要就下判斷。</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Studio Features ─── -->
+    <section id="studio-features">
+      <h2>產出功能</h2>
+      <p>除了問答，NotebookLM 的 Studio 面板可以把來源轉換成不同形式的產出，方便用不同方式消化資料：</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>🎙️ 語音摘要（Audio Overview）</strong>
+          <p>把來源內容轉成兩人對談形式的 podcast，適合通勤、運動時用聽的方式複習文獻重點。目前已支援繁體中文輸出，可在設定中切換語言。</p>
+        </div>
+        <div class="card">
+          <strong>🖼️ 簡報（Slide Deck）</strong>
+          <p>把來源重點整理成投影片形式，適合快速準備晨會或科內報告的骨架。</p>
+        </div>
+        <div class="card">
+          <strong>🧠 心智圖（Mind Map）</strong>
+          <p>把來源的概念關係畫成心智圖，適合理解一份複雜 guideline 的整體架構。</p>
+        </div>
+        <div class="card">
+          <strong>📝 報告與測驗卡片</strong>
+          <p>也能產出摘要報告，或把內容轉成問答式測驗卡片，適合自我檢測有沒有真的讀懂。</p>
+        </div>
+      </div>
+
+      <div class="box-tip">
+        <strong>保守提醒：</strong>Studio 功能持續在更新，實際選項以你登入後看到的面板為準。這些產出都是「輔助理解」的形式轉換，不是新資訊來源 — 內容仍然來自你上傳的文件，一樣可能有遺漏或簡化，重要細節還是要回原文確認。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Medical Scenarios ─── -->
+    <section id="medical-scenarios">
+      <h2>醫療應用情境</h2>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>📖 讀新版 guideline</strong>
+          <p>把新舊兩版 guideline 都上傳到同一本 Notebook，直接問 AI 兩版差異在哪裡，比自己逐條比對快很多。</p>
+        </div>
+        <div class="card">
+          <strong>👥 科內讀書會</strong>
+          <p>把當週要討論的多篇 paper 全部上傳，讀書會前先用 NotebookLM 交叉提問，抓出各篇論點的異同，會議上討論更有效率。</p>
+        </div>
+        <div class="card">
+          <strong>🎤 晨會 / 報告準備</strong>
+          <p>把病例相關的文獻和 guideline 放進同一本 Notebook，用語音摘要或簡報功能快速抓重點，再手動整理成自己的報告架構。</p>
+        </div>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">對 Guideline 提問 — 好問法範例</div>
+        <div class="prompt-content">請比較這兩份 guideline（2023 版與 2026 版）在「第一線用藥選擇」這部分的建議差異。
+
+請用表格列出：
+1. 各版本的建議用藥與劑量
+2. 建議等級（strong/conditional）是否改變
+3. 差異背後的關鍵證據來源（引用段落）
+4. 若有新增或刪除的建議，特別標註
+
+只根據我上傳的兩份文件回答，不要引用你自己的既有知識。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Limitations ─── -->
+    <section id="limitations">
+      <h2>限制與注意</h2>
+
+      <div class="box-tip">
+        <strong>回答品質取決於來源品質：</strong>NotebookLM 不會幫你判斷來源本身的正確性或權威性 — 上傳一份過時或有錯誤的文件，AI 照樣會根據它回答。重要的臨床結論，還是要回到原文、甚至查證原始文獻或指引本體再下判斷，不要把 AI 摘要當成最終答案。
+      </div>
+
+      <div class="box-danger">
+        <strong>病人資料不可上傳：</strong>NotebookLM 是雲端服務，上傳的內容會經過 Google 的伺服器處理。病歷、病人姓名、病歷號等可識別個資，絕對不能作為來源上傳。只用於閱讀公開文獻、guideline、paper 等不含病人資訊的資料。個資與病人隱私原則請見 <a href="ai-safety.html">Part 3 — AI 安全與倫理</a>。
+      </div>
+    </section>
+
+    <!-- ─── Navigation ─── -->
+    <div class="nav-links">
+      <a href="ai-agent.html" class="nav-link">← Part 7 — AI Agent</a>
+      <a href="index.html" class="nav-link">回目錄</a>
+      <a href="ai-transcribe.html" class="nav-link">番外 — 語音轉文字 →</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 TingYu's Deco — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function copyPrompt(btn) {
+    const content = btn.parentElement;
+    const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+  </script>
+
+</body>
+</html>
