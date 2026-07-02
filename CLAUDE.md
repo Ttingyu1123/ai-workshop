@@ -20,7 +20,10 @@ ai-workshop/
 ├── ai-video.html       # Part 3 — AI 影片製作
 ├── google-flow.html    # Part 4 — Google Flow 實戰
 ├── 404.html            # GitHub Pages 404（連結用 /ai-workshop/ 絕對路徑）
-└── og-image.png        # OG 分享圖（doodle 插畫 1024x1024，與 website Insights 卡片同一張）
+├── og-image.png        # OG 分享圖（doodle 插畫 1024x1024，與 website Insights 卡片同一張）
+├── favicon-32.png      # favicon（從 og-image 聽診器笑臉裁出）
+├── favicon.png         # favicon 64x64
+└── apple-touch-icon.png # iOS 書籤圖示 180x180
 ```
 
 ## 設計規範
@@ -85,7 +88,7 @@ ai-workshop/
 
 ### 技術
 - [x] OG 圖片（og-image.png，doodle 插畫，與 website repo `public/images/insights/ai-workshop.png` 是同一張圖，換圖時要兩邊同步）
-- [ ] favicon
+- [x] favicon（聽診器笑臉，從 og-image.png 裁出三種尺寸）
 - [ ] Google Analytics（可選）
 - [ ] sitemap.xml
 
