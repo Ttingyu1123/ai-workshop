@@ -1,0 +1,737 @@
+/* ─── Doodle Workshop — Global Styles ─── */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --primary: #49B6E5;
+  --secondary: #263D5B;
+  --success: #16A34A;
+  --warning: #D97706;
+  --danger: #DC2626;
+  --surface: #FFFFFF;
+  --text: #111827;
+  --text-light: #4B5563;
+  --pencil: #9CA3AF;
+  --paper: #fefcf3;
+  --paper-line: #e8e4d9;
+  --highlighter-yellow: #FDE68A;
+  --highlighter-green: #BBF7D0;
+  --highlighter-pink: #FBCFE8;
+  --highlighter-blue: #BAE6FD;
+  --highlighter-purple: #DDD6FE;
+  --doodle-border: 2px solid var(--text);
+  --font-hand: 'Caveat', 'LXGW WenKai TC', cursive;
+  --font-body: 'LXGW WenKai TC', 'Caveat', cursive;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius-sketch: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --radius-blob: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--paper-line) 1px, transparent 1px);
+  background-size: 100% 36px;
+  color: var(--text);
+  line-height: 1.9;
+  font-size: 18px;
+  min-height: 100vh;
+}
+
+/* ─── Layout ─── */
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ─── Typography ─── */
+
+h1, h2, h3 {
+  font-family: var(--font-hand);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2rem; margin-top: 3rem; margin-bottom: 1rem; }
+h3 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 0.75rem; }
+
+p { margin-bottom: 1rem; }
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline wavy; text-underline-offset: 4px; }
+
+ul, ol { padding-left: 1.5em; margin-bottom: 1rem; }
+li { margin-bottom: 0.3rem; }
+
+strong { font-weight: 700; }
+
+/* ─── Site Header ─── */
+
+.site-header {
+  background: var(--paper);
+  border-bottom: var(--doodle-border);
+  padding: 0.75rem 32px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-logo {
+  font-family: var(--font-hand);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.site-logo:hover {
+  text-decoration: none;
+  transform: rotate(-1deg);
+}
+
+.site-logo .logo-icon {
+  font-size: 1.3rem;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.site-nav a {
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  transition: background 0.15s ease;
+}
+
+.site-nav a:hover {
+  background: var(--highlighter-yellow);
+  text-decoration: none;
+}
+
+.site-nav a.active {
+  background: var(--highlighter-yellow);
+}
+
+.site-nav .nav-divider {
+  width: 1px;
+  height: 1.2rem;
+  background: var(--pencil);
+  margin: 0 0.25rem;
+}
+
+.site-nav .nav-external {
+  color: var(--primary);
+}
+
+/* Mobile hamburger — pure CSS */
+.nav-toggle { display: none; }
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle-label { display: block; }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    border-bottom: var(--doodle-border);
+    flex-direction: column;
+    padding: 0.75rem 32px 1rem;
+    gap: 0.25rem;
+  }
+
+  .site-nav a {
+    padding: 0.5rem 0.75rem;
+    width: 100%;
+  }
+
+  .site-nav .nav-divider { display: none; }
+  .nav-toggle:checked ~ .site-nav { display: flex; }
+}
+
+/* ─── Hero ─── */
+
+.hero {
+  text-align: center;
+  padding: 3rem 24px 2rem;
+  position: relative;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  background: var(--highlighter-yellow);
+  padding: 4px 18px;
+  border-radius: var(--radius-sketch);
+  transform: rotate(-2deg);
+  margin-bottom: 0.75rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  font-family: var(--font-hand);
+}
+
+/* Doodle squiggle divider */
+.squiggle {
+  display: block;
+  margin: 1.5rem auto;
+  width: 120px;
+  height: 12px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12'%3E%3Cpath d='M2 6 C 12 2, 18 10, 28 6 S 38 2, 48 6 S 58 10, 68 6 S 78 2, 88 6 S 98 10, 108 6 S 115 4, 118 6' fill='none' stroke='%23111827' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center;
+}
+
+/* ─── Table of Contents ─── */
+
+.toc {
+  background: white;
+  border: var(--doodle-border);
+  border-radius: var(--radius-sketch);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0 3rem;
+  position: relative;
+}
+
+.toc::before {
+  content: '📋 目錄';
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  position: absolute;
+  top: -14px;
+  left: 24px;
+  background: var(--paper);
+  padding: 0 8px;
+}
+
+.toc ol {
+  columns: 2;
+  column-gap: 2rem;
+  padding-left: 1.2em;
+}
+
+.toc li {
+  font-size: 1rem;
+  break-inside: avoid;
+  margin-bottom: 0.5rem;
+}
+
+.toc a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--pencil);
+}
+
+.toc a:hover {
+  background: var(--highlighter-yellow);
+  border-bottom-color: transparent;
+}
+
+/* ─── Section Divider ─── */
+
+.section-divider {
+  border: none;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--pencil) 0,
+    var(--pencil) 8px,
+    transparent 8px,
+    transparent 14px
+  );
+  margin: 3rem 0;
+}
+
+/* ─── Analogy Box ─── */
+
+.analogy {
+  background: var(--highlighter-green);
+  border-left: 4px solid var(--success);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0 1.5rem;
+  font-size: 1rem;
+  position: relative;
+}
+
+.analogy::before {
+  content: '🩺 醫療類比';
+  font-family: var(--font-hand);
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--success);
+}
+
+/* ─── Warning / Tip boxes ─── */
+
+.box-danger {
+  background: #ffebee;
+  border: 2px dashed var(--danger);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.box-danger h4 {
+  font-family: var(--font-hand);
+  color: var(--danger);
+  margin-bottom: 0.5rem;
+}
+
+.box-success {
+  background: #e8f5e9;
+  border: 2px dashed var(--success);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.box-success h4 {
+  font-family: var(--font-hand);
+  color: var(--success);
+  margin-bottom: 0.5rem;
+}
+
+.box-tip {
+  background: var(--highlighter-blue);
+  border-left: 4px solid var(--primary);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+}
+
+.box-tip::before {
+  content: '💡';
+  margin-right: 4px;
+}
+
+/* ─── Cards ─── */
+
+.card {
+  background: white;
+  border: var(--doodle-border);
+  border-radius: var(--radius-sketch);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  position: relative;
+  transition: transform 0.15s ease;
+}
+
+.card:hover { transform: rotate(-0.5deg); }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.card-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--highlighter-yellow);
+  border-radius: 50%;
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.card-tag {
+  display: inline-block;
+  font-family: var(--font-hand);
+  font-size: 0.85rem;
+  padding: 2px 12px;
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  margin-right: 0.5rem;
+}
+
+.tag-recommend { background: var(--highlighter-yellow); }
+.tag-alt { background: var(--highlighter-green); }
+.tag-experiment { background: var(--highlighter-purple); }
+.tag-advanced { background: var(--highlighter-pink); }
+
+/* ─── Copyable Prompt ─── */
+
+.prompt-block {
+  position: relative;
+  margin: 1rem 0 1.5rem;
+}
+
+.prompt-label {
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+}
+
+.prompt-content {
+  background: white;
+  border: 2px solid var(--text);
+  border-radius: 4px 4px 8px 8px;
+  padding: 1rem 3.5rem 1rem 1rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  font-family: var(--font-body);
+  position: relative;
+}
+
+.prompt-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--primary) 0,
+    var(--primary) 3px,
+    white 3px,
+    white 6px
+  );
+}
+
+.copy-btn {
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  background: var(--highlighter-yellow);
+  border: 1.5px solid var(--text);
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-family: var(--font-hand);
+  font-size: 0.8rem;
+  transition: transform 0.1s ease;
+}
+
+.copy-btn:hover { transform: scale(1.08) rotate(-2deg); }
+.copy-btn:active { transform: scale(0.95); }
+.copy-btn.copied {
+  background: var(--highlighter-green);
+}
+
+/* ─── Table ─── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+  font-size: 1rem;
+}
+
+thead { border-bottom: 2px solid var(--text); }
+th {
+  font-family: var(--font-hand);
+  text-align: left;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+td {
+  padding: 0.5rem;
+  border-bottom: 1px dashed var(--paper-line);
+}
+
+/* ─── Ethics Grid ─── */
+
+.ethics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+/* ─── Step Cards ─── */
+
+.step-badge {
+  display: inline-block;
+  font-family: var(--font-hand);
+  font-size: 0.85rem;
+  background: var(--highlighter-blue);
+  padding: 2px 14px;
+  border-radius: var(--radius-sketch);
+  margin-right: 0.5rem;
+}
+
+/* ─── Workshop List (index page) ─── */
+
+.workshop-card {
+  display: block;
+  background: white;
+  border: var(--doodle-border);
+  border-radius: var(--radius-sketch);
+  padding: 1.5rem 2rem;
+  margin: 1.25rem 0;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.workshop-card:hover {
+  transform: rotate(-0.5deg) translateY(-2px);
+  box-shadow: 4px 4px 0 var(--text);
+  text-decoration: none;
+}
+
+.workshop-card.coming-soon {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.workshop-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.workshop-card .subtitle {
+  font-family: var(--font-hand);
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.workshop-card .desc {
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+/* ─── Navigation ─── */
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+}
+
+.nav-link {
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+  border: var(--doodle-border);
+  border-radius: var(--radius-sketch);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.nav-link:hover {
+  transform: rotate(-1deg);
+  box-shadow: 3px 3px 0 var(--text);
+  text-decoration: none;
+}
+
+.nav-link.primary {
+  background: var(--highlighter-yellow);
+}
+
+.nav-link.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ─── Footer ─── */
+
+.site-footer {
+  border-top: var(--doodle-border);
+  margin-top: 3rem;
+  padding: 2rem 32px;
+}
+
+.site-footer .footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-brand {
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 0.15s ease;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.footer-links svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+@media (max-width: 640px) {
+  .site-footer .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ─── Prompt Result Image ─── */
+
+.prompt-result {
+  margin: 1rem 0 2rem;
+}
+
+.prompt-result img {
+  width: 100%;
+  max-width: 600px;
+  border: var(--doodle-border);
+  border-radius: 8px;
+  display: block;
+}
+
+.prompt-result figcaption {
+  font-family: var(--font-hand);
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.prompt-result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+
+.prompt-result-grid img {
+  width: 100%;
+  border: var(--doodle-border);
+  border-radius: 8px;
+}
+
+/* ─── Tool Card ─── */
+
+.tool-card {
+  background: white;
+  border: var(--doodle-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 0.75rem 0;
+}
+
+.tool-card .tool-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.tool-card .tool-name {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.tool-card .pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.tool-card .pro { color: var(--success); }
+.tool-card .con { color: var(--danger); }
+.tool-card .tool-tip {
+  background: var(--highlighter-blue);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+}
+
+/* ─── Highlight ─── */
+
+.highlight {
+  background: linear-gradient(transparent 60%, var(--highlighter-yellow) 60%);
+  padding: 0 2px;
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+  .container { padding: 0 20px; }
+  .toc ol { columns: 1; }
+  .ethics-grid { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
+  .tool-card .pros-cons { grid-template-columns: 1fr; }
+  .nav-links { flex-direction: column; align-items: center; }
+  .prompt-result-grid { grid-template-columns: 1fr; }
+}

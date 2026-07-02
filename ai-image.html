@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 圖像生成 — 從 Prompt 到衛教圖</title>
+  <meta name="description" content="用 AI 生成衛教插圖、Infographic、社群圖卡。學會 Prompt 公式，搭配 GPT Image 產出專業級醫療視覺內容。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="ai-fundamentals.html">AI 基礎</a>
+        <a href="ai-image.html" class="active">AI 圖像</a>
+        <a href="ai-video.html">AI 影片</a>
+        <a href="google-flow.html">Google Flow</a>
+        <span class="nav-divider"></span>
+        <a href="https://tingyudeco.com" target="_blank" class="nav-external">作品集 ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">Part 2</div>
+    <h1>AI 圖像生成</h1>
+    <p>從 Prompt 到衛教圖 — 醫療人員的 AI 生圖實戰</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <!-- TOC -->
+    <nav class="toc">
+      <ol>
+        <li><a href="#image-tools">生圖工具介紹</a></li>
+        <li><a href="#prompt-formula">Prompt 四要素公式</a></li>
+        <li><a href="#prompt-examples">衛教圖 Prompt 範例</a></li>
+        <li><a href="#image-tips">生圖進階技巧</a></li>
+        <li><a href="#infographic">Infographic 與複雜衛教圖</a></li>
+        <li><a href="#chinese-text">中文字生成新時代</a></li>
+        <li><a href="#image-ethics">醫療圖像的倫理紅線</a></li>
+      </ol>
+    </nav>
+
+    <!-- ─── Image Tools ─── -->
+    <section id="image-tools">
+      <h2>生圖工具介紹</h2>
+      <p>AI 生圖指的是用文字描述，讓 AI 生成一張圖片。你不需要會畫畫、不需要會 Photoshop，只要會打字就能做出專業的圖。</p>
+      <p>目前最實用的免費生圖工具：</p>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-recommend">最推薦</span>
+          <span class="tool-name"><a href="https://chatgpt.com" target="_blank">ChatGPT（GPT Image 2）↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>中文 Prompt 效果最好</li><li>免費版可用</li><li>品質最穩定</li><li>可對話式修圖</li><li>支援中文字渲染</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>每日生圖張數有限</li><li>有內容審查限制</li></ul></div>
+        </div>
+        <div class="tool-tip">在對話中輸入「幫我畫一張…」就會自動生圖，不需要額外設定。GPT Image 2 是目前中文字渲染最強的模型。</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-alt">Google 生態系</span>
+          <span class="tool-name"><a href="https://gemini.google.com" target="_blank">Gemini / Nano Banana Pro ↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>Google 帳號即可用</li><li>免費額度充足</li><li>Nano Banana Pro 中文字渲染極佳</li><li>適合含文字的衛教海報</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>品質略低於 ChatGPT</li><li>人物多樣性限制多</li></ul></div>
+        </div>
+        <div class="tool-tip">Gemini 對話預設使用 Nano Banana 2 生圖，說「生成一張圖…」即可。需要更高品質或中文字渲染時，可在對話中指定使用 Nano Banana Pro，或直接到 <a href="https://labs.google/fx/tools/flow" target="_blank">Google Flow</a> 使用 Nano Banana Pro 生圖。</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-experiment">創意用</span>
+          <span class="tool-name"><a href="https://x.com/i/grok" target="_blank">Grok（Flux）↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>幾乎無內容審查</li><li>有 X 帳號即可免費</li><li>風格多變</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>需要 X 帳號</li><li>中文效果差，建議英文</li><li>介面較不直覺</li></ul></div>
+        </div>
+        <div class="tool-tip">適合生成 ChatGPT 會拒絕的合法內容（如戲劇化的醫療場景插圖）。</div>
+      </div>
+
+      <p><strong>建議從 ChatGPT 開始。</strong>它的中文支援最好、操作最直覺、品質最穩定。需要圖片上有中文字時，優先試 GPT Image 2 或 Nano Banana Pro。</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Prompt Formula ─── -->
+    <section id="prompt-formula">
+      <h2>Prompt 四要素公式</h2>
+      <p>生圖 Prompt 更像是填表格 — 把四個要素寫清楚就好：</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>1. 主題</strong> — 畫什麼內容？
+          <p style="margin: 0.5rem 0;"><span class="pro">Good：</span>一位穿白袍的女醫師正在跟老年病人解釋藥物用法</p>
+          <p><span class="con">Bad：</span>醫院的圖</p>
+        </div>
+        <div class="card">
+          <strong>2. 風格</strong> — 什麼視覺風格？
+          <p style="margin: 0.5rem 0;"><span class="pro">Good：</span>扁平設計插畫，線條簡潔，色彩柔和明亮</p>
+          <p><span class="con">Bad：</span>好看的風格</p>
+          <p style="color: var(--text-light);">風格詞彙：扁平插畫、卡通、水彩、日系、極簡、infographic、醫學期刊風、3D 渲染</p>
+        </div>
+        <div class="card">
+          <strong>3. 構圖</strong> — 怎麼排版？
+          <p style="margin: 0.5rem 0;"><span class="pro">Good：</span>正方形比例，白色背景，主角置中，周圍留白</p>
+          <p><span class="con">Bad：</span>（沒寫）</p>
+          <p style="color: var(--text-light);">指定比例（正方形/4:5/16:9）和背景色。IG 用 4:5，簡報用 16:9。</p>
+        </div>
+        <div class="card">
+          <strong>4. 限制</strong> — 不要什麼？
+          <p style="margin: 0.5rem 0;"><span class="pro">Good：</span>不要出現文字，不要寫實風格，不要血腥畫面</p>
+          <p><span class="con">Bad：</span>（沒寫）</p>
+          <p style="color: var(--text-light);">特別重要：<strong>「不要文字」</strong>（除非用 GPT Image 2 或 Nano Banana Pro）。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Prompt Examples ─── -->
+    <section id="prompt-examples">
+      <h2>衛教圖 Prompt 範例</h2>
+      <p>以下每個 Prompt 都可以直接複製貼到 ChatGPT 中使用。點右上角按鈕一鍵複製。</p>
+
+      <h3>基礎：單張衛教插圖</h3>
+      <div class="prompt-block">
+        <div class="prompt-label">衛教插圖 — 洗手步驟</div>
+        <div class="prompt-content">請幫我生成一張衛教插圖。
+
+主題：正確洗手的七個步驟
+風格：扁平設計插畫，色彩柔和明亮，適合醫療場所張貼
+構圖：直式，每個步驟一格，共七格排列
+限制：不要出現文字（我會自己加），不要寫實風格<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <!-- TODO: 加入生成結果圖片 -->
+
+      <h3>進階：社群衛教圖卡</h3>
+      <div class="prompt-block">
+        <div class="prompt-label">IG 衛教圖 — 糖尿病飲食</div>
+        <div class="prompt-content">生成一張 Instagram 衛教圖（4:5 比例）。
+
+主題：糖尿病患者的飲食原則 — 三多三少
+風格：清新簡約的資訊圖表風格，莫蘭迪配色（淡紫、奶油白、薄荷綠）
+構圖：上方大標題區，中間分成兩欄（推薦食物 vs 避免食物），下方放一行小字版權
+限制：食物用可愛的插畫圖示表示，不要放真實食物照片。圖上不要出現任何文字，我會用 Canva 自己加。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <h3>學術：簡報概念圖</h3>
+      <div class="prompt-block">
+        <div class="prompt-label">學術示意圖 — 抗藥性傳播</div>
+        <div class="prompt-content">生成一張學術簡報用的概念示意圖。
+
+主題：抗生素抗藥性的傳播途徑（人→動物→環境→人的循環）
+風格：專業醫學期刊插圖風格，配色以深藍、白、淺灰為主
+構圖：圓形循環圖，四個節點用箭頭連接，每個節點有一個簡單 icon
+限制：不要卡通風格，要能放在正式學術簡報中。不要出現文字，我會自己標註。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <h3>素材用：背景/圖示</h3>
+      <div class="prompt-block">
+        <div class="prompt-label">背景素材 — 醫療主題</div>
+        <div class="prompt-content">生成一張可以當衛教單張背景的圖案。
+
+內容：淡淡的醫療元素圖案散布在畫面中（聽診器、藥丸、心跳線、十字符號）
+風格：線條簡筆畫，單色淺灰色，極淡
+構圖：A4 直式比例，圖案均勻分布不要太密
+用途：這張圖會被用作背景，上面會疊加文字，所以圖案要很淡、不能搶眼<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">小圖示組 — 衛教用</div>
+        <div class="prompt-content">生成一組 8 個醫療相關的小圖示（icon set）。
+
+內容：洗手、量血壓、吃藥、打針、戴口罩、量體溫、運動、喝水
+風格：圓形圖示，扁平設計，統一使用柔和的藍綠色調
+構圖：2 行 4 列排列，每個圖示之間有足夠間距
+限制：每個圖示風格要完全一致。白色背景。不要文字。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Image Tips ─── -->
+    <section id="image-tips">
+      <h2>生圖進階技巧</h2>
+
+      <h3>1. AI 不會畫中文字（但有例外）</h3>
+      <p>大部分 AI 生成的圖上如果有中文字，幾乎 100% 是亂碼或錯字。<strong>通用解法：在 Prompt 中寫「不要出現任何文字」</strong>，然後用 Canva 或 PowerPoint 自己加。</p>
+      <p>例外：<span class="highlight">GPT Image 2 和 Nano Banana Pro 已經能正確渲染繁體中文字</span>。詳見下一章「中文字生成新時代」。</p>
+
+      <h3>2. 英文 Prompt 效果更好</h3>
+      <p>模型訓練資料以英文為主，英文 Prompt 對風格的控制力更強。不會寫？叫 AI 幫你翻：</p>
+      <div class="prompt-block">
+        <div class="prompt-label">中翻英 Prompt 助手</div>
+        <div class="prompt-content">我想用 AI 生成一張圖片，以下是我的中文描述，請幫我翻譯成適合 AI 生圖的英文 prompt。翻譯時加入更多視覺細節和風格描述詞彙：
+
+[在這裡貼上你的中文描述]<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <h3>3. 多生幾張挑最好的（俗稱「抽卡」）</h3>
+      <p>同一個 Prompt 生三次，三張圖會不一樣。<span class="highlight">不要期待一次到位</span> — 生 3-4 張，挑最好的。這個過程俗稱「抽卡」，跟手遊轉蛋一樣，多抽幾次才容易中獎。</p>
+
+      <h3>4. 對話式修圖</h3>
+      <p>ChatGPT 可以用對話修改已生成的圖，不需要重新描述整張圖：</p>
+      <div class="box-danger" style="margin-bottom: 1rem;">
+        <strong>注意：</strong>對話式修圖的缺點是圖片會愈改愈模糊。每次修改 AI 都會重新生成整張圖，經過多輪修改後畫質會明顯下降。建議修改不超過 2-3 輪，如果不滿意就用完整的新 Prompt 重新生成。
+      </div>
+      <div class="prompt-block">
+        <div class="prompt-label">修圖指令範例</div>
+        <div class="prompt-content">請修改這張圖：
+1. 把左上角的人物換成穿白袍的醫師
+2. 背景色改成淡藍色
+3. 保持其他所有元素不變<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <h3>5. 維持風格一致性</h3>
+      <p>做系列衛教圖時，每個 Prompt 重複描述相同的風格參數：</p>
+      <div class="prompt-block">
+        <div class="prompt-label">系列圖 — 維持風格一致</div>
+        <div class="prompt-content">請用跟上一張圖完全相同的風格生成一張新圖。
+
+需要保持一致的元素：
+- 相同的插畫風格（扁平設計、圓角造型）
+- 相同的配色（主色淡紫 #A186B4、底色奶油白 #F8F7EE、輔色薄荷綠 #E3F3F1）
+- 相同的線條粗細和圖示設計
+- 相同的構圖比例（4:5）
+
+新圖主題：高血壓患者的日常注意事項<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <h3>6. 用參考圖片</h3>
+      <p>如果你有一張喜歡的風格參考圖，直接上傳給 ChatGPT 說「用這個風格畫一張新的…」。AI 會分析參考圖的風格元素（配色、線條、構圖），比用文字描述更精準。</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Infographic ─── -->
+    <section id="infographic">
+      <h2>Infographic 與複雜衛教圖</h2>
+      <p>除了簡單的插圖，AI 現在也能生成結構較複雜的 Infographic — 包含數據、流程圖、對比圖等。這類圖在衛教上特別實用。</p>
+
+      <h3>Infographic Prompt 結構</h3>
+      <p>複雜圖比簡單插圖需要更詳細的 Prompt。關鍵是把<span class="highlight">版面結構寫清楚</span>：</p>
+
+      <div class="prompt-block">
+        <div class="prompt-label">Infographic — 流感 vs 感冒比較</div>
+        <div class="prompt-content">生成一張醫療 infographic 海報。
+
+主題：流感 vs 普通感冒的差異比較
+版面結構：
+- 最上方：大標題區（留空，我會加字）
+- 中間：左右兩欄對比（左=流感，右=感冒）
+- 對比項目：發燒程度、症狀出現速度、全身痠痛、疲倦程度、併發症風險
+- 每個項目用圖示+色彩深淺表示嚴重程度
+- 最下方：「何時該就醫」的三個警示徵兆
+
+風格：清爽的醫療 infographic，用藍色(流感)和綠色(感冒)區分兩側
+構圖：直式 A4 比例，適合列印張貼
+限制：圖示化為主，文字部分只放英文（我會替換成中文）<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <!-- TODO: 加入生成結果圖片 -->
+
+      <div class="prompt-block">
+        <div class="prompt-label">Infographic — 用藥時間軸</div>
+        <div class="prompt-content">生成一張時間軸風格的衛教 infographic。
+
+主題：糖尿病患者的一日用藥時程
+版面結構：
+- 橫式時間軸從左到右（早晨 → 中午 → 晚上 → 睡前）
+- 每個時段：
+  - 時鐘圖示
+  - 該時段的用藥/檢測動作（用圖示表示）
+  - 飲食建議圖示
+- 底部：注意事項區（3 個警示圖示）
+
+風格：柔和的莫蘭迪色系，圓角卡片設計
+構圖：橫式 16:9，適合簡報投影
+限制：不要出現中文字，只用圖示和簡單英文標記<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="box-tip">
+        <strong>Infographic 的最佳實踐：</strong>先用 AI 生成圖示化的版面框架，再用 Canva 疊加繁體中文文字。這樣既能利用 AI 的設計能力，又能確保中文字的清晰度。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Chinese Text Generation ─── -->
+    <section id="chinese-text">
+      <h2>中文字生成新時代</h2>
+      <p>2025 年之前，AI 生圖最大的痛點就是「不會寫中文字」。現在 <strong>GPT Image 2</strong> 和 <strong>Nano Banana Pro</strong> 已經突破了這個限制。</p>
+
+      <h3>什麼時候該讓 AI 直接寫字？</h3>
+      <div class="card-grid">
+        <div class="card">
+          <strong class="pro">✓ 適合 AI 寫字的情境</strong>
+          <ul>
+            <li>衛教海報的大標題（2-8 個字）</li>
+            <li>社群圖卡的金句</li>
+            <li>簡報封面標題</li>
+            <li>數字資訊（統計數據、百分比）</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong class="con">✕ 不建議的情境</strong>
+          <ul>
+            <li>大量內文（容易出錯）</li>
+            <li>藥名、專業術語（錯字風險高）</li>
+            <li>需要精確排版的表格</li>
+            <li>法規要求的免責聲明文字</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>含中文字的 Prompt 技巧</h3>
+      <div class="prompt-block">
+        <div class="prompt-label">含標題文字的衛教海報</div>
+        <div class="prompt-content">生成一張衛教海報。
+
+主題：預防流感
+圖片上的文字：
+- 大標題：「預防流感 從手開始」（置頂，大字，白色）
+- 副標：「正確洗手 5 步驟」（標題下方，較小）
+
+風格：扁平設計，主色調淡藍色，明亮溫暖
+構圖：直式 3:4，標題在上方 1/3，下方 2/3 是洗手步驟插圖
+注意：繁體中文字要清晰可讀，字體風格要統一<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <!-- TODO: 加入生成結果圖片 -->
+
+      <div class="analogy">
+        想像 AI 寫中文字就像一個外國人練書法 — GPT Image 2 已經像是練了三年的外國人，大字寫得不錯，但長篇內文還是會出錯。所以大標題讓 AI 寫，小字自己加。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Image Ethics ─── -->
+    <section id="image-ethics">
+      <h2>醫療圖像的倫理紅線</h2>
+      <div class="ethics-grid">
+        <div class="box-danger">
+          <h4>✕ AI 生圖不能做</h4>
+          <ul>
+            <li><strong>偽造醫學影像</strong> — X 光、MRI、CT、病理切片</li>
+            <li><strong>生成特定病人肖像</strong></li>
+            <li><strong>製作假的前後對比圖</strong></li>
+            <li><strong>未標註 AI 生成用於學術</strong></li>
+            <li><strong>誤導性醫療宣傳</strong></li>
+          </ul>
+        </div>
+        <div class="box-success">
+          <h4>✓ 適合的用途</h4>
+          <ul>
+            <li>概念性衛教插圖</li>
+            <li>社群媒體圖卡</li>
+            <li>簡報視覺輔助</li>
+            <li>海報與宣傳品</li>
+            <li>教學教材</li>
+            <li>圖示與 icon</li>
+          </ul>
+        </div>
+      </div>
+      <p>原則：<span class="highlight">AI 生成的圖適合用在「概念示意」，不適合用在「呈現事實」</span>。</p>
+    </section>
+
+    <!-- ─── Navigation ─── -->
+    <div class="nav-links">
+      <a href="ai-fundamentals.html" class="nav-link">← Part 1 — AI 基礎</a>
+      <a href="index.html" class="nav-link">回目錄</a>
+      <a href="ai-video.html" class="nav-link primary">Part 3 — AI 影片 →</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 TingYu's Deco — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function copyPrompt(btn) {
+    const content = btn.parentElement;
+    const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+  </script>
+
+</body>
+</html>

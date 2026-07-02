@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 影片製作 — 剪輯基礎到語音合成</title>
+  <meta name="description" content="首尾幀、關鍵幀等剪輯觀念，搭配 AI 語音合成與影片生成工具，完整短影片製作流程。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="ai-fundamentals.html">AI 基礎</a>
+        <a href="ai-image.html">AI 圖像</a>
+        <a href="ai-video.html" class="active">AI 影片</a>
+        <a href="google-flow.html">Google Flow</a>
+        <span class="nav-divider"></span>
+        <a href="https://tingyudeco.com" target="_blank" class="nav-external">作品集 ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">Part 3</div>
+    <h1>AI 影片製作</h1>
+    <p>剪輯基礎到語音合成 — 從素材到完整短影片</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <!-- TOC -->
+    <nav class="toc">
+      <ol>
+        <li><a href="#editing-basics">剪輯基礎觀念</a></li>
+        <li><a href="#video-workflow">短影片製作流程</a></li>
+        <li><a href="#script-prompts">腳本生成 Prompt</a></li>
+        <li><a href="#tts">AI 語音合成（TTS）</a></li>
+        <li><a href="#video-tools-free">免費影片工具</a></li>
+        <li><a href="#video-tools-paid">付費高品質工具</a></li>
+        <li><a href="#tools-summary">工具總整理</a></li>
+      </ol>
+    </nav>
+
+    <!-- ─── Editing Basics ─── -->
+    <section id="editing-basics">
+      <h2>剪輯基礎觀念</h2>
+      <p>在使用 AI 生成影片之前，先理解幾個關鍵的剪輯概念。這些概念不管你用什麼工具都會用到。</p>
+
+      <h3>首幀與尾幀（First / Last Frame）</h3>
+      <p>每個影片片段的第一格畫面（首幀）和最後一格畫面（尾幀）。在 AI 影片生成中特別重要：</p>
+      <div class="card">
+        <ul>
+          <li><strong>首幀</strong> — AI 影片會從這張圖「開始動」。上傳一張靜態圖作為首幀，AI 會讓它動起來。</li>
+          <li><strong>尾幀</strong> — 影片結束時的畫面。可以指定尾幀讓動態有明確的終點。</li>
+          <li><strong>實用技巧</strong> — 上一段影片的尾幀 = 下一段影片的首幀，這樣接起來才順暢。</li>
+        </ul>
+      </div>
+      <div class="analogy">
+        想像翻書動畫：首幀是第一頁，尾幀是最後一頁。AI 會自動畫中間的所有頁面。你只要決定「從哪裡開始」和「到哪裡結束」。
+      </div>
+
+      <h3>關鍵幀（Keyframe）</h3>
+      <p>關鍵幀是你在時間軸上標記的「控制點」— 告訴軟體在這個時間點，某個元素要處於什麼狀態。</p>
+      <div class="card">
+        <ul>
+          <li><strong>位置關鍵幀</strong> — 文字/圖片從 A 點移動到 B 點</li>
+          <li><strong>大小關鍵幀</strong> — 元素從小放大（zoom in）或從大縮小</li>
+          <li><strong>透明度關鍵幀</strong> — 淡入（0% → 100%）或淡出（100% → 0%）</li>
+          <li><strong>Ken Burns 效果</strong> — 靜態圖片上的緩慢平移+縮放，讓照片/插圖有「活的」感覺</li>
+        </ul>
+      </div>
+      <div class="analogy">
+        關鍵幀就像醫囑上的「7:00 服藥、12:00 服藥、22:00 服藥」— 你標記了三個時間點，中間的過渡（藥效曲線）系統自動處理。
+      </div>
+
+      <h3>其他常用概念</h3>
+      <div class="card-grid">
+        <div class="card">
+          <strong>幀率（FPS）</strong>
+          <p>每秒播放幾格畫面。24fps = 電影感，30fps = 流暢，60fps = 極滑順。衛教影片用 30fps 就好。</p>
+        </div>
+        <div class="card">
+          <strong>解析度</strong>
+          <p>1080p（Full HD）就夠社群使用。直式 1080×1920（Reels/Shorts），橫式 1920×1080（YouTube）。</p>
+        </div>
+        <div class="card">
+          <strong>轉場（Transition）</strong>
+          <p>兩段影片之間的切換效果。<span class="highlight">衛教影片建議只用「淡入淡出」</span>，花俏轉場反而不專業。</p>
+        </div>
+        <div class="card">
+          <strong>安全區域（Safe Zone）</strong>
+          <p>IG Reels/Shorts 的上下會被介面元素擋住。重要內容放在畫面中央 80% 的範圍內。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Video Workflow ─── -->
+    <section id="video-workflow">
+      <h2>短影片製作流程</h2>
+      <p>有了 AI 輔助，一個人就能做出品質不錯的衛教短影片。完整流程分三步：</p>
+
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">Step 1</span> <strong>寫腳本</strong>
+        <p style="margin-top: 0.5rem;">用 ChatGPT 生成影片腳本，包含：</p>
+        <ul>
+          <li><strong>旁白文字</strong> — 每個畫面要講什麼（控制秒數）</li>
+          <li><strong>畫面描述</strong> — 搭配什麼視覺</li>
+          <li><strong>字幕重點</strong> — 畫面上要強調的關鍵字</li>
+          <li><strong>時間分配</strong> — 30 秒影片約 5-6 個畫面</li>
+        </ul>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--success);">
+        <span class="step-badge">Step 2</span> <strong>做素材</strong>
+        <p style="margin-top: 0.5rem;">根據腳本中的畫面描述，用 AI 生成每一格的插圖：</p>
+        <ul>
+          <li>每個畫面生成一張圖 — 風格要一致</li>
+          <li>比例選對 — 直式 9:16，橫式 16:9</li>
+          <li>不放文字 — 字幕在剪輯階段加</li>
+          <li>可混用：部分 AI 圖，部分現有照片</li>
+          <li>用 AI 語音合成錄製旁白（見下方 TTS 章節）</li>
+        </ul>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--highlighter-purple);">
+        <span class="step-badge">Step 3</span> <strong>組裝影片</strong>
+        <p style="margin-top: 0.5rem;">用 CapCut 匯入素材，加上：</p>
+        <ul>
+          <li><strong>配音</strong> — 匯入 AI 語音或自己錄</li>
+          <li><strong>字幕</strong> — CapCut 自動從語音生成字幕</li>
+          <li><strong>配樂</strong> — 免費背景音樂庫，選輕柔的</li>
+          <li><strong>關鍵幀</strong> — 加 Ken Burns 效果讓靜態圖「動起來」</li>
+          <li><strong>轉場</strong> — 不要花俏，淡入淡出就好</li>
+        </ul>
+      </div>
+
+      <div class="box-tip" style="margin-top: 1.5rem;">
+        <strong>時間估算：</strong>決定主題（2min）→ 生成腳本（3min）→ AI 生圖 ×5（10min）→ AI 語音合成（5min）→ CapCut 組裝（10min）→ 加字幕調整（5min）→ 匯出（2min）＝<strong>約 37 分鐘</strong>。第一次可能需要 1-2 小時，熟悉後 30 分鐘內搞定。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Script Prompts ─── -->
+    <section id="script-prompts">
+      <h2>腳本生成 Prompt</h2>
+      <p>以下 Prompt 可以直接貼到 ChatGPT 使用。生成的腳本包含旁白和畫面描述。</p>
+
+      <h3>30 秒衛教短影片</h3>
+      <div class="prompt-block">
+        <div class="prompt-label">30 秒腳本 — 迷思破解型</div>
+        <div class="prompt-content">請幫我寫一個 30 秒的衛教短影片腳本。
+
+主題：流感疫苗的常見迷思破解
+目標觀眾：一般民眾（非醫療背景）
+語氣：親切、好懂、不說教
+結構：
+- 開場（3秒）：一個吸引注意的問題或驚人事實
+- 迷思 1（8秒）：「打疫苗會得流感？」→ 破解
+- 迷思 2（8秒）：「年輕人不需要打？」→ 破解
+- 迷思 3（8秒）：「去年打過今年不用？」→ 破解
+- 結尾（3秒）：呼籲行動 + 諮詢管道
+
+請同時為每個段落提供：
+1. 旁白文字（要控制在該秒數內唸完）
+2. 畫面描述（我會用 AI 生圖）
+3. 字幕重點（畫面上要強調的 1-2 個關鍵字）<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <h3>60 秒衛教影片</h3>
+      <div class="prompt-block">
+        <div class="prompt-label">60 秒腳本 — 知識科普型</div>
+        <div class="prompt-content">請幫我寫一個 60 秒的衛教影片腳本。
+
+主題：認識高血壓 — 沈默的殺手
+目標觀眾：40 歲以上民眾
+平台：Instagram Reels / YouTube Shorts（直式 9:16）
+風格：資訊型，搭配數據和視覺圖表
+
+請提供完整的逐段腳本，每段包含：
+1. 時間標記（例：0:00-0:08）
+2. 旁白文字（要能在該時間內自然唸完）
+3. 畫面描述（具體到可以用 AI 生圖的程度）
+4. 字幕重點（畫面上要放大的關鍵字或數據）
+
+額外請建議：
+- 適合的背景音樂風格
+- 開場的 hook 設計（前 3 秒要抓住注意力）<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <h3>從腳本到分鏡圖</h3>
+      <div class="prompt-block">
+        <div class="prompt-label">分鏡生圖 — 搭配腳本使用</div>
+        <div class="prompt-content">根據以下影片腳本的第 [X] 個分鏡，生成一張插圖。
+
+分鏡描述：[從腳本中複製該段的「畫面描述」]
+
+風格要求：
+- 跟這個對話中前面生成的圖保持完全一致的風格
+- 扁平設計插畫，柔和配色
+- 比例：9:16（直式影片用）
+- 不要出現任何文字，字幕我會在剪輯軟體中加
+- 畫面要留足夠的上下空間給字幕<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── TTS ─── -->
+    <section id="tts">
+      <h2>AI 語音合成（TTS）</h2>
+      <p>Text-to-Speech（TTS）讓你不用自己錄音，AI 就能幫你把旁白文字轉成自然的語音。</p>
+
+      <h3>Google AI Studio — 免費高品質 TTS</h3>
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-recommend">免費首選</span>
+          <span class="tool-name"><a href="https://aistudio.google.com" target="_blank">Google AI Studio TTS ↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>免費使用</li><li>中文語音品質高</li><li>多種語音角色</li><li>支援情緒調整</li><li>可匯出音檔</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>需 Google 帳號</li><li>介面為英文</li><li>偶有不自然的斷句</li></ul></div>
+        </div>
+        <div class="tool-tip">進入 Google AI Studio → 選擇語音模型 → 貼上旁白文字 → 試聽 → 匯出 MP3。建議每段旁白分開合成，方便後續剪輯。</div>
+      </div>
+
+      <h3>TTS 使用技巧</h3>
+      <div class="card">
+        <ul>
+          <li><strong>分段合成</strong> — 每段旁白（5-10 秒）單獨合成一個音檔，不要一次貼整篇</li>
+          <li><strong>加標點控制節奏</strong> — 句號停頓長，逗號停頓短。用「……」可以製造較長的停頓</li>
+          <li><strong>數字用國字</strong> — 「一百二十」比「120」的語音更自然</li>
+          <li><strong>試聽多次</strong> — 不同語音角色適合不同類型的內容（溫暖 vs 權威 vs 活潑）</li>
+        </ul>
+      </div>
+
+      <h3>TTS 發音秘訣</h3>
+      <p>AI 語音對英文縮寫和專有名詞的發音取決於大小寫和拼寫方式。善用這些技巧可以讓發音更正確：</p>
+      <div class="card">
+        <ul>
+          <li><strong>全大寫 → 逐字母拼讀</strong> — 「LOINC」會唸成 L-O-I-N-C（逐個字母）</li>
+          <li><strong>全小寫 → 當單字唸</strong> — 「loinc」會唸成「lo-in-c」（像英文單字）</li>
+          <li><strong>混合大小寫 → 自然讀法</strong> — 「Covid」唸成一個單字，「COVID」逐字母拼</li>
+          <li><strong>加空格控制節奏</strong> — 「H b A 1 c」比「HbA1c」發音更清楚</li>
+          <li><strong>用注音/拼音標記</strong> — 遇到 AI 唸錯的中文字，改用同音字替代（例：「惡心」→「噁心」）</li>
+          <li><strong>英文藥名用音標拼寫</strong> — 「Acetaminophen」可改成「a-see-ta-MI-no-fen」讓 AI 唸對重音</li>
+        </ul>
+      </div>
+      <div class="analogy">
+        把 TTS 想像成一個很認真但沒學過醫學的播報員 — 你需要用「標音」的方式告訴它怎麼唸。多試幾種拼法，找到最自然的發音。
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">TTS 旁白優化 — 請 AI 幫你調整</div>
+        <div class="prompt-content">以下是我的衛教影片旁白文字。請幫我優化成適合 AI 語音合成（TTS）的版本：
+
+1. 把數字改成國字（例：120 → 一百二十）
+2. 在需要停頓的地方加上適當標點
+3. 把書面語改成口語（唸起來更自然）
+4. 確保每段在 [X] 秒內能自然唸完
+5. 標注建議的語氣（平靜/強調/溫和）
+
+原始旁白：
+[貼上你的旁白文字]<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Free Video Tools ─── -->
+    <section id="video-tools-free">
+      <h2>免費影片工具</h2>
+
+      <h3>剪輯工具</h3>
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-recommend">首推</span>
+          <span class="tool-name"><a href="https://www.capcut.com" target="_blank">CapCut（剪映國際版）↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>完全免費</li><li>中文介面</li><li>豐富模板</li><li>AI 配音</li><li>自動字幕</li><li>手機/電腦都能用</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>進階功能偶有廣告</li><li>部分模板有浮水印</li></ul></div>
+        </div>
+        <div class="tool-tip">建議下載電腦版操作，比手機版方便很多。關鍵幀功能在電腦版更完整。</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-alt">備選</span>
+          <span class="tool-name"><a href="https://www.canva.com" target="_blank">Canva ↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>有簡單影片功能</li><li>模板漂亮</li><li>適合圖文轉動態</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>影片功能陽春</li><li>不適合複雜剪輯</li></ul></div>
+        </div>
+        <div class="tool-tip">適合「圖文轉動態」— 把 IG 圖卡變成自動播放的影片。</div>
+      </div>
+
+      <h3>AI 影片生成</h3>
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-recommend">免費額度多</span>
+          <span class="tool-name"><a href="https://labs.google/fx/tools/flow" target="_blank">Google Flow（Gemini Omni / Veo 3.1）↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>每天 50 免費 credits</li><li>文字/圖片轉影片</li><li>Gemini Omni 支援對話式編輯</li><li>內建分鏡工具</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>仍在實驗階段</li><li>需排隊</li></ul></div>
+        </div>
+        <div class="tool-tip">詳見 <a href="google-flow.html">Part 4 — Google Flow 實戰</a>，獨立一頁完整教學。</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-alt">備選</span>
+          <span class="tool-name"><a href="https://klingai.com" target="_blank">Kling（可靈）↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>圖轉影片效果不錯</li><li>有免費額度</li><li>中文介面</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>品質不穩定</li><li>排隊等候長</li></ul></div>
+        </div>
+        <div class="tool-tip">把 AI 靜態衛教圖丟進去，可以做出有微動效果的畫面。</div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Paid Video Tools ─── -->
+    <section id="video-tools-paid">
+      <h2>付費高品質工具</h2>
+      <p>如果你對影片品質有更高要求，或需要更大量的產出，以下付費工具值得考慮。推薦這兩個是因為它們是目前 AI 影片生成領域最成熟、社群資源最多的平台，網路上找得到大量教學和作品參考。</p>
+
+      <h3>AI 影片生成</h3>
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-advanced">付費</span>
+          <span class="tool-name"><a href="https://runwayml.com" target="_blank">Runway Gen-3 ↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>業界品質標竿，好萊塢團隊也在用</li><li>精確的動態控制（攝影機運動、角色動線）</li><li>社群教學資源最豐富</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>月費 $12 起</li><li>免費試用有限</li></ul></div>
+        </div>
+        <div class="tool-tip">適合需要精確控制鏡頭運動的場景，例如「鏡頭緩慢推進到患者手部特寫」這類指令。</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-advanced">付費</span>
+          <span class="tool-name"><a href="https://pika.art" target="_blank">Pika ↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>介面最簡單，5 分鐘上手</li><li>獨特的特效功能（融化、爆炸、膨脹）</li><li>適合短片段和社群內容</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>月費 $8 起</li><li>長影片品質不穩</li></ul></div>
+        </div>
+        <div class="tool-tip">適合做 IG Reels 的趣味片頭或衛教內容的「吸睛開場」— 例如把一顆藥丸「膨脹爆開」的特效。</div>
+      </div>
+
+      <h3>AI 語音合成</h3>
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-advanced">付費</span>
+          <span class="tool-name"><a href="https://elevenlabs.io" target="_blank">ElevenLabs ↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>最自然的 AI 語音</li><li>可複製自己的聲音</li><li>多語言支援</li><li>情緒控制精準</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>免費額度極少</li><li>月費 $5 起</li></ul></div>
+        </div>
+        <div class="tool-tip">如果你想用自己的聲音但不想每次錄音 — Voice Cloning 功能可以用 30 秒的錄音樣本複製你的聲音。</div>
+      </div>
+
+      <div class="box-tip">
+        <strong>先免費再付費：</strong>建議先用 Google AI Studio TTS + Google Flow + CapCut 的免費組合做出作品。確定需求後，再考慮升級到 ElevenLabs（語音品質）或 Runway（影片品質）。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Tools Summary ─── -->
+    <section id="tools-summary">
+      <h2>工具總整理</h2>
+      <table>
+        <thead>
+          <tr><th>用途</th><th>免費工具</th><th>付費工具</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>寫腳本</strong></td><td>ChatGPT / Gemini</td><td>Claude Pro</td></tr>
+          <tr><td><strong>AI 語音</strong></td><td>Google AI Studio TTS</td><td>ElevenLabs</td></tr>
+          <tr><td><strong>AI 生影片</strong></td><td>Google Flow / Kling</td><td>Runway / Pika</td></tr>
+          <tr><td><strong>剪輯組裝</strong></td><td>CapCut</td><td>Premiere Pro</td></tr>
+          <tr><td><strong>自動字幕</strong></td><td>CapCut</td><td>Premiere Pro</td></tr>
+          <tr><td><strong>背景音樂</strong></td><td>CapCut 內建 / Pixabay</td><td>Epidemic Sound</td></tr>
+        </tbody>
+      </table>
+
+      <div class="card" style="background: var(--highlighter-yellow);">
+        <h3 style="margin-top: 0;">✨ 零成本工具組</h3>
+        <p>只需要四個免費工具就能做出完整的衛教短影片：</p>
+        <ol>
+          <li><strong>ChatGPT</strong> — 寫腳本 + 生圖</li>
+          <li><strong>Google AI Studio</strong> — AI 語音合成</li>
+          <li><strong>Google Flow</strong> — AI 影片片段生成</li>
+          <li><strong>CapCut</strong> — 組裝、字幕、配樂、匯出</li>
+        </ol>
+        <p style="color: var(--text-light); margin-bottom: 0;">以上全部免費。不用辦付費帳號。</p>
+      </div>
+    </section>
+
+    <!-- ─── Navigation ─── -->
+    <div class="nav-links">
+      <a href="ai-image.html" class="nav-link">← Part 2 — AI 圖像</a>
+      <a href="index.html" class="nav-link">回目錄</a>
+      <a href="google-flow.html" class="nav-link primary">Part 4 — Google Flow →</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 TingYu's Deco — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function copyPrompt(btn) {
+    const content = btn.parentElement;
+    const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+  </script>
+
+</body>
+</html>

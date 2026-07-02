@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 到底在幹嘛 — AI 基礎概念</title>
+  <meta name="description" content="用醫療人員聽得懂的語言，一次搞懂 LLM、Agent、API、Token 等 AI 核心概念。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="ai-fundamentals.html" class="active">AI 基礎</a>
+        <a href="ai-image.html">AI 圖像</a>
+        <a href="ai-video.html">AI 影片</a>
+        <a href="google-flow.html">Google Flow</a>
+        <span class="nav-divider"></span>
+        <a href="https://tingyudeco.com" target="_blank" class="nav-external">作品集 ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">Part 1</div>
+    <h1>AI 到底在幹嘛</h1>
+    <p>用醫療人員聽得懂的語言，一次搞懂 AI 的核心概念</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <!-- TOC -->
+    <nav class="toc">
+      <ol>
+        <li><a href="#why-now">AI 為什麼突然爆發</a></li>
+        <li><a href="#llm">LLM — 大型語言模型</a></li>
+        <li><a href="#prompt">Prompt — 提示詞</a></li>
+        <li><a href="#token">Token — 代幣</a></li>
+        <li><a href="#multimodal">多模態</a></li>
+        <li><a href="#hallucination">Hallucination — 幻覺</a></li>
+        <li><a href="#rag">RAG — 檢索增強生成</a></li>
+        <li><a href="#api">API — 應用程式介面</a></li>
+        <li><a href="#agent">Agent — AI 代理人</a></li>
+        <li><a href="#tools">主流工具比較</a></li>
+        <li><a href="#medical-use">醫療應用場景</a></li>
+        <li><a href="#ethics">倫理與紅線</a></li>
+      </ol>
+    </nav>
+
+    <!-- ─── Why Now ─── -->
+    <section id="why-now">
+      <h2>AI 為什麼突然爆發</h2>
+      <p>AI 不是新東西。1950 年代就有人在研究了。但為什麼 2022 年底開始，突然所有人都在談 AI？</p>
+      <p>關鍵轉折是 <strong>ChatGPT 的發布</strong>（2022 年 11 月）。它是第一個讓一般人「感受到 AI 真的能做事」的產品。在那之前，AI 對多數人來說就是 Siri 聽不懂你說話、或是 Netflix 推薦你看過的電影。</p>
+      <p>ChatGPT 之所以不同，是因為背後的技術突破 — <strong>Transformer 架構</strong>（2017 年 Google 發表的論文《Attention Is All You Need》）。這個架構讓 AI 第一次能真正「理解」語言中的前後文關係，而不是逐字翻譯或套模板。</p>
+      <p>接下來的發展速度超乎所有人預期：</p>
+      <ul>
+        <li><strong>2023</strong>：GPT-4 發布，能力大幅躍升。Google 推出 Gemini 應戰。AI 生圖（Midjourney、DALL-E）品質突破</li>
+        <li><strong>2024</strong>：AI 開始能「看」（圖片理解）、「聽」（語音對話）、「做」（Agent 操作電腦）。Claude、Gemini 迎頭趕上</li>
+        <li><strong>2025</strong>：AI Agent 成為主流。Claude Code、OpenAI Codex 讓 AI 直接幫你寫程式、操作系統。AI 影片生成（Veo、Sora）逐步成熟</li>
+      </ul>
+      <p>現在的 AI 不再只是「聊天機器人」。它是一個能讀、能寫、能看圖、能生圖、能寫程式、能上網搜尋的<span class="highlight">多功能工具</span>。這份講義會幫你搞懂它到底是怎麼運作的。</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── LLM ─── -->
+    <section id="llm">
+      <h2>LLM — 大型語言模型</h2>
+      <div class="analogy">像一個讀完所有教科書的住院醫師 — 知識量驚人，但沒有臨床經驗，偶爾會很有自信地說錯話。</div>
+      <p>LLM 是 Large Language Model 的縮寫。ChatGPT、Claude、Gemini、Grok 背後都是 LLM。</p>
+      <p>它的運作原理其實很單純：<strong>預測下一個字</strong>。你給它「今天天氣很」，它會根據訓練資料判斷下一個字最可能是「好」、「熱」還是「冷」。整個對話就是一連串的「預測下一個字」串起來的。</p>
+      <p>這裡有個重要的觀念：LLM <strong>不是在「理解」你的問題</strong>。它是在做統計預測 —「根據我讀過的幾兆個字，在這個上下文之後，最可能出現的字是什麼」。這解釋了為什麼它有時候回答得很漂亮，有時候又會一本正經地胡說八道。</p>
+      <h3>訓練 vs 推理</h3>
+      <p>LLM 有兩個階段：</p>
+      <ul>
+        <li><strong>訓練（Training）</strong>：花幾個月、用幾千張 GPU，讀完網路上幾乎所有的文字。這個過程燒掉幾千萬到幾億美金。你用不到這個階段。</li>
+        <li><strong>推理（Inference）</strong>：你問它問題、它回答你的過程。每次回答都在消耗算力和 token。這是你日常使用的階段。</li>
+      </ul>
+      <h3>模型大小與能力</h3>
+      <p>模型有大有小。大模型（如 GPT-4、Claude Opus）能力強但慢且貴；小模型（如 GPT-4o mini、Claude Haiku）快又便宜但能力有限。免費版通常用的是中小型模型。</p>
+      <p>一般日常使用，中型模型就很夠用了。不用追最大最貴的。</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Prompt ─── -->
+    <section id="prompt">
+      <h2>Prompt — 提示詞</h2>
+      <div class="analogy">像開醫囑 — 寫「止痛」太模糊，寫「Acetaminophen 500mg Q6H PO」才精確。Prompt 越具體，AI 的輸出越符合你要的。</div>
+      <p>Prompt 就是你輸入給 AI 的文字指令。它是你和 AI 溝通的唯一方式，也是決定 AI 輸出品質的最關鍵因素。</p>
+      <p>同一個 AI 模型，好的 Prompt 和差的 Prompt 得到的結果可以差十倍。這就是為什麼「Prompt Engineering（提示詞工程）」會成為一門專門的技能。</p>
+      <h3>好 Prompt 的四個要素</h3>
+      <div class="card-grid">
+        <div class="card">
+          <strong style="color: var(--marker-blue);">角色設定</strong>
+          <p style="font-size:0.9rem; margin: 0.5rem 0; font-style: italic; background: var(--highlighter-blue); padding: 4px 8px; border-radius: 4px;">你是一位感染科醫師，正在為護理師做教育訓練…</p>
+          <p style="font-size:0.85rem; color: var(--ink-light); margin:0;">讓 AI 知道用什麼專業水準和語氣來回答</p>
+        </div>
+        <div class="card">
+          <strong style="color: var(--marker-blue);">任務描述</strong>
+          <p style="font-size:0.9rem; margin: 0.5rem 0; font-style: italic; background: var(--highlighter-blue); padding: 4px 8px; border-radius: 4px;">請整理這篇論文的三個主要發現，每個用 2-3 句話…</p>
+          <p style="font-size:0.85rem; color: var(--ink-light); margin:0;">明確告訴 AI 要做什麼、做多少</p>
+        </div>
+        <div class="card">
+          <strong style="color: var(--marker-blue);">輸出格式</strong>
+          <p style="font-size:0.9rem; margin: 0.5rem 0; font-style: italic; background: var(--highlighter-blue); padding: 4px 8px; border-radius: 4px;">用表格呈現，欄位包含：藥物名稱、劑量、適應症…</p>
+          <p style="font-size:0.85rem; color: var(--ink-light); margin:0;">指定你想要的呈現方式，省去來回修改</p>
+        </div>
+        <div class="card">
+          <strong style="color: var(--marker-blue);">限制條件</strong>
+          <p style="font-size:0.9rem; margin: 0.5rem 0; font-style: italic; background: var(--highlighter-blue); padding: 4px 8px; border-radius: 4px;">不要使用 2020 年以前的參考文獻，篇幅 500 字以內…</p>
+          <p style="font-size:0.85rem; color: var(--ink-light); margin:0;">設定邊界，避免 AI 發散</p>
+        </div>
+      </div>
+
+      <h3>常見的 Prompt 錯誤</h3>
+      <table>
+        <thead>
+          <tr><th>差的 Prompt</th><th>好的 Prompt</th><th>為什麼好</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>幫我寫衛教</td>
+            <td>幫我寫一份給糖尿病患者的飲食衛教單張，用國中生能懂的語言，A4 單面，含 3 個重點</td>
+            <td>指定對象、語言水準、篇幅、結構</td>
+          </tr>
+          <tr>
+            <td>翻譯這篇論文</td>
+            <td>翻譯這篇論文的 Abstract 和 Conclusion，保留專業術語的英文原文並加上中文翻譯</td>
+            <td>指定翻譯範圍和術語處理方式</td>
+          </tr>
+          <tr>
+            <td>這個藥怎麼用</td>
+            <td>Metformin 在 eGFR 30-45 的患者中，目前指引建議的劑量調整方式？請引用 KDIGO 2024</td>
+            <td>具體藥物、具體情境、指定參考來源</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>記住一個原則：<span class="highlight">你給 AI 的資訊越多、越具體，AI 的輸出就越好</span>。不要怕 Prompt 太長 — 長而精確永遠比短而模糊好。</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Token ─── -->
+    <section id="token">
+      <h2>Token — 代幣</h2>
+      <div class="analogy">像健保點數 — 你的輸入和 AI 的輸出都在消耗 token。免費版有每日上限（像門診限量），付費版按量計費。</div>
+      <p>Token 是 AI 處理文字的最小單位。不是一個字等於一個 token — 實際的對應關係比較複雜：</p>
+      <ul>
+        <li>英文常見單字大約 1 個 token（如 "hello"），長的可能 2-3 個</li>
+        <li>一個中文字大約 1-2 個 token</li>
+        <li>標點符號、空格也算 token</li>
+      </ul>
+      <p><strong>為什麼要知道 token？</strong>因為 token 決定兩件事：</p>
+      <ol>
+        <li><strong>費用</strong>：付費使用 API 時，按 token 數量計費。輸出通常比輸入貴 3-5 倍。</li>
+        <li><strong>上下文視窗（Context Window）</strong>：AI 一次能「記住」的 token 總量。像是 AI 的短期記憶容量。超過上限，它就會「忘記」對話開頭講過的事情。目前主流模型在 12 萬到 100 萬 token。</li>
+      </ol>
+      <div class="box-tip">日常使用免費版，你不需要算 token。只要知道：跟 AI 聊太久或一次貼太長的文件，它可能會「忘記」前面說過的話 — 開一個新對話就好。</div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Multimodal ─── -->
+    <section id="multimodal">
+      <h2>多模態（Multimodal）</h2>
+      <div class="analogy">像一個同時會看片子、聽診、讀報告的醫師 — 不只處理文字，還能看圖說故事、聽語音回答。</div>
+      <p>早期的 AI 只能處理文字。現在的主流模型是「多模態」的，同時能處理多種資料：</p>
+      <ul>
+        <li><strong>文字</strong>：閱讀、寫作、翻譯、摘要</li>
+        <li><strong>圖片</strong>：看圖回答問題、描述圖片內容、生成圖片</li>
+        <li><strong>語音</strong>：聽語音訊息、用語音對話（如 ChatGPT 語音模式）</li>
+        <li><strong>影片</strong>：分析影片內容（部分模型）、生成影片（Veo、Sora）</li>
+        <li><strong>文件</strong>：讀取 PDF、Word、Excel（上傳後分析）</li>
+      </ul>
+      <p>這對醫療人員很實用。例如：</p>
+      <ul>
+        <li>把英文論文 PDF 丟給 AI，請它用中文整理重點</li>
+        <li>拍一張藥品外觀照片，問 AI 這是什麼藥</li>
+        <li>把表格截圖丟給 AI，請它轉成 Excel 格式</li>
+        <li>用語音邊走邊跟 AI 討論病例</li>
+      </ul>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Hallucination ─── -->
+    <section id="hallucination">
+      <h2>Hallucination — 幻覺</h2>
+      <div class="analogy">像實習醫師被問到不會的問題，不說「我不知道」，反而編一個聽起來很合理的答案 — 語氣堅定、邏輯通順，但內容是錯的。</div>
+      <p>這是目前 AI 最大、最危險的問題，尤其在醫療領域。</p>
+      <p>AI 會「幻覺」的原因回到它的運作原理 — 它是在做「最可能的下一個字」的預測。當訓練資料中沒有足夠資訊時，它不會說「我不知道」，而是會<strong>生成一個統計上看起來合理的答案</strong>。</p>
+      <p>幻覺的危險在於它<strong>很難辨認</strong>。AI 不會用不確定的語氣，它會用跟正確答案完全一樣的自信語氣說出錯誤內容。例如：</p>
+      <ul>
+        <li>引用一篇根本不存在的論文（連作者、期刊、年份都編得很像）</li>
+        <li>描述一個不存在的藥物交互作用</li>
+        <li>給出一個看似合理但完全錯誤的劑量</li>
+        <li>編造一個不存在的臨床指引</li>
+      </ul>
+      <div class="box-danger">
+        <h4>⚠️ 醫療人員必須記住的一條規則</h4>
+        <p><strong>永遠不要盲信 AI 的輸出。</strong>特別是涉及藥物、劑量、診斷、治療方案的內容，一定要用可靠來源（UpToDate、PubMed、藥品仿單）交叉驗證。AI 是輔助工具，不是決策依據。</p>
+      </div>
+      <p>好消息是，新一代模型的幻覺率已經大幅降低。而且有一個技術叫做 RAG（下一節），專門用來減少幻覺。</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── RAG ─── -->
+    <section id="rag">
+      <h2>RAG — 檢索增強生成</h2>
+      <div class="analogy">像查完 UpToDate 再回答 VS 學生的問題 — 有參考文獻支撐的回答，比憑印象講的可靠得多。</div>
+      <p>RAG 是 Retrieval-Augmented Generation 的縮寫。概念很簡單：<span class="highlight">讓 AI 先查資料，再回答問題。</span></p>
+      <p>普通的 AI 回答問題時，只能靠訓練階段學到的知識（就像憑記憶回答）。RAG 的做法是：你先提供一批資料（例如醫院的用藥指引、衛教手冊、SOP），AI 在回答前會先去這批資料裡搜尋相關內容，然後根據找到的內容來生成回答。</p>
+      <p>這帶來兩個好處：</p>
+      <ol>
+        <li><strong>大幅減少幻覺</strong> — 回答是基於你提供的真實資料，不是 AI 自己編的</li>
+        <li><strong>可以使用私有資料</strong> — AI 的訓練資料不會包含你們醫院的內部文件，但 RAG 可以讓 AI 讀取並回答</li>
+      </ol>
+      <p>日常使用中，RAG 最簡單的形式就是：<strong>把文件上傳給 AI，然後針對文件內容提問</strong>。ChatGPT 和 Claude 都支援上傳 PDF、Word 檔案。這就是最基本的 RAG。</p>
+      <p>進階的 RAG 可以建立完整的知識庫（整個科室的 SOP + 衛教文件 + 用藥指引），讓 AI 隨時查詢。不過這需要技術設定，不在入門範圍。</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── API ─── -->
+    <section id="api">
+      <h2>API — 應用程式介面</h2>
+      <div class="analogy">像檢驗科的醫令系統 — 你不用自己跑去抽血化驗，透過系統下單就能拿到報告。API 讓程式直接呼叫 AI 的能力。</div>
+      <p>API 是 Application Programming Interface 的縮寫。簡單說，它是<strong>程式跟程式之間溝通的標準介面</strong>。</p>
+      <p>你平常用的 ChatGPT 網頁或 App，是給「人」用的介面。API 是給「程式」用的介面 — 你的程式送出一段文字，AI 回傳回答，全部在背景完成。</p>
+      <p><strong>為什麼醫療人員需要知道 API？</strong></p>
+      <p>你不需要自己寫程式呼叫 API。但知道 API 存在，可以幫你理解很多事情：</p>
+      <ul>
+        <li>為什麼有些 AI 應用免費（用免費模型的 API），有些要收費</li>
+        <li>為什麼某些 AI 功能可以嵌入 HIS 或 EMR — 因為透過 API 串接</li>
+        <li>為什麼 IT 部門說「要接 AI」需要評估成本 — 因為 API 按 token 計費</li>
+        <li>為什麼同一功能在不同平台品質不同 — 背後可能呼叫不同模型的 API</li>
+      </ul>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Agent ─── -->
+    <section id="agent">
+      <h2>Agent — AI 代理人</h2>
+      <div class="analogy">像一個有手有腳的住院醫師 — 不只會回答問題，還能自己開電腦查資料、寫報告、填表格、甚至幫你安排會議。</div>
+      <p>這是 2025 年最重要的 AI 概念。</p>
+      <p>普通的 AI（ChatGPT 對話模式）就像一個<strong>只有嘴巴的顧問</strong> — 你問它問題，它回答你，但它不能「做」任何事。</p>
+      <p><span class="highlight">Agent 不同。它有「手」。</span></p>
+      <p>Agent = AI 模型 + 工具使用能力 + 自主規劃能力。它可以：</p>
+      <ul>
+        <li><strong>使用工具</strong>：上網搜尋、讀寫檔案、執行程式、操作軟體</li>
+        <li><strong>拆解任務</strong>：把複雜任務拆成多個步驟，依序執行</li>
+        <li><strong>自我修正</strong>：發現某步驟失敗了，自動嘗試其他方法</li>
+        <li><strong>持續工作</strong>：不需要你一步一步指揮，給它目標就能做到完</li>
+      </ul>
+      <p>具體例子：</p>
+      <ul>
+        <li>「幫我把這 10 篇論文的結論整理成比較表」→ Agent 會依序讀取每篇 PDF、提取結論、整理成表格、存成 Excel</li>
+        <li>「幫我做一個病人衛教的網頁」→ Agent 會規劃架構、寫程式碼、測試、修正錯誤，最後給你一個可運作的網頁</li>
+      </ul>
+      <p>目前最知名的 Agent 工具：Claude Code（Anthropic）、Codex（OpenAI）、Antigravity 等。這是 Part 3 的主題。</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Tools ─── -->
+    <section id="tools">
+      <h2>主流 AI 工具比較</h2>
+      <p>市面上的 AI 工具很多，但醫療人員只需要認識這四個主流選項：</p>
+      <table>
+        <thead>
+          <tr><th>工具</th><th>最強項</th><th>弱項</th><th>免費版</th><th>醫療適用場景</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ChatGPT</strong></td>
+            <td>生圖、通才、插件生態系</td>
+            <td>長文偶爾遺漏</td>
+            <td>GPT-4o mini，每日上限</td>
+            <td>入門首選、衛教配圖</td>
+          </tr>
+          <tr>
+            <td><strong>Claude</strong></td>
+            <td>長文分析、寫作品質、程式</td>
+            <td>不能生圖</td>
+            <td>Sonnet，每日上限</td>
+            <td>論文整理、報告撰寫</td>
+          </tr>
+          <tr>
+            <td><strong>Gemini</strong></td>
+            <td>Google 整合、搜尋</td>
+            <td>中文寫作略遜</td>
+            <td>額度較多</td>
+            <td>需要最新資訊的任務</td>
+          </tr>
+          <tr>
+            <td><strong>Grok</strong></td>
+            <td>生圖（幾乎無審查）</td>
+            <td>中文較弱</td>
+            <td>需 X 帳號</td>
+            <td>創意生圖</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>建議</h3>
+      <ul>
+        <li><strong>入門起手</strong>：用 ChatGPT。最通用、介面直覺、中文好、能生圖。</li>
+        <li><strong>論文/長文件</strong>：用 Claude。長文分析能力最強，寫作品質最好。</li>
+        <li><strong>省錢日常</strong>：用 Gemini。免費額度最大方。</li>
+        <li><strong>不要一次全學</strong>：先把一個工具用熟，再視需求探索其他的。</li>
+      </ul>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Medical Use ─── -->
+    <section id="medical-use">
+      <h2>醫療應用場景</h2>
+      <p>AI 在醫療領域的應用已經超越了「聊天」的範疇。以下是目前實際可用的場景：</p>
+
+      <h3>文書工作</h3>
+      <ul>
+        <li><strong>病歷摘要</strong>：濃縮冗長的入院病摘（注意：不要把真實病人資料貼進公開 AI 工具）</li>
+        <li><strong>轉介信/出院摘要</strong>：給 AI 重點，讓它擴寫成正式格式</li>
+        <li><strong>會議紀錄</strong>：語音轉文字 + 重點整理</li>
+        <li><strong>行政文書</strong>：計畫書、經費申請、成果報告的初稿</li>
+      </ul>
+
+      <h3>學術研究</h3>
+      <ul>
+        <li><strong>文獻搜尋</strong>：描述研究問題，讓 AI 建議搜尋策略和關鍵字</li>
+        <li><strong>論文閱讀</strong>：上傳 PDF，請 AI 整理方法、結果、限制（注意驗證！）</li>
+        <li><strong>統計分析</strong>：AI 可以建議合適的統計方法、寫 R 或 SPSS 語法</li>
+        <li><strong>論文寫作</strong>：潤稿、改善英文文法、建議更精確的學術用語</li>
+      </ul>
+
+      <h3>衛教與溝通</h3>
+      <ul>
+        <li><strong>衛教單張</strong>：生成不同語言水準的衛教內容</li>
+        <li><strong>衛教圖片</strong>：AI 生成插圖、infographic（Part 2 會詳細講）</li>
+        <li><strong>短影片腳本</strong>：社群媒體衛教影片的腳本（Part 2 會詳細講）</li>
+        <li><strong>多語翻譯</strong>：翻譯成外籍看護或病人能懂的語言</li>
+      </ul>
+
+      <h3>教學</h3>
+      <ul>
+        <li><strong>教案設計</strong>：設計教學活動、出考題、製作評量工具</li>
+        <li><strong>模擬病人</strong>：讓 AI 扮演病人，練習問診技巧</li>
+        <li><strong>簡報製作</strong>：生成大綱、配圖、講稿</li>
+      </ul>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Ethics ─── -->
+    <section id="ethics">
+      <h2>倫理與紅線</h2>
+      <p>AI 是強大的工具，但在醫療場域使用時有明確的紅線不能踩。</p>
+      <div class="ethics-grid">
+        <div class="box-danger">
+          <h4>✕ 絕對不可以</h4>
+          <ul>
+            <li><strong>病人資料貼進 AI</strong> — 公開 AI 服務會將輸入用於改善。病人姓名、病歷號、診斷，一律不能貼</li>
+            <li><strong>AI 輸出直接當醫療決策</strong> — AI 不是醫師，建議沒有經過臨床驗證</li>
+            <li><strong>偽造醫學影像</strong> — 用 AI 生成假的 X 光、MRI、病理切片</li>
+            <li><strong>未標註 AI 用於學術</strong> — 學術期刊要求揭露，未標註可能構成不誠實</li>
+          </ul>
+        </div>
+        <div class="box-success">
+          <h4>✓ 安全的使用方式</h4>
+          <ul>
+            <li><strong>去識別化後使用</strong> — 移除可辨識資訊後，可用 AI 協助分析</li>
+            <li><strong>輔助文書工作</strong> — 用 AI 生成初稿，自己審閱修改後使用</li>
+            <li><strong>學習與教學</strong> — 解釋概念、出題、製作教材</li>
+            <li><strong>視覺內容創作</strong> — 衛教插圖、簡報配圖、社群圖卡</li>
+            <li><strong>標註 AI 使用</strong> — 在學術發表中清楚說明</li>
+          </ul>
+        </div>
+      </div>
+      <p>簡單判斷標準：<span class="highlight">AI 生成的內容在到達病人或公眾之前，是否經過了一位有專業資格的人類的審查？</span>如果「是」，通常就是安全的使用方式。</p>
+    </section>
+
+    <!-- ─── Navigation ─── -->
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">← 回目錄</a>
+      <a href="ai-image.html" class="nav-link primary">Part 2 — AI 圖像生成 →</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 TingYu's Deco — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
