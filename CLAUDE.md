@@ -18,7 +18,9 @@ ai-workshop/
 ├── ai-fundamentals.html # Part 1 — AI 基礎觀念
 ├── ai-image.html       # Part 2 — AI 圖像生成
 ├── ai-video.html       # Part 3 — AI 影片製作
-└── google-flow.html    # Part 4 — Google Flow 實戰
+├── google-flow.html    # Part 4 — Google Flow 實戰
+├── 404.html            # GitHub Pages 404（連結用 /ai-workshop/ 絕對路徑）
+└── og-image.png        # OG 分享圖（首頁截圖 1280x960，全站共用）
 ```
 
 ## 設計規範
@@ -82,7 +84,7 @@ ai-workshop/
 - [ ] 醫學筆記/衛教圖專區（待規劃）
 
 ### 技術
-- [ ] OG 圖片（社群分享縮圖）
+- [x] OG 圖片（og-image.png，全站共用首頁截圖 — 首頁改版後要重新截圖，tingyudeco.com Insights 的卡片圖同源、要一併更新）
 - [ ] favicon
 - [ ] Google Analytics（可選）
 - [ ] sitemap.xml
