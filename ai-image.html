@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI 圖像生成 — 從 Prompt 到衛教圖</title>
   <meta name="description" content="用 AI 生成衛教插圖、Infographic、社群圖卡。學會 Prompt 公式，搭配 GPT Image 產出專業級醫療視覺內容。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,7 +16,7 @@
     <div class="header-inner">
       <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <label for="nav-toggle" class="nav-toggle-label">☰</label>
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
       <nav class="site-nav">
         <a href="index.html">首頁</a>
         <a href="ai-fundamentals.html">AI 基礎</a>
@@ -36,7 +39,7 @@
   <main class="container">
 
     <!-- TOC -->
-    <nav class="toc">
+    <nav class="toc" aria-label="目錄">
       <ol>
         <li><a href="#image-tools">生圖工具介紹</a></li>
         <li><a href="#prompt-formula">Prompt 四要素公式</a></li>

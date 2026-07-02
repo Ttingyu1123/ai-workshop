@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Flow 實戰 — 免費 AI 創作平台</title>
   <meta name="description" content="Google Flow 完整教學 — 圖像生成、影片製作，免費額度足夠日常使用。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,7 +16,7 @@
     <div class="header-inner">
       <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <label for="nav-toggle" class="nav-toggle-label">☰</label>
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
       <nav class="site-nav">
         <a href="index.html">首頁</a>
         <a href="ai-fundamentals.html">AI 基礎</a>
@@ -35,7 +38,7 @@
 
   <main class="container">
 
-    <nav class="toc">
+    <nav class="toc" aria-label="目錄">
       <ol>
         <li><a href="#what-is-flow">Google Flow 是什麼</a></li>
         <li><a href="#credits">免費額度與方案</a></li>
@@ -80,6 +83,7 @@
     <!-- ─── Credits ─── -->
     <section id="credits">
       <h2>免費額度與方案</h2>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 方案資訊更新於 2026 年 7 月 — 額度與價格可能調整，以 Google 官方公告為準。</p>
       <table>
         <thead>
           <tr><th>方案</th><th>Credits</th><th>月費</th><th>適合</th></tr>

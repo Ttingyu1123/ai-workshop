@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI 影片製作 — 剪輯基礎到語音合成</title>
   <meta name="description" content="首尾幀、關鍵幀等剪輯觀念，搭配 AI 語音合成與影片生成工具，完整短影片製作流程。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,7 +16,7 @@
     <div class="header-inner">
       <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <label for="nav-toggle" class="nav-toggle-label">☰</label>
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
       <nav class="site-nav">
         <a href="index.html">首頁</a>
         <a href="ai-fundamentals.html">AI 基礎</a>
@@ -36,7 +39,7 @@
   <main class="container">
 
     <!-- TOC -->
-    <nav class="toc">
+    <nav class="toc" aria-label="目錄">
       <ol>
         <li><a href="#editing-basics">剪輯基礎觀念</a></li>
         <li><a href="#video-workflow">短影片製作流程</a></li>

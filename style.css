@@ -1,6 +1,5 @@
 /* ─── Doodle Workshop — Global Styles ─── */
-
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap');
+/* 字型改由各頁 <head> 的 <link> 載入（preconnect + stylesheet），避免 @import 阻塞渲染 */
 
 :root {
   --primary: #49B6E5;
@@ -28,6 +27,11 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+/* 錨點跳轉時預留 sticky header 的高度 */
+section[id] { scroll-margin-top: 80px; }
 
 body {
   font-family: var(--font-body);
@@ -523,7 +527,8 @@ td {
 }
 
 .workshop-card.coming-soon {
-  opacity: 0.5;
+  opacity: 0.8;
+  filter: grayscale(0.5);
   pointer-events: none;
 }
 
@@ -734,4 +739,33 @@ td {
   .tool-card .pros-cons { grid-template-columns: 1fr; }
   .nav-links { flex-direction: column; align-items: center; }
   .prompt-result-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── Print（列印成講義用）─── */
+
+@media print {
+  body {
+    background: white;
+    font-size: 12pt;
+    line-height: 1.7;
+  }
+  .site-header,
+  .site-footer,
+  .nav-links,
+  .nav-toggle-label,
+  .copy-btn,
+  .squiggle { display: none; }
+  .hero { padding: 0 0 1rem; }
+  .card,
+  .tool-card,
+  .prompt-block,
+  .analogy,
+  .box-tip,
+  .box-danger,
+  .box-success,
+  .toc { break-inside: avoid; }
+  .card:hover,
+  .workshop-card:hover { transform: none; box-shadow: none; }
+  a { color: var(--text); text-decoration: none; }
+  .prompt-content { padding-right: 1rem; }
 }

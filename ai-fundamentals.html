@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI 到底在幹嘛 — AI 基礎概念</title>
   <meta name="description" content="用醫療人員聽得懂的語言，一次搞懂 LLM、Agent、API、Token 等 AI 核心概念。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,7 +16,7 @@
     <div class="header-inner">
       <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <label for="nav-toggle" class="nav-toggle-label">☰</label>
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
       <nav class="site-nav">
         <a href="index.html">首頁</a>
         <a href="ai-fundamentals.html" class="active">AI 基礎</a>
@@ -36,7 +39,7 @@
   <main class="container">
 
     <!-- TOC -->
-    <nav class="toc">
+    <nav class="toc" aria-label="目錄">
       <ol>
         <li><a href="#why-now">AI 為什麼突然爆發</a></li>
         <li><a href="#llm">LLM — 大型語言模型</a></li>
@@ -84,7 +87,7 @@
         <li><strong>推理（Inference）</strong>：你問它問題、它回答你的過程。每次回答都在消耗算力和 token。這是你日常使用的階段。</li>
       </ul>
       <h3>模型大小與能力</h3>
-      <p>模型有大有小。大模型（如 GPT-4、Claude Opus）能力強但慢且貴；小模型（如 GPT-4o mini、Claude Haiku）快又便宜但能力有限。免費版通常用的是中小型模型。</p>
+      <p>模型有大有小。大模型（各家的旗艦版本）能力強但慢且貴；小模型（名稱常帶 mini、Flash、Haiku 等字樣）快又便宜但能力有限。免費版通常用的是中小型模型。</p>
       <p>一般日常使用，中型模型就很夠用了。不用追最大最貴的。</p>
     </section>
 
@@ -99,24 +102,24 @@
       <h3>好 Prompt 的四個要素</h3>
       <div class="card-grid">
         <div class="card">
-          <strong style="color: var(--marker-blue);">角色設定</strong>
+          <strong style="color: var(--primary);">角色設定</strong>
           <p style="font-size:0.9rem; margin: 0.5rem 0; font-style: italic; background: var(--highlighter-blue); padding: 4px 8px; border-radius: 4px;">你是一位感染科醫師，正在為護理師做教育訓練…</p>
-          <p style="font-size:0.85rem; color: var(--ink-light); margin:0;">讓 AI 知道用什麼專業水準和語氣來回答</p>
+          <p style="font-size:0.85rem; color: var(--text-light); margin:0;">讓 AI 知道用什麼專業水準和語氣來回答</p>
         </div>
         <div class="card">
-          <strong style="color: var(--marker-blue);">任務描述</strong>
+          <strong style="color: var(--primary);">任務描述</strong>
           <p style="font-size:0.9rem; margin: 0.5rem 0; font-style: italic; background: var(--highlighter-blue); padding: 4px 8px; border-radius: 4px;">請整理這篇論文的三個主要發現，每個用 2-3 句話…</p>
-          <p style="font-size:0.85rem; color: var(--ink-light); margin:0;">明確告訴 AI 要做什麼、做多少</p>
+          <p style="font-size:0.85rem; color: var(--text-light); margin:0;">明確告訴 AI 要做什麼、做多少</p>
         </div>
         <div class="card">
-          <strong style="color: var(--marker-blue);">輸出格式</strong>
+          <strong style="color: var(--primary);">輸出格式</strong>
           <p style="font-size:0.9rem; margin: 0.5rem 0; font-style: italic; background: var(--highlighter-blue); padding: 4px 8px; border-radius: 4px;">用表格呈現，欄位包含：藥物名稱、劑量、適應症…</p>
-          <p style="font-size:0.85rem; color: var(--ink-light); margin:0;">指定你想要的呈現方式，省去來回修改</p>
+          <p style="font-size:0.85rem; color: var(--text-light); margin:0;">指定你想要的呈現方式，省去來回修改</p>
         </div>
         <div class="card">
-          <strong style="color: var(--marker-blue);">限制條件</strong>
+          <strong style="color: var(--primary);">限制條件</strong>
           <p style="font-size:0.9rem; margin: 0.5rem 0; font-style: italic; background: var(--highlighter-blue); padding: 4px 8px; border-radius: 4px;">不要使用 2020 年以前的參考文獻，篇幅 500 字以內…</p>
-          <p style="font-size:0.85rem; color: var(--ink-light); margin:0;">設定邊界，避免 AI 發散</p>
+          <p style="font-size:0.85rem; color: var(--text-light); margin:0;">設定邊界，避免 AI 發散</p>
         </div>
       </div>
 
@@ -267,7 +270,7 @@
         <li>「幫我把這 10 篇論文的結論整理成比較表」→ Agent 會依序讀取每篇 PDF、提取結論、整理成表格、存成 Excel</li>
         <li>「幫我做一個病人衛教的網頁」→ Agent 會規劃架構、寫程式碼、測試、修正錯誤，最後給你一個可運作的網頁</li>
       </ul>
-      <p>目前最知名的 Agent 工具：Claude Code（Anthropic）、Codex（OpenAI）、Antigravity 等。這是 Part 3 的主題。</p>
+      <p>目前最知名的 Agent 工具：Claude Code（Anthropic）、Codex（OpenAI）、Antigravity 等。這是 Part 5 的主題。</p>
     </section>
 
     <hr class="section-divider">
@@ -276,6 +279,7 @@
     <section id="tools">
       <h2>主流 AI 工具比較</h2>
       <p>市面上的 AI 工具很多，但醫療人員只需要認識這四個主流選項：</p>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 工具資訊更新於 2026 年 7 月 — 各家模型與免費額度變動頻繁，使用前以官方公告為準。</p>
       <table>
         <thead>
           <tr><th>工具</th><th>最強項</th><th>弱項</th><th>免費版</th><th>醫療適用場景</th></tr>
@@ -285,14 +289,14 @@
             <td><strong>ChatGPT</strong></td>
             <td>生圖、通才、插件生態系</td>
             <td>長文偶爾遺漏</td>
-            <td>GPT-4o mini，每日上限</td>
+            <td>較小模型，每日上限</td>
             <td>入門首選、衛教配圖</td>
           </tr>
           <tr>
             <td><strong>Claude</strong></td>
             <td>長文分析、寫作品質、程式</td>
             <td>不能生圖</td>
-            <td>Sonnet，每日上限</td>
+            <td>中型模型，每日上限</td>
             <td>論文整理、報告撰寫</td>
           </tr>
           <tr>
