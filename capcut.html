@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CapCut 剪輯實戰 — 免費剪輯工具完整教學</title>
+  <meta name="description" content="CapCut 剪輯教學 — 介面導覽、基礎剪輯流程、AI 字幕與去背，銜接 AI 生成素材做出衛教短影片。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="CapCut 剪輯實戰 — 免費剪輯工具完整教學">
+  <meta property="og:description" content="CapCut 剪輯教學 — 介面導覽、基礎剪輯流程、AI 字幕與去背，銜接 AI 生成素材做出衛教短影片。">
+  <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/capcut.html">
+  <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="ai-fundamentals.html">AI 基礎</a>
+        <a href="ai-image.html">AI 圖像</a>
+        <a href="ai-video.html">AI 影片</a>
+        <a href="google-flow.html">Google Flow</a>
+        <a href="ai-agent.html">AI Agent</a>
+        <span class="nav-divider"></span>
+        <a href="https://tingyudeco.com" target="_blank" class="nav-external">作品集 ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">番外・剪輯工具</div>
+    <h1>CapCut 剪輯實戰</h1>
+    <p>免費剪輯工具完全上手 — 從匯入素材到匯出成片</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <nav class="toc" aria-label="目錄">
+      <ol>
+        <li><a href="#what-is-capcut">CapCut 是什麼</a></li>
+        <li><a href="#free-vs-pro">免費版 vs Pro</a></li>
+        <li><a href="#interface">介面導覽</a></li>
+        <li><a href="#editing-workflow">基礎剪輯流程</a></li>
+        <li><a href="#ai-features">AI 功能</a></li>
+        <li><a href="#workflow">衛教短影片工作流</a></li>
+        <li><a href="#export">匯出與注意事項</a></li>
+      </ol>
+    </nav>
+
+    <!-- ─── What is CapCut ─── -->
+    <section id="what-is-capcut">
+      <h2>CapCut 是什麼</h2>
+      <p><a href="https://www.capcut.com" target="_blank">CapCut</a>（剪映國際版）是字節跳動出的剪輯軟體，手機和電腦都能用，介面有完整繁體中文，是目前最適合醫療人員入門的剪輯工具。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>💰 免費</strong>
+          <p>基礎剪輯功能全部免費，不用訂閱就能做出完整的衛教短影片。</p>
+        </div>
+        <div class="card">
+          <strong>🀄 中文介面</strong>
+          <p>選單、教學、社群資源都有繁體中文，不用先學一堆英文剪輯術語。</p>
+        </div>
+        <div class="card">
+          <strong>📱💻 跨平台</strong>
+          <p>手機隨手剪、電腦版做細部調整，專案可以同步接續編輯。</p>
+        </div>
+        <div class="card">
+          <strong>🤖 內建 AI</strong>
+          <p>自動字幕、文字轉語音、智慧去背，不用另外裝外掛或學特效軟體。</p>
+        </div>
+      </div>
+
+      <div class="analogy">
+        CapCut 的時間軸（Timeline）就像病歷上的時間軸 — 一條主線記錄事件先後順序；而每條軌道（Track）就像不同的 order sheet：一軌放影像、一軌放字幕、一軌放配樂，各自獨立又同時並存，最後才會合在一起看整體病程（成片）。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Free vs Pro ─── -->
+    <section id="free-vs-pro">
+      <h2>免費版 vs Pro</h2>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 資訊更新於 2026 年 7 月 — 以官方公告為準。CapCut 定價依國家/地區顯示幣別可能不同，實際金額請以 App 內顯示為準。</p>
+      <table>
+        <thead>
+          <tr><th>方案</th><th>價格（約）</th><th>匯出畫質</th><th>浮水印</th><th>適合對象</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>免費</strong></td><td>$0</td><td>1080p</td><td>一般匯出不含浮水印</td><td>個人學習、偶爾製作衛教內容</td></tr>
+          <tr><td>付費方案（Standard／Pro）</td><td>約每月 $9.99 起</td><td>4K</td><td>無</td><td>頻繁產出、需要更多素材庫與 AI 功能</td></tr>
+        </tbody>
+      </table>
+      <div class="box-tip">
+        <strong>免費版就夠用：</strong>基礎剪輯、多軌時間軸、關鍵幀動畫、去背合成、字幕、免費配樂庫，免費版都有。要注意的是套用「Pro 限定」的範本或特效時，匯出可能會出現標記或浮水印 — 選用素材時留意標籤即可避免。對衛教內容製作而言，免費版已經足夠，不需要一開始就訂閱付費方案。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Interface ─── -->
+    <section id="interface">
+      <h2>介面導覽</h2>
+      <p>打開 CapCut 電腦版，畫面主要分成四塊，先認識這幾個區域，之後操作會順很多。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>🕐 時間軸（Timeline）</strong>
+          <p>畫面下方，橫向排列所有素材片段。左右拖曳可以調整片段順序和長度，是剪輯時最主要的操作區。</p>
+        </div>
+        <div class="card">
+          <strong>🎞️ 軌道（Track）</strong>
+          <p>時間軸上下堆疊的每一列。一軌放影片、一軌放字幕、一軌放背景音樂，互不干擾，最後疊在一起輸出。</p>
+        </div>
+        <div class="card">
+          <strong>📁 素材庫（Media Library）</strong>
+          <p>左側面板，管理你匯入的圖片、影片、音檔。也能在這裡搜尋 CapCut 內建的免費音樂、音效、貼圖。</p>
+        </div>
+        <div class="card">
+          <strong>✨ 特效／文字面板</strong>
+          <p>上方工具列，切換不同功能分頁：文字、貼圖、特效、轉場、濾鏡。選好素材後點對應分頁即可加到時間軸。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Editing Workflow ─── -->
+    <section id="editing-workflow">
+      <h2>基礎剪輯流程</h2>
+      <p>不管做什麼類型的影片，CapCut 的基本流程都是這六步：</p>
+
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">Step 1</span> <strong>匯入素材</strong>
+        <p style="margin-top: 0.5rem;">把 AI 生成的圖片/影片、拍攝的照片、語音檔全部拖進素材庫，再依需求拉到時間軸上。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--success);">
+        <span class="step-badge">Step 2</span> <strong>粗剪</strong>
+        <p style="margin-top: 0.5rem;">先把片段排好順序、剪掉不要的部分，抓出大致的長度和節奏，不用急著做細節調整。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--warning);">
+        <span class="step-badge">Step 3</span> <strong>轉場</strong>
+        <p style="margin-top: 0.5rem;">片段之間點兩下加轉場效果。衛教影片建議只用「淡入淡出」，花俏轉場反而分散注意力。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--highlighter-purple);">
+        <span class="step-badge">Step 4</span> <strong>字幕</strong>
+        <p style="margin-top: 0.5rem;">用自動字幕功能從語音產生文字軌，再手動校對錯字和斷句（詳見下方 AI 功能章節）。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--danger);">
+        <span class="step-badge">Step 5</span> <strong>音樂</strong>
+        <p style="margin-top: 0.5rem;">從內建免費音樂庫選一首輕柔的背景音樂，音量調低（不要蓋過旁白），淡入淡出收尾。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--secondary);">
+        <span class="step-badge">Step 6</span> <strong>匯出</strong>
+        <p style="margin-top: 0.5rem;">確認解析度和比例（直式/橫式），點匯出，等待轉檔完成即可上傳到社群平台。</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── AI Features ─── -->
+    <section id="ai-features">
+      <h2>AI 功能</h2>
+      <p>CapCut 內建幾個 AI 功能，可以省下大量手動操作的時間。以下用保守的方式描述功能範圍，實際效果請以 App 內實測為準。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>💬 自動字幕</strong>
+          <p>從語音自動辨識生成文字軌，中文辨識已可用，但複雜語句或專有名詞仍需手動校對。若需要繁體字幕，建議先確認辨識結果的字體形式，必要時手動轉換或校正。</p>
+        </div>
+        <div class="card">
+          <strong>🗣️ 文字轉語音</strong>
+          <p>把文字腳本直接轉成語音旁白，內建多種語音角色，適合不想自己錄音的情況。</p>
+        </div>
+        <div class="card">
+          <strong>✂️ 智慧去背</strong>
+          <p>自動辨識人像/物件邊緣做去背合成，不需要綠幕，適合把講者疊到衛教插圖背景上。</p>
+        </div>
+        <div class="card">
+          <strong>🔍 智慧調色／降噪</strong>
+          <p>一鍵調整色調、消除環境噪音，讓手機拍攝的素材看起來更專業。</p>
+        </div>
+      </div>
+
+      <div class="box-tip">
+        <strong>校對永遠要做：</strong>不論是自動字幕還是文字轉語音，AI 產出都當作「草稿」看待。醫療相關內容尤其要逐字確認數字、藥名、劑量是否正確，不要直接採信 AI 辨識或生成的結果。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Workflow (health education) ─── -->
+    <section id="workflow">
+      <h2>衛教短影片工作流</h2>
+      <p>銜接本站 <a href="ai-video.html">Part 3 — AI 影片製作</a> 和 <a href="google-flow.html">Part 4 — Google Flow 實戰</a>：前面用 AI 生成素材，最後一步就是進 CapCut 組裝成片。這也是 Google Flow 章節最後一步 Step 5 的展開版。</p>
+
+      <div class="card">
+        <ol>
+          <li><strong>AI 生成素材（Flow / ChatGPT）</strong> — 分鏡插圖、圖轉影片片段、旁白語音，全部先在 AI 工具端做好</li>
+          <li><strong>匯入 CapCut</strong> — 把所有素材依腳本順序拖進時間軸</li>
+          <li><strong>對齊時間軸</strong> — 讓畫面切換的時間點對上旁白的斷句</li>
+          <li><strong>加字幕與配樂</strong> — 自動字幕 + 手動校對，選一首輕柔配樂</li>
+          <li><strong>整體檢查</strong> — 從頭到尾看一遍，確認字幕、發音、畫面都正確無誤</li>
+          <li><strong>匯出</strong> — 依平台需求選擇比例和解析度</li>
+        </ol>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">腳本拆字幕段落 — 請 ChatGPT 幫忙</div>
+        <div class="prompt-content">請幫我把以下衛教影片旁白腳本拆成適合當字幕的段落。
+
+規則：
+1. 每段字幕控制在 12-16 個中文字以內，太長會超出畫面
+2. 在語意完整的地方斷句，不要斷在詞語中間
+3. 標註每段建議停留的秒數（依中文口語語速估算）
+4. 保留原本的口語語氣，不要改寫成書面語
+
+旁白腳本：
+[貼上你的旁白文字]<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Export & Notes ─── -->
+    <section id="export">
+      <h2>匯出與注意事項</h2>
+
+      <h3>解析度建議</h3>
+      <div class="card">
+        <ul>
+          <li><strong>Instagram Reels / YouTube Shorts</strong> — 直式 1080×1920（9:16）</li>
+          <li><strong>YouTube 一般影片</strong> — 橫式 1920×1080（16:9）</li>
+          <li><strong>幀率</strong> — 30fps 對衛教內容已經足夠流暢</li>
+        </ul>
+      </div>
+
+      <div class="box-danger">
+        <strong>病人隱私與授權，務必注意：</strong>
+        <ul style="margin-bottom: 0;">
+          <li>影片畫面、病歷截圖、檢查影像中<strong>不可出現任何可辨識病人身分的資訊</strong>（臉部、姓名、病歷號、就診日期等），即使只是背景一閃而過也要剪掉</li>
+          <li>使用 AI 生成的素材或背景音樂前，確認授權範圍允許商用／公開發布</li>
+          <li>若要在機構官方帳號發布，先確認符合所屬單位的社群發文與衛教內容審核規範</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ─── Navigation ─── -->
+    <div class="nav-links">
+      <a href="ai-agent.html" class="nav-link">← Part 5 — AI Agent</a>
+      <a href="index.html" class="nav-link">回目錄</a>
+      <a href="canva.html" class="nav-link">番外 — Canva 設計 →</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 TingYu's Deco — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function copyPrompt(btn) {
+    const content = btn.parentElement;
+    const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+  </script>
+
+</body>
+</html>

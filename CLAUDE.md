@@ -19,6 +19,10 @@ ai-workshop/
 ├── ai-image.html       # Part 2 — AI 圖像生成
 ├── ai-video.html       # Part 3 — AI 影片製作
 ├── google-flow.html    # Part 4 — Google Flow 實戰
+├── ai-agent.html       # Part 5 — AI Agent 實作
+├── capcut.html         # 番外 — CapCut 剪輯（工具頁，不在主導航）
+├── canva.html          # 番外 — Canva 設計（工具頁，不在主導航）
+├── github-pages.html   # 番外 — GitHub Pages 建站（不在主導航）
 ├── 404.html            # GitHub Pages 404（連結用 /ai-workshop/ 絕對路徑）
 ├── og-image.png        # OG 分享圖（doodle 插畫 1024x1024，與 website Insights 卡片同一張）
 ├── favicon-32.png      # favicon（從 og-image 聽診器笑臉裁出）
@@ -62,7 +66,9 @@ ai-workshop/
 ## 導航結構
 
 所有頁面共用 header/footer：
-- Header：✏️ AI Workshop logo → 首頁 / AI 基礎 / AI 圖像 / AI 影片 / Google Flow / 作品集 ↗
+- Header：✏️ AI Workshop logo → 首頁 / AI 基礎 / AI 圖像 / AI 影片 / Google Flow / AI Agent / 作品集 ↗
+- 番外頁（CapCut / Canva / GitHub Pages）**不進主導航**（會爆版）— 入口是首頁卡片 + 課程內交叉連結（ai-video → capcut、ai-image → canva、ai-agent → github-pages）
+- 番外頁閱讀順序（底部 nav-links）：ai-agent → capcut → canva → github-pages
 - Footer：© TingYu's Deco — AI Workshop + IG + GitHub + 作品集
 - 當前頁 nav link 加 `.active` class
 - 作品集連結：https://tingyudeco.com（外部連結）
@@ -80,10 +86,10 @@ ai-workshop/
 
 ### 內容
 - [ ] 加入用戶生成的圖片範例（ai-image.html 的 `<!-- TODO -->` 標記處）
-- [ ] CapCut 教學頁面
-- [ ] Canva 教學頁面
-- [ ] AI Agent 教學頁面（index.html 已有 coming-soon 卡片）
-- [ ] GitHub Pages 建站教學頁面（index.html 已有 coming-soon 卡片）
+- [x] CapCut 教學頁面（capcut.html）
+- [x] Canva 教學頁面（canva.html）
+- [x] AI Agent 教學頁面（ai-agent.html，Part 5）
+- [x] GitHub Pages 建站教學頁面（github-pages.html）
 - [ ] 醫學筆記/衛教圖專區（待規劃）
 
 ### 技術

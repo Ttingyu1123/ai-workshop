@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用 GitHub Pages 架網站 — 免費放上自己的網站</title>
+  <meta name="description" content="完全免費、不用寫程式，用 GitHub Pages 把衛教內容或作品集放上網。你正在看的這個網站就是這樣做的。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="用 GitHub Pages 架網站 — 免費放上自己的網站">
+  <meta property="og:description" content="完全免費、不用寫程式，用 GitHub Pages 把衛教內容或作品集放上網。你正在看的這個網站就是這樣做的。">
+  <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/github-pages.html">
+  <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="ai-fundamentals.html">AI 基礎</a>
+        <a href="ai-image.html">AI 圖像</a>
+        <a href="ai-video.html">AI 影片</a>
+        <a href="google-flow.html">Google Flow</a>
+        <a href="ai-agent.html">AI Agent</a>
+        <span class="nav-divider"></span>
+        <a href="https://tingyudeco.com" target="_blank" class="nav-external">作品集 ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">番外・建站教學</div>
+    <h1>用 GitHub Pages 架網站</h1>
+    <p>你正在看的這個網站，就是這樣做出來的</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <nav class="toc" aria-label="目錄">
+      <ol>
+        <li><a href="#why">為什麼要有自己的網站</a></li>
+        <li><a href="#concepts">三個名詞先搞懂</a></li>
+        <li><a href="#setup">註冊與建立 Repository</a></li>
+        <li><a href="#first-page">你的第一個網頁</a></li>
+        <li><a href="#enable-pages">開啟 GitHub Pages</a></li>
+        <li><a href="#ai-help">讓 AI 幫你寫網站</a></li>
+        <li><a href="#faq">常見問題</a></li>
+      </ol>
+    </nav>
+
+    <!-- ─── Why ─── -->
+    <section id="why">
+      <h2>為什麼要有自己的網站</h2>
+      <p>你現在看的這個「AI Workshop」教學網站，網址是 <code>ttingyu1123.github.io/ai-workshop</code> — 沒有租伺服器、沒有付網域費，完全靠 <strong>GitHub Pages</strong> 免費架設。這篇教你怎麼做出一個一模一樣的東西。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>🩺 衛教內容的家</strong>
+          <p>不用每次都靠社群平台演算法，自己的網址永遠找得到，病人和學生可以直接收藏。</p>
+        </div>
+        <div class="card">
+          <strong>📁 履歷 / 作品集</strong>
+          <p>放上簡報、講義、個人介紹，求職或申請進修時給一個網址就能展示完整內容。</p>
+        </div>
+        <div class="card">
+          <strong>💰 完全免費</strong>
+          <p>GitHub Pages 對個人網站永久免費，沒有流量限制、沒有到期日，不用綁信用卡。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Concepts ─── -->
+    <section id="concepts">
+      <h2>三個名詞先搞懂</h2>
+      <p>整個流程只會用到三個新名詞，先用醫院的架構理解一次，後面就不會迷路。</p>
+
+      <div class="analogy">
+        <strong>GitHub</strong> 就像醫院的「病歷室」— 一個存放所有資料、可以追蹤每次修改紀錄的地方。<strong>Repository（倉庫）</strong>就像一份「病歷夾」— 一個獨立的資料夾，裡面放某個病人（某個網站專案）的所有檔案。<strong>GitHub Pages</strong> 就像把某份衛教單張「公告在醫院大廳」— 把病歷夾裡的網頁檔案變成大家都能上網看到的公開頁面。
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>GitHub</strong>
+          <p>全世界最大的程式碼託管平台，也可以拿來存放任何檔案。註冊帳號完全免費。</p>
+        </div>
+        <div class="card">
+          <strong>Repository</strong>
+          <p>一個專案的資料夾，裡面放你的網頁檔案（HTML、圖片等）。一個帳號可以開很多個。</p>
+        </div>
+        <div class="card">
+          <strong>GitHub Pages</strong>
+          <p>GitHub 內建的免費網站託管功能，把 repository 裡的網頁檔案直接變成一個公開網址。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Setup ─── -->
+    <section id="setup">
+      <h2>註冊與建立 Repository</h2>
+      <p>全程都在網頁介面完成，不需要安裝任何軟體。</p>
+
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">Step 1</span> <strong>註冊帳號</strong>
+        <p style="margin-top: 0.5rem;">前往 <a href="https://github.com" target="_blank">github.com</a>，點右上角 Sign up，用 email 註冊即可，完全免費。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--success);">
+        <span class="step-badge">Step 2</span> <strong>New repository</strong>
+        <p style="margin-top: 0.5rem;">登入後點右上角「+」→「New repository」，開始建立一個新的病歷夾。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--warning);">
+        <span class="step-badge">Step 3</span> <strong>命名</strong>
+        <p style="margin-top: 0.5rem;">Repository name 填一個英文名稱，例如 <code>my-clinic-site</code>。這個名字之後會出現在網址裡。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--highlighter-purple);">
+        <span class="step-badge">Step 4</span> <strong>設為 Public</strong>
+        <p style="margin-top: 0.5rem;">選擇 <strong>Public</strong>（公開）— GitHub Pages 只能公開網站的內容才能被看到，免費方案不支援私人網站對外發布。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--danger);">
+        <span class="step-badge">Step 5</span> <strong>建立</strong>
+        <p style="margin-top: 0.5rem;">勾選「Add a README file」，然後點綠色的「Create repository」按鈕，病歷夾就建好了。</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── First page ─── -->
+    <section id="first-page">
+      <h2>你的第一個網頁</h2>
+      <p>網站的入口檔案一定要叫做 <code>index.html</code> — GitHub Pages 會自動把它當成首頁顯示。整個過程都在 GitHub 網頁上完成，不用裝任何軟體。</p>
+
+      <div class="card">
+        <ol>
+          <li>進到剛建立好的 repository 頁面</li>
+          <li>點「Add file」→「Create new file」</li>
+          <li>檔名欄位輸入 <code>index.html</code></li>
+          <li>把下面的範例貼進內容欄位</li>
+          <li>捲到最下面，點綠色的「Commit changes」按鈕存檔</li>
+        </ol>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">index.html — 最小可用範例</div>
+        <div class="prompt-content">&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-TW"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;我的第一個網站&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;哈囉，這是我的網站！&lt;/h1&gt;
+  &lt;p&gt;這一頁是用 GitHub Pages 免費架設的。&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="box-tip">
+        <strong>檔名要完全一樣：</strong>一定要是小寫的 <code>index.html</code>，多一個空格或大小寫不同，GitHub Pages 都認不出來，會出現 404 找不到頁面。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Enable Pages ─── -->
+    <section id="enable-pages">
+      <h2>開啟 GitHub Pages</h2>
+      <p>檔案存好了，還差最後一步「公告在大廳」— 打開 GitHub Pages 功能。</p>
+
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">Step 1</span> <strong>進入 Settings</strong>
+        <p style="margin-top: 0.5rem;">在 repository 頁面上方點「Settings」分頁。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--success);">
+        <span class="step-badge">Step 2</span> <strong>找到 Pages</strong>
+        <p style="margin-top: 0.5rem;">左側選單找到「Code and automation」區塊下的「Pages」，點進去。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--warning);">
+        <span class="step-badge">Step 3</span> <strong>Source 選 Deploy from a branch</strong>
+        <p style="margin-top: 0.5rem;">「Build and deployment」底下的 Source 下拉選單選擇「Deploy from a branch」。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--highlighter-purple);">
+        <span class="step-badge">Step 4</span> <strong>Branch 選 main</strong>
+        <p style="margin-top: 0.5rem;">Branch 下拉選「main」，資料夾維持「/ (root)」，點「Save」。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--danger);">
+        <span class="step-badge">Step 5</span> <strong>等 1-2 分鐘</strong>
+        <p style="margin-top: 0.5rem;">重新整理 Pages 設定頁面，會出現一條綠色訊息和你的網址，格式是 <code>https://帳號.github.io/repo名/</code>。點開就是你的網站了。</p>
+      </div>
+
+      <div class="box-tip">
+        本站的網址就是這樣來的：帳號是 <code>Ttingyu1123</code>，repository 叫 <code>ai-workshop</code>，組合起來就是 <code>https://ttingyu1123.github.io/ai-workshop/</code>。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── AI Help ─── -->
+    <section id="ai-help">
+      <h2>讓 AI 幫你寫網站</h2>
+      <p>看到上面的 HTML 標籤覺得頭暈也沒關係 — 完全不用學 HTML。把你想要的網站描述清楚，交給 AI Agent（見 <a href="ai-agent.html">Part 5</a>）或 ChatGPT，直接生出完整的 <code>index.html</code>，複製貼上到 GitHub 就好。</p>
+
+      <div class="prompt-block">
+        <div class="prompt-label">請 AI 生成衛教網站 — Prompt 範例</div>
+        <div class="prompt-content">請幫我寫一個單頁的衛教網站，用純 HTML + CSS（不要任何框架），輸出完整的 index.html 檔案。
+
+主題：糖尿病患者的日常照護
+風格：溫暖、清晰易讀，適合中高齡病人閱讀，字要夠大
+章節：
+1. 什麼是糖尿病（簡短說明）
+2. 血糖監測的正確方法
+3. 飲食注意事項（可以吃什麼、避免什麼）
+4. 什麼情況要立刻回診
+行動呼籲：頁尾放一句「有任何疑問請洽您的主治醫師」，並附上診所的預約電話（我會自己填）
+
+請直接給我完整可用的程式碼，不要省略任何部分。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="box-tip">
+        拿到 AI 生成的程式碼後，整段複製，貼到 GitHub 的「Add file → Create new file」→ 檔名 <code>index.html</code>，Commit 之後就上線了。想改內容，回去問 AI「幫我把第三段改成 XXX」，拿到新版程式碼再貼一次覆蓋即可。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── FAQ ─── -->
+    <section id="faq">
+      <h2>常見問題</h2>
+
+      <div class="card">
+        <strong>打開網址是 404 找不到頁面？</strong>
+        <p>先等 1-2 分鐘再重新整理，剛開啟 Pages 需要一點部署時間。接著確認檔名真的是小寫的 <code>index.html</code>，最後回 Settings → Pages 確認狀態是「Your site is live」。</p>
+      </div>
+      <div class="card">
+        <strong>改了內容，網站卻沒更新？</strong>
+        <p>通常是瀏覽器快取問題，按 <code>Ctrl+F5</code>（Mac 是 <code>Cmd+Shift+R</code>）強制重新整理。也可以確認 GitHub 上的檔案確實已經 Commit 成功。</p>
+      </div>
+      <div class="card">
+        <strong>圖片放上去了但不顯示？</strong>
+        <p>檢查圖片檔名和程式碼裡引用的路徑是否完全一致，包含大小寫 —<code>Photo.jpg</code> 和 <code>photo.jpg</code> 在 GitHub Pages 上會被視為不同檔案。</p>
+      </div>
+
+      <div class="box-danger">
+        <h4>⚠️ 網站是完全公開的</h4>
+        <p>GitHub Pages 上的任何內容，全世界都能搜尋和看到。衛教內容絕對<strong>不可以</strong>含有病人姓名、病歷號、床號、診斷細節等任何可識別病人身分的資訊，即使只是當作範例截圖也不行。</p>
+      </div>
+    </section>
+
+    <!-- ─── Navigation ─── -->
+    <div class="nav-links">
+      <a href="canva.html" class="nav-link">← 番外 — Canva 設計</a>
+      <a href="index.html" class="nav-link">回目錄</a>
+      <span class="nav-link disabled">更多內容製作中</span>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 TingYu's Deco — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function copyPrompt(btn) {
+    const content = btn.parentElement;
+    const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+  </script>
+
+</body>
+</html>

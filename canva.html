@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canva 設計入門 — 把 AI 生成圖排版加字</title>
+  <meta name="description" content="Canva 設計教學 — 免費 vs Pro、模板系統、Magic Studio AI 功能，以及如何把 AI 生成的圖片排版加上繁體中文字，做出衛教單張與簡報。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Canva 設計入門 — 把 AI 生成圖排版加字">
+  <meta property="og:description" content="模板拖拉式設計，設計小白也能上手。學會用 Canva 幫 AI 生成的圖片加上繁體中文字，做出專業衛教單張。">
+  <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/canva.html">
+  <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="ai-fundamentals.html">AI 基礎</a>
+        <a href="ai-image.html">AI 圖像</a>
+        <a href="ai-video.html">AI 影片</a>
+        <a href="google-flow.html">Google Flow</a>
+        <a href="ai-agent.html">AI Agent</a>
+        <span class="nav-divider"></span>
+        <a href="https://tingyudeco.com" target="_blank" class="nav-external">作品集 ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">番外・設計工具</div>
+    <h1>Canva 設計入門</h1>
+    <p>模板拖拉式排版，把 AI 生成的圖片變成能用的衛教文宣</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <!-- TOC -->
+    <nav class="toc" aria-label="目錄">
+      <ol>
+        <li><a href="#what-is-canva">Canva 是什麼</a></li>
+        <li><a href="#free-vs-pro">免費 vs Pro</a></li>
+        <li><a href="#templates">模板系統</a></li>
+        <li><a href="#magic-studio">AI 功能（Magic Studio）</a></li>
+        <li><a href="#ai-integration">與 AI 生圖銜接</a></li>
+        <li><a href="#medical-examples">醫療應用範例</a></li>
+        <li><a href="#export-license">匯出與授權注意</a></li>
+      </ol>
+    </nav>
+
+    <!-- ─── What is Canva ─── -->
+    <section id="what-is-canva">
+      <h2>Canva 是什麼</h2>
+      <p><a href="https://www.canva.com" target="_blank">Canva</a> 是模板拖拉式的線上設計工具 — 選一個模板、換掉裡面的圖片和文字，就能做出一份看起來很專業的作品。不需要學 Photoshop、不需要懂排版理論、不需要美感天份。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>🖱️ 拖拉即用</strong>
+          <p>元素用滑鼠拖拉調整位置，字型、顏色、大小都是點選式操作，沒有程式碼。</p>
+        </div>
+        <div class="card">
+          <strong>📐 模板起手</strong>
+          <p>上百萬個現成模板，涵蓋簡報、海報、社群貼文、名片等各種尺寸。</p>
+        </div>
+        <div class="card">
+          <strong>🀄 繁中字排版</strong>
+          <p>Canva 本身不生成圖片內容，但排版加字功能對繁體中文支援完整，字型選擇多。</p>
+        </div>
+        <div class="card">
+          <strong>☁️ 雲端協作</strong>
+          <p>作品自動存雲端，可以分享連結給同事一起編輯，或直接匯出給對方用。</p>
+        </div>
+      </div>
+
+      <div class="analogy">
+        Canva 的模板就像醫囑裡的「Order Set／套餐醫囑」— 不用每次從空白病歷開始想每一項該開什麼，先套用一個已經驗證過的組合，再依個案調整幾個細節就好。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Free vs Pro ─── -->
+    <section id="free-vs-pro">
+      <h2>免費 vs Pro</h2>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 資訊更新於 2026 年 7 月 — 以官方公告為準。</p>
+      <table>
+        <thead>
+          <tr><th>方案</th><th>月費</th><th>儲存空間</th><th>適合</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>免費</strong></td><td>$0</td><td>5 GB</td><td>偶爾做幾張圖，模板夠用</td></tr>
+          <tr><td>Canva Pro</td><td>約 $15／月（年繳較便宜）</td><td>100 GB</td><td>常態性製作內容、需要 AI 功能與去背</td></tr>
+        </tbody>
+      </table>
+      <div class="box-tip">
+        <strong>免費版夠用嗎：</strong>免費版就有百萬等級的模板庫和基本 AI 工具，對於偶爾做一張衛教單張或簡報封面已經足夠。升級 Pro 主要是為了 <strong>去背、Magic Resize（一鍵改尺寸）、品牌套件（固定配色字型）</strong>和更完整的 AI 功能，以及更大的圖庫和儲存空間。
+      </div>
+      <div class="box-tip" style="margin-top: 0.75rem;">
+        <strong>教育／非營利方案：</strong>Canva 提供 K-12 在職教師與學生的教育方案、以及立案非營利組織（如 501(c)(3) 等）的免費 Pro 方案，但一般醫院／診所的醫療人員身分通常不符合這兩種資格。若任職單位本身是立案非營利機構，可以請單位窗口申請看看。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Templates ─── -->
+    <section id="templates">
+      <h2>模板系統</h2>
+      <p>Canva 的模板依「用途」分類，選對尺寸類別是第一步：</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>📋 衛教單張</strong>
+          <p>A4 直式（210×297mm），適合列印張貼於候診區、病房。搜尋「海報」或「傳單」模板。</p>
+        </div>
+        <div class="card">
+          <strong>🖥️ 簡報</strong>
+          <p>16:9 橫式，適合科內教學、晨會報告。搜尋「簡報」模板，通常已內建轉場動畫。</p>
+        </div>
+        <div class="card">
+          <strong>📱 IG 貼文</strong>
+          <p>4:5 或正方形 1:1，適合衛教圖卡、活動宣傳。IG 限時動態則用 9:16。</p>
+        </div>
+        <div class="card">
+          <strong>🪧 海報</strong>
+          <p>比衛教單張更大的尺寸（如 A3、A2），適合現場立牌、大型活動看板。</p>
+        </div>
+      </div>
+
+      <p>新建作品時，Canva 首頁的搜尋框直接打用途（例如「衛教海報」「醫療簡報」），會自動帶出對應尺寸的模板選項，不用自己記尺寸數字。</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Magic Studio ─── -->
+    <section id="magic-studio">
+      <h2>AI 功能（Magic Studio）</h2>
+      <p>Canva 把站內的 AI 功能整合在 <strong>Magic Studio</strong> 底下。以下是對一般使用者最實用的幾個，其餘進階功能（如批次生成、資料圖表）保守略過不細講：</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>Magic Design</strong>
+          <p>輸入一句話描述或上傳一張圖，AI 自動生成排版好的版面樣式，可再手動微調。</p>
+        </div>
+        <div class="card">
+          <strong>Magic Write</strong>
+          <p>站內的文案生成工具，可以直接在設計畫布內生成或潤飾文字內容，不用切到 ChatGPT 再貼回來。</p>
+        </div>
+        <div class="card">
+          <strong>文字生圖</strong>
+          <p>Canva 內建的文字轉圖片功能，效果與品質不一定穩定，建議還是用本站 Part 2 教的專門生圖工具（ChatGPT／Gemini）生圖，Canva 只負責排版加字。</p>
+        </div>
+        <div class="card">
+          <strong>背景移除</strong>
+          <p>一鍵去背，Pro 版功能。把 AI 生成的人物或物件圖去背後疊加到其他版面上很好用。</p>
+        </div>
+      </div>
+
+      <div class="box-tip">
+        <strong>保守建議：</strong>Canva 的 AI 生圖品質目前不如專門的圖像模型（GPT Image 2 / Nano Banana Pro），Magic Write 生成的文案也需要人工把關醫療用語正確性。把 Canva 定位在「排版加字」的角色最穩妥，內容生成交給前面章節教的工具。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── AI Integration ─── -->
+    <section id="ai-integration">
+      <h2>與 AI 生圖銜接</h2>
+      <p>回顧 <a href="ai-image.html#chinese-text">Part 2</a> 提到的重點：AI 生圖工具寫中文字經常出錯或變成亂碼，通用解法是<strong>生圖時不要文字，用 Canva 補上繁體中文</strong>。這正是 Canva 在整個 AI 創作流程中的核心角色。</p>
+
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">Step 1</span> <strong>AI 生圖（不含文字）</strong>
+        <p style="margin-top: 0.5rem;">用 ChatGPT 或 Gemini 生成插圖，Prompt 裡明確寫「不要出現任何文字」，只要圖案與構圖。</p>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--success);">
+        <span class="step-badge">Step 2</span> <strong>上傳到 Canva</strong>
+        <p style="margin-top: 0.5rem;">在 Canva 新建對應尺寸的畫布，把生成的圖片當作背景或元素上傳進去。</p>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--warning);">
+        <span class="step-badge">Step 3</span> <strong>疊加繁體中文文字</strong>
+        <p style="margin-top: 0.5rem;">用 Canva 的文字工具加標題、內文、聯絡資訊 — 字體、字級、顏色都能精準控制，不會有錯字風險。</p>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">Magic Write — 衛教單張文案</div>
+        <div class="prompt-content">請幫我寫一份衛教單張的文案。
+
+主題：糖尿病患者的日常血糖監測
+對象：剛確診的病人與家屬，用語需白話易懂
+結構：一句話標題、3-4 個重點條列（每點不超過 20 字）、一句提醒何時就醫
+語氣：親切、不說教<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Medical Examples ─── -->
+    <section id="medical-examples">
+      <h2>醫療應用範例</h2>
+
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">情境 1</span> <strong>衛教單張</strong>
+        <p style="margin-top: 0.5rem;">AI 生成無文字插圖 → Canva 選 A4 海報模板 → 換上插圖 → 加標題「正確用藥時間」與步驟文字 → 匯出 PDF 列印張貼。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--success);">
+        <span class="step-badge">情境 2</span> <strong>科內簡報</strong>
+        <p style="margin-top: 0.5rem;">選一個簡報模板套用科室慣用配色 → 每頁貼上 AI 生成的示意圖 → 用 Magic Write 潤飾投影片重點文字 → 匯出 PPTX 或 PDF。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--highlighter-purple);">
+        <span class="step-badge">情境 3</span> <strong>社群貼文</strong>
+        <p style="margin-top: 0.5rem;">4:5 IG 模板 → 放入生成的插圖或圖示組 → 加金句標題 → 用「調整大小」功能一鍵複製成限時動態（9:16）版本，一次做兩種尺寸。</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Export & License ─── -->
+    <section id="export-license">
+      <h2>匯出與授權注意</h2>
+      <div class="box-danger">
+        <strong>使用前務必確認：</strong>
+        <ul>
+          <li><strong>免費素材授權範圍</strong> — Canva 圖庫的免費素材大多可商用，但部分素材僅限個人使用或需標註來源，使用前點開素材右下角的授權說明確認，尤其是要用在對外發布或印刷品時。</li>
+          <li><strong>病人資料絕對不上傳</strong> — 任何含病人姓名、病歷號、可辨識影像的檔案，都不可以上傳到 Canva 這類雲端服務。衛教內容只能放通用資訊，不放個案資料。</li>
+          <li><strong>Pro 版素材需訂閱有效期</strong> — 用 Pro 版付費素材做的作品，若訂閱到期，已下載的檔案仍可使用，但要注意續作或修改時是否還有授權。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ─── Navigation ─── -->
+    <div class="nav-links">
+      <a href="capcut.html" class="nav-link">← 番外 — CapCut 剪輯</a>
+      <a href="index.html" class="nav-link">回目錄</a>
+      <a href="github-pages.html" class="nav-link">番外 — GitHub Pages 架站 →</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 TingYu's Deco — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function copyPrompt(btn) {
+    const content = btn.parentElement;
+    const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+  </script>
+
+</body>
+</html>
