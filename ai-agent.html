@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent 實作 — 讓 AI 幫你工作</title>
+  <meta name="description" content="AI Agent 實戰教學 — Claude Code、OpenAI Codex、Google Antigravity 三大工具介紹，醫療人員可用的實用範例與安全守則。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI Agent 實作 — 讓 AI 幫你工作">
+  <meta property="og:description" content="AI Agent 實戰教學 — Claude Code、OpenAI Codex、Google Antigravity 三大工具介紹，醫療人員可用的實用範例與安全守則。">
+  <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/ai-agent.html">
+  <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="ai-fundamentals.html">AI 基礎</a>
+        <a href="ai-image.html">AI 圖像</a>
+        <a href="ai-video.html">AI 影片</a>
+        <a href="google-flow.html">Google Flow</a>
+        <a href="ai-agent.html" class="active">AI Agent</a>
+        <span class="nav-divider"></span>
+        <a href="https://tingyudeco.com" target="_blank" class="nav-external">作品集 ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">Part 5</div>
+    <h1>AI Agent 實作</h1>
+    <p>讓 AI 幫你工作 — 從對話到自動完成任務</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <nav class="toc" aria-label="目錄">
+      <ol>
+        <li><a href="#agent-vs-chatbot">Agent 跟聊天機器人差在哪</a></li>
+        <li><a href="#three-tools">三大工具介紹</a></li>
+        <li><a href="#first-prompt">第一次對話就上手</a></li>
+        <li><a href="#examples">醫療人員實用範例</a></li>
+        <li><a href="#workflow">完整工作流示範</a></li>
+        <li><a href="#safety">安全與責任</a></li>
+      </ol>
+    </nav>
+
+    <!-- ─── Agent vs Chatbot ─── -->
+    <section id="agent-vs-chatbot">
+      <h2>Agent 跟聊天機器人差在哪</h2>
+      <p>Part 1 提過，<strong>Agent = AI 模型 + 工具使用能力 + 自主規劃能力</strong>。這裡把差異講清楚：</p>
+      <p>ChatGPT、Gemini 這類<strong>聊天機器人（Chatbot）</strong>只會做一件事 — 回答你的問題。你問，它答，僅此而已。它不能自己打開檔案、不能自己執行程式、不能自己檢查結果對不對。</p>
+      <p><strong>Agent</strong> 不一樣。給它一個目標，它會自己規劃步驟、呼叫工具（讀寫檔案、上網查資料、執行程式碼）、檢查自己做得對不對，做錯了再自己修正 — 直到任務完成才回報你。</p>
+
+      <div class="analogy">
+        Chatbot 像醫院的<strong>諮詢台</strong> — 你問「這個檢查要空腹嗎」，它回答你，但不會幫你做任何事。<br>
+        Agent 像<strong>住院醫師</strong> — 你交代「幫這床病人排腹部超音波」，他會自己開單、聯絡排程、追蹤結果、寫進病歷。<br>
+        而<strong>你是主治醫師</strong> — 住院醫師做得再快再多，最後醫囑對不對、要不要簽核，責任都在你身上。
+      </div>
+
+      <p>這正是本節要建立的心態：Agent 能大幅加速工作，但它不會取代你的判斷。你負責下達清楚的目標、審核它的計畫、驗收最終結果。</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Three Tools ─── -->
+    <section id="three-tools">
+      <h2>三大工具介紹</h2>
+      <p>目前最主流的三個 AI Agent 工具，都是「終端機／IDE 裡的 AI 助理」形式，安裝後直接在你的電腦上操作檔案與程式：</p>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 資訊更新於 2026 年 7 月 — 方案名稱、額度與介面持續變動，以官方公告為準。</p>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-recommend">最推薦</span>
+          <span class="tool-name"><a href="https://claude.com/product/claude-code" target="_blank">Claude Code（Anthropic）↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>在終端機或編輯器中直接操作檔案、執行指令</li><li>包含在既有的 Claude 訂閱方案內，不需額外購買</li><li>規劃與說明清楚，適合非工程背景使用者</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>需要先熟悉命令列（Terminal）介面</li><li>免費方案額度有限，重度使用建議付費方案</li></ul></div>
+        </div>
+        <div class="tool-tip">取得方式：用 claude.ai 帳號（Pro 或 Max 方案）安裝 Claude Code CLI 即可使用，訂閱費用涵蓋網頁版、App 與終端機三種介面。這個 AI Workshop 網站本身，就是用 Claude Code 建置的（詳見「安全與責任」段落後的實例）。</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-alt">OpenAI 生態系</span>
+          <span class="tool-name"><a href="https://developers.openai.com/codex" target="_blank">OpenAI Codex ↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>CLI 工具本身可免費下載</li><li>包含在 ChatGPT 訂閱方案內（含免費／Plus／Pro 等分層）</li><li>可在網頁、CLI、IDE 外掛多種介面使用</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>實際可用額度依你的 ChatGPT 方案而定</li><li>介面與指令風格跟 Claude Code 略有差異，需要重新適應</li></ul></div>
+        </div>
+        <div class="tool-tip">取得方式：有 ChatGPT 帳號即可安裝 Codex CLI，額度隨你既有的 ChatGPT 方案（Free / Go / Plus / Pro 等）而定，付費方案的使用上限較高。</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-experiment">Google 生態系</span>
+          <span class="tool-name"><a href="https://antigravity.google/" target="_blank">Google Antigravity ↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>提供桌面應用程式（IDE），介面比純命令列直覺</li><li>個人使用者可免費試用（公開預覽階段）</li><li>與 Google 帳號整合，容易上手</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>仍在公開預覽階段，功能與穩定度可能持續調整</li><li>進階使用額度需搭配 Google 的付費方案</li></ul></div>
+        </div>
+        <div class="tool-tip">取得方式：用 Google 帳號登入即可下載桌面版試用，適合想要圖形介面（而非純命令列）的使用者入門。</div>
+      </div>
+
+      <p>三者核心能力相近（都能讀寫檔案、執行程式、自主規劃），<strong>建議從你原本就有訂閱的服務開始</strong>：已經是 Claude Pro/Max 用戶就用 Claude Code，已經是 ChatGPT Plus 用戶就用 Codex，想要免費先試手感就用 Antigravity。</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── First Prompt ─── -->
+    <section id="first-prompt">
+      <h2>第一次對話就上手</h2>
+      <p>Agent 跟 Chatbot 最大的操作差異：你不需要（也不應該）像教學生一樣一步一步下指令。給對三個要素，Agent 自己會規劃步驟。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>① 講目標，不講步驟</strong>
+          <p>不要說「先開檔案，再找到第三段，然後把它改成…」。直接說「幫我把這份衛教文件的用詞改成國中生看得懂的程度」。步驟交給 Agent 規劃。</p>
+        </div>
+        <div class="card">
+          <strong>② 給足背景</strong>
+          <p>告訴它檔案在哪裡、這份東西的用途、有沒有既有格式要遵守。背景資訊越完整，Agent 規劃得越準，你要來回修正的次數越少。</p>
+        </div>
+        <div class="card">
+          <strong>③ 要求驗收點</strong>
+          <p>明確說出「完成後我要檢查什麼」，例如「表格要包含出處」「字數不超過 300 字」。Agent 做完會依你給的標準自我檢查，而不是猜你要什麼。</p>
+        </div>
+      </div>
+
+      <div class="box-tip">
+        Agent 通常會先提出一份計畫再動手（尤其處理較複雜的任務時）。花 10 秒看過計畫，覺得方向不對就直接說，不要等它做完才發現南轅北轍。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Examples ─── -->
+    <section id="examples">
+      <h2>醫療人員實用範例</h2>
+      <p>以下範例都刻意設計成「不需要真實病人資料」也能操作 — 記得先讀完下一節「安全與責任」再套用到實際工作。</p>
+
+      <h3>情境一：整理文獻重點成表格</h3>
+      <div class="prompt-block">
+        <div class="prompt-label">整理多篇文獻成比較表</div>
+        <div class="prompt-content">我這個資料夾裡有 5 篇關於「第二型糖尿病口服藥物治療」的英文文獻 PDF。
+
+請幫我：
+1. 讀取每一篇，整理出：研究族群、介入方式、主要結果（含數值）、結論
+2. 做成一份表格，用繁體中文呈現
+3. 每一列註明文獻來源（作者+年份）
+4. 存成一個 Excel 檔案
+
+驗收標準：表格要能一眼看出各研究的結果差異，數值不可自行推算或補齊，沒寫的欄位就留空。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <h3>情境二：把衛教內容做成投影片／網頁</h3>
+      <div class="prompt-block">
+        <div class="prompt-label">衛教文字轉成簡報網頁</div>
+        <div class="prompt-content">我有一份「糖尿病足部照護」的衛教文字稿（附在下面），想做成一份給病人看的簡報式網頁。
+
+要求：
+- 8-10 頁，每頁一個重點，字不要太多
+- 風格清爽、字體放大，方便長輩閱讀
+- 保留文字稿的醫療用詞正確性，但語氣要親切
+- 用 HTML 做成單一檔案，我可以直接用瀏覽器打開或列印
+
+驗收標準：內容跟我提供的文字稿醫療事實一致，不可自行新增或修改任何醫療建議。
+
+[貼上衛教文字稿內容]<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <h3>情境三：批次整理檔案／資料（已去識別化）</h3>
+      <div class="prompt-block">
+        <div class="prompt-label">批次重新命名與分類檔案</div>
+        <div class="prompt-content">這個資料夾裡有 200 張衛教活動的照片，檔名是相機自動編號，沒有規律。
+
+請幫我：
+1. 依照片的拍攝日期（讀取檔案的 metadata），依「YYYY-MM-DD_序號」格式重新命名
+2. 依日期分別建立子資料夾歸檔
+3. 產出一份清單，列出每張照片的原檔名、新檔名、拍攝日期
+
+驗收標準：不要移動或刪除原始檔案，先複製一份到新資料夾操作；完成後給我清單讓我確認再手動刪除舊檔。
+
+（注意：此資料夾內容已確認不含病人臉部或可識別身分的照片）<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Workflow ─── -->
+    <section id="workflow">
+      <h2>完整工作流示範</h2>
+      <p>一個典型的 Agent 任務，從下指令到驗收，大致會經過這五步：</p>
+
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">Step 1</span> <strong>描述需求</strong>
+        <p style="margin-top: 0.5rem;">用「目標＋背景＋驗收標準」的格式下指令（見上一節）。不需要鉅細靡遺，但關鍵限制要講清楚。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--success);">
+        <span class="step-badge">Step 2</span> <strong>Agent 提出計畫</strong>
+        <p style="margin-top: 0.5rem;">遇到較複雜的任務，Agent 通常會先列出打算怎麼做，而不是悶頭直接動手。這是你介入導正方向的最好時機。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--warning);">
+        <span class="step-badge">Step 3</span> <strong>確認方向</strong>
+        <p style="margin-top: 0.5rem;">看過計畫，覺得合理就說「可以，開始吧」；覺得漏了什麼或方向不對，直接指出來讓它調整計畫，不用等結果出來才重來。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--highlighter-purple);">
+        <span class="step-badge">Step 4</span> <strong>執行</strong>
+        <p style="margin-top: 0.5rem;">Agent 自主完成讀檔、寫程式、跑測試等步驟，過程中若遇到錯誤會自己嘗試修正。你可以先去忙別的事，不需要全程盯著。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--danger);">
+        <span class="step-badge">Step 5</span> <strong>驗收修正</strong>
+        <p style="margin-top: 0.5rem;">Agent 回報完成後，用 Step 1 定的驗收標準逐項檢查。不符合就明確指出哪裡不對，讓它修正 — 這一步永遠不能省略。</p>
+      </div>
+
+      <div class="box-tip">
+        這個 AI Workshop 網站的每一頁 HTML，都是用 Claude Code 依照這五步流程做出來的：先描述頁面規格與設計規範，Agent 規劃架構、寫程式碼，作者確認排版與內容無誤後才上線。「用 AI Agent 架設 GitHub Pages 網站」的完整教學，之後會收錄在番外篇。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Safety ─── -->
+    <section id="safety">
+      <h2>安全與責任</h2>
+      <p>這是本頁最重要的一節。Agent 能操作檔案、能讀取任何你給它權限的資料夾內容 — 這代表資安與病人隱私的風險，跟單純聊天問答完全不同等級。</p>
+
+      <div class="box-danger">
+        <h4>病人資料絕不餵給 AI</h4>
+        <p>病歷、檢驗數據、影像、任何可識別病人身分的資訊（姓名、病歷號、身分證字號、出生年月日、住址、聯絡方式），<strong>絕對不要</strong>貼進任何 AI 工具，也不要讓 Agent 讀取包含這些資訊的原始檔案。</p>
+        <p>需要處理真實病人相關資料時，務必先完成<strong>去識別化</strong>（移除或替換所有可識別身分的欄位）再交給 AI 處理，並遵守所屬機構的個資與資安規範。有疑慮時，先詢問單位的資訊室或法務。</p>
+      </div>
+
+      <div class="box-tip">
+        <strong>Agent 會犯錯，輸出一定要人工驗證。</strong>它可能誤讀文獻數據、生成看似合理但錯誤的醫療敘述、或漏看你交代的限制條件。Agent 再厲害，都只是工具 — 最終內容是否正確、能不能用在病人身上，責任永遠在使用者身上，就像住院醫師開的醫囑，主治醫師簽核前一定要親自確認。
+      </div>
+    </section>
+
+    <!-- ─── Navigation ─── -->
+    <div class="nav-links">
+      <a href="google-flow.html" class="nav-link">← Part 4 — Google Flow</a>
+      <a href="index.html" class="nav-link">回目錄</a>
+      <a href="capcut.html" class="nav-link">番外 — CapCut 剪輯 →</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 TingYu's Deco — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function copyPrompt(btn) {
+    const content = btn.parentElement;
+    const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+  </script>
+
+</body>
+</html>
