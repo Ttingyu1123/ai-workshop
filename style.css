@@ -754,7 +754,7 @@ td {
 
   /* 每頁紙底部的版權宣告（position:fixed 在列印時會出現在每一頁） */
   body::after {
-    content: "© 2026 TingYu's Deco — AI Workshop｜ttingyu1123.github.io/ai-workshop｜IG @doctor_tingyu";
+    content: "© 2026 衛生福利部台中醫院 感染科 曾婷玉醫師 — AI Workshop";
     position: fixed;
     bottom: 0;
     left: 0;
@@ -769,7 +769,7 @@ td {
 
   /* 淡淡的斜角浮水印，每頁一枚 */
   body::before {
-    content: "TingYu's Deco";
+    content: "台中醫院 感染科 曾婷玉醫師";
     position: fixed;
     top: 45%;
     left: 0;
@@ -777,7 +777,8 @@ td {
     text-align: center;
     transform: rotate(-28deg);
     font-family: var(--font-hand);
-    font-size: 54pt;
+    font-size: 34pt;
+    white-space: nowrap;
     font-weight: 700;
     color: rgba(38, 61, 91, 0.06);
     pointer-events: none;

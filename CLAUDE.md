@@ -75,7 +75,7 @@ ai-workshop/
 ## 導航結構
 
 所有頁面共用 header/footer：
-- Header 是**分區錨點導航**（不列單頁，永不爆版）：首頁 / 基礎必修(#core) / 創作應用(#create) / 進階實戰(#advanced) / 番外工具(#extras) / 作品集 ↗ — 錨點指向 index.html 的四個 section
+- Header 是**分區錨點導航**（不列單頁，永不爆版）：首頁 / 基礎必修(#core) / 創作應用(#create) / 進階實戰(#advanced) / 番外工具(#extras) — 錨點指向 index.html 的四個 section。作品集連結只在 footer，不放 header
 - 每頁把自己所屬分區的連結標 `.active`：Part 1-3 → #core、Part 4-6 → #create、Part 7 → #advanced、番外頁 → #extras
 - 閱讀鏈（底部 nav-links）：Part 1→2→3→4→5→6→7 → 番外 notebooklm → ai-transcribe → capcut → canva → github-pages
 - 課程分區：基礎必修（基礎/文字/安全）、創作應用（圖像/影片/Flow）、進階實戰（Agent）、番外工具（5 頁）
@@ -119,7 +119,7 @@ ai-workshop/
 
 ## 注意事項
 
-- 列印（Ctrl+P）時每頁自動帶版權 footer 與「TingYu's Deco」淡浮水印（style.css `@media print` 的 `body::before/::after`），螢幕上不顯示；改署名時記得螢幕 footer（各頁 HTML）和 print footer（style.css）兩處都要改
+- **官方署名**：衛生福利部台中醫院 感染科 曾婷玉醫師（螢幕 footer 與列印版權行都用這個，不放 IG/GitHub/個人網站）。列印（Ctrl+P）時每頁自動帶版權 footer 與淡浮水印（style.css `@media print` 的 `body::before/::after`），螢幕上不顯示；改署名時螢幕 footer（各頁 HTML）和 print（style.css）兩處都要改
 
 - 不要用 Delius Swash Caps 字型（大寫 I 看起來像 J，對 AI 主題致命）
 - Prompt 區塊的 `copyPrompt()` 函式在每個頁面的 `<script>` 中重複定義（刻意，避免外部 JS 依賴）
