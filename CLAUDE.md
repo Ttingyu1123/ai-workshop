@@ -27,6 +27,10 @@ ai-workshop/
 ├── capcut.html         # 番外 — CapCut 剪輯
 ├── canva.html          # 番外 — Canva 設計
 ├── github-pages.html   # 番外 — GitHub Pages 建站
+├── prompt-builder.html # 番外 — Prompt 產生器（純前端字串組裝，零 API；表單樣式在頁內 <style>）
+├── sitemap.xml         # 新增頁面時記得加一條
+├── robots.txt
+├── qr-site.png         # 首頁 QR code（實體課投影片用）
 ├── 404.html            # GitHub Pages 404（連結用 /ai-workshop/ 絕對路徑）
 ├── og-image.png        # OG 分享圖（doodle 插畫 1024x1024，與 website Insights 卡片同一張）
 ├── favicon-32.png      # favicon（從 og-image 聽診器笑臉裁出）
@@ -64,6 +68,7 @@ ai-workshop/
 - `.card` / `.card-grid` — 資訊卡片
 - `.analogy` — 醫學類比框
 - `.box-tip` / `.box-danger` / `.box-success` — 提示框
+- `.box-success` 小任務框 — 每個課程頁底部 nav-links 前有一個「🎯 現在就做」5-15 分鐘實作任務（新頁面必加）
 - `.site-header` — sticky header + 純 CSS 漢堡選單（checkbox hack）
 - `.site-footer` — footer 含 IG/GitHub SVG icon
 
@@ -106,8 +111,11 @@ ai-workshop/
 ### 技術
 - [x] OG 圖片（og-image.png，doodle 插畫，與 website repo `public/images/insights/ai-workshop.png` 是同一張圖，換圖時要兩邊同步）
 - [x] favicon（聽診器笑臉，從 og-image.png 裁出三種尺寸）
-- [ ] Google Analytics（可選）
-- [ ] sitemap.xml
+- [ ] Google Analytics — 等用戶提供 GA4 measurement ID（G-XXXX）後在各頁 head 加 gtag snippet
+- [x] sitemap.xml + robots.txt（新增頁面時 sitemap 要補一條）
+- [x] Prompt 產生器（prompt-builder.html）
+- [x] 每課「現在就做」小任務框
+- [x] 首頁 QR code（qr-site.png）
 
 ## 注意事項
 

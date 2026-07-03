@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt 產生器 — 填空就有好 Prompt</title>
+  <meta name="description" content="醫療衛教 Prompt 產生器 — 選主題、對象、風格，自動組出可直接使用的 AI Prompt。純網頁工具，不需帳號。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Prompt 產生器 — 填空就有好 Prompt">
+  <meta property="og:description" content="醫療衛教 Prompt 產生器 — 選主題、對象、風格，自動組出可直接使用的 AI Prompt。">
+  <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/prompt-builder.html">
+  <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 本頁專用：表單控制項（doodle 風） */
+    .builder-form { background: white; border: var(--doodle-border); border-radius: var(--radius-sketch); padding: 1.5rem 2rem; margin: 1.5rem 0; }
+    .builder-field { margin-bottom: 1.25rem; }
+    .builder-field label { display: block; font-family: var(--font-hand); font-size: 1.15rem; font-weight: 600; color: var(--secondary); margin-bottom: 0.35rem; }
+    .builder-field select,
+    .builder-field input[type="text"],
+    .builder-field textarea {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--text);
+      background: var(--paper);
+      border: 2px solid var(--secondary);
+      border-radius: 8px;
+      padding: 0.55rem 0.75rem;
+    }
+    .builder-field textarea { min-height: 4.5rem; resize: vertical; }
+    .builder-field select:focus,
+    .builder-field input:focus,
+    .builder-field textarea:focus { outline: 3px solid var(--primary); outline-offset: 1px; }
+    .builder-field .hint { font-size: 0.85rem; color: var(--text-light); margin-top: 0.25rem; }
+    .builder-output { margin-top: 2rem; }
+    .builder-output .prompt-content { min-height: 8rem; white-space: pre-wrap; }
+    @media (min-width: 641px) {
+      .builder-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="index.html#core">基礎必修</a>
+        <a href="index.html#create">創作應用</a>
+        <a href="index.html#advanced">進階實戰</a>
+        <a href="index.html#extras" class="active">番外工具</a>
+        <span class="nav-divider"></span>
+        <a href="https://tingyudeco.com" target="_blank" class="nav-external">作品集 ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">番外・小工具</div>
+    <h1>Prompt 產生器</h1>
+    <p>選一選、填一填，好 Prompt 直接複製帶走</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <p>不確定 Prompt 怎麼下？從這裡開始。選好產出類型、主題和對象，下面就會即時組出一段完整的 Prompt — 複製後貼到 ChatGPT、Gemini 或 Google Flow 就能用。這個工具<strong>完全在你的瀏覽器裡運作</strong>，不連任何 AI、不上傳任何資料。</p>
+
+    <div class="builder-form">
+
+      <div class="builder-field">
+        <label for="f-type">1️⃣ 想產出什麼？</label>
+        <select id="f-type">
+          <option value="illustration">衛教插圖（AI 生圖用）</option>
+          <option value="infographic">衛教單張 Infographic（AI 生圖用）</option>
+          <option value="igcard">IG 衛教圖卡（AI 生圖用）</option>
+          <option value="storyboard">衛教短影片分鏡腳本（文字對話用）</option>
+          <option value="copywriting">衛教文案（文字對話用）</option>
+          <option value="plainlang">醫囑／說明白話化（文字對話用）</option>
+        </select>
+      </div>
+
+      <div class="builder-field" id="wrap-topic">
+        <label for="f-topic">2️⃣ 主題</label>
+        <input type="text" id="f-topic" placeholder="例如：糖尿病足部照護、洗手五時機、術前禁食" value="洗手五時機">
+        <div class="hint">⚠️ 主題與補充內容請勿包含任何病人可識別資訊（見 <a href="ai-safety.html">Part 3</a>）</div>
+      </div>
+
+      <div class="builder-field" id="wrap-original" hidden>
+        <label for="f-original">2️⃣ 貼上要白話化的原文</label>
+        <textarea id="f-original" placeholder="貼上藥袋說明、檢查須知、衛教單原文⋯⋯（請先移除病人姓名、病歷號等資訊）"></textarea>
+      </div>
+
+      <div class="builder-row">
+        <div class="builder-field">
+          <label for="f-audience">3️⃣ 給誰看？</label>
+          <select id="f-audience">
+            <option>一般民眾</option>
+            <option>65 歲以上長者</option>
+            <option>兒童與家長</option>
+            <option>慢性病病友</option>
+            <option>術前病人與家屬</option>
+            <option>新手爸媽</option>
+          </select>
+        </div>
+
+        <div class="builder-field" id="wrap-style">
+          <label for="f-style">4️⃣ 視覺風格</label>
+          <select id="f-style">
+            <option>溫馨手繪插畫風</option>
+            <option>扁平化醫療 infographic 風</option>
+            <option>可愛卡通風</option>
+            <option>清新水彩風</option>
+          </select>
+        </div>
+
+        <div class="builder-field" id="wrap-length" hidden>
+          <label for="f-length">4️⃣ 長度</label>
+          <select id="f-length">
+            <option>200 字（LINE 訊息、口頭衛教輔助）</option>
+            <option>400 字（單張衛教單）</option>
+            <option>600 字（完整衛教文章）</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="builder-field" id="wrap-usage">
+        <label for="f-usage">5️⃣ 用途</label>
+        <select id="f-usage">
+          <option>列印張貼（診間、病房）</option>
+          <option>IG／社群貼文</option>
+          <option>LINE 群組轉發</option>
+          <option>簡報插頁</option>
+        </select>
+      </div>
+
+      <div class="builder-field">
+        <label for="f-extra">6️⃣ 補充要求（可留空）</label>
+        <textarea id="f-extra" placeholder="例如：主色調用淡藍色、要包含就醫警訊、避免嚇人的畫面"></textarea>
+      </div>
+
+    </div>
+
+    <div class="builder-output">
+      <div class="prompt-block">
+        <div class="prompt-label">✨ 你的 Prompt（即時更新）</div>
+        <div class="prompt-content"><span id="output"></span><button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+    </div>
+
+    <div class="box-tip">
+      <strong>產生的 Prompt 只是起點：</strong>貼過去之後，第一版結果通常不會完美 — 用 <a href="ai-writing.html">Part 2</a> 教的迭代追問繼續調整（「第二點再簡單一點」「改成直式構圖」），不要整個重來。生圖類 Prompt 建議搭配 <a href="ai-image.html">Part 4</a> 的觀念服用。
+    </div>
+
+    <!-- ─── Navigation ─── -->
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">回目錄</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 TingYu's Deco — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function copyPrompt(btn) {
+    const content = btn.parentElement;
+    const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  // ─── Prompt 產生器（純前端字串組裝，不連任何 API）───
+  const $ = id => document.getElementById(id);
+
+  // 每種類型顯示哪些欄位
+  const FIELD_MAP = {
+    illustration: { topic: true, original: false, style: true, length: false, usage: false },
+    infographic:  { topic: true, original: false, style: true, length: false, usage: true },
+    igcard:       { topic: true, original: false, style: true, length: false, usage: false },
+    storyboard:   { topic: true, original: false, style: false, length: false, usage: false },
+    copywriting:  { topic: true, original: false, style: false, length: true, usage: false },
+    plainlang:    { topic: false, original: true, style: false, length: false, usage: false }
+  };
+
+  const TEMPLATES = {
+    illustration: v => `幫我生成一張衛教插圖。
+
+主題：${v.topic}
+目標對象：${v.audience}
+風格：${v.style}，色調溫暖親切
+構圖：單一主體清楚、背景簡潔，適合醫療衛教場景
+限制：圖上不要出現任何文字（文字之後用 Canva 自行加上）${v.extra}`,
+
+    infographic: v => `幫我生成一張直式衛教 Infographic。
+
+主題：${v.topic}
+目標對象：${v.audience}
+風格：${v.style}，版面乾淨、重點清楚
+版面：上方大標題「${v.topic}」，中間 3-4 個圖示區塊呈現重點步驟，下方保留聯絡資訊區
+文字：繁體中文，字級要大、清晰可讀（長輩也看得清楚）
+用途：${v.usage}${v.extra}`,
+
+    igcard: v => `幫我生成一張正方形的 IG 衛教圖卡。
+
+主題：${v.topic}
+目標對象：${v.audience}
+風格：${v.style}，適合社群瀏覽、第一眼就抓住注意力
+構圖：畫面主體佔中央，四周留白，適合手機瀏覽
+限制：圖上不要出現任何文字（標題與重點之後用 Canva 加上繁體中文）${v.extra}`,
+
+    storyboard: v => `我要製作一支約 30 秒的衛教短影片，請幫我寫分鏡腳本。
+
+主題：${v.topic}
+目標對象：${v.audience}
+
+請拆成 5-6 個分鏡，每個分鏡包含：
+1. 一句旁白 — 口語化，${v.audience}聽得懂，避免專業術語
+2. 一句畫面描述 — 給 AI 生圖用，具體描述場景與動作，注明畫面中不要出現文字
+
+最後一格請設計一句簡短的行動呼籲。${v.extra}`,
+
+    copywriting: v => `你是一位資深衛教護理師。請為「${v.audience}」寫一份關於「${v.topic}」的衛教文案。
+
+要求：
+- 長度：${v.length}
+- 結構：為什麼重要 → 具體該怎麼做（列點）→ 出現什麼狀況要就醫
+- 語氣親切、不嚇人，避免專業術語，必要時用生活化的比喻
+- 繁體中文${v.extra}`,
+
+    plainlang: v => `請把下面這段醫療說明，改寫成「${v.audience}」聽得懂的白話文。
+
+要求：
+- 保留所有重要資訊，不可以增加原文沒有的醫療建議
+- 避免專業術語，必要時用生活化比喻
+- 條列呈現，重點在前${v.extra}
+
+原文：
+「${v.original || '（請在上方貼入原文）'}」`
+  };
+
+  function build() {
+    const type = $('f-type').value;
+    const show = FIELD_MAP[type];
+    $('wrap-topic').hidden = !show.topic;
+    $('wrap-original').hidden = !show.original;
+    $('wrap-style').hidden = !show.style;
+    $('wrap-length').hidden = !show.length;
+    $('wrap-usage').hidden = !show.usage;
+
+    const extraRaw = $('f-extra').value.trim();
+    const v = {
+      topic: $('f-topic').value.trim() || '（請輸入主題）',
+      original: $('f-original').value.trim(),
+      audience: $('f-audience').value,
+      style: $('f-style').value,
+      length: $('f-length').value,
+      usage: $('f-usage').value,
+      extra: extraRaw ? `\n補充要求：${extraRaw}` : ''
+    };
+
+    // 只更新文字節點，複製按鈕保持原地不動 —
+    // 若整塊重建，使用者「打完字直接點複製」會因 blur 觸發重建而點空
+    $('output').textContent = TEMPLATES[type](v);
+  }
+
+  document.querySelectorAll('#f-type, #f-topic, #f-original, #f-audience, #f-style, #f-length, #f-usage, #f-extra')
+    .forEach(el => {
+      el.addEventListener('input', build);
+      el.addEventListener('change', build);
+    });
+  build();
+  </script>
+
+</body>
+</html>
