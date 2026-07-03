@@ -744,10 +744,43 @@ td {
 /* ─── Print（列印成講義用）─── */
 
 @media print {
+  @page { margin: 1.6cm 1.4cm 2.2cm; }
+
   body {
     background: white;
     font-size: 12pt;
     line-height: 1.7;
+  }
+
+  /* 每頁紙底部的版權宣告（position:fixed 在列印時會出現在每一頁） */
+  body::after {
+    content: "© 2026 TingYu's Deco — AI Workshop｜ttingyu1123.github.io/ai-workshop｜IG @doctor_tingyu";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 4pt;
+    background: white;
+    text-align: center;
+    font-family: var(--font-hand);
+    font-size: 9pt;
+    color: #999;
+  }
+
+  /* 淡淡的斜角浮水印，每頁一枚 */
+  body::before {
+    content: "TingYu's Deco";
+    position: fixed;
+    top: 45%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    transform: rotate(-28deg);
+    font-family: var(--font-hand);
+    font-size: 54pt;
+    font-weight: 700;
+    color: rgba(38, 61, 91, 0.06);
+    pointer-events: none;
   }
   .site-header,
   .site-footer,

@@ -119,6 +119,8 @@ ai-workshop/
 
 ## 注意事項
 
+- 列印（Ctrl+P）時每頁自動帶版權 footer 與「TingYu's Deco」淡浮水印（style.css `@media print` 的 `body::before/::after`），螢幕上不顯示；改署名時記得螢幕 footer（各頁 HTML）和 print footer（style.css）兩處都要改
+
 - 不要用 Delius Swash Caps 字型（大寫 I 看起來像 J，對 AI 主題致命）
 - Prompt 區塊的 `copyPrompt()` 函式在每個頁面的 `<script>` 中重複定義（刻意，避免外部 JS 依賴）
 - Google Flow 的免費額度是每日 50 credits，付費方案是每月額度
