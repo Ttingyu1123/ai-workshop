@@ -86,12 +86,22 @@ ai-workshop/
 
 ## 新增頁面 SOP
 
-1. 複製任一現有頁面作模板
-2. 更新 `<title>` / `<meta description>` / hero badge / h1
-3. 更新 header nav 的 `.active` class
-4. 更新 TOC 和底部 nav-links
-5. 在 index.html 加對應的課程卡片
-6. 確認 footer 連結正確
+1. 複製 google-flow.html 作模板（骨架最標準）
+2. 更新 `<title>` / `<meta description>` / og 四項（og:url 指向新頁）/ hero badge / h1
+3. header nav **不要動連結清單**，只把自己所屬分區標 `.active`（分區歸屬見「導航結構」）
+4. 更新 TOC；底部 nav-links 串進閱讀鏈（同時要改前一頁的「下一課」連結）
+5. nav-links 前加一個 `.box-success`「🎯 現在就做」小任務框（5-15 分鐘可完成的實作）
+6. 確認 `</head>` 前有 GA4 snippet（G-L05KFZJS9L，從模板複製就會帶到）
+7. 在 index.html 對應分區加課程卡片；sitemap.xml 補一條
+8. 含方案/價格/額度的內容：表格上方加「📅 資訊更新於 YYYY 年 M 月 — 以官方公告為準」；查證不到的數字寫保守描述，不編數字
+9. 有 `.prompt-block` 就要帶頁尾 `copyPrompt()` script（刻意每頁重複定義，不抽外部 JS）
+10. 驗收：`grep` 檢查頁內連結都指向存在的檔案、hero badge 與分區 active 一致
+
+### 交給 subagent 寫頁面時
+- Prompt 裡直接貼「完整 header nav 標記」與「底部 nav-links 標記」，不要讓 agent 自己推導
+- 要求先 WebSearch 查證工具現況（2-3 查詢），查不到就寫保守版，嚴禁編造額度/價格數字
+- 明確劃界：只寫這一個新檔案，不碰導航、不 commit
+- agent 回報完成後必驗：檔案存在、行數合理、結尾是 `</html>`、`copyPrompt` 與 copy-btn 數量相符 — agent 可能中途撞額度死掉，回報訊息可能只是 rate-limit 錯誤
 
 ## 待做項目
 
