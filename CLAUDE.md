@@ -28,7 +28,7 @@ ai-workshop/
 ├── canva.html          # 番外 — Canva 設計
 ├── github-pages.html   # 番外 — GitHub Pages 建站
 ├── prompt-builder.html # 番外 — Prompt 產生器（純前端字串組裝，零 API；表單樣式在頁內 <style>）
-├── images/ai-image/    # Part 4 生成結果對比圖（4-1~4-9，ChatGPT/Gemini 各一，WebP 長邊 1200px q82，來源 PNG 在 Downloads\教學素材）
+├── images/<頁名>/       # 內文圖片，一頁一資料夾（規格見「圖片擺放規範」）；ai-image/ = Part 4 對比圖（來源 PNG 在 Downloads\教學素材）
 ├── sitemap.xml         # 新增頁面時記得加一條
 ├── robots.txt
 ├── qr-site.png         # 首頁 QR code（實體課投影片用）
@@ -70,8 +70,29 @@ ai-workshop/
 - `.analogy` — 醫學類比框
 - `.box-tip` / `.box-danger` / `.box-success` — 提示框
 - `.box-success` 小任務框 — 每個課程頁底部 nav-links 前有一個「🎯 現在就做」5-15 分鐘實作任務（新頁面必加）
+- `.result-compare` — **本站圖片擺放的預設格式**（見下方「圖片擺放規範」）
 - `.site-header` — sticky header + 純 CSS 漢堡選單（checkbox hack）
 - `.site-footer` — footer 含 IG/GitHub SVG icon
+
+### 圖片擺放規範（預設格式）
+
+內文放圖一律用 `.result-compare` 縮圖 + lightbox 點擊放大，不要直接放大圖撐版面：
+
+```html
+<div class="result-compare">
+  <figure>
+    <img src="images/<頁名>/<slug>.webp" alt="<具體描述圖片內容>" loading="lazy">
+    <figcaption><span class="tool-chatgpt">ChatGPT</span> 生成結果</figcaption>
+  </figure>
+  <figure>…</figure>
+</div>
+```
+
+- **檔案**：存 `images/<頁名>/`，ASCII slug 檔名（CJK 檔名在 URL 會亂編碼）；WebP 長邊 ≤1200px、quality 82（Pillow：`im.save(out, "WEBP", quality=82, method=6)`），單檔控制在 ~150KB 內
+- **縮圖**：CSS 固定高度裁切頂部（桌面 180px / 手機 130px，`object-fit: cover`），雙欄並排；點擊開 lightbox 看全圖。直式海報用裁切、不用等比縮小（縮成細長條反而看不清）
+- **圖說**：工具對比用 `.tool-chatgpt`（綠）/ `.tool-gemini`（藍）著色；非對比情境 figcaption 寫圖片說明即可
+- **lightbox JS**：跟 `copyPrompt()` 同慣例，每頁 `<script>` 重複定義、不抽外部 JS — 從 ai-image.html 頁尾複製那段 IIFE（建立 `.lightbox`、點擊/Esc 關閉、鎖背景捲動）
+- **alt 文字**：必須先實際看過圖片內容再寫，不要從檔名猜
 
 ## 導航結構
 
@@ -96,7 +117,8 @@ ai-workshop/
 7. 在 index.html 對應分區加課程卡片；sitemap.xml 補一條
 8. 含方案/價格/額度的內容：表格上方加「📅 資訊更新於 YYYY 年 M 月 — 以官方公告為準」；查證不到的數字寫保守描述，不編數字
 9. 有 `.prompt-block` 就要帶頁尾 `copyPrompt()` script（刻意每頁重複定義，不抽外部 JS）
-10. 驗收：`grep` 檢查頁內連結都指向存在的檔案、hero badge 與分區 active 一致
+10. 有內文圖片就照「圖片擺放規範」：`.result-compare` 縮圖 + 頁尾 lightbox IIFE（從 ai-image.html 複製）
+11. 驗收：`grep` 檢查頁內連結都指向存在的檔案、hero badge 與分區 active 一致；有圖的頁面確認每個 img src 都有對應實體檔案
 
 ### 交給 subagent 寫頁面時
 - Prompt 裡直接貼「完整 header nav 標記」與「底部 nav-links 標記」，不要讓 agent 自己推導
