@@ -457,12 +457,12 @@ Camera: Static, close-up on hands<button class="copy-btn" onclick="copyPrompt(th
           <tr><td><strong>Type Overlays</strong></td><td>幫影片加動態文字疊層，右側面板分 Design／Animate 兩頁籤：Design 管字體排印（字型、字重、字級、行高、字距、對齊、顏色、Media Opacity、九宮格定位）；Animate 管動畫 — 5 種進出場轉場（None/Blur/Slide Up/Fade/Appear）＋ 4 種 Kinetic 動態（Stack/Wave/Wiggle/Shuffle），可選按字元/單字/整行套用、Linear/Smooth 平滑度與速度；底部時間軸可拖拉文字出現的時間區段，完成後 Render Video 輸出（實測 2026-07）</td></tr>
           <tr><td><strong>PixelBento</strong></td><td>lo-fi／glitch 復古畫質特效台（數位藝術家 László Gaal 開發）：載入圖片或影片後，右側一排日式羅馬拼音命名的效果模組（DYUTON 雙色調、BLUMI 光暈、GURICHU 故障、RETORO 復古、ANAROGU 類比…共 13 款）可個別開關、轉四角旋鈕微調、自由疊加，頂部 MIX 滑桿控整體混合強度；進階玩法是 RECORD AUTOMATION — 邊播邊錄下你轉旋鈕的動作，變成隨時間變化的效果自動化；輸出可 Export 影片或 Capture Frame 擷取停格（實測 2026-07）</td></tr>
           <tr><td><strong>Poster Designer</strong></td><td>圖層式動態海報編輯器：直式畫布上疊文字/圖片圖層（左下 LAYERS 面板管理，Canvas 為底層），每個圖層在底部 8 秒時間軸上是一條可拖拉的 clip，控制何時出現；選取圖層後右側 Design 頁籤調字型/字級/字距/行高/旋轉/對齊/顏色/不透明度/混合模式，Animate 頁籤給每層加效果 — 跟 Type Overlays 幾乎同一套文字動畫（None/Blur/Explode/Fade/Appear/Stack/Wave/Wiggle/Shuffle 九宮格，按字元/字/行套用），但多了起始時間/持續長度/速度/強度四支細調滑桿；CONTENT 框直接改文字。兩款的分工：Type Overlays 是在「現成影片」上疊字，這款是從零搭「多層圖文海報」再讓它動；成品輸出動態海報影片，或擷取任一格當靜態海報（實測 2026-07）</td></tr>
-          <tr><td><strong>Video Sketch</strong></td><td>在影片上疊加手繪塗鴉，並讓塗鴉動起來 — 在衛教影片上手繪箭頭、圈重點</td></tr>
-          <tr><td><strong>Transition Machine</strong></td><td>在多段影片之間生成無縫轉場</td></tr>
-          <tr><td><strong>Weirdcore</strong></td><td>把影片炸裂、切碎、融化、扭曲 — 故障美學特效（Google Creative Lab 出品）</td></tr>
-          <tr><td><strong>Video Resizer</strong></td><td>把影片重新調整成任意長寬比 — 橫式影片一鍵轉直式短影音</td></tr>
-          <tr><td><strong>Stringout Creator</strong></td><td>把多段影片片段串接成一支影片 — 快速粗剪</td></tr>
-          <tr><td><strong>Video Granulator</strong></td><td>把影片當「樂器」演奏 — 顆粒化取樣、即興重組畫面</td></tr>
+          <tr><td><strong>Video Sketch</strong></td><td>在影片上疊手繪塗鴉與文字：Import Media 載入影片後，Sketch 塗鴉層和 Text 文字層各自在底部時間軸是一條可拖拉的 clip，控制何時出現；筆刷有 14 色調色盤（可自訂色）、粗細、透明度與橡皮擦，畫好還能套手繪線條的動態效果，Render Video 輸出 — 衛教影片上手繪箭頭、圈重點的首選（實測 2026-07）</td></tr>
+          <tr><td><strong>Transition Machine</strong></td><td>給兩段影片生成無縫轉場：介面並排 Clip One／Clip Two（各顯示首尾幀），中間 Transition Description 文字框描述鏡頭如何從 A 銜接到 B（例如「dolly-in 推進穿過人物頭髮的暗部、再高速拉出到下一景」），轉場長度可選 4／6／8 秒、另有省額度的 LITE 模式，按 Generate Transitions 生成（實測 2026-07）</td></tr>
+          <tr><td><strong>Weirdcore</strong></td><td>故障美學特效台（Google Creative Lab 出品）：10 種效果各附一句定位 — Fry（contrast crunch 對比爆裂）、Cutter（time travel）、Smooth（dreamy blur）、Tape（lost memory）、Emboss（ultratextured）、Shake（motion roll）、Blocks（grid scatter 網格散射）、Drift（color waves）、Melt（pixel sort 像素排序）、Echo（temporal ghosting 殘影），用 Effect Stack 疊加多款或 Random 抽隨機配方，每款有專屬參數滑桿（如 Blocks 的 Intensity/Grid Size/Scale Chaos/Offset/Rotation），Render 輸出（實測 2026-07）</td></tr>
+          <tr><td><strong>Video Resizer</strong></td><td>把影片轉成任意長寬比，全程三步：載入影片（Active Media 顯示解析度與秒數，可 Replace Source 換片）→ 選 Output Ratio（如 9:16）→ Alignment 選 FILL（裁滿畫面）或 FIT（完整保留、上下留黑邊），Export Video 輸出 — 橫式衛教影片轉直式短影音就靠這款（實測 2026-07）</td></tr>
+          <tr><td><strong>Stringout Creator</strong></td><td>多段片段串接粗剪：Import（挑 Flow 素材庫）或 Upload（上傳檔案）進底部時間軸排序，全域設定統一長寬比與 Fill/Fit 縮放；每段時長選 Full（完整播畢）或 Custom（統一秒數，拉到 0.4 秒就是快閃剪輯），可 Add Text 插字卡、Shuffle 一鍵隨機重排，Save Stringout 輸出（實測 2026-07）</td></tr>
+          <tr><td><strong>Video Granulator</strong></td><td>把影片當「樂器」演奏的顆粒合成器，介面做成復古硬體取樣機（Video Granular Synthesizer）：把影片切成毫秒級顆粒重組播放，旋鈕控 Play Speed/Grain Speed/Size（如 230ms）/Jitter 抖動與 Reverse 倒放；附 AUDIO FX（Reverb/Room/Delay/Feedback）與 VISUAL FX（Echo/Smear＋CRT/Glitch 開關）；底部音訊波形條拖 IN/OUT 設循環區間，按 REC 錄下你的即興操作成輸出成品（實測 2026-07）</td></tr>
         </tbody>
       </table>
 
