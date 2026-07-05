@@ -150,7 +150,7 @@
     <!-- ─── Prompt Examples ─── -->
     <section id="prompt-examples">
       <h2>衛教圖 Prompt 範例</h2>
-      <p>以下每個 Prompt 都可以直接複製貼到 ChatGPT 中使用。點右上角按鈕一鍵複製。每個 Prompt 下方附上<strong>同一段 Prompt 分別丟給 ChatGPT 和 Gemini 的實際生成結果</strong>，讓你比較兩個工具的表現差異。</p>
+      <p>以下每個 Prompt 都可以直接複製貼到 ChatGPT 中使用。點右上角按鈕一鍵複製。每個 Prompt 下方附上<strong>同一段 Prompt 分別丟給 ChatGPT 和 Gemini 的實際生成結果</strong>，讓你比較兩個工具的表現差異 — 點縮圖可放大檢視完整圖片。</p>
 
       <h3>基礎：單張衛教插圖</h3>
       <div class="prompt-block">
@@ -515,6 +515,31 @@
   </footer>
 
   <script>
+  (function () {
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<span class="lightbox-close">✕ 關閉</span><img alt=""><div class="lightbox-caption"></div>';
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img');
+    const lbCap = lb.querySelector('.lightbox-caption');
+    document.querySelectorAll('.result-compare figure').forEach(fig => {
+      fig.addEventListener('click', () => {
+        const img = fig.querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = fig.querySelector('figcaption').textContent;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    lb.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  })();
+
   function copyPrompt(btn) {
     const content = btn.parentElement;
     const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();

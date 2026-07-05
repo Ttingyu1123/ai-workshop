@@ -464,7 +464,7 @@ strong { font-weight: 700; }
   background: var(--highlighter-green);
 }
 
-/* ─── Result Compare（Prompt 生成結果對比）─── */
+/* ─── Result Compare（Prompt 生成結果對比：縮圖 + 點擊放大）─── */
 
 .result-compare {
   display: grid;
@@ -477,25 +477,42 @@ strong { font-weight: 700; }
   background: white;
   border: var(--doodle-border);
   border-radius: 10px;
-  padding: 0.6rem 0.6rem 0.3rem;
+  padding: 0.5rem 0.5rem 0.2rem;
+  position: relative;
+  cursor: zoom-in;
   transition: transform 0.15s ease;
 }
 
 .result-compare figure:hover { transform: rotate(-0.5deg); }
 
+.result-compare figure::after {
+  content: '🔍';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--highlighter-yellow);
+  border: 1.5px solid var(--text);
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
 .result-compare img {
   width: 100%;
-  height: auto;
+  height: 180px;
+  object-fit: cover;
+  object-position: top;
   display: block;
   border-radius: 5px;
 }
 
 .result-compare figcaption {
   font-family: var(--font-hand);
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
   text-align: center;
-  padding: 0.4rem 0 0.2rem;
+  padding: 0.35rem 0 0.15rem;
   color: var(--text-light);
 }
 
@@ -503,7 +520,50 @@ strong { font-weight: 700; }
 .result-compare figcaption .tool-gemini { color: var(--primary); }
 
 @media (max-width: 640px) {
-  .result-compare { grid-template-columns: 1fr; }
+  .result-compare { gap: 0.6rem; }
+  .result-compare img { height: 130px; }
+}
+
+/* ─── Lightbox（縮圖點擊放大預覽）─── */
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(17, 24, 39, 0.88);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2rem 1rem;
+  cursor: zoom-out;
+}
+
+.lightbox.open { display: flex; }
+
+.lightbox img {
+  max-width: min(92vw, 900px);
+  max-height: 82vh;
+  border: 4px solid white;
+  border-radius: 8px;
+  background: white;
+}
+
+.lightbox-caption {
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 1.6rem;
+  color: white;
+  font-family: var(--font-hand);
 }
 
 /* ─── Table ─── */
