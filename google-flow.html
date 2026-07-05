@@ -278,14 +278,13 @@ Camera: Static, close-up on hands<button class="copy-btn" onclick="copyPrompt(th
     <!-- ─── Storyboard ─── -->
     <section id="storyboard">
       <h2>分鏡工具</h2>
-      <p>Flow 工具庫（<a href="#flow-tools">Flow Tools</a>）中的官方精選工具 <strong>Storyboard Studio</strong>，可以寫劇本、建角色卡，再把多段影片片段串接成完整的故事：</p>
+      <p>Flow 工具庫（<a href="#flow-tools">Flow Tools</a>）中的官方精選工具 <strong>Storyboard Studio</strong>，用三個頁籤把「一個故事想法」一路帶到完整分鏡（實測 2026-07）：</p>
 
       <div class="card">
         <ol>
-          <li><strong>建立分鏡板</strong> — 每格對應一個影片片段</li>
-          <li><strong>逐格生成</strong> — 為每格寫 Prompt 或上傳首幀圖</li>
-          <li><strong>調整順序</strong> — 拖拉重新排列</li>
-          <li><strong>串接匯出</strong> — 自動接合所有片段</li>
+          <li><strong>1. Script 劇本</strong> — 專業劇本編輯器，格式列有 Title／Scene／Dialog／Transition 四種段落型別可切換；不想手寫就用底部對話框叫 AI 代勞（「Describe the story, edit scenes, update dialog...」）— 描述故事、改場景、改對白都是一句話的事。右上角先選好整體視覺 Style（如 Realistic）</li>
+          <li><strong>2. Assets 素材</strong> — 建立故事會用到的角色與場景資產</li>
+          <li><strong>3. Storyboard 分鏡</strong> — 把劇本視覺化成完整分鏡</li>
         </ol>
       </div>
       <p>這個工具特別適合製作 30-60 秒的衛教影片 — 把每個分鏡拆開處理，最後組合。</p>
@@ -470,11 +469,11 @@ Camera: Static, close-up on hands<button class="copy-btn" onclick="copyPrompt(th
       <table>
         <thead><tr><th style="white-space:nowrap;">工具</th><th>做什麼</th></tr></thead>
         <tbody>
-          <tr><td><strong>Character X-Ray</strong></td><td>深入發展角色的設定與背景故事，讓角色在後續生成中更立體一致</td></tr>
-          <tr><td><strong>Style Writer</strong></td><td>把情緒板（mood board）轉成風格 Prompt — 丟參考圖，AI 幫你寫出風格描述</td></tr>
-          <tr><td><strong>Storyboard Studio</strong></td><td>寫劇本、建角色卡、視覺化成完整分鏡 — 用法見上方<a href="#storyboard">分鏡工具</a>一節</td></tr>
-          <tr><td><strong>Prompt Tree</strong></td><td>用分支樹狀結構管理 Prompt — 每個修改開一條分支，做精準的逐步編輯</td></tr>
-          <tr><td><strong>Story Sketch</strong></td><td>建立能跟隨任何視覺風格的分鏡腳本</td></tr>
+          <tr><td><strong>Character X-Ray</strong></td><td>用「AI 藝術指導」把公式化角色磨立體：左欄輸入一句 Brief（實測中文「可愛的小女孩」也通）生成角色圖＋Wardrobe 穿搭與 Psychology 性格設定文字；按 Get feedback 後右欄從 Wardrobe／Style／Color／Lore 四面向點出角色太「樣板」的地方（如「原色配色像量販目錄，缺乏個性」「皮膚渲染太無菌，像收藏公仔」），每面向給 2 個具體修改建議可點選（也能自填、刷新重抽），挑滿 2 項後按 Write prompt 產出強化版角色 prompt（實測 2026-07）</td></tr>
+          <tr><td><strong>Style Writer</strong></td><td>把參考圖（情緒板）轉成可重複使用的風格描述：Upload images 或 Media Grid 選入圖片、勾選後按 Update style summary，AI 產出分段風格摘要 — Visual Style／Composition／Attitude／Colors／Lighting 各一段，關鍵詞粗體標示；摘要可直接編輯，最後 Copy text 或 Export as markdown 帶去別的工具當風格 prompt（實測 2026-07）</td></tr>
+          <tr><td><strong>Storyboard Studio</strong></td><td>三步驟頁籤 Script → Assets → Storyboard：先寫劇本、再建素材、最後視覺化成分鏡 — 用法見上方<a href="#storyboard">分鏡工具</a>一節（實測 2026-07）</td></tr>
+          <tr><td><strong>Prompt Tree</strong></td><td>把 Prompt 整理成一棵「細節樹」：先輸入主體，再往下掛細節、細節下再掛子細節，AI 把整棵樹翻譯成最佳化 prompt 出圖；生成後直接改樹上的節點，AI 會解讀你的改動、產生針對性的修改 prompt 去調整圖片 — 比整段重寫更精準的逐步編輯（官方入口說明補正 2026-07）</td></tr>
+          <tr><td><strong>Story Sketch</strong></td><td>極簡分鏡板：頂部 Instructions 欄輸入一次全片視覺風格（如 cinematic、warm lighting），下方 Add shot 逐格新增分鏡，整批分鏡共用同一套風格設定（實測 2026-07）</td></tr>
         </tbody>
       </table>
 
