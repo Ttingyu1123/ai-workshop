@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Flow 實戰 — 免費 AI 創作平台</title>
-  <meta name="description" content="Google Flow 完整教學 — 圖像生成、影片製作，免費額度足夠日常使用。">
+  <meta name="description" content="Google Flow 完整教學 — 圖像生成、影片製作、場景控制與 34 款創意工具庫，免費額度足夠日常使用。">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Google Flow 實戰 — 免費 AI 創作平台">
-  <meta property="og:description" content="Google Flow 完整教學 — 圖像生成、影片製作，免費額度足夠日常使用。">
+  <meta property="og:description" content="Google Flow 完整教學 — 圖像生成、影片製作、場景控制與 34 款創意工具庫，免費額度足夠日常使用。">
   <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/google-flow.html">
   <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
   <meta name="twitter:card" content="summary">
@@ -59,7 +59,9 @@
         <li><a href="#credits">免費額度與方案</a></li>
         <li><a href="#image-gen">圖像生成（Nano Banana）</a></li>
         <li><a href="#video-gen">影片生成（Gemini Omni / Veo 3.1）</a></li>
+        <li><a href="#scene-assets">場景控制與素材管理</a></li>
         <li><a href="#storyboard">分鏡工具</a></li>
+        <li><a href="#flow-tools">Flow Tools 創意工具庫（34 款）</a></li>
         <li><a href="#workflow">衛教影片完整工作流</a></li>
       </ol>
     </nav>
@@ -83,8 +85,8 @@
           <p>內建 Gemini Omni 助手，用自然語言指導創作和編輯，不需要學複雜操作。</p>
         </div>
         <div class="card">
-          <strong>🎨 編輯工具</strong>
-          <p>分鏡工具、影片裁切、文字覆蓋、Shader 特效、解析度提升。</p>
+          <strong>🧰 Flow Tools 工具庫</strong>
+          <p>34 款創意小工具 — 分鏡、海報、特效、轉檔一應俱全，詳見<a href="#flow-tools">下方總覽</a>。</p>
         </div>
       </div>
 
@@ -133,6 +135,16 @@
         </ul>
       </div>
 
+      <h3>圖片編輯工具</h3>
+      <div class="card">
+        <ul>
+          <li><strong>Lasso 框選</strong> — 圈出圖片的某個區域，用文字指令只改那一塊</li>
+          <li><strong>Drawing 手繪標記</strong> — 直接在圖上畫出你想修改的位置</li>
+          <li><strong>自然語言編輯</strong> — 用一句話描述修改：「把背景那個人移除」「天空改成黃昏」</li>
+          <li><strong>解析度放大</strong> — 圖片可放大到 2K（4K 放大為付費方案功能）</li>
+        </ul>
+      </div>
+
       <div class="prompt-block">
         <div class="prompt-label">Flow 生圖 — 衛教海報</div>
         <div class="prompt-content">生成一張衛教海報。
@@ -166,6 +178,14 @@
           <p>上傳現有影片，用文字描述修改（風格轉換、元素替換）。</p>
         </div>
         <div class="card">
+          <strong>首尾幀生成（Frames to Video）</strong>
+          <p>給定起始和結束兩張影格，AI 生成中間的動畫過程。最適合「狀態 A 變成狀態 B」的衛教演示。</p>
+        </div>
+        <div class="card">
+          <strong>素材組合（Ingredients to Video）</strong>
+          <p>選多個素材（人物、物件、場景）組進同一個畫面，再用 Prompt 指定它們怎麼互動。</p>
+        </div>
+        <div class="card">
           <strong>Lite 模式</strong>
           <p>零 credits 的輕量版，品質較低但完全免費，適合快速測試想法。</p>
         </div>
@@ -187,10 +207,78 @@ Camera: Static, close-up on hands<button class="copy-btn" onclick="copyPrompt(th
 
     <hr class="section-divider">
 
+    <!-- ─── Scene & Assets ─── -->
+    <section id="scene-assets">
+      <h2>場景控制與素材管理</h2>
+      <p>生出單段影片只是第一步。Flow 真正的價值在於「把多段片段變成一支連貫影片」的場景控制，以及把生成過的素材管理起來重複使用。</p>
+
+      <h3>場景與運鏡控制</h3>
+      <div class="card-grid">
+        <div class="card">
+          <strong>🎞️ Scenebuilder 場景組裝</strong>
+          <p>把多個生成片段組成連貫的場景序列，在同一個介面裡編排前後順序。</p>
+        </div>
+        <div class="card">
+          <strong>⏭️ Jump To 無縫轉場</strong>
+          <p>AI 理解前一鏡結尾的畫面，讓角色「跳」到新場景仍保持外觀一致——解決 AI 影片最常見的「換鏡頭就變臉」問題。</p>
+        </div>
+        <div class="card">
+          <strong>🎥 Camera Controls 運鏡</strong>
+          <p>直接控制鏡頭平移、縮放、角度，生成前可以先預覽運鏡效果。</p>
+        </div>
+        <div class="card">
+          <strong>➕ Extend 片段延伸</strong>
+          <p>延長既有片段（最長可再延伸約 1 分鐘），畫面與音訊保持連續。</p>
+        </div>
+        <div class="card">
+          <strong>💡 燈光與氛圍</strong>
+          <p>調整色調、亮度、陰影氛圍，不用重新生成整段影片。</p>
+        </div>
+        <div class="card">
+          <strong>🔊 音訊同步生成</strong>
+          <p>影像和聲音一起生成、彼此對齊，不是事後配音。</p>
+        </div>
+      </div>
+
+      <h3>素材與 AI 助手</h3>
+      <div class="card-grid">
+        <div class="card">
+          <strong>👤 Characters 角色資產</strong>
+          <p>建立角色檔案，讓同一個角色能延續出現在不同影片和場景中。</p>
+        </div>
+        <div class="card">
+          <strong>🧑‍⚕️ Avatars 虛擬化身</strong>
+          <p>生成個人化虛擬人物，用於解說類內容。</p>
+        </div>
+        <div class="card">
+          <strong>🗂️ Asset Grid 素材庫</strong>
+          <p>生成過的圖片和影片可以搜尋、篩選、分類——素材愈積愈多時特別重要。</p>
+        </div>
+        <div class="card">
+          <strong>🤖 Flow Agent</strong>
+          <p>以 Gemini 為基礎的創意夥伴：腦力激盪、批次修改、幫你組織專案。</p>
+        </div>
+        <div class="card">
+          <strong>📺 Flow TV</strong>
+          <p>瀏覽依主題分類的社群生成內容——找靈感、看別人的 Prompt 怎麼寫。</p>
+        </div>
+        <div class="card">
+          <strong>📱 行動 App</strong>
+          <p>Flow Android 版已推出 beta（iOS 待推出）；另有 Flow Music（iOS 先行）。</p>
+        </div>
+      </div>
+
+      <div class="analogy">
+        Characters 角色資產就像病歷 — 同一位病人（角色）每次回診（出現在新場景），都能調出一致的資料（外觀），不用重新問診。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
     <!-- ─── Storyboard ─── -->
     <section id="storyboard">
       <h2>分鏡工具</h2>
-      <p>Flow 內建的 Storyboard Studio 可以把多段影片片段串接成完整的故事：</p>
+      <p>Flow 工具庫（<a href="#flow-tools">Flow Tools</a>）中的官方精選工具 <strong>Storyboard Studio</strong>，可以寫劇本、建角色卡，再把多段影片片段串接成完整的故事：</p>
 
       <div class="card">
         <ol>
@@ -201,6 +289,86 @@ Camera: Static, close-up on hands<button class="copy-btn" onclick="copyPrompt(th
         </ol>
       </div>
       <p>這個工具特別適合製作 30-60 秒的衛教影片 — 把每個分鏡拆開處理，最後組合。</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Flow Tools ─── -->
+    <section id="flow-tools">
+      <h2>Flow Tools 創意工具庫（34 款）</h2>
+      <p>Flow 在 2026 年 5 月推出 <strong>Flow Tools</strong>：一個內建的創意工具庫，登入後在 Tools 頁籤就能看到，分成 Image、Video、Prompting、Experimental 四類共 34 款。每款都是「單一用途的小工具」——不用學完整套 Flow，挑一款點開就能用。你甚至可以用自然語言自建工具、分享給別人、或 remix 別人做好的工具，完全不用寫程式。</p>
+
+      <div class="box-tip">
+        <strong>為什麼初學者該從這裡開始：</strong>市面上 AI 工具多到讓人焦慮 — 生圖裝一個 App、修圖再裝一個、做海報又註冊一個網站。Flow Tools 把這 34 種用途收在<strong>同一個帳號、同一套免費額度</strong>裡。先在這裡把需求試過一輪，確定哪種創作是你常用的，再考慮要不要找專門工具。
+      </div>
+
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 資訊更新於 2026 年 7 月 — 工具庫會持續增減，以站內實際顯示為準。標 ⏳ 的工具 Google 尚未公開文字說明，介紹與範例圖將在實測後補上。</p>
+
+      <h3>🖼️ Image 圖像類（8 款）</h3>
+      <table>
+        <thead><tr><th style="white-space:nowrap;">工具</th><th>做什麼</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Simple Sketch</strong></td><td>⏳ 官方尚未公開說明 — 待實測補上</td></tr>
+          <tr><td><strong>Scene Explorer</strong></td><td>⏳ 官方尚未公開說明 — 待實測補上</td></tr>
+          <tr><td><strong>Mockup</strong></td><td>把圖片合成到不同的環境情境中 — 例如把衛教海報「放進」候診區牆面看效果</td></tr>
+          <tr><td><strong>Image Editor</strong></td><td>圖層式圖片編輯器：變換物件、加文字、調整尺寸</td></tr>
+          <tr><td><strong>Shot Explorer</strong></td><td>用全新鏡頭角度重看同一個場景，一次產生多種取景，不用重新生成</td></tr>
+          <tr><td><strong>Mask Magic</strong></td><td>⏳ 官方尚未公開說明 — 待實測補上</td></tr>
+          <tr><td><strong>Converge</strong></td><td>把手繪草圖渲染成完稿圖像 — 先隨手畫構圖，AI 幫你畫完</td></tr>
+          <tr><td><strong>Grid Architect</strong></td><td>建立圖片網格排列，也能從網格中拆出單張圖片 — 適合做對比圖、多格衛教卡</td></tr>
+        </tbody>
+      </table>
+
+      <h3>🎬 Video 影片類（10 款）</h3>
+      <table>
+        <thead><tr><th style="white-space:nowrap;">工具</th><th>做什麼</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Shader Effects</strong></td><td>對影片或圖片套用可自訂的視覺濾鏡特效</td></tr>
+          <tr><td><strong>Type Overlays</strong></td><td>幫影片加上動態文字疊層 — 標題、字卡動畫</td></tr>
+          <tr><td><strong>PixelBento</strong></td><td>復古畫質特效：VHS 錄影帶、2000 年代網路攝影機的 lo-fi／glitch 美學（數位藝術家 László Gaal 開發）</td></tr>
+          <tr><td><strong>Poster Designer</strong></td><td>海報圖文設計工具，底部有時間軸可為圖層做動畫；停在任一格就是一張靜態海報</td></tr>
+          <tr><td><strong>Video Sketch</strong></td><td>⏳ 官方尚未公開說明 — 待實測補上</td></tr>
+          <tr><td><strong>Transition Machine</strong></td><td>⏳ 官方尚未公開說明 — 待實測補上</td></tr>
+          <tr><td><strong>Weirdcore</strong></td><td>⏳ Google Creative Lab 出品，官方尚未公開文字說明 — 待實測補上</td></tr>
+          <tr><td><strong>Video Resizer</strong></td><td>把影片重新調整成任意長寬比 — 橫式影片一鍵轉直式短影音</td></tr>
+          <tr><td><strong>Stringout Creator</strong></td><td>⏳ 官方尚未公開說明（stringout 是剪輯術語：把素材依序串成粗剪）— 待實測補上</td></tr>
+          <tr><td><strong>Video Granulator</strong></td><td>⏳ 官方尚未公開說明 — 待實測補上</td></tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Prompting 提示詞類（5 款）</h3>
+      <table>
+        <thead><tr><th style="white-space:nowrap;">工具</th><th>做什麼</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Character X-Ray</strong></td><td>深入發展角色的設定與背景故事，讓角色在後續生成中更立體一致</td></tr>
+          <tr><td><strong>Style Writer</strong></td><td>⏳ 官方尚未公開說明 — 待實測補上</td></tr>
+          <tr><td><strong>Storyboard Studio</strong></td><td>寫劇本、建角色卡、視覺化成完整分鏡 — 用法見上方<a href="#storyboard">分鏡工具</a>一節</td></tr>
+          <tr><td><strong>Prompt Tree</strong></td><td>⏳ 官方尚未公開說明 — 待實測補上</td></tr>
+          <tr><td><strong>Story Sketch</strong></td><td>⏳ 官方尚未公開說明 — 待實測補上</td></tr>
+        </tbody>
+      </table>
+
+      <h3>🧪 Experimental 實驗類（11 款）</h3>
+      <table>
+        <thead><tr><th style="white-space:nowrap;">工具</th><th>做什麼</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Frame Deconstructor</strong></td><td>⏳ 官方尚未公開說明 — 待實測補上</td></tr>
+          <tr><td><strong>Blob Tracking</strong></td><td>在影片上疊加科幻風追蹤特效：節點、外框方塊、隨機 ID 編號（社群創作者 Arden Schager 開發）</td></tr>
+          <tr><td><strong>DepthWarp 4D</strong></td><td>⏳ 官方尚未公開說明 — 待實測補上</td></tr>
+          <tr><td><strong>Webcam Set</strong></td><td>⏳ 官方尚未公開說明 — 待實測補上</td></tr>
+          <tr><td><strong>Datamosh</strong></td><td>⏳ Google Creative Lab 出品，官方尚未公開文字說明（datamosh 是經典故障藝術技法：色彩融化、殘影拖曳）— 待實測補上</td></tr>
+          <tr><td><strong>3D Model Visualizer</strong></td><td>⏳ 官方尚未公開說明 — 待實測補上</td></tr>
+          <tr><td><strong>Scout360</strong></td><td>從一張圖片生成 360 度環景空間 — 一張診間照片變成可環顧的場景</td></tr>
+          <tr><td><strong>Ribbit</strong></td><td>讓影片跟著音樂節拍即時「演奏」播放，像 VJ 表演一樣</td></tr>
+          <tr><td><strong>Whisk</strong></td><td>用三張圖片當 Prompt：主體＋場景＋風格，合成一張全新圖像。原是 Google Labs 獨立產品，2026 年 2 月併入 Flow</td></tr>
+          <tr><td><strong>Pose Text</strong></td><td>⏳ 官方尚未公開說明 — 待實測補上</td></tr>
+          <tr><td><strong>3D Face Swap</strong></td><td>⏳ 官方尚未公開說明 — 待實測補上</td></tr>
+        </tbody>
+      </table>
+
+      <div class="box-tip">
+        <strong>延伸閱讀：</strong>官方工具庫精選頁 <a href="https://labs.google/fx/tools/flow" target="_blank">labs.google/fx/tools/flow</a>（僅列部分工具）；自建與管理工具的官方說明見 <a href="https://support.google.com/labs/answer/17104535" target="_blank">Flow 說明中心</a>。完整 34 款清單需登入 Flow 後在 Tools 頁籤瀏覽。
+      </div>
     </section>
 
     <hr class="section-divider">
