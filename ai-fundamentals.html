@@ -58,6 +58,7 @@
       <ol>
         <li><a href="#why-now">AI 為什麼突然爆發</a></li>
         <li><a href="#llm">LLM — 大型語言模型</a></li>
+        <li><a href="#reasoning">推理模型 — 會先想再答的 AI</a></li>
         <li><a href="#prompt">Prompt — 提示詞</a></li>
         <li><a href="#token">Token — 代幣</a></li>
         <li><a href="#multimodal">多模態</a></li>
@@ -82,6 +83,7 @@
         <li><strong>2023</strong>：GPT-4 發布，能力大幅躍升。Google 推出 Gemini 應戰。AI 生圖（Midjourney、DALL-E）品質突破</li>
         <li><strong>2024</strong>：AI 開始能「看」（圖片理解）、「聽」（語音對話）、「做」（Agent 操作電腦）。Claude、Gemini 迎頭趕上</li>
         <li><strong>2025</strong>：AI Agent 成為主流。Claude Code、OpenAI Codex 讓 AI 直接幫你寫程式、操作系統。AI 影片生成（Veo、Sora）逐步成熟</li>
+        <li><strong>2026</strong>：推理模型（會先「想」再回答）成為各家標配；Agent 從工程師的玩具變成一般工作者的日常工具</li>
       </ul>
       <p>現在的 AI 不再只是「聊天機器人」。它是一個能讀、能寫、能看圖、能生圖、能寫程式、能上網搜尋的<span class="highlight">多功能工具</span>。這份講義會幫你搞懂它到底是怎麼運作的。</p>
     </section>
@@ -104,6 +106,25 @@
       <h3>模型大小與能力</h3>
       <p>模型有大有小。大模型（各家的旗艦版本）能力強但慢且貴；小模型（名稱常帶 mini、Flash、Haiku 等字樣）快又便宜但能力有限。免費版通常用的是中小型模型。</p>
       <p>一般日常使用，中型模型就很夠用了。不用追最大最貴的。</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Reasoning ─── -->
+    <section id="reasoning">
+      <h2>推理模型 — 會先想再答的 AI</h2>
+      <div class="analogy">像值班接到照會 — 簡單問題電話裡直接回；困難的病人會說「我先看一下病歷再回你」。推理模型就是 AI 的「先看病歷再回答」。</div>
+      <p>2025 年起，各家主流模型都多了一種「思考模式」（介面上常標示 Thinking、思考或推理）。差別在於：一般模式讀完你的問題就直接生成答案；<strong>思考模式會先在內部寫一段草稿推理 — 拆解問題、檢查自己的邏輯、排除錯誤選項 — 想完才給你最終答案</strong>。</p>
+      <p>這帶來明顯的能力差異：數學計算、統計判讀、多步驟邏輯、複雜的分析比較，思考模式的錯誤率大幅下降。代價是<strong>更慢、更耗額度</strong>。所以重點不是「永遠開著」，而是知道何時開、何時不用：</p>
+      <table>
+        <thead><tr><th>適合開思考模式</th><th>不需要開</th></tr></thead>
+        <tbody>
+          <tr><td>判讀論文的統計方法是否合適</td><td>翻譯、潤稿、改語氣</td></tr>
+          <tr><td>比較多篇文獻的矛盾結論</td><td>格式轉換（文字轉表格）</td></tr>
+          <tr><td>多條件的計算與排程問題</td><td>快問快答、名詞解釋</td></tr>
+        </tbody>
+      </table>
+      <div class="box-tip">思考模式不是「更聰明的另一個 AI」，而是同一個模型多花時間檢查自己。它一樣會幻覺 — 只是機率更低。涉及醫療內容的驗證原則（見下方幻覺一節）完全不變。</div>
     </section>
 
     <hr class="section-divider">
@@ -162,6 +183,7 @@
         </tbody>
       </table>
       <p>記住一個原則：<span class="highlight">你給 AI 的資訊越多、越具體，AI 的輸出就越好</span>。不要怕 Prompt 太長 — 長而精確永遠比短而模糊好。</p>
+      <div class="box-tip"><strong>2026 年的新關鍵字：Context Engineering（上下文工程）。</strong>Prompt Engineering 教你「怎麼下指令」，Context Engineering 更進一步：<strong>與其雕琢指令字句，不如給對材料</strong> — 把相關的指引 PDF、想模仿的範本、寫得好的舊範例一起餵給 AI，效果通常勝過任何華麗的咒語。後面 RAG 一節就是這個思路的技術版。</div>
     </section>
 
     <hr class="section-divider">
@@ -286,6 +308,11 @@
         <li>「幫我做一個病人衛教的網頁」→ Agent 會規劃架構、寫程式碼、測試、修正錯誤，最後給你一個可運作的網頁</li>
       </ul>
       <p>目前最知名的 Agent 工具：Claude Code（Anthropic）、Codex（OpenAI）、Antigravity 等。這是 Part 7 的主題。</p>
+      <h3>Harness — 決定 Agent 好不好用的隱形工程</h3>
+      <div class="analogy">同一位住院醫師，在有 protocol、checklist、主治覆核的醫院表現穩定；在什麼制度都沒有的地方就容易出包。Harness 就是 AI 的「制度」。</div>
+      <p>Harness（原意是馬具、安全吊帶）是 2026 年 AI 圈的熱門詞，指<strong>包在 AI 模型外面的那層工程</strong>：它能用哪些工具、看得到哪些資料、產出要經過什麼驗證、哪些高風險動作必須先停下來問人。</p>
+      <p>這解釋了一個常見疑惑：為什麼感覺是同一顆模型，在聊天網頁、在 Agent 工具、在某個內嵌系統裡表現天差地遠 — 因為 <strong>AI 產品的好壞，一半來自模型本身，另一半來自 harness 的設計</strong>。挑 AI 工具時，別只看「用的是哪個模型」，也要看它讓 AI 在什麼制度下工作。</p>
+      <p>順帶認識一個會越來越常見的縮寫：<strong>MCP（Model Context Protocol）</strong>— 讓 AI 接上各種外部工具與資料庫的通用接頭標準，可以想成「AI 界的 USB-C」，各大 AI 公司都已採用。看到產品宣稱「支援 MCP」，意思就是它能讓 AI 外接更多工具。</p>
     </section>
 
     <hr class="section-divider">
@@ -351,6 +378,7 @@
         <li><strong>病歷摘要</strong>：濃縮冗長的入院病摘（注意：不要把真實病人資料貼進公開 AI 工具）</li>
         <li><strong>轉介信/出院摘要</strong>：給 AI 重點，讓它擴寫成正式格式</li>
         <li><strong>會議紀錄</strong>：語音轉文字 + 重點整理</li>
+        <li><strong>AI 跟診紀錄（Ambient AI Scribe）</strong>：AI 在診間「旁聽」醫病對話，自動生成病歷草稿，醫師審核後才簽入 — 美國退伍軍人醫療體系 2026 年起全面部署，實測每天省下 1-2 小時文書時間。台灣使用需注意錄音的知情同意與院內規範（入門版的語音轉文字見<a href="ai-transcribe.html">番外篇</a>）</li>
         <li><strong>行政文書</strong>：計畫書、經費申請、成果報告的初稿</li>
       </ul>
 
