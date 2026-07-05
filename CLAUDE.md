@@ -28,6 +28,7 @@ ai-workshop/
 ├── canva.html          # 番外 — Canva 設計
 ├── github-pages.html   # 番外 — GitHub Pages 建站
 ├── prompt-builder.html # 番外 — Prompt 產生器（純前端字串組裝，零 API；表單樣式在頁內 <style>）
+├── images/ai-image/    # Part 4 生成結果對比圖（4-1~4-9，ChatGPT/Gemini 各一，WebP 長邊 1200px q82，來源 PNG 在 Downloads\教學素材）
 ├── sitemap.xml         # 新增頁面時記得加一條
 ├── robots.txt
 ├── qr-site.png         # 首頁 QR code（實體課投影片用）
@@ -106,7 +107,7 @@ ai-workshop/
 ## 待做項目
 
 ### 內容
-- [ ] 加入用戶生成的圖片範例（ai-image.html 的 `<!-- TODO -->` 標記處）
+- [x] 加入用戶生成的圖片範例（ai-image.html 全 9 個 prompt 附 ChatGPT vs Gemini 對比圖，`.result-compare` 元件在 style.css）
 - [ ] 範例牆／學員作品頁（靜態 gallery + Google 表單收件，等有作品再做）
 - [x] AI 文字應用（ai-writing.html，Part 2）
 - [x] AI 安全與隱私（ai-safety.html，Part 3）
