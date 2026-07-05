@@ -464,6 +464,48 @@ strong { font-weight: 700; }
   background: var(--highlighter-green);
 }
 
+/* ─── Result Compare（Prompt 生成結果對比）─── */
+
+.result-compare {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: -0.5rem 0 2rem;
+}
+
+.result-compare figure {
+  background: white;
+  border: var(--doodle-border);
+  border-radius: 10px;
+  padding: 0.6rem 0.6rem 0.3rem;
+  transition: transform 0.15s ease;
+}
+
+.result-compare figure:hover { transform: rotate(-0.5deg); }
+
+.result-compare img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+.result-compare figcaption {
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.4rem 0 0.2rem;
+  color: var(--text-light);
+}
+
+.result-compare figcaption .tool-chatgpt { color: var(--success); }
+.result-compare figcaption .tool-gemini { color: var(--primary); }
+
+@media (max-width: 640px) {
+  .result-compare { grid-template-columns: 1fr; }
+}
+
 /* ─── Table ─── */
 
 table {

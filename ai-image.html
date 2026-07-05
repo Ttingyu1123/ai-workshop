@@ -150,7 +150,7 @@
     <!-- ─── Prompt Examples ─── -->
     <section id="prompt-examples">
       <h2>衛教圖 Prompt 範例</h2>
-      <p>以下每個 Prompt 都可以直接複製貼到 ChatGPT 中使用。點右上角按鈕一鍵複製。</p>
+      <p>以下每個 Prompt 都可以直接複製貼到 ChatGPT 中使用。點右上角按鈕一鍵複製。每個 Prompt 下方附上<strong>同一段 Prompt 分別丟給 ChatGPT 和 Gemini 的實際生成結果</strong>，讓你比較兩個工具的表現差異。</p>
 
       <h3>基礎：單張衛教插圖</h3>
       <div class="prompt-block">
@@ -162,7 +162,16 @@
 構圖：直式，每個步驟一格，共七格排列
 限制：不要出現文字（我會自己加），不要寫實風格<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
-      <!-- TODO: 加入生成結果圖片 -->
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-image/4-1-handwash-chatgpt.webp" alt="ChatGPT 生成的洗手七步驟衛教插圖" loading="lazy">
+          <figcaption><span class="tool-chatgpt">ChatGPT</span> 生成結果</figcaption>
+        </figure>
+        <figure>
+          <img src="images/ai-image/4-1-handwash-gemini.webp" alt="Gemini 生成的洗手七步驟衛教插圖" loading="lazy">
+          <figcaption><span class="tool-gemini">Gemini</span> 生成結果</figcaption>
+        </figure>
+      </div>
 
       <h3>進階：社群衛教圖卡</h3>
       <div class="prompt-block">
@@ -173,6 +182,16 @@
 風格：清新簡約的資訊圖表風格，莫蘭迪配色（淡紫、奶油白、薄荷綠）
 構圖：上方大標題區，中間分成兩欄（推薦食物 vs 避免食物），下方放一行小字版權
 限制：食物用可愛的插畫圖示表示，不要放真實食物照片。圖上不要出現任何文字，我會用 Canva 自己加。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-image/4-2-diabetes-diet-chatgpt.webp" alt="ChatGPT 生成的糖尿病飲食原則 IG 衛教圖卡" loading="lazy">
+          <figcaption><span class="tool-chatgpt">ChatGPT</span> 生成結果</figcaption>
+        </figure>
+        <figure>
+          <img src="images/ai-image/4-2-diabetes-diet-gemini.webp" alt="Gemini 生成的糖尿病飲食原則 IG 衛教圖卡" loading="lazy">
+          <figcaption><span class="tool-gemini">Gemini</span> 生成結果</figcaption>
+        </figure>
       </div>
 
       <h3>學術：簡報概念圖</h3>
@@ -185,6 +204,16 @@
 構圖：圓形循環圖，四個節點用箭頭連接，每個節點有一個簡單 icon
 限制：不要卡通風格，要能放在正式學術簡報中。不要出現文字，我會自己標註。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-image/4-3-amr-cycle-chatgpt.webp" alt="ChatGPT 生成的抗生素抗藥性傳播循環示意圖" loading="lazy">
+          <figcaption><span class="tool-chatgpt">ChatGPT</span> 生成結果</figcaption>
+        </figure>
+        <figure>
+          <img src="images/ai-image/4-3-amr-cycle-gemini.webp" alt="Gemini 生成的抗生素抗藥性傳播循環示意圖" loading="lazy">
+          <figcaption><span class="tool-gemini">Gemini</span> 生成結果</figcaption>
+        </figure>
+      </div>
 
       <h3>素材用：背景/圖示</h3>
       <div class="prompt-block">
@@ -196,6 +225,16 @@
 構圖：A4 直式比例，圖案均勻分布不要太密
 用途：這張圖會被用作背景，上面會疊加文字，所以圖案要很淡、不能搶眼<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-image/4-4-background-chatgpt.webp" alt="ChatGPT 生成的醫療元素淡色背景圖案" loading="lazy">
+          <figcaption><span class="tool-chatgpt">ChatGPT</span> 生成結果</figcaption>
+        </figure>
+        <figure>
+          <img src="images/ai-image/4-4-background-gemini.webp" alt="Gemini 生成的醫療元素淡色背景圖案" loading="lazy">
+          <figcaption><span class="tool-gemini">Gemini</span> 生成結果</figcaption>
+        </figure>
+      </div>
 
       <div class="prompt-block">
         <div class="prompt-label">小圖示組 — 衛教用</div>
@@ -205,6 +244,16 @@
 風格：圓形圖示，扁平設計，統一使用柔和的藍綠色調
 構圖：2 行 4 列排列，每個圖示之間有足夠間距
 限制：每個圖示風格要完全一致。白色背景。不要文字。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-image/4-5-icons-chatgpt.webp" alt="ChatGPT 生成的醫療主題小圖示組" loading="lazy">
+          <figcaption><span class="tool-chatgpt">ChatGPT</span> 生成結果</figcaption>
+        </figure>
+        <figure>
+          <img src="images/ai-image/4-5-icons-gemini.webp" alt="Gemini 生成的醫療主題小圖示組" loading="lazy">
+          <figcaption><span class="tool-gemini">Gemini</span> 生成結果</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -257,6 +306,25 @@
 
 新圖主題：高血壓患者的日常注意事項<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
+      <p style="color: var(--text-light); font-size: 0.95rem;">實測：先生成「高血壓」主題，再用上面的指令要求「同風格、換主題」生成第二張 — 可以看到兩張圖的配色、線條、版型都維持一致：</p>
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-image/4-6-consistency-1-chatgpt.webp" alt="ChatGPT 生成的高血壓注意事項衛教圖（系列第一張）" loading="lazy">
+          <figcaption><span class="tool-chatgpt">ChatGPT</span> 第 1 張（高血壓）</figcaption>
+        </figure>
+        <figure>
+          <img src="images/ai-image/4-6-consistency-2-chatgpt.webp" alt="ChatGPT 以相同風格生成的 warfarin 飲食原則衛教圖（系列第二張）" loading="lazy">
+          <figcaption><span class="tool-chatgpt">ChatGPT</span> 第 2 張（換主題、同風格）</figcaption>
+        </figure>
+        <figure>
+          <img src="images/ai-image/4-6-consistency-1-gemini.webp" alt="Gemini 生成的高血壓注意事項衛教圖（系列第一張）" loading="lazy">
+          <figcaption><span class="tool-gemini">Gemini</span> 第 1 張（高血壓）</figcaption>
+        </figure>
+        <figure>
+          <img src="images/ai-image/4-6-consistency-2-gemini.webp" alt="Gemini 以相同風格生成的 warfarin 飲食原則衛教圖（系列第二張）" loading="lazy">
+          <figcaption><span class="tool-gemini">Gemini</span> 第 2 張（換主題、同風格）</figcaption>
+        </figure>
+      </div>
 
       <h3>6. 用參考圖片</h3>
       <p>如果你有一張喜歡的風格參考圖，直接上傳給 ChatGPT 說「用這個風格畫一張新的…」。AI 會分析參考圖的風格元素（配色、線條、構圖），比用文字描述更精準。</p>
@@ -288,7 +356,16 @@
 構圖：直式 A4 比例，適合列印張貼
 限制：圖示化為主，文字部分只放英文（我會替換成中文）<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
-      <!-- TODO: 加入生成結果圖片 -->
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-image/4-7-flu-infographic-chatgpt.webp" alt="ChatGPT 生成的流感與感冒比較 infographic" loading="lazy">
+          <figcaption><span class="tool-chatgpt">ChatGPT</span> 生成結果</figcaption>
+        </figure>
+        <figure>
+          <img src="images/ai-image/4-7-flu-infographic-gemini.webp" alt="Gemini 生成的流感與感冒比較 infographic" loading="lazy">
+          <figcaption><span class="tool-gemini">Gemini</span> 生成結果</figcaption>
+        </figure>
+      </div>
 
       <div class="prompt-block">
         <div class="prompt-label">Infographic — 用藥時間軸</div>
@@ -306,6 +383,16 @@
 風格：柔和的莫蘭迪色系，圓角卡片設計
 構圖：橫式 16:9，適合簡報投影
 限制：不要出現中文字，只用圖示和簡單英文標記<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-image/4-8-medication-timeline-chatgpt.webp" alt="ChatGPT 生成的糖尿病一日用藥時程時間軸 infographic" loading="lazy">
+          <figcaption><span class="tool-chatgpt">ChatGPT</span> 生成結果</figcaption>
+        </figure>
+        <figure>
+          <img src="images/ai-image/4-8-medication-timeline-gemini.webp" alt="Gemini 生成的糖尿病一日用藥時程時間軸 infographic" loading="lazy">
+          <figcaption><span class="tool-gemini">Gemini</span> 生成結果</figcaption>
+        </figure>
       </div>
 
       <div class="box-tip">
@@ -356,7 +443,16 @@
 構圖：直式 3:4，標題在上方 1/3，下方 2/3 是洗手步驟插圖
 注意：繁體中文字要清晰可讀，字體風格要統一<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
-      <!-- TODO: 加入生成結果圖片 -->
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-image/4-9-poster-text-chatgpt.webp" alt="ChatGPT 生成的含中文標題預防流感衛教海報" loading="lazy">
+          <figcaption><span class="tool-chatgpt">ChatGPT</span> 生成結果</figcaption>
+        </figure>
+        <figure>
+          <img src="images/ai-image/4-9-poster-text-gemini.webp" alt="Gemini 生成的含中文標題預防流感衛教海報" loading="lazy">
+          <figcaption><span class="tool-gemini">Gemini</span> 生成結果</figcaption>
+        </figure>
+      </div>
 
       <div class="analogy">
         想像 AI 寫中文字就像一個外國人練書法 — GPT Image 2 已經像是練了三年的外國人，大字寫得不錯，但長篇內文還是會出錯。所以大標題讓 AI 寫，小字自己加。
