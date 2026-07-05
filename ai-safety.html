@@ -129,6 +129,13 @@
         <h4>拿不準就不要貼</h4>
         <p>去識別化做得夠不夠，沒有 AI 幫你把關——<strong>責任在使用者，不在 AI</strong>。如果一個案例特殊到「怎麼改寫都還是看得出是誰」（例如全院唯一一例的罕見疾病），最安全的做法是完全不描述真實案例，改用假設情境或教科書上的典型案例。</p>
       </div>
+
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-safety/deidentify-first.webp" alt="去識別化教學海報：貼給 AI 之前先去識別化 — 姓名病歷號、出生日期、住址電話、臉部照片不能出現；示範把「王小明，病歷號 1234567」改寫成「65 歲男性，糖尿病 10 年」；一秒判斷：這段話能讓人認出他是誰嗎？能就不要貼" loading="lazy">
+          <figcaption>本節一張圖總結 — 適合列印貼在工作站（點圖放大）</figcaption>
+        </figure>
+      </div>
     </section>
 
     <hr class="section-divider">
@@ -264,6 +271,31 @@
   </footer>
 
   <script>
+  (function () {
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<span class="lightbox-close">✕ 關閉</span><img alt=""><div class="lightbox-caption"></div>';
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img');
+    const lbCap = lb.querySelector('.lightbox-caption');
+    document.querySelectorAll('.result-compare figure').forEach(fig => {
+      fig.addEventListener('click', () => {
+        const img = fig.querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = fig.querySelector('figcaption').textContent;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    lb.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  })();
+
   function copyPrompt(btn) {
     const content = btn.parentElement;
     const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();

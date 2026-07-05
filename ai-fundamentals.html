@@ -97,6 +97,12 @@
       <p>LLM 是 Large Language Model 的縮寫。ChatGPT、Claude、Gemini、Grok 背後都是 LLM。</p>
       <p>它的運作原理其實很單純：<strong>預測下一個字</strong>。你給它「今天天氣很」，它會根據訓練資料判斷下一個字最可能是「好」、「熱」還是「冷」。整個對話就是一連串的「預測下一個字」串起來的。</p>
       <p>這裡有個重要的觀念：LLM <strong>不是在「理解」你的問題</strong>。它是在做統計預測 —「根據我讀過的幾兆個字，在這個上下文之後，最可能出現的字是什麼」。這解釋了為什麼它有時候回答得很漂亮，有時候又會一本正經地胡說八道。</p>
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-fundamentals/llm-word-chain.webp" alt="AI 到底在幹嘛教學海報：以文字接龍比喻 LLM 運作 — 「今天天氣很」接「好 60%、熱 30%、冷 10%」挑機率最高的字，三步驟為讀過幾兆個字、算下一個字的機率、一個字一個字接下去，底部對比很會寫得又快又順與沒把握時會自信亂編（幻覺）" loading="lazy">
+          <figcaption>一張圖看懂 LLM 在幹嘛 — 文字接龍（點圖放大）</figcaption>
+        </figure>
+      </div>
       <h3>訓練 vs 推理</h3>
       <p>LLM 有兩個階段：</p>
       <ul>
@@ -458,6 +464,33 @@
       </div>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<span class="lightbox-close">✕ 關閉</span><img alt=""><div class="lightbox-caption"></div>';
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img');
+    const lbCap = lb.querySelector('.lightbox-caption');
+    document.querySelectorAll('.result-compare figure').forEach(fig => {
+      fig.addEventListener('click', () => {
+        const img = fig.querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = fig.querySelector('figcaption').textContent;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    lb.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  })();
+  </script>
 
 </body>
 </html>
