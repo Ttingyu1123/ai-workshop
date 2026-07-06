@@ -70,7 +70,18 @@
     <!-- ─── Editing Basics ─── -->
     <section id="editing-basics">
       <h2>剪輯基礎觀念</h2>
-      <p>在使用 AI 生成影片之前，先理解幾個關鍵的剪輯概念。這些概念不管你用什麼工具都會用到。</p>
+      <p>在使用 AI 生成影片之前，先理解幾個關鍵的剪輯概念。這些概念不管你用什麼工具都會用到。先看這兩張圖建立整體概念 — 左邊講影片是怎麼「拼」起來的，右邊是剪輯必懂的六個名詞（點圖可放大）：</p>
+
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-video/video-anatomy.webp" alt="解剖一支影片教學海報：影片是由很多張靜止畫面快速播放再加上聲音組成 — 依序圖解幀 Frame、連續播放、幀率 FPS、片段 Clip、完整影片 Video、聲音 Audio 六個觀念，結語「當你知道影片是怎麼拼起來的，就更容易學會剪輯」" loading="lazy">
+          <figcaption>影片的組成 — 從一幀到一支影片</figcaption>
+        </figure>
+        <figure>
+          <img src="images/ai-video/editing-six-terms.webp" alt="剪輯基礎概念教學海報：新手先懂的六個關鍵名詞 — 首幀與尾幀、關鍵幀、幀率 FPS、轉場、解析度、安全區域，各附手繪圖解，結語「先懂名詞，再學操作，剪輯會容易很多」" loading="lazy">
+          <figcaption>剪輯必懂的 6 個關鍵名詞</figcaption>
+        </figure>
+      </div>
 
       <h3>首幀與尾幀（First / Last Frame）</h3>
       <p>每個影片片段的第一格畫面（首幀）和最後一格畫面（尾幀）。在 AI 影片生成中特別重要：</p>
@@ -525,6 +536,31 @@
   </footer>
 
   <script>
+  (function () {
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<span class="lightbox-close">✕ 關閉</span><img alt=""><div class="lightbox-caption"></div>';
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img');
+    const lbCap = lb.querySelector('.lightbox-caption');
+    document.querySelectorAll('.result-compare figure').forEach(fig => {
+      fig.addEventListener('click', () => {
+        const img = fig.querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = fig.querySelector('figcaption').textContent;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    lb.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  })();
+
   function copyPrompt(btn) {
     const content = btn.parentElement;
     const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
