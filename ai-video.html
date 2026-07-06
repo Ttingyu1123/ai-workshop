@@ -60,6 +60,7 @@
         <li><a href="#video-workflow">短影片製作流程</a></li>
         <li><a href="#script-prompts">腳本生成 Prompt</a></li>
         <li><a href="#tts">AI 語音合成（TTS）</a></li>
+        <li><a href="#bgm">AI 音樂生成（BGM）</a></li>
         <li><a href="#video-tools-free">免費影片工具</a></li>
         <li><a href="#video-tools-paid">付費高品質工具</a></li>
         <li><a href="#tools-summary">工具總整理</a></li>
@@ -155,7 +156,7 @@
         <ul>
           <li><strong>配音</strong> — 匯入 AI 語音或自己錄</li>
           <li><strong>字幕</strong> — CapCut 自動從語音生成字幕</li>
-          <li><strong>配樂</strong> — 免費背景音樂庫，選輕柔的</li>
+          <li><strong>配樂</strong> — 免費背景音樂庫選輕柔的，或用 AI 生成專屬 BGM（見下方 <a href="#bgm">AI 音樂生成</a> 章節）</li>
           <li><strong>關鍵幀</strong> — 加 Ken Burns 效果讓靜態圖「動起來」</li>
           <li><strong>轉場</strong> — 不要花俏，淡入淡出就好</li>
         </ul>
@@ -294,6 +295,61 @@
 
     <hr class="section-divider">
 
+    <!-- ─── BGM ─── -->
+    <section id="bgm">
+      <h2>AI 音樂生成（BGM）</h2>
+      <p>影片的最後一塊聲音拼圖是背景音樂。找 BGM 有兩條路：<strong>現成音樂庫</strong>（快、授權明確）和 <strong>AI 生成</strong>（客製、獨一無二）。音樂庫找不到剛好符合氛圍與長度的曲子時，AI 生成就派上用場 — 用一句文字描述，就能做出專屬你影片的配樂。</p>
+
+      <p style="color: var(--text-light); font-size: 0.9em;">📅 資訊更新於 2026 年 7 月 — 額度與方案以官方公告為準</p>
+
+      <h3>Suno — 文字描述生成完整音樂</h3>
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-recommend">免費首選</span>
+          <span class="tool-name"><a href="https://suno.com" target="_blank">Suno ↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>免費每天 50 credits（約 10 首）</li><li>一句文字描述就能生成完整歌曲</li><li>可選純音樂（Instrumental）模式</li><li>支援中文歌詞</li><li>可下載 MP3</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>免費版僅限非商業用途</li><li>商用授權需 Pro 方案（月費 US$10 起）</li><li>免費額度當日清零、不累積</li></ul></div>
+        </div>
+        <div class="tool-tip">做影片 BGM 記得切到 <strong>Instrumental（純音樂）</strong>模式 — 有人聲歌詞的音樂會跟你的旁白打架。生成後試聽 2-3 個版本，挑情緒最貼的那首。</div>
+      </div>
+
+      <div class="box-tip">
+        <strong>Udio 現況：</strong>另一個知名音樂生成工具 Udio，在 2025 年底與環球音樂（UMG）和解後轉為「只能在站內聽、不能下載」的模式，目前無法把生成的音樂拿來當影片配樂，暫不推薦。
+      </div>
+
+      <h3>BGM 生成 Prompt</h3>
+      <p>Suno 的風格描述用英文效果最穩定。以下範本可直接複製，再依主題調整形容詞：</p>
+      <div class="prompt-block">
+        <div class="prompt-label">衛教影片 BGM — 溫暖安心型（貼到 Suno，開 Instrumental）</div>
+        <div class="prompt-content">Calm, warm acoustic background music. Gentle piano and soft strings, light percussion, around 90 BPM. Uplifting and reassuring mood, no vocals, smooth loopable structure. Suitable as background music for a healthcare educational video.<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="prompt-block">
+        <div class="prompt-label">衛教影片 BGM — 輕快知識型（適合迷思破解、快節奏短影片）</div>
+        <div class="prompt-content">Playful, upbeat background music. Marimba, ukulele, hand claps, light and bouncy rhythm around 110 BPM. Friendly and curious mood, no vocals, clean intro and ending. Suitable for a short educational social media video.<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <h3>BGM 使用原則</h3>
+      <div class="card">
+        <ul>
+          <li><strong>音量壓低</strong> — BGM 比旁白低很多（CapCut 裡約 20-30% 音量），觀眾要「感覺得到」而不是「聽得到」</li>
+          <li><strong>情緒匹配</strong> — 衛教內容選溫暖、平靜的曲風；避免緊張懸疑感（會讓衛教變恐嚇）</li>
+          <li><strong>頭尾淡入淡出</strong> — 音樂突然開始或戛然而止都很突兀，各留 1-2 秒 fade</li>
+          <li><strong>一部影片一首曲</strong> — 30-60 秒的短影片不需要換歌，換歌會打斷情緒</li>
+        </ul>
+      </div>
+      <div class="analogy">
+        BGM 就像診間的背景氛圍 — 好的氛圍讓病人放鬆、更聽得進衛教內容，但沒有人走出診間會說「今天的背景音樂真好聽」。BGM 的最高境界是「沒被注意到」。
+      </div>
+
+      <div class="box-danger">
+        <strong>⚠️ 商用授權注意：</strong>以醫院、診所或機構名義對外發布的影片，可能被認定為商業用途。保守做法：這類影片的 BGM 用 <strong>YouTube Audio Library</strong>、<strong>Pixabay Music</strong> 這類明確標示可商用的免費音樂庫，或升級 Suno 付費方案取得商用授權。個人學習、內部教學用免費版沒問題。另外注意：CapCut 內建音樂庫部分曲目僅限在 CapCut／TikTok 生態內使用，跨平台發布前先確認曲目授權標示。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
     <!-- ─── Free Video Tools ─── -->
     <section id="video-tools-free">
       <h2>免費影片工具</h2>
@@ -414,7 +470,7 @@
           <tr><td><strong>AI 生影片</strong></td><td>Google Flow / Kling</td><td>Runway / Pika</td></tr>
           <tr><td><strong>剪輯組裝</strong></td><td>CapCut</td><td>Premiere Pro</td></tr>
           <tr><td><strong>自動字幕</strong></td><td>CapCut</td><td>Premiere Pro</td></tr>
-          <tr><td><strong>背景音樂</strong></td><td>CapCut 內建 / Pixabay</td><td>Epidemic Sound</td></tr>
+          <tr><td><strong>背景音樂</strong></td><td>Suno（非商用）/ Pixabay / CapCut 內建</td><td>Suno Pro / Epidemic Sound</td></tr>
         </tbody>
       </table>
 
