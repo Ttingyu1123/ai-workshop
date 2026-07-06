@@ -86,6 +86,12 @@
         <li><strong>2026</strong>：推理模型（會先「想」再回答）成為各家標配；Agent 從工程師的玩具變成一般工作者的日常工具</li>
       </ul>
       <p>現在的 AI 不再只是「聊天機器人」。它是一個能讀、能寫、能看圖、能生圖、能寫程式、能上網搜尋的<span class="highlight">多功能工具</span>。這份講義會幫你搞懂它到底是怎麼運作的。</p>
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-fundamentals/why-ai-exploded.webp" alt="AI 為什麼突然爆發教學海報：1950 年代就開始研究 AI，2022 年 11 月 ChatGPT 登場成為關鍵轉折，第一個讓一般人感受到 AI 真的能做事的產品；背後關鍵技術是 2017 年 Google 的 Transformer 論文《Attention Is All You Need》；時間軸 2023 能力大躍升、2024 AI 開始會看會聽會做、2025 AI Agent 成為主流、2026 從玩具變工具；總結 AI 的爆發是技術成熟＋產品普及＋使用者真正感受到價值三件事在 2022 後同時發生" loading="lazy">
+          <figcaption>一張圖看懂 AI 為什麼突然爆發（點圖放大）</figcaption>
+        </figure>
+      </div>
     </section>
 
     <hr class="section-divider">
@@ -99,8 +105,8 @@
       <p>這裡有個重要的觀念：LLM <strong>不是在「理解」你的問題</strong>。它是在做統計預測 —「根據我讀過的幾兆個字，在這個上下文之後，最可能出現的字是什麼」。這解釋了為什麼它有時候回答得很漂亮，有時候又會一本正經地胡說八道。</p>
       <div class="result-compare">
         <figure>
-          <img src="images/ai-fundamentals/llm-word-chain.webp" alt="AI 到底在幹嘛教學海報：以文字接龍比喻 LLM 運作 — 「今天天氣很」接「好 60%、熱 30%、冷 10%」挑機率最高的字，三步驟為讀過幾兆個字、算下一個字的機率、一個字一個字接下去，底部對比很會寫得又快又順與沒把握時會自信亂編（幻覺）" loading="lazy">
-          <figcaption>一張圖看懂 LLM 在幹嘛 — 文字接龍（點圖放大）</figcaption>
+          <img src="images/ai-fundamentals/llm-what-is.webp" alt="LLM 是什麼教學海報：像文字接龍一樣思考的大型語言模型，核心概念是 LLM 不是在背答案，而是看前文後一步一步預測下一個最可能出現的文字；五步驟以「什麼是糖尿病」為例 — 輸入文字、拆成 Token 小片段、看懂前後文、預測下一步、生成回答；下方列 LLM 可以做什麼（回答問題、整理摘要、翻譯改寫、寫作協助、寫程式、創意發想）與不是什麼（不是搜尋引擎、不是人類大腦、不是永遠正確），提醒重要資訊仍需查證" loading="lazy">
+          <figcaption>一張圖看懂 LLM — 文字接龍五步驟（點圖放大）</figcaption>
         </figure>
       </div>
       <h3>訓練 vs 推理</h3>
@@ -164,6 +170,12 @@
           <p style="font-size:0.85rem; color: var(--text-light); margin:0;">設定邊界，避免 AI 發散</p>
         </div>
       </div>
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-fundamentals/prompt-four-keys.webp" alt="Prompt 怎麼寫教學海報：Prompt ＝ 給 AI 的任務說明書，好 Prompt ＝ 角色設定＋任務描述＋輸出格式＋限制條件；四格圖解 — 角色設定（請 AI 扮演誰，例如醫師、老師、設計師、編輯）、任務描述（你要 AI 做什麼，任務越明確結果越不會跑偏）、輸出格式（結果要怎麼呈現，條列、表格、段落、圖片比例都可以指定）、限制條件（哪些事情不要做，把要什麼不要什麼都講清楚）；底部提醒 Prompt 不是一次寫完，而是反覆調整" loading="lazy">
+          <figcaption>好 Prompt 的四個關鍵（點圖放大）</figcaption>
+        </figure>
+      </div>
 
       <h3>常見的 Prompt 錯誤</h3>
       <table>
@@ -209,6 +221,12 @@
         <li><strong>費用</strong>：付費使用 API 時，按 token 數量計費。輸出通常比輸入貴 3-5 倍。</li>
         <li><strong>上下文視窗（Context Window）</strong>：AI 一次能「記住」的 token 總量。像是 AI 的短期記憶容量。超過上限，它就會「忘記」對話開頭講過的事情。目前主流模型在 12 萬到 100 萬 token。</li>
       </ol>
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-fundamentals/token-blocks.webp" alt="Token 教學海報：AI 眼中的文字積木，人類看到的是句子、AI 看到的是一串 token；四格說明 — 什麼是 Token（AI 處理文字的基本單位，「我喜歡人工智慧」拆成我／喜歡／人工／智慧，英文 unbelievable 拆成 un／believ／able）、Token 不等於字數（不是 100 個字＝100 個 token）、AI 怎麼使用 Token（讀取前面的 token 預測下一個，像在玩文字接龍）、為什麼重要（上下文長度決定 AI 一次能讀多少、很多服務依 token 數計費、內容太長時可能讀不完整）" loading="lazy">
+          <figcaption>Token — AI 眼中的文字積木（點圖放大）</figcaption>
+        </figure>
+      </div>
       <div class="box-tip">日常使用免費版，你不需要算 token。只要知道：跟 AI 聊太久或一次貼太長的文件，它可能會「忘記」前面說過的話 — 開一個新對話就好。</div>
     </section>
 
@@ -226,6 +244,12 @@
         <li><strong>影片</strong>：分析影片內容（部分模型）、生成影片（Veo、Sora）</li>
         <li><strong>文件</strong>：讀取 PDF、Word、Excel（上傳後分析）</li>
       </ul>
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-fundamentals/multimodal.webp" alt="多模態 Multimodal 教學海報：讓 AI 不只讀文字，也能看圖片、聽聲音、理解影片 — 文字（讀文章、整理重點）、圖像（看照片、辨識畫面）、聲音（聽語音、理解語氣）、影片（分析動作與情境）四種形式的資料進入同一個 AI 大腦，整合→理解→回應，形成更完整的理解；多模態 AI 就是讓 AI 用更多「感官」理解世界 — 看得懂、聽得懂、說得清楚" loading="lazy">
+          <figcaption>多模態 — 讓 AI 用更多「感官」理解世界（點圖放大）</figcaption>
+        </figure>
+      </div>
       <p>這對醫療人員很實用。例如：</p>
       <ul>
         <li>把英文論文 PDF 丟給 AI，請它用中文整理重點</li>
@@ -250,6 +274,12 @@
         <li>給出一個看似合理但完全錯誤的劑量</li>
         <li>編造一個不存在的臨床指引</li>
       </ul>
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-fundamentals/hallucination.webp" alt="AI 幻覺教學海報：AI 把「最像答案的文字」說得像真的，像在玩高級文字接龍 — 以病人發燒為例，接龍到「多喝水多休息」是合理且常見的正確路徑，但也可能接到服用抗生素、立刻住院、癌症晚期等聽起來像但其實可能是錯的路徑；為什麼會這樣：AI 根據前文預測下一個最可能的 token，但機率高不代表事實正確；三個特徵 — 機率接龍、說得很順（回答流暢有自信但可能不可靠）、補出空白（資料不足時編出細節、來源或數字）；使用提醒：查來源、對數據、看原文 — 聽起來合理，要再查證" loading="lazy">
+          <figcaption>AI 幻覺 — 聽起來合理，要再查證（點圖放大）</figcaption>
+        </figure>
+      </div>
       <div class="box-danger">
         <h4>⚠️ 醫療人員必須記住的一條規則</h4>
         <p><strong>永遠不要盲信 AI 的輸出。</strong>特別是涉及藥物、劑量、診斷、治療方案的內容，一定要用可靠來源（UpToDate、PubMed、藥品仿單）交叉驗證。AI 是輔助工具，不是決策依據。</p>
@@ -270,6 +300,12 @@
         <li><strong>大幅減少幻覺</strong> — 回答是基於你提供的真實資料，不是 AI 自己編的</li>
         <li><strong>可以使用私有資料</strong> — AI 的訓練資料不會包含你們醫院的內部文件，但 RAG 可以讓 AI 讀取並回答</li>
       </ol>
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-fundamentals/rag-flow.webp" alt="RAG 教學海報：AI 怎麼從資料裡找答案 — 先搜尋資料，再交給 AI 整理回答，不是靠記憶硬猜；六步驟流程：原始資料（PDF、網頁、筆記、知識庫）→ 切成小段 → 變成 AI 找得到的座標（向量化 embedding，把文字意思變成可比較的位置）→ 使用者提問（問題也會轉成座標）→ 找出最相關內容（從向量資料庫找最接近的內容）→ 交給 LLM 整理答案；重點是讓 AI 先找到相關資料、再根據資料回答，小提醒：資料切不好、找錯資料，AI 還是可能答錯" loading="lazy">
+          <figcaption>RAG — 先找資料，再回答（點圖放大）</figcaption>
+        </figure>
+      </div>
       <p>日常使用中，RAG 最簡單的形式就是：<strong>把文件上傳給 AI，然後針對文件內容提問</strong>。ChatGPT 和 Claude 都支援上傳 PDF、Word 檔案。這就是最基本的 RAG。</p>
       <p>進階的 RAG 可以建立完整的知識庫（整個科室的 SOP + 衛教文件 + 用藥指引），讓 AI 隨時查詢。不過這需要技術設定，不在入門範圍。</p>
     </section>
@@ -290,6 +326,12 @@
         <li>為什麼 IT 部門說「要接 AI」需要評估成本 — 因為 API 按 token 計費</li>
         <li>為什麼同一功能在不同平台品質不同 — 背後可能呼叫不同模型的 API</li>
       </ul>
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-fundamentals/api-order-system.webp" alt="API 教學海報：API 就像 AI 的醫令系統，程式不用自己變成 AI，只要透過 API 下達任務就能取得 AI 回覆；五步驟流程 — 你的程式提出需求、API 像醫令系統一樣下單、AI 模型在後台處理任務、API 把結果送回來、程式顯示答案；醫療比喻對照表 — 醫師開檢驗醫令＝程式送出 AI 請求、醫令系統＝API、檢驗科儀器＝AI 模型、檢驗報告＝AI 回覆、病歷系統顯示結果＝App 顯示答案；一句話記住：API 不是 AI 本體，而是讓程式呼叫 AI 能力的標準入口" loading="lazy">
+          <figcaption>API — AI 的醫令系統（點圖放大）</figcaption>
+        </figure>
+      </div>
     </section>
 
     <hr class="section-divider">
@@ -313,11 +355,23 @@
         <li>「幫我把這 10 篇論文的結論整理成比較表」→ Agent 會依序讀取每篇 PDF、提取結論、整理成表格、存成 Excel</li>
         <li>「幫我做一個病人衛教的網頁」→ Agent 會規劃架構、寫程式碼、測試、修正錯誤，最後給你一個可運作的網頁</li>
       </ul>
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-fundamentals/ai-agent.webp" alt="AI Agent 教學海報：不只是聊天，而是幫你完成任務的 AI 助手 — 五個重點：給它一個目標（不是只問一句話，而是交代一個任務）、它會拆解步驟（目標→計畫→行動→檢查）、它會使用工具（搜尋、文件、表格、程式、行事曆、API）、它會邊做邊修正（執行→看結果→修正→再執行）、人類仍然要掌舵（設定目標、規則，並確認結果）；底部標語：Chatbot 回答問題，Agent 完成任務 — AI Agent ＝ 會自己跑腿的 AI 助手" loading="lazy">
+          <figcaption>Agent — 會自己跑腿的 AI 助手（點圖放大）</figcaption>
+        </figure>
+      </div>
       <p>目前最知名的 Agent 工具：Claude Code（Anthropic）、Codex（OpenAI）、Antigravity 等。這是 Part 7 的主題。</p>
       <h3>Harness — 決定 Agent 好不好用的隱形工程</h3>
       <div class="analogy">同一位住院醫師，在有 protocol、checklist、主治覆核的醫院表現穩定；在什麼制度都沒有的地方就容易出包。Harness 就是 AI 的「制度」。</div>
       <p>Harness（原意是馬具、安全吊帶）是 2026 年 AI 圈的熱門詞，指<strong>包在 AI 模型外面的那層工程</strong>：它能用哪些工具、看得到哪些資料、產出要經過什麼驗證、哪些高風險動作必須先停下來問人。</p>
       <p>這解釋了一個常見疑惑：為什麼感覺是同一顆模型，在聊天網頁、在 Agent 工具、在某個內嵌系統裡表現天差地遠 — 因為 <strong>AI 產品的好壞，一半來自模型本身，另一半來自 harness 的設計</strong>。挑 AI 工具時，別只看「用的是哪個模型」，也要看它讓 AI 在什麼制度下工作。</p>
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-fundamentals/harness.webp" alt="AI Harness 教學海報：讓 AI 從「會回答」變成「會做事」— AI Model 是大腦／引擎，負責理解、推理、生成；Harness 是控制系統，負責連接工具、管理流程、設定規則、檢查結果；四要素：Context 背景資料（現在要做什麼、有哪些資訊）、Tools 工具連接（查資料、讀檔案、呼叫 API、寫程式）、Rules 規則與限制（權限、流程、不能做什麼、何時停止）、Check 檢查與迴圈（執行→檢查→修正→再執行）；只有 AI 模型 vs 有 Harness 的 AI 對比 — 前者只會回答問題、容易亂試、不一定知道何時停止；後者可以執行任務、有流程與限制、知道何時停下來、能接工具完成工作；Harness 不是 AI 的大腦，而是讓大腦能安全做事的控制台" loading="lazy">
+          <figcaption>Harness — 讓 AI 安全做事的控制台（點圖放大）</figcaption>
+        </figure>
+      </div>
       <p>順帶認識一個會越來越常見的縮寫：<strong>MCP（Model Context Protocol）</strong>— 讓 AI 接上各種外部工具與資料庫的通用接頭標準，可以想成「AI 界的 USB-C」，各大 AI 公司都已採用。看到產品宣稱「支援 MCP」，意思就是它能讓 AI 外接更多工具。</p>
     </section>
 
