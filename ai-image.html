@@ -56,15 +56,52 @@
     <!-- TOC -->
     <nav class="toc" aria-label="目錄">
       <ol>
+        <li><a href="#how-it-works">AI 是怎麼「畫」出圖的？</a></li>
         <li><a href="#image-tools">生圖工具介紹</a></li>
         <li><a href="#prompt-formula">Prompt 四要素公式</a></li>
         <li><a href="#prompt-examples">衛教圖 Prompt 範例</a></li>
         <li><a href="#image-tips">生圖進階技巧</a></li>
         <li><a href="#infographic">Infographic 與複雜衛教圖</a></li>
         <li><a href="#chinese-text">中文字生成新時代</a></li>
+        <li><a href="#advanced-tools">進階之路 — 付費與開源工具</a></li>
         <li><a href="#image-ethics">醫療圖像的倫理紅線</a></li>
       </ol>
     </nav>
+
+    <!-- ─── How It Works ─── -->
+    <section id="how-it-works">
+      <h2>觀念充電 — AI 是怎麼「畫」出圖的？</h2>
+      <p>不需要懂數學，但知道 AI 生圖的基本原理，很多日常現象會突然說得通 — 為什麼同一句 Prompt 每次生的圖都不一樣？為什麼 AI 常把字畫壞？目前主流生圖模型分兩大流派：</p>
+
+      <h3>流派一：擴散模型（Diffusion）— 從雜訊中「顯影」</h3>
+      <p>Stable Diffusion、Midjourney、FLUX 這些經典生圖模型，用的都是「擴散」原理：</p>
+      <div class="card">
+        <ul>
+          <li><strong>訓練時</strong> — 把幾億張圖片一步步加上雜訊直到面目全非，讓 AI 學會「逆著走」：從雜訊還原出圖片</li>
+          <li><strong>生圖時</strong> — 從一張純雜訊開始，AI 依照你的文字描述一步步去除雜訊，圖片逐漸浮現</li>
+          <li><strong>起點是隨機的</strong> — 每次的起始雜訊（種子，seed）不同，所以同一句 Prompt 每次生出的圖都不一樣</li>
+        </ul>
+      </div>
+      <div class="analogy">
+        就像 X 光片在顯影液中逐漸浮現影像 — 擴散模型的每一步去噪，都是讓圖片從一片雪花雜訊中「顯影」出來。每次沖片的起點不同，成品就有差異 — 所以「抽卡」（多生幾張挑最好）是合理策略，不是你 Prompt 寫得不好。
+      </div>
+
+      <h3>流派二：原生多模態 — 像寫文章一樣「寫」出圖</h3>
+      <p>ChatGPT（GPT Image 2）和 Gemini（Nano Banana）屬於新一代做法：圖像和文字在同一個模型腦袋裡處理，生圖時像寫文章一樣，一小塊一小塊地「寫」出來。</p>
+      <div class="card">
+        <ul>
+          <li><strong>為什麼它們寫得出中文字</strong> — 對這類模型，文字是「語言」不是「形狀」，所以能寫出正確的字（詳見下方「中文字生成新時代」）</li>
+          <li><strong>為什麼它們聽得懂修改指令</strong> — 生圖和對話是同一個腦袋，「把背景改成藍色」它真的理解</li>
+          <li><strong>代價</strong> — 生圖速度較慢，藝術風格的極致表現通常不如 Midjourney 這類專精模型</li>
+        </ul>
+      </div>
+
+      <div class="box-tip">
+        <strong>一句話總結：</strong>擴散模型是「雕刻家」— 從雜訊石塊裡雕出圖，藝術感強但對「寫字」不拿手（尤其中文）；原生多模態是「作家」— 用寫的做出圖，識字、聽得懂話，但風格極致度略遜。知道手上工具是哪一派，就知道該期待它什麼。
+      </div>
+    </section>
+
+    <hr class="section-divider">
 
     <!-- ─── Image Tools ─── -->
     <section id="image-tools">
@@ -456,6 +493,58 @@
 
       <div class="analogy">
         想像 AI 寫中文字就像一個外國人練書法 — GPT Image 2 已經像是練了三年的外國人，大字寫得不錯，但長篇內文還是會出錯。所以大標題讓 AI 寫，小字自己加。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Advanced Tools ─── -->
+    <section id="advanced-tools">
+      <h2>進階之路 — 付費與開源工具</h2>
+      <p>ChatGPT 和 Gemini 已能滿足九成的衛教圖需求。這一節寫給想走更遠的人：追求極致美感、想要完全掌控流程、或在意資料隱私的場景。</p>
+      <p style="color: var(--text-light); font-size: 0.9em;">📅 資訊更新於 2026 年 7 月 — 方案與價格以官方公告為準</p>
+
+      <h3>Midjourney — 藝術質感的標竿</h3>
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-advanced">付費</span>
+          <span class="tool-name"><a href="https://www.midjourney.com" target="_blank">Midjourney ↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>藝術質感與風格化能力業界標竿</li><li>網頁版好上手（已不需要 Discord）</li><li>社群作品與風格參考海量</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>無免費試用，月費 US$10 起</li><li>文字渲染弱（中文字幾乎不可用）</li><li>版面控制不如對話式工具精確</li></ul></div>
+        </div>
+        <div class="tool-tip">適合「美感優先」的場景：演講封面、形象海報、活動主視覺。衛教流程圖、含中文字的圖卡還是 ChatGPT / Gemini 強 — 兩者是互補不是取代。</div>
+      </div>
+
+      <h3>ComfyUI — 開源本機生圖</h3>
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-advanced">免費開源</span>
+          <span class="tool-name"><a href="https://www.comfy.org" target="_blank">ComfyUI ↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>完全免費、開源</li><li>本機執行 — 資料不出你的電腦</li><li>節點式工作流，每一步都能精確控制</li><li>開源模型（Stable Diffusion、FLUX 等）都能接</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>需要獨立顯卡（NVIDIA 為主）</li><li>要自己安裝環境、下載模型</li><li>節點圖有學習曲線，不是聊天框</li></ul></div>
+        </div>
+        <div class="tool-tip">對醫療工作者最實在的賣點是<strong>「資料不出機器」</strong> — 所有雲端工具都要把素材上傳到別人的伺服器，本機生成是唯一例外。把它當進階玩家的下一站，不是第一站。</div>
+      </div>
+
+      <h3>RunningHub — 沒顯卡也能跑 ComfyUI</h3>
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-alt">線上跑</span>
+          <span class="tool-name"><a href="https://www.runninghub.ai" target="_blank">RunningHub ↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>免安裝、免顯卡，瀏覽器就能跑 ComfyUI 工作流</li><li>現成工作流市集 — 別人搭好的流程點開就用</li><li>註冊有免費額度可試玩</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>雲端服務 — 素材會上傳，失去本機隱私優勢</li><li>額度制，大量使用需付費</li></ul></div>
+        </div>
+        <div class="tool-tip">想體驗 ComfyUI 生態但沒有高階顯卡，這是門檻最低的入口。同類服務還有官方的 Comfy Cloud、Civitai 線上生成等，概念相同。</div>
+      </div>
+
+      <div class="box-tip">
+        <strong>怎麼選：</strong>九成衛教需求 → ChatGPT / Gemini（免費、識字、聽得懂話）。追求視覺美感 → Midjourney。在意隱私或想深度客製 → ComfyUI（要有顯卡）。想試開源生態但沒顯卡 → RunningHub。
       </div>
     </section>
 
