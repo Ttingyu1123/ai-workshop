@@ -88,7 +88,8 @@ ai-workshop/
 </div>
 ```
 
-- **檔案**：存 `images/<頁名>/`，ASCII slug 檔名（CJK 檔名在 URL 會亂編碼）；WebP 長邊 ≤1200px、quality 82（Pillow：`im.save(out, "WEBP", quality=82, method=6)`），單檔控制在 ~150KB 內
+- **檔案**：存 `images/<頁名>/`，ASCII slug 檔名（CJK 檔名在 URL 會亂編碼）；WebP 長邊 ≤1200px（Pillow：`im.save(out, "WEBP", quality=Q, method=6)`）。quality 依內容：一般照片/截圖用 82；**滿版小字教學海報用 74**（82 會到 200-250KB，74 落在 150-195KB 且小字仍清晰 — Part 1 全 14 張的實測值，2026-07）。單檔目標 ~150-195KB
+- **海報批次流程**（Part 1 已跑完一輪的 SOP）：來源在 `Downloads\教學素材`（編號＋中文檔名）→ 先 md5sum 查重複（曾有 04/08 同檔）→ 逐張 Read 看內容寫 alt → Pillow 轉檔 → 插入對應章節 → Playwright 全頁捲動驗證（lazy load 圖要捲到才載入，直接查 `naturalWidth` 會誤判 BROKEN）→ commit+push
 - **縮圖**：CSS 固定高度裁切頂部（桌面 180px / 手機 130px，`object-fit: cover`），雙欄並排；點擊開 lightbox 看全圖。直式海報用裁切、不用等比縮小（縮成細長條反而看不清）
 - **圖說**：工具對比用 `.tool-chatgpt`（綠）/ `.tool-gemini`（藍）著色；非對比情境 figcaption 寫圖片說明即可
 - **lightbox JS**：跟 `copyPrompt()` 同慣例，每頁 `<script>` 重複定義、不抽外部 JS — 從 ai-image.html 頁尾複製那段 IIFE（建立 `.lightbox`、點擊/Esc 關閉、鎖背景捲動）
