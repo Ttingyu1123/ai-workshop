@@ -91,7 +91,7 @@
         </div>
         <div class="card">
           <strong>🗂️ 內建範本庫</strong>
-          <p>網址列輸入 <code>chrome://skills/browse</code> 有 Google 提供的現成 Skills（學習、研究、寫作等分類），可以直接拿來改。</p>
+          <p>網址列輸入 <code>chrome://skills/browse</code> 有 Google 提供的現成 Skills（學習、研究、寫作等分類），可以直接拿來改。<strong>注意：這個範本瀏覽頁需要把 Chrome 切成英文介面才打得開</strong> — 但存好的 Skills 在繁體中文介面下照樣能用，語言限制只卡在「瀏覽官方範本庫」這一頁。</p>
         </div>
       </div>
     </section>
@@ -165,6 +165,15 @@
     <section id="use">
       <h2>怎麼存、怎麼叫出來</h2>
 
+      <h3>第一步：叫出 Gemini 側邊欄</h3>
+      <p>Chrome Skills 住在 Chrome 內建的 Gemini 側邊欄裡，先把它叫出來。<strong>請先把 Chrome 更新到最新版</strong>，然後兩種方式擇一：</p>
+      <div class="card">
+        <ul>
+          <li><strong>右上角的彩色星形圖示「問問 Gemini」</strong> — 更新到最新版後，Chrome 右上角工具列會出現這個圖示，點一下就打開側邊欄。</li>
+          <li><strong>或從右上角「⋮」三個點選單</strong>，找到並開啟 Chrome 內建的 Gemini。</li>
+        </ul>
+      </div>
+
       <h3>把一段 Prompt 存成 Skill</h3>
       <div class="card">
         <ol>
@@ -181,6 +190,14 @@
           <li>或直接打 <code>/</code> 加上 Skill 名稱，快速定位。</li>
           <li>執行時，Skill 會針對你<strong>當前正在看的網頁</strong>作用；需要一次處理多頁時，先選取要納入的分頁再執行。</li>
           <li>Skills 隨時可以回去<strong>編輯提示詞</strong>，改完自動同步到同帳號的其他桌機。</li>
+        </ul>
+      </div>
+
+      <div class="box-tip">
+        <strong>記住兩個符號的分工 — 一個管「怎麼做」，一個管「在哪裡」：</strong>
+        <ul style="margin-bottom: 0;">
+          <li><code>/</code> 下達<strong>動作指令</strong>（怎麼做）— 叫出你存的 Skill，執行那一段提示詞。</li>
+          <li><code>@</code> 連結<strong>資料來源</strong>（在哪裡）— 指定要 Gemini 參考的來源。</li>
         </ul>
       </div>
     </section>
