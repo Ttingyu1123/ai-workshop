@@ -133,7 +133,7 @@
         </tbody>
       </table>
       <div class="box-tip">
-        <strong>免費額度的三個實情（免費帳號實測＋官方額度文件，2026 年 7 月）：</strong>① 免費 credits <strong>只能用在 Veo 3.1</strong> 三檔 — 選單看得到 Omni Flash，但用它生成需要訂閱方案的額度。② 每日 50 credits 約可生 5 段 Lite 或 2 段 Fast；Quality 一次要 100、超過單日額度，免費層實際用不到（實測選單最高只能選到 Fast，秒數固定 8 秒，下載最高 720p）。③ 當日額度由第一次生成觸發、用不完不累計，升級付費後剩餘的免費額度立即作廢。對學習和偶爾的衛教製作，Lite／Fast 檔的免費額度足夠。
+        <strong>免費額度的四個實情（免費帳號實測＋官方額度文件，2026 年 7 月）：</strong>① 免費 credits <strong>只能用在 Veo 3.1</strong> 三檔 — 選單看得到 Omni Flash，但用它生成需要訂閱方案的額度。② 每日 50 credits 約可生 5 段 Lite 或 2 段 Fast；Quality 一次要 100、超過單日額度，免費層實際用不到（實測選單最高只能選到 Fast，秒數固定 8 秒，下載只有 270p 動態 GIF 與 720p 原始檔兩種）。③ 當日額度由第一次生成觸發、用不完不累計，升級付費後剩餘的免費額度立即作廢。④ <strong>生圖不吃額度</strong> — 生圖選單顯示 0 credits（見圖像生成一節的面板截圖），50 credits 幾乎全是留給影片的。對學習和偶爾的衛教製作，免費額度足夠。
       </div>
     </section>
 
@@ -142,7 +142,14 @@
     <!-- ─── Image Gen ─── -->
     <section id="image-gen">
       <h2>圖像生成（Nano Banana）</h2>
-      <p>Flow 的圖像生成使用 Nano Banana 模型，跟獨立使用時相同，但整合在 Flow 的介面中更方便疊代。2026 年 6 月底 Google 發表新一代 <strong>Nano Banana 2</strong> 系列（Lite 版主打約 4 秒極速出圖），將陸續導入 Flow — 你實際用到哪一版，以站內模型選單顯示為準。</p>
+      <p>Flow 的圖像生成使用 Nano Banana 模型，跟獨立使用時相同，但整合在 Flow 的介面中更方便疊代。2026 年 6 月底 Google 發表新一代 <strong>Nano Banana 2</strong> 系列（Lite 版主打約 4 秒極速出圖），將陸續導入 Flow — 你實際用到哪一版，以站內模型選單顯示為準（2026 年 7 月實測選單顯示 <strong>Nano Banana Pro</strong>，見下圖）。</p>
+
+      <div class="result-compare">
+        <figure>
+          <img src="images/google-flow/flow-ui-image-options.webp" alt="Flow 生圖選項面板：Image 與 Video 分頁、五種長寬比（16:9、4:3、1:1、3:4、9:16）、一次生成張數 x1 到 x4、模型選單顯示 Nano Banana Pro，底部顯示 Generating will use 0 credits" loading="lazy">
+          <figcaption>生成前先看這個面板（prompt 框右下角）— 比例（海報選 3:4）、一次張數、模型；最下方會先告訴你這次花幾 credits — 生圖是 0 credits，額度不用省著用</figcaption>
+        </figure>
+      </div>
 
       <h3>Flow 生圖的獨特優勢</h3>
       <div class="card">
@@ -245,8 +252,24 @@
         </div>
       </div>
 
+      <div class="result-compare">
+        <figure>
+          <img src="images/google-flow/flow-ui-video-options.webp" alt="Flow 影片選項面板：Frames 與 Ingredients 分頁、9:16 與 16:9 比例、一次生成段數 x1 到 x4、模型選單顯示 Veo 3.1 - Lite，底部顯示 Generating will use 10 credits，輸入框上方有 Start 與 End 首尾幀欄位" loading="lazy">
+          <figcaption>影片選項面板 — Frames＝首尾幀、Ingredients＝素材組合；Start／End 欄位放首尾影格；最下方先告訴你花幾 credits（圖中 Lite＝10，對照上方費用表），按生成前養成看一眼的習慣</figcaption>
+        </figure>
+      </div>
+
       <div class="prompt-block">
-        <div class="prompt-label">Flow 影片 — 衛教動畫（免費帳號 Veo 3.1 Fast 實測，成果見下圖）</div>
+        <div class="prompt-label">Flow 影片 — 衛教動畫（入門版：風格詞把上限鎖死的示範，成果見下圖左）</div>
+        <div class="prompt-content">A gentle animation showing the correct way to wash hands. Soft pastel colors, medical illustration style. The hands move through each washing step smoothly: palm to palm, interlacing fingers, scrubbing thumbs, and rinsing under running water. Clean white background, calm and educational tone.
+
+Duration: 5 seconds
+Style: Medical illustration, flat design
+Camera: Static, close-up on hands<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">Flow 影片 — 衛教動畫（進階版：免費帳號 Veo 3.1 Fast 實測，成果見下圖右）</div>
         <div class="prompt-content">A warm, cinematic educational video in a bright, modern hospital handwashing station. A friendly female nurse in light blue scrubs smiles at the camera and says in Mandarin Chinese: 「勤洗手，保健康，跟我一起做！」 Then she demonstrates washing her hands thoroughly — rich soap lather, palm to palm, scrubbing between fingers and around thumbs, water running from the faucet.
 
 Camera: opens on a close-up of her smiling face, then smoothly tilts down into a detailed macro shot of the lathered hands under running water.
@@ -258,17 +281,24 @@ Duration: 8 seconds. Aspect ratio: 16:9.<button class="copy-btn" onclick="copyPr
 
       <div class="result-compare">
         <figure>
-          <img src="images/google-flow/veo-fast-nurse-closeup.webp" alt="Veo 3.1 Fast 生成影格：亞洲女護理師穿淺藍刷手服，在明亮的醫院走廊對鏡頭微笑，背景病床虛化，右下角有 veo 浮水印" loading="lazy">
-          <figcaption>Veo 3.1 Fast（免費帳號實測）— 開場護理師特寫，口白同步生成</figcaption>
+          <img src="images/google-flow/veo-simple-prompt-frame.webp" alt="入門版 prompt 生成的影格：扁平插畫風的雙手互相搓洗，淡藍色卡通泡沫，純白背景，固定鏡頭" loading="lazy">
+          <figcaption>入門版 — flat design＋static camera 的結果：一張會動的簡報插圖</figcaption>
         </figure>
         <figure>
-          <img src="images/google-flow/veo-fast-hands-macro.webp" alt="同段影片後半影格：微距特寫雙手滿是泡沫在不鏽鋼水槽的流水下搓洗，水花濺落，旁有洗手乳按壓瓶" loading="lazy">
-          <figcaption>同一段 8 秒影片 — 鏡頭下移到手部微距，水流泡沫的物理細節真實</figcaption>
+          <img src="images/google-flow/veo-fast-hands-macro.webp" alt="進階版影格：微距特寫雙手滿是泡沫在不鏽鋼水槽的流水下搓洗，水花濺落，旁有洗手乳按壓瓶" loading="lazy">
+          <figcaption>進階版同一主題 — photorealistic 手部微距，水流泡沫的物理細節真實</figcaption>
+        </figure>
+      </div>
+
+      <div class="result-compare">
+        <figure>
+          <img src="images/google-flow/veo-fast-nurse-closeup.webp" alt="進階版開場影格：亞洲女護理師穿淺藍刷手服，在明亮的醫院走廊對鏡頭微笑，背景病床虛化，右下角有 veo 浮水印" loading="lazy">
+          <figcaption>進階版開場 — 護理師對鏡頭說中文口白，同一顆鏡頭再下移到上圖右的手部微距</figcaption>
         </figure>
       </div>
 
       <div class="box-tip">
-        <strong>這段 prompt 的兩個實測心得：</strong>① <strong>風格詞決定上限</strong> — 早期版本寫「flat design、medical illustration、static camera」，生出來就真的只是會動的簡報插圖；改成 photorealistic＋指定運鏡＋分層音訊（口白/水聲/音樂），同一個模型的表現天差地遠。模型能力是被 prompt 放出來的，不是自動給滿的。② <strong>中文口白會有小錯</strong> — 角色開口說中文可以生成、也會對嘴，但實測咬字用詞偶有錯誤：短句比長句穩，出錯就重生一次抽卡，或刪掉口白句改用下方工作流 Step 4 的 TTS 配音（正式衛教影片建議一律走 TTS，口白內容才可控）。
+        <strong>這段 prompt 的兩個實測心得：</strong>① <strong>風格詞決定上限</strong> — 入門版寫「flat design、medical illustration、static camera」，生出來就真的只是會動的簡報插圖（上圖左）；改成 photorealistic＋指定運鏡＋分層音訊（口白/水聲/音樂），同一個模型的表現天差地遠。模型能力是被 prompt 放出來的，不是自動給滿的。② <strong>中文口白會有小錯</strong> — 角色開口說中文可以生成、也會對嘴，但實測咬字用詞偶有錯誤：短句比長句穩，出錯就重生一次抽卡，或刪掉口白句改用下方工作流 Step 4 的 TTS 配音（正式衛教影片建議一律走 TTS，口白內容才可控）。
       </div>
 
       <div class="box-tip">
