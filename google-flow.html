@@ -118,8 +118,22 @@
           <tr><td>AI Ultra+</td><td>25,000 credits／<strong>每月</strong></td><td>$199.99</td><td>重度創作者</td></tr>
         </tbody>
       </table>
+      <h3>各模型每次生成的 credit 費用</h3>
+      <table>
+        <thead>
+          <tr><th>模型／功能</th><th>每次生成</th><th>備註</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Veo 3.1 - Lite</td><td>10 credits</td><td>4／6／8 秒（Ultra 半價）</td></tr>
+          <tr><td>Veo 3.1 - Fast</td><td>20 credits</td><td>4／6／8 秒（Ultra 半價）</td></tr>
+          <tr><td>Veo 3.1 - Quality</td><td>100 credits</td><td>8 秒</td></tr>
+          <tr><td>Omni Flash</td><td>15–30 credits</td><td>依秒數：4s 15／6s 20／8s 25／10s 30；編輯已生成或上傳的影片一次 40</td></tr>
+          <tr><td>1080p 放大</td><td>訂閱者 0</td><td>免費帳號不可用</td></tr>
+          <tr><td>4K 放大</td><td>50 credits</td><td>僅 Ultra</td></tr>
+        </tbody>
+      </table>
       <div class="box-tip">
-        <strong>注意：</strong>免費方案是每日 50 credits，付費方案是每月額度（不累計到下月）。50 credits/天大約可以生成 2-3 段影片（Fast 模式）。對於學習和偶爾的衛教內容製作，免費方案足夠。
+        <strong>免費額度的三個實情（免費帳號實測＋官方額度文件，2026 年 7 月）：</strong>① 免費 credits <strong>只能用在 Veo 3.1</strong> 三檔 — 選單看得到 Omni Flash，但用它生成需要訂閱方案的額度。② 每日 50 credits 約可生 5 段 Lite 或 2 段 Fast；Quality 一次要 100、超過單日額度，免費層實際用不到。③ 當日額度由第一次生成觸發、用不完不累計，升級付費後剩餘的免費額度立即作廢。對學習和偶爾的衛教製作，Lite／Fast 檔的免費額度足夠。
       </div>
     </section>
 
@@ -167,12 +181,12 @@
     <!-- ─── Video Gen ─── -->
     <section id="video-gen">
       <h2>影片生成（Omni Flash / Veo 3.1）</h2>
-      <p>Flow 目前提供兩系影片生成模型：<strong>Omni Flash</strong>（Gemini Omni 家族首款模型，2026 年 6 月上線，支援多模態輸入和對話式編輯）和 <strong>Veo 3.1</strong>（穩定成熟，站內分 Lite／Fast／Quality 三檔）。官方公告 Omni Flash 開放對象為 AI Plus／Pro／Ultra 訂閱者，免費帳號可用哪些模型以站內選單為準。兩者都支援以下輸入方式：</p>
+      <p>Flow 目前提供兩系影片生成模型：<strong>Omni Flash</strong>（Gemini Omni 家族首款模型，2026 年 6 月上線，支援多模態輸入和對話式編輯）和 <strong>Veo 3.1</strong>（穩定成熟，站內分 Lite／Fast／Quality 三檔）。注意：免費帳號的選單看得到 Omni Flash，但免費 credits 只能用於 Veo 3.1 三檔 — 用 Omni Flash 生成需要訂閱方案（各模型費用見<a href="#credits">上方額度表</a>）。兩者都支援以下輸入方式：</p>
 
       <div class="card-grid">
         <div class="card">
           <strong>文字轉影片</strong>
-          <p>直接描述你想要的影片內容，AI 生成 3-8 秒的影片片段。</p>
+          <p>直接描述你想要的影片內容，AI 生成 4-8 秒的影片片段（Omni Flash 最長 10 秒）。</p>
         </div>
         <div class="card">
           <strong>圖片轉影片</strong>
@@ -192,7 +206,7 @@
         </div>
         <div class="card">
           <strong>Lite 檔</strong>
-          <p>模型選單裡的 Veo 3.1 - Lite，零 credits 的輕量檔，品質較低但完全免費，適合快速測試想法。</p>
+          <p>模型選單裡的 Veo 3.1 - Lite，每段只要 10 credits 的最省檔，品質較低但最適合快速測試想法 — 免費日額度可以生 5 段。</p>
         </div>
       </div>
 
@@ -210,7 +224,7 @@ Camera: Static, close-up on hands<button class="copy-btn" onclick="copyPrompt(th
       </div>
 
       <div class="box-tip">
-        <strong>輸出規格與浮水印（要上大螢幕或印刷的先看這條）：</strong>影片可放大（upscale）到 1080p／4K。非 Ultra 方案的輸出右下角會有半透明「veo」可見浮水印；所有生成影片都內嵌 Google 的 SynthID 隱形浮水印（去不掉，也不該去 — 這是 AI 內容的識別標記）。衛教素材若要大螢幕播放或擷取停格印刷，構圖時先確認右下角不放關鍵資訊。（2026 年 7 月查證，以官方公告為準）
+        <strong>輸出規格與浮水印（要上大螢幕或印刷的先看這條）：</strong>訂閱方案可免費把影片放大（upscale）到 1080p，4K 放大僅 Ultra（50 credits），免費帳號沒有 upscale。非 Ultra 方案的輸出右下角會有半透明「veo」可見浮水印；所有生成影片都內嵌 Google 的 SynthID 隱形浮水印（去不掉，也不該去 — 這是 AI 內容的識別標記）。衛教素材若要大螢幕播放或擷取停格印刷，構圖時先確認右下角不放關鍵資訊。（2026 年 7 月查證，以官方公告為準）
       </div>
     </section>
 
