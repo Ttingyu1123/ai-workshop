@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrome Skills — 網頁版的 AI 快捷鍵</title>
+  <meta name="description" content="把常用的 Gemini 提示詞存成 Chrome Skills，打斜線一鍵叫出。綁定當前網頁與分頁，最適合拿網頁當上下文的任務。附醫療人員實用 Skills 範本。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Chrome Skills — 網頁版的 AI 快捷鍵">
+  <meta property="og:description" content="把常用的 Gemini 提示詞存成 Chrome Skills，打斜線一鍵叫出。綁定當前網頁與分頁，最適合拿網頁當上下文的任務。附醫療人員實用 Skills 範本。">
+  <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/chrome-skills.html">
+  <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L05KFZJS9L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L05KFZJS9L');
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="index.html#core">基礎必修</a>
+        <a href="index.html#create">創作應用</a>
+        <a href="index.html#advanced">進階實戰</a>
+        <a href="index.html#extras" class="active">番外工具</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">番外・瀏覽器工具</div>
+    <h1>Chrome Skills</h1>
+    <p>網頁版的 AI 快捷鍵 — 好用的 Prompt 存一次，打斜線一鍵叫出</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <nav class="toc" aria-label="目錄">
+      <ol>
+        <li><a href="#what-is">Chrome Skills 是什麼</a></li>
+        <li><a href="#compare">和 Prompt 產生器、Agent 差在哪</a></li>
+        <li><a href="#privacy">用之前的隱私三關</a></li>
+        <li><a href="#enable">怎麼開啟</a></li>
+        <li><a href="#use">怎麼存、怎麼叫出來</a></li>
+        <li><a href="#medical-skills">醫療人員實用 Skills 範本</a></li>
+        <li><a href="#limits">使用限制與注意</a></li>
+      </ol>
+    </nav>
+
+    <!-- ─── What is ─── -->
+    <section id="what-is">
+      <h2>Chrome Skills 是什麼</h2>
+      <p><strong>Chrome Skills</strong> 是 Google 在 2026 年 4 月推出的 Gemini in Chrome 新功能。簡單說，它把你常打的一段提示詞存成一個「技能」，之後在 Chrome 側邊欄的對話框打一個斜線（<code>/</code>），選一下就能叫出來用 — 不用每次重打，也不用把 Prompt 存在別的地方複製貼上。</p>
+
+      <div class="analogy">
+        Chrome Skills 就像病房裡的「醫囑套餐（order set）」— 一組常一起開的醫囑（術後、發燒、輸液）先存成範本，下次一鍵套用，不用一條一條重打。差別只在這裡套用的是「你常對 AI 講的那段話」。
+      </div>
+
+      <p>它最關鍵、也最容易被忽略的特色是：<strong>Skill 綁定你「當前正在看的網頁」，還能一起帶上你選取的其他分頁</strong>。所以它不是通用聊天機器人 — 它是專門用來「拿眼前這個網頁當材料」做事的工具。你在讀一篇論文、一份指引、一封信、一個藥物頁面時，一鍵叫出 Skill，它就針對<strong>這一頁的內容</strong>幫你做事。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>📌 存一次，到處用</strong>
+          <p>提示詞存成 Skill 後，登入同一個 Google 帳號的所有 Chrome 桌機版都會自動同步 — 家裡、醫院、研究室三台電腦共用同一套。</p>
+        </div>
+        <div class="card">
+          <strong>🌐 綁定網頁</strong>
+          <p>Skill 執行時會讀取你當前分頁（以及你另外選取的分頁）的內容當上下文，最適合「這一頁在講什麼、幫我整理一下」這類任務。</p>
+        </div>
+        <div class="card">
+          <strong>🆓 免費、免訂閱</strong>
+          <p>登入 Google 帳號就能用，不需要 Google AI Pro 或任何付費方案。桌機版限定（Windows／Mac／ChromeOS）。</p>
+        </div>
+        <div class="card">
+          <strong>🗂️ 內建範本庫</strong>
+          <p>網址列輸入 <code>chrome://skills/browse</code> 有 Google 提供的現成 Skills（學習、研究、寫作等分類），可以直接拿來改。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Compare ─── -->
+    <section id="compare">
+      <h2>和 Prompt 產生器、Agent 差在哪</h2>
+      <p>本站有三個關於「怎麼跟 AI 講話、讓 AI 做事」的工具，很容易搞混。一句話分清楚：<strong>Prompt 產生器幫你「組」出好句子，Chrome Skills 幫你把好句子「存成快捷鍵」，Agent 則是讓 AI 自己「動手做」一連串步驟。</strong></p>
+
+      <table>
+        <thead>
+          <tr><th>　</th><th><a href="prompt-builder.html">Prompt 產生器</a></th><th>Chrome Skills（本頁）</th><th><a href="ai-agent.html">AI Agent</a>（Part 7）</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>一句話</strong></td><td>幫你「組」出一段好 Prompt</td><td>把常用 Prompt 存成「網頁快捷鍵」</td><td>讓 AI 自己「動手做」多步任務</td></tr>
+          <tr><td><strong>在哪用</strong></td><td>本站網頁，複製去任何 AI</td><td>Chrome 側邊欄，綁當前網頁</td><td>專用 App／工具環境</td></tr>
+          <tr><td><strong>吃什麼上下文</strong></td><td>無，純文字組裝</td><td>你正在看的網頁＋選取的分頁</td><td>你給的檔案、工具、系統權限</td></tr>
+          <tr><td><strong>上手門檻</strong></td><td>最低</td><td>低（開個開關就能用）</td><td>中高</td></tr>
+        </tbody>
+      </table>
+
+      <div class="box-tip">
+        <strong>什麼時候用 Chrome Skills 最順手？</strong>當你的任務是<strong>「針對眼前這個網頁做點事」</strong> — 讀論文摘要、整理指引重點、把英文頁面翻成繁中、把某頁內容改寫成衛教說明、在 Gmail 裡草擬回信。這些任務的「材料」就是你正在看的那一頁，Chrome Skills 綁定網頁的特性剛好對上。反過來，如果任務不需要拿網頁當材料（單純問問題、生一張圖），用一般的 ChatGPT／Gemini 就好，不必特地開 Skill。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Privacy ─── -->
+    <section id="privacy">
+      <h2>用之前的隱私三關</h2>
+      <div class="box-danger">
+        <h4>🔒 3 秒安全檢查（這一關比操作更重要）</h4>
+        <p><strong>這個網頁上有沒有病人資料？我按下 Skill，等於把「當前這一頁的內容」送給 Google 的 Gemini 處理。</strong></p>
+        <p style="margin-bottom: 0;">Chrome Skills 讀取的是你眼前分頁的內容 — 如果你螢幕上開著病歷系統、檢驗報告、含姓名病歷號的 email，一按 Skill 就是把這些資料上傳。<strong>凡是可辨識到特定病人的畫面，一律不要在上面執行 Skill。</strong>先把畫面切到不含病人資料的頁面（論文、指引、去識別化的內容）再用。搞不清楚界線在哪，先回 <a href="ai-safety.html">Part 3 — AI 安全與隱私</a> 補一下 — 這正是為什麼安全課要先上。</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Enable ─── -->
+    <section id="enable">
+      <h2>怎麼開啟</h2>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 操作步驟更新於 2026 年 7 月 — 此功能仍在分批推送、位於實驗性設定區，選項位置未來可能變動，以你 Chrome 實際顯示為準。</p>
+
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">Step 1</span> <strong>打開實驗性設定</strong>
+        <p style="margin-top: 0.5rem;">在 Chrome 網址列輸入 <code>chrome://flags</code> 後按 Enter。這是 Chrome 的實驗功能開關頁。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--success);">
+        <span class="step-badge">Step 2</span> <strong>搜尋 Skills 並開啟</strong>
+        <p style="margin-top: 0.5rem;">頁面最上方的搜尋框輸入 <code>skills</code>，找到 <strong>Skills</strong> 這一項，把右側的狀態從 <strong>Default</strong> 改成 <strong>Enabled</strong>。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--warning);">
+        <span class="step-badge">Step 3</span> <strong>重新啟動瀏覽器</strong>
+        <p style="margin-top: 0.5rem;">改完後右下角會彈出藍色的 <strong>Relaunch</strong> 按鈕，點它讓 Chrome 重開，設定才會生效。（重開前記得存好正在編輯的網頁內容。）</p>
+      </div>
+
+      <div class="box-tip">
+        <strong>沒看到 Skills 或叫不出來？</strong>這功能推出初期只支援「英文（美國）」介面，之後分批放寬。2026 年 7 月實測繁體中文介面的 Chrome 已經可以使用；若你的 Chrome 還是找不到 Skills，代表分批推送還沒輪到你 — 過一陣子再試，或暫時把 Chrome 語言切成 English (US) 走一次。功能只在<strong>桌機版</strong>，手機版 Chrome 沒有。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Use ─── -->
+    <section id="use">
+      <h2>怎麼存、怎麼叫出來</h2>
+
+      <h3>把一段 Prompt 存成 Skill</h3>
+      <div class="card">
+        <ol>
+          <li>打開 Chrome 側邊欄的 <strong>Gemini</strong>，像平常一樣打一段你常用的指令（例如下面那些醫療 Skills），讓它跑一次。</li>
+          <li>在對話紀錄裡找到 <strong>「Save as Skill（存成技能）」</strong> 的選項 — Gemini 也常會在對話結束時主動問你要不要存。</li>
+          <li>幫這個 Skill <strong>取名字、配一個 emoji</strong>（方便之後一眼認出），存檔完成。</li>
+        </ol>
+      </div>
+
+      <h3>之後怎麼一鍵叫出來</h3>
+      <div class="card">
+        <ul>
+          <li>在 Gemini 對話框打一個斜線 <code>/</code>，你存過的 Skills 會立刻列出來，選一個就執行。</li>
+          <li>或直接打 <code>/</code> 加上 Skill 名稱，快速定位。</li>
+          <li>執行時，Skill 會針對你<strong>當前正在看的網頁</strong>作用；需要一次處理多頁時，先選取要納入的分頁再執行。</li>
+          <li>Skills 隨時可以回去<strong>編輯提示詞</strong>，改完自動同步到同帳號的其他桌機。</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Medical Skills ─── -->
+    <section id="medical-skills">
+      <h2>醫療人員實用 Skills 範本</h2>
+      <p>下面九個 Skills 是照醫療人員日常在瀏覽器裡真的會做的事整理的 — 讀文獻、查藥、看指引、回信、做衛教。每一段都可以直接複製，貼進 Gemini 跑一次、再「Save as Skill」存起來。取名時建議連 emoji 一起（例：<code>📄 論文速讀</code>），之後打 <code>/</code> 最好找。</p>
+
+      <div class="box-tip">
+        <strong>用法共通原則：</strong>這些 Skills 都是設計成「作用在你當前開著的網頁」。執行前先確認你正停在正確的那一頁（論文頁、藥物頁、指引頁、信件頁），而且<strong>畫面上沒有病人資料</strong>（見上方隱私三關）。
+      </div>
+
+      <h3>📚 讀文獻用（停在論文或摘要頁執行）</h3>
+
+      <div class="prompt-block">
+        <div class="prompt-label">📄 論文速讀</div>
+        <div class="prompt-content">請根據我目前開啟的這個網頁（一篇醫學論文或摘要），用繁體中文整理成：
+1. 一句話結論（這篇在講什麼、發現了什麼）
+2. 研究設計與樣本數
+3. 主要結果（含關鍵數據與統計顯著性）
+4. 臨床意義（對我的臨床工作有什麼影響）
+5. 侷限與注意事項
+
+請條列、精簡，專有名詞保留英文原文。只根據頁面內容，頁面沒寫的不要自行補充。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">🔬 PICO 拆解</div>
+        <div class="prompt-content">請把目前這個網頁的研究，用繁體中文拆成 PICO 四要素：
+- P 病人族群／收案條件
+- I 介入措施
+- C 對照組
+- O 主要與次要 outcome
+
+最後補一行：這個研究能回答哪一類臨床問題，還缺什麼資訊。只根據頁面內容作答。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">🧐 批判性閱讀</div>
+        <div class="prompt-content">請以實證醫學的角度，用繁體中文評讀目前這個網頁的研究：
+- 研究設計屬於哪個證據等級
+- 可能存在的偏差（selection／performance／detection／attrition bias）
+- 樣本數與統計檢定力是否足夠
+- 結論有沒有過度推論，是否揭露利益衝突
+
+最後給我 3 個「引用這篇之前該存疑的地方」。只根據頁面內容評讀，不要臆測頁面沒有的資訊。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <h3>💊 查藥、看指引用（停在藥物或指引頁執行）</h3>
+
+      <div class="prompt-block">
+        <div class="prompt-label">💊 用藥重點抽取</div>
+        <div class="prompt-content">請根據目前這個藥物資訊頁面，用繁體中文整理成表格，欄位包含：適應症、成人常用劑量、腎／肝功能調整、主要禁忌、重大交互作用、常見副作用。
+
+只擷取頁面上實際寫的內容；頁面沒有提到的欄位請標「頁面未提及」，絕對不要自行補充、推測或引用頁面以外的資料。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">📋 指引轉行動清單</div>
+        <div class="prompt-content">請把目前這個臨床指引頁面，用繁體中文整理成一份「可執行的臨床行動清單」：把建議事項轉成我在門診／病房可以照做的具體步驟，每條後面標註建議強度與證據等級（如果頁面有寫）。
+
+頁面沒有明確寫出的部分不要自己補。最後列出「頁面中我需要再查證或與上級討論的模糊處」。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <h3>✉️ 溝通、翻譯用</h3>
+
+      <div class="prompt-block">
+        <div class="prompt-label">✉️ 專業回信草稿（停在信件頁執行，先確認無病人資料）</div>
+        <div class="prompt-content">請根據目前這封信的內容，用繁體中文（正式但親切的醫療專業語氣）幫我草擬一則回信。
+
+先條列「這封信在問什麼／要什麼」，再寫回信草稿。不要替我做任何醫療決定或給出臨床承諾；需要我親自填寫或確認的地方，用＿＿＿標示出來。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">🌐 醫學翻譯（繁中）</div>
+        <div class="prompt-content">請把目前這個網頁的內容翻成繁體中文（使用台灣醫學慣用語）。
+
+規則：專有名詞、藥名、基因與檢驗縮寫保留英文原文，並在後面用括號附上中文；所有數字、單位、劑量、統計數值一律原樣保留，不要改動或簡化任何臨床數據。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <h3>🗣️ 做衛教用</h3>
+
+      <div class="prompt-block">
+        <div class="prompt-label">🗣️ 轉成民眾衛教版</div>
+        <div class="prompt-content">請把目前這個網頁的醫療內容，改寫成台灣一般民眾看得懂的衛教說明（繁體中文，約國中程度）。
+
+用生活化的比喻、避免專業術語（必須用到時附一句白話解釋），分成四段：「這是什麼／為什麼重要／我該怎麼做／什麼情況要就醫」。語氣親切、不恐嚇、不誇大療效，不編造頁面沒有的數據或建議。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="box-danger">
+        <p style="margin: 0;">⚠️ <strong>衛教改寫最容易踩線：</strong>這個 Skill 吃的是「網頁上的內容」。改寫前務必再確認頁面上沒有任何可辨識病人的資訊 — 做衛教是為了給民眾看，不是把某位病人的病歷變好懂。</p>
+      </div>
+
+      <h3>⚖️ 跨分頁比較用（Chrome Skills 的獨門絕活）</h3>
+
+      <div class="prompt-block">
+        <div class="prompt-label">⚖️ 跨分頁比較</div>
+        <div class="prompt-content">我已經開了多個分頁（不同的指引／藥物／研究）。請用繁體中文做成對照表，逐項比較它們的差異（例如：適應症、劑量、建議事項、證據等級或主要結論），最後用一段話總結它們之間最主要的分歧點。
+
+只根據我選取的這些分頁內容，不要引用分頁以外的資料。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="box-tip">
+        <strong>為什麼這招只有 Chrome Skills 做得順：</strong>一般 AI 聊天你得把每一頁內容複製貼上，跨三四篇很快就亂。Chrome Skills 直接讀你選取的分頁，比較兩份指引、兩種藥、幾篇研究的差異，是它綁定網頁特性最有價值的用法。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Limits ─── -->
+    <section id="limits">
+      <h2>使用限制與注意</h2>
+      <div class="card-grid">
+        <div class="card">
+          <strong>🧪 還在實驗階段</strong>
+          <p>透過 <code>chrome://flags</code> 開啟，代表它還是實驗功能 — 介面、選項位置、甚至開關名稱之後都可能變動。教學步驟以你 Chrome 當下顯示為準。</p>
+        </div>
+        <div class="card">
+          <strong>💻 只有桌機版</strong>
+          <p>Windows／Mac／ChromeOS 的 Chrome 才有，手機／平板版沒有。Skills 會在同帳號的桌機之間同步。</p>
+        </div>
+        <div class="card">
+          <strong>🔒 會讀網頁內容</strong>
+          <p>Skill 執行等於把當前頁面內容送給 Gemini。病人資料、含個資的畫面一律不要在上面執行 — 這條沒有例外。</p>
+        </div>
+        <div class="card">
+          <strong>🙅 它不會「動手做」</strong>
+          <p>Chrome Skills 是「一鍵套用一段提示詞」，不像 <a href="ai-agent.html">Agent</a> 會自己操作多步驟、跨工具完成任務。需要 AI 替你執行一連串動作，那是 Part 7 的範疇。</p>
+        </div>
+      </div>
+
+      <div class="box-tip">
+        <strong>先驗證，再信任：</strong>AI 整理的重點、抽取的劑量、翻譯的數據，都可能出錯或漏抓。要用在臨床決策或衛教文件上的內容，<strong>務必回原網頁逐項核對</strong> — Skill 幫你省的是打字和整理的時間，不是核對的責任。
+      </div>
+    </section>
+
+    <!-- ─── Navigation ─── -->
+    <div class="box-success">
+      <strong>🎯 現在就做（5 分鐘）：</strong>照上面 Step 1-3 開啟 Skills，隨便找一篇今天想讀的論文摘要頁，把「📄 論文速讀」那段貼進 Gemini 跑一次，然後按「Save as Skill」存起來。下次再讀論文，打 <code>/</code> 就有 — 你的第一個 AI 快捷鍵就完成了。
+    </div>
+
+    <div class="nav-links">
+      <a href="github-pages.html" class="nav-link">← 番外 — GitHub Pages 建站</a>
+      <a href="index.html" class="nav-link">回目錄</a>
+      <span class="nav-link disabled">更多內容製作中</span>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 衛生福利部台中醫院 感染科 曾婷玉醫師 — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<span class="lightbox-close">✕ 關閉</span><img alt=""><div class="lightbox-caption"></div>';
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img');
+    const lbCap = lb.querySelector('.lightbox-caption');
+    document.querySelectorAll('.result-compare figure').forEach(fig => {
+      fig.addEventListener('click', () => {
+        const img = fig.querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = fig.querySelector('figcaption').textContent;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    lb.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  })();
+
+  function copyPrompt(btn) {
+    const content = btn.parentElement;
+    const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+  </script>
+
+</body>
+</html>
