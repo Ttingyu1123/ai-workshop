@@ -141,6 +141,7 @@ ai-workshop/
 - [x] AI Agent 教學頁面（ai-agent.html，Part 5）
 - [x] GitHub Pages 建站教學頁面（github-pages.html）
 - [ ] 衛教單專區 → **獨立成站**（預計 >20 張，受眾是民眾非醫療人員，另開 repo，不放本站）
+- [ ] 番外 — 本機／開源生圖入門（ComfyUI ＋ RunningHub 免顯卡線上跑）：定位是操作課不是節點工程 — 動機（本機生成＝資料不出機器，呼應 Part 3）→ 桌面版安裝 → 跑出第一張圖 → 沒顯卡走 RunningHub。寫完後把 ai-image.html `#advanced-tools` 的 ComfyUI／RunningHub 兩張卡加上導流連結。Midjourney 已評估**不開**獨立頁（無免費額度、學員無法零成本跟做；Part 4 工具卡已足夠）— 2026-07-07 決策
 
 ### 技術
 - [x] OG 圖片（og-image.png，doodle 插畫，與 website repo `public/images/insights/ai-workshop.png` 是同一張圖，換圖時要兩邊同步）
