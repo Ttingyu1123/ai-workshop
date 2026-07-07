@@ -85,6 +85,13 @@
       </div>
 
       <p>這正是本節要建立的心態：Agent 能大幅加速工作，但它不會取代你的判斷。你負責下達清楚的目標、審核它的計畫、驗收最終結果。</p>
+
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-agent/agent-vs-chatbot.webp" alt="Agent 跟聊天機器人差在哪教學海報：Chatbot 回答問題，Agent 完成任務 — 左欄 Chatbot 核心是回答問題、你問一句它答一句、擅長解釋整理建議、通常不主動執行多步驟任務，像醫院諮詢台；右欄 Agent 核心是完成目標、自己拆解步驟、會呼叫工具執行任務、會檢查結果做錯再修正，像住院醫師；中段 Agent 的工作迴圈：目標→規劃→行動→檢查→修正→回報；下段三角色對照 — Chatbot＝諮詢台（提供資訊、解答問題、給建議）、Agent＝住院醫師（拆解任務、執行與追蹤、檢查結果、持續修正）、你＝主治醫師（設定目標、建立規則、審核結果、做決策）；重點：Agent 能大幅加速工作，但不取代你的判斷，你負責下目標、定規則、審核結果" loading="lazy">
+          <figcaption>Agent vs Chatbot — 諮詢台、住院醫師與主治醫師（點圖放大）</figcaption>
+        </figure>
+      </div>
     </section>
 
     <hr class="section-divider">
@@ -158,6 +165,13 @@
 
       <div class="box-tip">
         Agent 通常會先提出一份計畫再動手（尤其處理較複雜的任務時）。花 10 秒看過計畫，覺得方向不對就直接說，不要等它做完才發現南轅北轍。
+      </div>
+
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-agent/first-prompt-three-keys.webp" alt="Agent 跟 Chatbot 最大的操作差異教學海報：不是一步一步教它做，而是給對任務規格 — Chatbot 是你問一句我答一句，Agent 是你講目標我自己規劃；三要素：①講目標不講步驟（不要逐步下指令，直接說你要的結果，例：把這份衛教文件改成國中生看得懂）、②給足背景（背景越完整 Agent 規劃越準：檔案在哪裡、用途是什麼、要遵守什麼格式）、③要求驗收點（先講清楚完成標準 Agent 才會自我檢查，例：表格要包含出處、字數不超過 300 字、完成後請自我檢查）；底部流程：目標＋背景＋驗收點→Agent 規劃→執行→自我檢查；便利貼提醒：複雜任務時先看它的計畫 10 秒，方向不對先修正再開始" loading="lazy">
+          <figcaption>下對第一個指令的三要素（點圖放大）</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -249,6 +263,13 @@
       <div class="box-tip">
         這個 AI Workshop 網站的每一頁 HTML，都是用 Claude Code 依照這五步流程做出來的：先描述頁面規格與設計規範，Agent 規劃架構、寫程式碼，作者確認排版與內容無誤後才上線。「用 AI Agent 架設 GitHub Pages 網站」的完整教學見<a href="github-pages.html">番外篇</a>。
       </div>
+
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-agent/agent-workflow.webp" alt="從下指令到驗收：Agent 的 5 步工作流教學海報 — Step 1 描述需求：用目標＋背景＋驗收標準下指令，不用鉅細靡遺但關鍵限制要講清楚；Step 2 Agent 提出計畫：遇到較複雜的任務 Agent 常會先列出打算怎麼做，這是你介入導正方向的最好時機；Step 3 確認方向：看過計畫合理就說可以開始吧，若有遺漏或方向不對先調整，不用等結果出來才重來；Step 4 執行：Agent 會自主完成讀檔、寫程式、跑測試等步驟，遇到錯誤也會嘗試修正，但高風險操作與權限請求要特別留意；Step 5 驗收修正：Agent 回報完成後依照一開始的驗收標準逐項檢查，不符合就明確指出哪裡不對讓它修正；重點提醒：Agent 可以幫你做很多事，但最後的判斷與把關仍然是人的責任，驗收永遠不能省略；小提醒：清楚指令、及時確認、嚴格驗收" loading="lazy">
+          <figcaption>Agent 的 5 步工作流 — 從下指令到驗收（點圖放大）</figcaption>
+        </figure>
+      </div>
     </section>
 
     <hr class="section-divider">
@@ -297,6 +318,13 @@
       </div>
 
       <div class="box-tip">三者的共同點：<strong>把「每次口頭交代」變成「寫下來的制度」</strong>。你在醫院熟到不能再熟的那套 — 手冊、SOP、標準介接 — 搬到 AI 協作上一樣管用。名詞會退流行，這個原則不會。</div>
+
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-agent/agent-concepts.webp" alt="讓 Agent 更好用的三個概念教學海報：先懂心智模型，不必先背設定 — ①專案說明檔（CLAUDE.md／AGENTS.md）：放在工作資料夾、Agent 開工會先讀、寫好格式偏好慣用詞禁區，像新進人員手冊；②Skill（技能）：把重複流程寫成文件、一句話觸發整套流程、固定驗收標準品質更穩，像科內 SOP；③MCP（Model Context Protocol）：Agent 接外部系統的標準插座、可連行事曆雲端硬碟文獻庫、不用每組工具都重接一次，像標準介接；共同原則：把每次口頭交代變成寫下來的制度 — 手冊、SOP、標準介接，都是在幫 Agent 穩定工作" loading="lazy">
+          <figcaption>三個概念 — 手冊、SOP 與標準介接（點圖放大）</figcaption>
+        </figure>
+      </div>
     </section>
 
     <hr class="section-divider">
@@ -318,6 +346,13 @@
 
       <div class="box-tip">
         <strong>Agent 會犯錯，輸出一定要人工驗證。</strong>它可能誤讀文獻數據、生成看似合理但錯誤的醫療敘述、或漏看你交代的限制條件。Agent 再厲害，都只是工具 — 最終內容是否正確、能不能用在病人身上，責任永遠在使用者身上，就像住院醫師開的醫囑，主治醫師簽核前一定要親自確認。
+      </div>
+
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-agent/agent-safety-gates.webp" alt="給 Agent 資料前先過三關教學海報：Agent 會代替你操作檔案和網路，給它資料前先做風險判斷 — 第 1 關有沒有病人資料：先看資料裡有沒有可辨識病人的內容，姓名、病歷號、影像、日期、罕見病情都可能讓人被辨識，有疑慮＝不要直接上傳；第 2 關會不會給病人看：只要病人可能看到，就不能把 Agent 輸出直接當最後版本，衛教、回覆、診斷解釋都要人工審核；第 3 關我能不能負責：如果內容錯了漏了誤導了，最後責任仍然在使用者，Agent 可以代做但不能代你負責，最後把關的人還是你；有疑慮就先停：去識別化、改用假資料、人工審核、不要上傳；重點提醒：Agent 可以幫你做事，但不能替你承擔責任 — 先判斷風險，再交給 Agent" loading="lazy">
+          <figcaption>給 Agent 資料前，先過三關（點圖放大）</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -346,6 +381,31 @@
   </footer>
 
   <script>
+  (function () {
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<span class="lightbox-close">✕ 關閉</span><img alt=""><div class="lightbox-caption"></div>';
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img');
+    const lbCap = lb.querySelector('.lightbox-caption');
+    document.querySelectorAll('.result-compare figure').forEach(fig => {
+      fig.addEventListener('click', () => {
+        const img = fig.querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = fig.querySelector('figcaption').textContent;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    lb.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  })();
+
   function copyPrompt(btn) {
     const content = btn.parentElement;
     const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
