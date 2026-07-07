@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>本機／開源生圖入門 — ComfyUI + RunningHub</title>
+  <meta name="description" content="用 ComfyUI 在自己電腦上生圖，資料不出機器；沒有獨立顯示卡就用 RunningHub 線上跑。醫療人員的本機／開源生圖操作入門，非節點工程。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="本機／開源生圖入門 — ComfyUI + RunningHub">
+  <meta property="og:description" content="用 ComfyUI 在自己電腦上生圖，資料不出機器；沒有獨立顯示卡就用 RunningHub 線上跑。醫療人員的本機／開源生圖操作入門，非節點工程。">
+  <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/comfyui.html">
+  <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L05KFZJS9L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L05KFZJS9L');
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="index.html#core">基礎必修</a>
+        <a href="index.html#create">創作應用</a>
+        <a href="index.html#advanced">進階實戰</a>
+        <a href="index.html#extras" class="active">番外工具</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">番外・本機生圖</div>
+    <h1>本機／開源生圖入門</h1>
+    <p>ComfyUI ＋ RunningHub — 在自己電腦上生圖，資料不出機器</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <nav class="toc" aria-label="目錄">
+      <ol>
+        <li><a href="#why">為什麼醫療人員要學本機生圖</a></li>
+        <li><a href="#what-is">ComfyUI 是什麼</a></li>
+        <li><a href="#check">先確認你的電腦能不能跑（分流）</a></li>
+        <li><a href="#route-a">路線 A：桌面版安裝 + 第一張圖</a></li>
+        <li><a href="#models">模型從哪來</a></li>
+        <li><a href="#route-b">路線 B：沒有獨立顯示卡就上雲端</a></li>
+      </ol>
+    </nav>
+
+    <div class="box-tip">
+      <h4>📌 這頁的定位</h4>
+      <p style="margin: 0;">這是一堂<strong>操作課</strong>，不是節點工程。目標只有一個：讓你在自己的電腦（或免費雲端）上，用開源模型生出第一張圖。我們<strong>不教</strong>怎麼從零連接節點、自建工作流 — 那是另一個世界。這頁也不是要取代 <a href="ai-image.html">Part 4 — AI 圖像生成</a>，線上的 ChatGPT／Gemini 生圖仍然是最快上手的路；本機生圖是給「有隱私需求」或「想完全免費、無限次生成」的人多一個選項。</p>
+    </div>
+
+    <!-- ─── Why ─── -->
+    <section id="why">
+      <h2>為什麼醫療人員要學本機生圖</h2>
+      <p>線上生圖工具（ChatGPT、Gemini、Google Flow）好用又快，但有三件事它們做不到，而這三件事對醫療場景特別重要。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>🔒 資料不出機器</strong>
+          <p>本機生圖時，你輸入的文字、上傳的參考圖<strong>完全不會離開你的電腦</strong>，不上傳任何雲端伺服器。這正是 <a href="ai-safety.html">Part 3 — AI 安全與隱私</a> 一直強調的原則 — 涉及病人、個資、臨床影像的素材，最安全的做法就是根本不上傳。</p>
+        </div>
+        <div class="card">
+          <strong>♾️ 免費、無限次</strong>
+          <p>模型下載到本機後，生成完全免費，沒有每日額度、沒有 credits、沒有訂閱。想抽幾張就抽幾張 — 電費以外零成本。</p>
+        </div>
+        <div class="card">
+          <strong>🎛️ 不受線上內容審查</strong>
+          <p>線上工具對「醫療」相關內容常過度保守 — 傷口、器官、解剖、手術示意圖有時會被拒絕生成。本機模型由你掌控，衛教用途的醫療影像不會動不動就被擋。</p>
+        </div>
+      </div>
+
+      <div class="box-danger">
+        <h4>⚖️ 誠實講缺點</h4>
+        <p style="margin: 0;">本機生圖<strong>需要一張夠力的顯示卡</strong>（見下方硬體門檻），而且比線上工具難上手。如果你只是偶爾做張衛教圖，<a href="ai-image.html">Part 4</a> 的線上工具就夠了，不必勉強裝這套。這頁適合的是：① 有明確隱私顧慮、素材不能上雲 ② 生圖量大、線上額度不夠用 ③ 單純想玩玩看開源 AI 怎麼運作。三者有一，才值得往下讀。</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── What is ComfyUI ─── -->
+    <section id="what-is">
+      <h2>ComfyUI 是什麼</h2>
+      <p><a href="https://www.comfy.org/" target="_blank">ComfyUI</a> 是一套免費、開源的 AI 生圖軟體，裝在自己的電腦上跑。它最有名的畫面是一堆用線連起來的「節點」，看起來很嚇人 — 但你完全<strong>不需要自己接線</strong>：它內建現成的範本，你只要載入範本、改幾個字、按生成，就會出圖。</p>
+
+      <div class="analogy">
+        線上生圖工具（ChatGPT、Gemini）像<strong>自動販賣機</strong> — 投幣、按鈕、掉出飲料，簡單但只能買它有的。ComfyUI 像<strong>自己家的咖啡機</strong> — 一開始要學怎麼裝豆子、加水（安裝＋下載模型），但之後想煮多少杯都免費，還能自己調濃淡。這頁只教你「用內建的預設配方煮出第一杯」，不教你拆機器改管線。
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>✅ 優點</strong>
+          <p>免費、無限次、資料留在本機、模型與參數完全可控、開源社群龐大。</p>
+        </div>
+        <div class="card">
+          <strong>⚠️ 門檻</strong>
+          <p>要有獨立顯示卡、要下載幾 GB 的模型檔、介面比線上工具複雜。第一次安裝約需半小時到一小時。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Check hardware ─── -->
+    <section id="check">
+      <h2>先確認你的電腦能不能跑（分流）</h2>
+      <p>本機生圖靠的是<strong>顯示卡（GPU）</strong>來運算 — 不是 CPU，也不是記憶體。所以第一步不是急著下載，而是先搞清楚你的電腦有沒有一張夠力的顯示卡。</p>
+
+      <h3>先分清楚兩種顯示卡</h3>
+      <div class="card-grid">
+        <div class="card">
+          <strong>🎮 獨立顯示卡（獨顯）</strong>
+          <p>一張<strong>單獨的晶片</strong>，有自己的專屬記憶體（VRAM），運算力強。桌機／電競筆電常見的 NVIDIA GeForce（如 RTX 4060、4070）就是這類。<strong>本機生圖需要的是這種。</strong></p>
+        </div>
+        <div class="card">
+          <strong>💻 內建顯示卡（內顯）</strong>
+          <p>直接<strong>整合在 CPU 裡</strong>、跟系統共用記憶體的顯示功能（如 Intel UHD Graphics）。一般文書筆電多半只有內顯 — 能上網、看影片，但<strong>跑不動生圖模型。</strong></p>
+        </div>
+      </div>
+
+      <div class="box-tip">
+        <strong>怎麼查我有沒有獨立顯示卡（Windows）：</strong>按 <code>Ctrl + Shift + Esc</code> 開「工作管理員」→ 點「效能」分頁 → 左邊看有沒有列出「GPU」。如果同時出現兩個 GPU（一個是 Intel／AMD 內顯，一個是 NVIDIA），或列出 NVIDIA GeForce／RTX 字樣，代表你有獨立顯示卡。只看到 Intel(R) UHD / Iris 這類，就是只有內顯。
+      </div>
+
+      <h3>硬體門檻（NVIDIA 獨立顯示卡）</h3>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 規格資訊更新於 2026 年 7 月 — 以 <a href="https://docs.comfy.org/installation/system_requirements" target="_blank">ComfyUI 官方系統需求</a> 為準。</p>
+      <table>
+        <thead>
+          <tr><th>VRAM（顯示卡記憶體）</th><th>能跑什麼</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>4 GB（最低）</td><td>勉強能啟動，只跑得動最輕量的舊模型</td></tr>
+          <tr><td>8 GB（舒適）</td><td>順跑 SD 1.5 這類經典模型，入門足夠</td></tr>
+          <tr><td>12 GB</td><td>解鎖畫質更好的 SDXL 模型</td></tr>
+          <tr><td>16 GB 以上</td><td>跑得動最新的 Flux 等大型模型</td></tr>
+        </tbody>
+      </table>
+      <p>另外需要：Windows 10 以上（建議 11）、約 15 GB 以上的硬碟空間（軟體＋模型）。</p>
+
+      <div class="box-success">
+        <h4>🚦 走哪條路？</h4>
+        <ul style="margin-bottom: 0;">
+          <li><strong>有 NVIDIA 獨立顯示卡（8 GB 以上最理想）</strong> → 走 <a href="#route-a">路線 A：桌面版安裝</a>，在自己電腦上跑。</li>
+          <li><strong>只有內建顯示卡／是 Mac／筆電跑不動</strong> → 直接跳 <a href="#route-b">路線 B：上雲端（RunningHub）</a>，免裝、免顯示卡，一樣能體驗 ComfyUI。</li>
+        </ul>
+      </div>
+
+      <div class="box-tip">
+        <strong>Mac 使用者：</strong>Apple 晶片（M 系列）的 Mac 也能跑 ComfyUI，但速度比 NVIDIA 獨顯慢不少，模型選擇也較受限。想先體驗建議走路線 B；真的想在本機跑再研究桌面版的 macOS 安裝。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Route A ─── -->
+    <section id="route-a">
+      <h2>路線 A：桌面版安裝 + 跑出第一張圖</h2>
+      <p>過去裝 ComfyUI 要自己弄 Python 環境，對非工程背景的人很勸退。現在官方推出 <strong>ComfyUI Desktop（桌面版）</strong>，一個安裝檔就把 Python、繪圖驅動需要的元件全部自動裝好，跟裝一般軟體一樣。</p>
+
+      <h3>安裝步驟</h3>
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">Step 1</span> <strong>下載安裝檔</strong>
+        <p style="margin-top: 0.5rem;">到官網 <a href="https://www.comfy.org/download" target="_blank">comfy.org/download</a> 下載對應你系統（Windows／macOS）的桌面版安裝檔。</p>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--success);">
+        <span class="step-badge">Step 2</span> <strong>一鍵安裝</strong>
+        <p style="margin-top: 0.5rem;">執行安裝檔，跟著精靈按下一步即可。它會自動下載並設定 Python 與繪圖運算元件，全程約 30–45 分鐘（看網速），佔用約 15 GB 空間。這段時間放著讓它跑就好。</p>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--warning);">
+        <span class="step-badge">Step 3</span> <strong>載入內建的「文字生圖」範本</strong>
+        <p style="margin-top: 0.5rem;">開啟 ComfyUI 後，從選單找到範本（Templates），選最基本的 <strong>Text to Image</strong>（文字生圖）。畫面上會出現一組已經接好線的節點 — 別被線嚇到，你不用碰它們。第一次載入時，它通常會提示你下載一個預設模型，照著按確認下載即可。</p>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--highlighter-purple);">
+        <span class="step-badge">Step 4</span> <strong>改 prompt、按生成</strong>
+        <p style="margin-top: 0.5rem;">在畫面上找到寫著英文提示詞的框（正向提示詞），把裡面的字換成你要的內容，按下 <strong>Queue（排入生成）</strong>。等幾秒到幾十秒，右邊就會出現你的第一張本機生成圖。</p>
+      </div>
+
+      <h3>畫面上那幾個框在幹嘛（點到為止）</h3>
+      <p>你不需要理解每條線，但認得這四個框，之後要改東西才知道改哪裡：</p>
+      <div class="card">
+        <ul style="margin-bottom: 0;">
+          <li><strong>模型載入框（Load Checkpoint）</strong> — 決定用哪個模型畫圖，像是選哪位畫師。</li>
+          <li><strong>正向提示詞（Positive）</strong> — 你「要」畫面出現什麼，主要就是改這裡。</li>
+          <li><strong>反向提示詞（Negative）</strong> — 你「不要」出現什麼（例如 blurry 模糊、extra fingers 多手指）。</li>
+          <li><strong>出圖框（Save / Preview Image）</strong> — 成品出現的地方，會自動存檔到本機。</li>
+        </ul>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">第一張圖的入門提示詞（貼進正向提示詞框，或自己改內容）</div>
+        <div class="prompt-content">a clean medical infographic illustration of a hand washing step, soft pastel colors, flat design, white background, friendly and educational style, high quality<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="box-tip">
+        <strong>提示詞用英文效果更好：</strong>開源生圖模型多半用英文語料訓練，英文提示詞理解最準。習慣中文構思的話，先用 ChatGPT／Gemini 把想法翻成英文，再貼進 ComfyUI（這招在 <a href="ai-image.html">Part 4</a> 也提過）。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Models ─── -->
+    <section id="models">
+      <h2>模型從哪來</h2>
+      <p>ComfyUI 本身只是「畫圖的軟體」，真正決定畫風與品質的是<strong>模型（model／checkpoint）</strong>。桌面版第一次會幫你下載一個預設模型，夠你跑出第一張圖；想換不同畫風，就得自己再下載別的模型。</p>
+
+      <p>開源生圖模型主要有這幾個世代，VRAM 需求由低到高：</p>
+      <div class="card">
+        <ul style="margin-bottom: 0;">
+          <li><strong>SD 1.5</strong> — 最經典、最省資源，8 GB 顯卡就能順跑，入門首選。</li>
+          <li><strong>SDXL</strong> — 畫質更高、細節更好，建議 12 GB 以上。</li>
+          <li><strong>Flux</strong> — 最新一代、對文字與構圖理解最強，但吃資源，建議 16 GB 以上。</li>
+        </ul>
+      </div>
+
+      <div class="box-tip">
+        <strong>去哪下載模型：</strong>建議用 <a href="https://huggingface.co/" target="_blank">Hugging Face</a> — 這是 AI 界最大的開源模型平台，Stable Diffusion、Flux 的官方模型都在上面，來源清楚、相對單純。下載模型檔（通常是 <code>.safetensors</code> 格式）後，放進 ComfyUI 安裝目錄下的模型資料夾，重新整理就能在模型載入框選到。
+        <br><br>
+        網路上還有其他更大的模型分享站，但內容龐雜、混有大量成人與版權不明的內容，醫療衛教用途建議<strong>先從 Hugging Face 的官方模型開始</strong>就好，需求單純又不踩雷。
+      </div>
+
+      <div class="box-danger">
+        <h4>⚖️ 授權與用途提醒</h4>
+        <p style="margin: 0;">開源不等於「什麼都能做」。每個模型有自己的授權條款（有些禁商用、有些禁特定用途），生成的圖若要用在正式衛教文宣、對外發布，記得看一下該模型的授權說明。醫療衛教內容也一樣要守 <a href="ai-safety.html">Part 3</a> 的原則：不生成可辨識的真實病人臉孔、不編造醫療數據。</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Route B ─── -->
+    <section id="route-b">
+      <h2>路線 B：沒有獨立顯示卡就上雲端</h2>
+      <p>沒有夠力的顯示卡，一樣能體驗 ComfyUI — 把運算交給雲端就好。<a href="https://www.runninghub.ai/" target="_blank">RunningHub</a> 是把整套 ComfyUI 搬到瀏覽器上的平台：<strong>你在網頁上操作，實際運算跑在對方的高效能顯示卡上</strong>，你的電腦只要能開網頁就行，免安裝、免顯示卡。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>✅ 適合誰</strong>
+          <p>只有內建顯示卡的文書筆電、Mac、想先試水溫不想裝軟體的人。零安裝，註冊完就能用。</p>
+        </div>
+        <div class="card">
+          <strong>⚠️ 要留意</strong>
+          <p>運算在雲端，代表<strong>你的輸入會上傳到對方伺服器</strong> — 這就失去了本機生圖「資料不出機器」的隱私優勢。<strong>涉及病人資料、個資的素材不要上傳</strong>，回到 <a href="ai-safety.html">Part 3</a> 的三秒檢查。</p>
+        </div>
+      </div>
+
+      <h3>大致怎麼用</h3>
+      <div class="card">
+        <ol style="margin-bottom: 0;">
+          <li>到 <a href="https://www.runninghub.ai/" target="_blank">runninghub.ai</a> 註冊帳號。</li>
+          <li>從平台上現成的工作流（workflow）或 AI App 挑一個文字生圖的來用。</li>
+          <li>改提示詞、按執行，雲端跑完把圖回傳給你，直接下載。</li>
+        </ol>
+      </div>
+
+      <div class="box-tip">
+        <strong>費用：</strong>RunningHub 採免費額度＋付費方案的模式，有免費額度可以先試。<span style="font-family: var(--font-hand); color: var(--text-light);">📅 具體免費額度與計費方式會調整，以 <a href="https://www.runninghub.ai/" target="_blank">官網</a> 當下公告為準 — 本頁不列數字以免過時。</span>
+      </div>
+
+      <div class="box-tip">
+        <strong>其他線上跑 ComfyUI 的選擇（帶過，需要再深入研究）：</strong>除了 RunningHub，還有 <a href="https://www.runcomfy.com/" target="_blank">RunComfy</a>、以及 ComfyUI 官方推出的 <strong>Comfy Cloud</strong> 等，都是「在瀏覽器裡跑完整 ComfyUI、不用自己的顯示卡」的服務，定位相近、計費各異。先用一家上手就好，不必比較。
+      </div>
+    </section>
+
+    <!-- ─── Navigation ─── -->
+    <div class="box-success">
+      <strong>🎯 現在就做（10 分鐘）：</strong>先按 <code>Ctrl + Shift + Esc</code> → 效能分頁，查清楚自己有沒有 NVIDIA 獨立顯示卡。有的話，去 <a href="https://www.comfy.org/download" target="_blank">comfy.org/download</a> 下載桌面版開始安裝；沒有的話，到 <a href="https://www.runninghub.ai/" target="_blank">RunningHub</a> 註冊，挑一個文字生圖工作流，生出你的第一張開源模型圖。無論哪條路，目標都是今天生出第一張「不經過任何大公司雲端」的圖。
+    </div>
+
+    <div class="nav-links">
+      <a href="chrome-skills.html" class="nav-link">← 番外 — Chrome Skills</a>
+      <a href="index.html" class="nav-link">回目錄</a>
+      <span class="nav-link disabled">更多內容製作中</span>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 衛生福利部台中醫院 感染科 曾婷玉醫師 — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function copyPrompt(btn) {
+    const content = btn.parentElement;
+    const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+  </script>
+
+</body>
+</html>
