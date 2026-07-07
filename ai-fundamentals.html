@@ -63,14 +63,16 @@
         <li><a href="#token">Token — 代幣</a></li>
         <li><a href="#multimodal">多模態</a></li>
         <li><a href="#hallucination">Hallucination — 幻覺</a></li>
-        <li><a href="#rag">RAG — 檢索增強生成</a></li>
-        <li><a href="#api">API — 應用程式介面</a></li>
-        <li><a href="#agent">Agent — AI 代理人</a></li>
+        <li><a href="#rag">RAG — 檢索增強生成</a> <span class="toc-adv">進階</span></li>
+        <li><a href="#api">API — 應用程式介面</a> <span class="toc-adv">進階</span></li>
+        <li><a href="#agent">Agent — AI 代理人</a> <span class="toc-adv">進階</span></li>
         <li><a href="#tools">主流工具比較</a></li>
         <li><a href="#medical-use">醫療應用場景</a></li>
         <li><a href="#ethics">倫理與紅線</a></li>
       </ol>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light); margin: 0.75rem 0 0;">⚙️ 標「進階」的章節先聽過名詞就好，上課時間不夠可以跳過，之後需要時再回來讀。入門先掌握：LLM、Prompt、Token、多模態、幻覺。</p>
     </nav>
+    <style>.toc-adv{display:inline-block;font-size:0.75rem;padding:1px 8px;margin-left:4px;background:var(--highlighter-pink,#fbcfe8);border:1.5px solid var(--secondary);border-radius:8px;vertical-align:2px;}</style>
 
     <!-- ─── Why Now ─── -->
     <section id="why-now">
@@ -102,7 +104,7 @@
       <div class="analogy">像一個讀完所有教科書的住院醫師 — 知識量驚人，但沒有臨床經驗，偶爾會很有自信地說錯話。</div>
       <p>LLM 是 Large Language Model 的縮寫。ChatGPT、Claude、Gemini、Grok 背後都是 LLM。</p>
       <p>它的運作原理其實很單純：<strong>預測下一個字</strong>。你給它「今天天氣很」，它會根據訓練資料判斷下一個字最可能是「好」、「熱」還是「冷」。整個對話就是一連串的「預測下一個字」串起來的。</p>
-      <p>這裡有個重要的觀念：LLM <strong>不是在「理解」你的問題</strong>。它是在做統計預測 —「根據我讀過的幾兆個字，在這個上下文之後，最可能出現的字是什麼」。這解釋了為什麼它有時候回答得很漂亮，有時候又會一本正經地胡說八道。</p>
+      <p>這裡有個重要的觀念：嚴格說，LLM <strong>不是像人類那樣「理解」你的問題</strong>。它是在做統計預測 —「根據我讀過的幾兆個字，在這個上下文之後，最可能出現的字是什麼」。這解釋了為什麼它有時候回答得很漂亮，有時候又會一本正經地胡說八道。</p>
       <div class="result-compare">
         <figure>
           <img src="images/ai-fundamentals/llm-what-is.webp" alt="LLM 是什麼教學海報：像文字接龍一樣思考的大型語言模型，核心概念是 LLM 不是在背答案，而是看前文後一步一步預測下一個最可能出現的文字；五步驟以「什麼是糖尿病」為例 — 輸入文字、拆成 Token 小片段、看懂前後文、預測下一步、生成回答；下方列 LLM 可以做什麼（回答問題、整理摘要、翻譯改寫、寫作協助、寫程式、創意發想）與不是什麼（不是搜尋引擎、不是人類大腦、不是永遠正確），提醒重要資訊仍需查證" loading="lazy">
@@ -259,9 +261,9 @@
       <p>這對醫療人員很實用。例如：</p>
       <ul>
         <li>把英文論文 PDF 丟給 AI，請它用中文整理重點</li>
-        <li>拍一張藥品外觀照片，問 AI 這是什麼藥</li>
+        <li>拍一張藥盒或說明書照片，請 AI 整理上面的文字資訊（藥品辨識與用藥判斷仍以藥師、醫師或正式系統為準 — AI 認藥很容易錯）</li>
         <li>把表格截圖丟給 AI，請它轉成 Excel 格式</li>
-        <li>用語音邊走邊跟 AI 討論病例</li>
+        <li>用語音和 AI 討論去識別化的教學案例、讀書會問題或衛教腳本</li>
       </ul>
     </section>
 
@@ -452,7 +454,7 @@
         <li><strong>病歷摘要</strong>：濃縮冗長的入院病摘（注意：不要把真實病人資料貼進公開 AI 工具）</li>
         <li><strong>轉介信/出院摘要</strong>：給 AI 重點，讓它擴寫成正式格式</li>
         <li><strong>會議紀錄</strong>：語音轉文字 + 重點整理</li>
-        <li><strong>AI 跟診紀錄（Ambient AI Scribe）</strong>：AI 在診間「旁聽」醫病對話，自動生成病歷草稿，醫師審核後才簽入 — 美國退伍軍人醫療體系 2026 年起全面部署，實測每天省下 1-2 小時文書時間。台灣使用需注意錄音的知情同意與院內規範（入門版的語音轉文字見<a href="ai-transcribe.html">番外篇</a>）</li>
+        <li><strong>AI 跟診紀錄（Ambient AI Scribe）</strong>：AI 在診間「旁聽」醫病對話，自動生成病歷草稿，醫師審核後才簽入 — 部分國外醫療體系已開始導入，實際省下的時間依科別、流程與系統整合程度而異。台灣使用需注意錄音的知情同意與院內規範（入門版的語音轉文字見<a href="ai-transcribe.html">番外篇</a>）</li>
         <li><strong>行政文書</strong>：計畫書、經費申請、成果報告的初稿</li>
       </ul>
 
@@ -478,6 +480,31 @@
         <li><strong>模擬病人</strong>：讓 AI 扮演病人，練習問診技巧</li>
         <li><strong>簡報製作</strong>：生成大綱、配圖、講稿</li>
       </ul>
+
+      <h3>對號入座 — 你的第一個 AI 任務</h3>
+      <p>不確定從哪開始？找到你的角色，今天就試這一件事（都不需要碰病人資料）：</p>
+      <div class="card-grid">
+        <div class="card">
+          <strong>👩‍⚕️ 護理師</strong>
+          <p>把一份常用的衛教說明貼給 AI，請它改寫成 65 歲長者聽得懂的版本。</p>
+        </div>
+        <div class="card">
+          <strong>🩺 醫師</strong>
+          <p>丟一篇英文論文 Abstract，請 AI 用中文整理成「目的／方法／發現／限制」。</p>
+        </div>
+        <div class="card">
+          <strong>💊 藥師</strong>
+          <p>請 AI 把一種常見藥的用藥指導寫成白話版＋越南語版（給外籍看護）。</p>
+        </div>
+        <div class="card">
+          <strong>📋 個管師</strong>
+          <p>請 AI 草擬一則回診提醒訊息，要求三種語氣版本（正式／親切／簡短）挑著用。</p>
+        </div>
+        <div class="card">
+          <strong>🗂️ 行政人員</strong>
+          <p>把會議的零散重點貼給 AI，請它整理成正式會議紀錄格式的初稿。</p>
+        </div>
+      </div>
     </section>
 
     <hr class="section-divider">
