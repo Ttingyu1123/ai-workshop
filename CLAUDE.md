@@ -28,6 +28,7 @@ ai-workshop/
 ├── canva.html          # 番外 — Canva 設計
 ├── github-pages.html   # 番外 — GitHub Pages 建站
 ├── prompt-builder.html # 番外 — Prompt 產生器（純前端字串組裝，零 API；表單樣式在頁內 <style>）
+├── chrome-skills.html  # 番外 — Chrome Skills（Gemini in Chrome 存 prompt 成快捷鍵；純文字教學＋9 個醫療 Skills 範本，圖待補）
 ├── images/<頁名>/       # 內文圖片，一頁一資料夾（規格見「圖片擺放規範」）；ai-image/ = Part 4 對比圖（來源 PNG 在 Downloads\教學素材）
 ├── sitemap.xml         # 新增頁面時記得加一條
 ├── robots.txt
@@ -100,7 +101,7 @@ ai-workshop/
 所有頁面共用 header/footer：
 - Header 是**分區錨點導航**（不列單頁，永不爆版）：首頁 / 基礎必修(#core) / 創作應用(#create) / 進階實戰(#advanced) / 番外工具(#extras) — 錨點指向 index.html 的四個 section。作品集連結只在 footer，不放 header
 - 每頁把自己所屬分區的連結標 `.active`：Part 1-3 → #core、Part 4-6 → #create、Part 7 → #advanced、番外頁 → #extras
-- 閱讀鏈（底部 nav-links）：Part 1→2→3→4→5→6→7 → 番外 notebooklm → ai-transcribe → capcut → canva → github-pages
+- 閱讀鏈（底部 nav-links）：Part 1→2→3→4→5→6→7 → 番外 notebooklm → ai-transcribe → capcut → canva → github-pages → chrome-skills
 - 課程分區：基礎必修（基礎/文字/安全）、創作應用（圖像/影片/Flow）、進階實戰（Agent）、番外工具（5 頁）
 - **新增課程不要動 header** — 只加 index 卡片和串閱讀鏈
 - Footer：© TingYu's Deco — AI Workshop + IG + GitHub + 作品集
