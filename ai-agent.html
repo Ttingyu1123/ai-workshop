@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Agent 實作 — 讓 AI 幫你工作</title>
-  <meta name="description" content="AI Agent 實戰教學 — Claude Code、OpenAI Codex、Google Antigravity 三大工具介紹，醫療人員可用的實用範例與安全守則。">
+  <meta name="description" content="AI Agent 實戰教學 — Claude Code、OpenAI Codex、Google Antigravity 三種代表性工具，醫療人員可用的實用範例與安全守則。">
   <meta property="og:type" content="article">
   <meta property="og:title" content="AI Agent 實作 — 讓 AI 幫你工作">
-  <meta property="og:description" content="AI Agent 實戰教學 — Claude Code、OpenAI Codex、Google Antigravity 三大工具介紹，醫療人員可用的實用範例與安全守則。">
+  <meta property="og:description" content="AI Agent 實戰教學 — Claude Code、OpenAI Codex、Google Antigravity 三種代表性工具，醫療人員可用的實用範例與安全守則。">
   <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/ai-agent.html">
   <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
   <meta name="twitter:card" content="summary">
@@ -56,7 +56,7 @@
     <nav class="toc" aria-label="目錄">
       <ol>
         <li><a href="#agent-vs-chatbot">Agent 跟聊天機器人差在哪</a></li>
-        <li><a href="#three-tools">三大工具介紹</a></li>
+        <li><a href="#three-tools">三種代表性工具</a></li>
         <li><a href="#first-prompt">第一次對話就上手</a></li>
         <li><a href="#examples">醫療人員實用範例</a></li>
         <li><a href="#workflow">完整工作流示範</a></li>
@@ -90,8 +90,8 @@
 
     <!-- ─── Three Tools ─── -->
     <section id="three-tools">
-      <h2>三大工具介紹</h2>
-      <p>目前最主流的三個 AI Agent 工具，都是「終端機／IDE 裡的 AI 助理」形式，安裝後直接在你的電腦上操作檔案與程式：</p>
+      <h2>三種代表性工具</h2>
+      <p>本課示範三個代表性的 AI Agent 工具（這個領域變動很快，重點是理解工作型態，不是背排行榜），都是「終端機／IDE 裡的 AI 助理」形式，安裝後直接在你的電腦上操作檔案與程式：</p>
       <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 資訊更新於 2026 年 7 月 — 方案名稱、額度與介面持續變動，以官方公告為準。</p>
 
       <div class="tool-card">
@@ -237,7 +237,7 @@
 
       <div class="card" style="border-left: 4px solid var(--highlighter-purple);">
         <span class="step-badge">Step 4</span> <strong>執行</strong>
-        <p style="margin-top: 0.5rem;">Agent 自主完成讀檔、寫程式、跑測試等步驟，過程中若遇到錯誤會自己嘗試修正。你可以先去忙別的事，不需要全程盯著。</p>
+        <p style="margin-top: 0.5rem;">Agent 自主完成讀檔、寫程式、跑測試等步驟，過程中若遇到錯誤會自己嘗試修正。可以暫時轉做別的事，但要留意它跳出的<strong>權限請求</strong>（要動哪個資料夾、要執行什麼指令）— 高風險操作（刪檔、對外發送）不要順手全部按同意。</p>
       </div>
 
       <div class="card" style="border-left: 4px solid var(--danger);">
@@ -284,13 +284,17 @@
       </div>
 
       <div class="box-tip">
+        <strong>只給 Agent 專用的工作資料夾。</strong>開一個乾淨的資料夾（例如 <code>ai-workspace</code>）放這次任務需要的檔案，讓 Agent 只在裡面工作 — 不要讓它讀整個桌面、Downloads 或院內同步資料夾（那裡面有什麼你自己都不一定記得）。重要檔案先複製一份進去再操作，原檔不動。
+      </div>
+
+      <div class="box-tip">
         <strong>Agent 會犯錯，輸出一定要人工驗證。</strong>它可能誤讀文獻數據、生成看似合理但錯誤的醫療敘述、或漏看你交代的限制條件。Agent 再厲害，都只是工具 — 最終內容是否正確、能不能用在病人身上，責任永遠在使用者身上，就像住院醫師開的醫囑，主治醫師簽核前一定要親自確認。
       </div>
     </section>
 
     <!-- ─── Navigation ─── -->
     <div class="box-success">
-      <strong>🎯 現在就做（10 分鐘）：</strong>挑任一個 Agent 工具，下一個「講目標、不講步驟」的指令 — 例如把一篇公開文獻的重點整理成表格。然後用主治醫師的眼光驗收：哪裡做對、哪裡出錯、哪裡自作主張。驗收的手感就是這樣練出來的。
+      <strong>🎯 現在就做（10 分鐘）：</strong>挑任一個 Agent 工具，下一個「講目標、不講步驟」的指令 — 例如把一篇公開文獻的重點整理成表格。然後用主治醫師的眼光驗收：哪裡做對、哪裡出錯、哪裡自作主張。驗收的手感就是這樣練出來的。<br>還不想安裝任何東西？用 ChatGPT／Claude 網頁版模擬也可以：請 AI 先列出「執行計畫、驗收標準、風險清單」，你再照計畫人工執行 — 練的是同一種委派與驗收思維。
     </div>
 
     <div class="nav-links">
