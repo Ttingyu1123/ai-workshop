@@ -61,6 +61,7 @@
         <li><a href="#examples">醫療人員實用範例</a></li>
         <li><a href="#workflow">完整工作流示範</a></li>
         <li><a href="#vibe-coding">Vibe Coding — 用講的寫程式</a></li>
+        <li><a href="#agent-concepts">讓 Agent 更好用的三個概念</a></li>
         <li><a href="#safety">安全與責任</a></li>
       </ol>
     </nav>
@@ -268,6 +269,34 @@
         </div>
       </div>
       <div class="box-tip">2026 年業界的進化方向，是從 vibe coding（憑感覺驗收）走向 <strong>agentic engineering（有明確驗收標準的委派）</strong>— 也就是上一節五步流程裡 Step 1 的驗收標準與 Step 5 的逐項檢查。差別不在工具，在你驗收的嚴謹程度。</div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Agent Concepts ─── -->
+    <section id="agent-concepts">
+      <h2>讓 Agent 更好用的三個概念</h2>
+      <p>開始實際使用 Agent 之後，你會在工具介面和網路文章裡反覆撞到這三個詞。這裡不教設定，只給你正確的心智模型 — 知道它們是什麼、解決什麼問題，需要時再查各工具的官方說明。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>📋 專案說明檔（CLAUDE.md / AGENTS.md）</strong>
+          <p>放在工作資料夾裡的一份說明文件，Agent 每次開工都會自動先讀。你的格式偏好、慣用詞彙、絕對不能碰的禁區，寫一次就不用每次重講。</p>
+          <p>像<strong>科室的新進人員手冊</strong> — 交班規則、報告格式寫清楚，每個新來的人自己看，不用口頭重教一遍。</p>
+        </div>
+        <div class="card">
+          <strong>📖 Skill（技能）</strong>
+          <p>把一套重複的工作流程寫成文件教給 Agent，之後一句話就能觸發整套流程 — 例如「照我的衛教單流程做一份糖尿病飲食版」。</p>
+          <p>像<strong>科內的 SOP 手冊</strong> — 流程和驗收標準定案一次，全科照做，品質穩定。這也正是上一節說的：把驗收標準固定下來，是委派做得好的關鍵。</p>
+        </div>
+        <div class="card">
+          <strong>🔌 MCP</strong>
+          <p>Model Context Protocol，讓 Agent 接上外部系統（行事曆、雲端硬碟、文獻資料庫）的<strong>標準轉接頭</strong> — 各家工具、各種系統照同一個規格對接，不用每對組合都重做一次。</p>
+          <p><a href="ai-fundamentals.html#harness">Part 1 講過</a>：harness 是包在 AI 模型外面的那層制度，決定它能用哪些工具。MCP 就是這層制度接外部工具用的標準插座。</p>
+        </div>
+      </div>
+
+      <div class="box-tip">三者的共同點：<strong>把「每次口頭交代」變成「寫下來的制度」</strong>。你在醫院熟到不能再熟的那套 — 手冊、SOP、標準介接 — 搬到 AI 協作上一樣管用。名詞會退流行，這個原則不會。</div>
     </section>
 
     <hr class="section-divider">
