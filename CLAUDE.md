@@ -140,6 +140,7 @@ ai-workshop/
 - [x] Canva 教學頁面（canva.html）
 - [x] AI Agent 教學頁面（ai-agent.html，Part 5）
 - [x] GitHub Pages 建站教學頁面（github-pages.html）
+- [ ] 免費帳號實測 Google Flow（用戶操作：開免費 Google 帳號登入 Flow），核對 5 項 — 影片模型選單有無 Omni Flash／每日 50 credits 是否仍在／Veo 3.1-Lite 是否 0 credit／生圖 upscale 免費上限是否 2K／Flow Tools 34 款是否全開。結果回填 google-flow.html，把「以站內選單為準」保守句升級成確定寫法（2026-07-07：Pro 帳號視角無法驗證免費層，官方文件無方案×模型對照表）
 - [ ] 衛教單專區 → **獨立成站**（預計 >20 張，受眾是民眾非醫療人員，另開 repo，不放本站）
 - [ ] 番外 — 本機／開源生圖入門（ComfyUI ＋ RunningHub 免顯卡線上跑）：定位是操作課不是節點工程 — 動機（本機生成＝資料不出機器，呼應 Part 3）→ 桌面版安裝 → 跑出第一張圖 → 沒顯卡走 RunningHub。寫完後把 ai-image.html `#advanced-tools` 的 ComfyUI／RunningHub 兩張卡加上導流連結（2026-07-07 決策）
 - [ ] 番外 — 得獎作品復盤：Midjourney × Kling 工作流（用戶的得獎影片＝MJ 生圖 → Kling 圖生影片，兩工具是上下游、一頁講完不拆兩頁）：定位是案例復盤不是工具大全 — 從得獎作品倒推每個決策（MJ 段：風格 prompt、角色/風格一致性；Kling 段：圖生影片、首尾幀銜接、運鏡），學員不必跟做付費段，想動手的用 ChatGPT 免費生圖＋Kling 免費額度跟做圖生影片（接 Part 4→5 產線）。素材（得獎影片、MJ 原圖、prompt 紀錄）由用戶提供。寫完後回頭加導流連結：ai-video.html 免費工具區的 Kling 卡、ai-image.html `#advanced-tools` 的 Midjourney 卡。若 MJ prompt 技巧內容爆量再拆獨立頁（2026-07-07 修正決策：原「MJ 不開頁」的前提「用戶不熟 MJ」錯誤 — 得獎作品即 MJ+Kling 製作）
