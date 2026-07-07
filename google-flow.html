@@ -160,7 +160,6 @@
           <li><strong>Lasso 框選</strong> — 圈出圖片的某個區域，用文字指令只改那一塊</li>
           <li><strong>Drawing 手繪標記</strong> — 直接在圖上畫出你想修改的位置</li>
           <li><strong>自然語言編輯</strong> — 用一句話描述修改：「把背景那個人移除」「天空改成黃昏」</li>
-          <li><strong>解析度放大</strong> — 圖片可放大到 2K（4K 放大為付費方案功能）</li>
         </ul>
       </div>
 
@@ -279,7 +278,7 @@ Camera: Static, close-up on hands<button class="copy-btn" onclick="copyPrompt(th
         </div>
         <div class="card">
           <strong>🤖 Flow Agent</strong>
-          <p>以 Gemini 為基礎的創意夥伴：腦力激盪、批次修改、幫你組織專案。</p>
+          <p>以 Gemini 為基礎的創意夥伴：腦力激盪、批次修改、幫你組織專案。搭配 Agent Instructions 設定專案級規則（見下方）效果最好。</p>
         </div>
         <div class="card">
           <strong>📺 Flow TV</strong>
@@ -293,6 +292,37 @@ Camera: Static, close-up on hands<button class="copy-btn" onclick="copyPrompt(th
 
       <div class="analogy">
         Characters 角色資產就像病歷 — 同一位病人（角色）每次回診（出現在新場景），都能調出一致的資料（外觀），不用重新問診。
+      </div>
+
+      <h3>Agent Instructions — 給 Flow Agent 的專案常規</h3>
+      <p>在專案 prompt box 底部點 <strong>Agent Instructions → Add instruction</strong>，寫下的準則（也可附參考圖）會成為這個專案的「常駐指示」— Flow Agent 之後每次對話都自動遵守，不用每次重講風格、角色和禁忌。像是給代班同事的交班單：寫一次，之後每一班都照做。</p>
+      <p>建議用「一律遵守／先問我／絕對不做」三層結構來寫。下面是衛教專案的通用模板，＿＿＿處換成你的專案內容：</p>
+
+      <div class="prompt-block">
+        <div class="prompt-label">Agent Instructions — 衛教專案通用模板（貼上後把＿＿＿改成你的內容）</div>
+        <div class="prompt-content">【專案背景】
+這是醫療衛教專案，受眾是台灣的一般民眾（非醫療人員）。主題：＿＿＿（例：正確洗手）。
+
+【一律遵守】
+- 視覺風格：乾淨的醫療 infographic 插畫風，色調柔和明亮，禁止血腥、恐怖或令人不適的畫面
+- 畫面中出現的文字一律繁體中文，用語是台灣慣用語
+- 長寬比固定 ＿＿＿（例：16:9），整個專案不混用
+- 角色外觀依照本專案的角色資產設定，服裝細節不可改動
+- 醫療動作必須正確：＿＿＿（例：洗手需完整七步驟，不可省略或顛倒順序）
+
+【先問我再做】
+- 要刪除或覆蓋任何已生成的片段之前
+- 一次要生成超過 3 段影片之前（會消耗大量 credits）
+- 要改變整體風格或配色之前
+
+【絕對不做】
+- 不編造醫療數據、藥名、劑量
+- 不生成可辨識的真實人物臉孔
+- 不使用誇大療效或恐嚇式的文案<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <div class="box-tip">
+        <strong>當成活的交班單維護：</strong>專案從腦力激盪進到批次修改、再到成品輸出時，回來更新 Instructions（例如定稿後加上「風格已鎖定，不再提出風格變更建議」）。下批次指令時範圍要講死 —「所有片段」和「只有場景 3」是兩回事，講模糊了 Agent 會自己猜。
       </div>
     </section>
 
