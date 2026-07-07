@@ -144,10 +144,10 @@
           <span class="tool-name"><a href="https://x.com/i/grok" target="_blank">Grok（Flux）↗</a></span>
         </div>
         <div class="pros-cons">
-          <div><strong class="pro">優點</strong><ul><li>幾乎無內容審查</li><li>有 X 帳號即可免費</li><li>風格多變</li></ul></div>
+          <div><strong class="pro">優點</strong><ul><li>內容限制相對寬鬆</li><li>有 X 帳號即可免費</li><li>風格多變</li></ul></div>
           <div><strong class="con">缺點</strong><ul><li>需要 X 帳號</li><li>中文效果差，建議英文</li><li>介面較不直覺</li></ul></div>
         </div>
-        <div class="tool-tip">適合生成 ChatGPT 會拒絕的合法內容（如戲劇化的醫療場景插圖）。</div>
+        <div class="tool-tip">限制寬鬆適合做創意草稿（如戲劇化的醫療場景插圖），但這不是拿來規避平台安全規範的後門 — 醫療、人物、真實事件相關的產出，一樣要人工審查後才能用。</div>
       </div>
 
       <p><strong>建議從 ChatGPT 開始。</strong>它的中文支援最好、操作最直覺、品質最穩定。需要圖片上有中文字時，優先試 GPT Image 2 或 Nano Banana Pro。</p>
@@ -378,6 +378,9 @@
     <section id="infographic">
       <h2>Infographic 與複雜衛教圖</h2>
       <p>除了簡單的插圖，AI 現在也能生成結構較複雜的 Infographic — 包含數據、流程圖、對比圖等。這類圖在衛教上特別實用。</p>
+      <div class="box-danger">
+        <strong>先講清楚分工：</strong>臨床數字、用藥資訊與警示徵兆必須<strong>由你提供並核對來源</strong>，寫進 Prompt 讓 AI 排版 — AI 只負責版面與視覺化，不負責醫療內容的正確性。讓 AI 自己「補」盛行率或用藥時程，就是把幻覺印在海報上。
+      </div>
 
       <h3>Infographic Prompt 結構</h3>
       <p>複雜圖比簡單插圖需要更詳細的 Prompt。關鍵是把<span class="highlight">版面結構寫清楚</span>：</p>
@@ -447,7 +450,7 @@
     <!-- ─── Chinese Text Generation ─── -->
     <section id="chinese-text">
       <h2>中文字生成新時代</h2>
-      <p>2025 年之前，AI 生圖最大的痛點就是「不會寫中文字」。現在 <strong>GPT Image 2</strong> 和 <strong>Nano Banana Pro</strong> 已經突破了這個限制。</p>
+      <p>2025 年之前，AI 生圖最大的痛點就是「不會寫中文字」。現在 <strong>GPT Image 2</strong> 和 <strong>Nano Banana Pro</strong> 已經大幅改善 — 短標題和少量文字可用，長段內文仍會出錯（什麼情境能用，見下方對照）。</p>
 
       <h3>什麼時候該讓 AI 直接寫字？</h3>
       <div class="card-grid">
@@ -562,6 +565,7 @@
         <div class="box-danger">
           <h4>✕ AI 生圖不能做</h4>
           <ul>
+            <li><strong>上傳真實病人照片、醫學影像、病歷截圖到雲端生圖工具</strong> — 除非有機構核准、合法授權與資料處理條款</li>
             <li><strong>偽造醫學影像</strong> — X 光、MRI、CT、病理切片</li>
             <li><strong>生成特定病人肖像</strong></li>
             <li><strong>製作假的前後對比圖</strong></li>
