@@ -59,6 +59,7 @@
         <li><a href="#credits">免費額度與方案</a></li>
         <li><a href="#basic-steps">基本操作</a></li>
         <li><a href="#studio-features">產出功能</a></li>
+        <li><a href="#advanced-features">進階功能</a></li>
         <li><a href="#medical-scenarios">醫療應用情境</a></li>
         <li><a href="#limitations">限制與注意</a></li>
       </ol>
@@ -113,10 +114,11 @@
           <tr><td>單一 Notebook 來源數</td><td>約 50 個</td><td>更高上限</td></tr>
           <tr><td>語音摘要 / 影片摘要</td><td>每日各約 3 次</td><td>更高次數</td></tr>
           <tr><td>每日提問次數</td><td>約 50 次</td><td>更高次數</td></tr>
+          <tr><td>Deep Research（見下方進階功能）</td><td>約每月 10 次</td><td>更高次數</td></tr>
         </tbody>
       </table>
       <div class="box-tip">
-        <strong>注意：</strong>免費額度已經足夠個人閱讀文獻、準備讀書會使用。付費方案是綁在 Google AI 訂閱（跟 Google Flow 用的是同一套方案，見 <a href="google-flow.html#credits">Part 6 — Google Flow 額度表</a>），主要差異在提高來源數上限與產出次數，不是解鎖全新功能。實際額度數字請以 NotebookLM 官方說明頁為準，本表僅供概估。
+        <strong>注意：</strong>免費額度已經足夠個人閱讀文獻、準備讀書會使用。付費方案是綁在 Google AI 訂閱（跟 Google Flow 用的是同一套方案，見 <a href="google-flow.html#credits">Part 6 — Google Flow 額度表</a>），主要差異在提高來源數上限與產出次數，不是解鎖全新功能。2026 年 6 月起，最高階方案（AI Ultra 與部分企業版）陸續開放代理式功能 — 自動搜尋網路來源、執行程式碼分析、輸出試算表與簡報檔案；免費方案目前尚未開放，本頁不展開介紹。實際額度數字請以 NotebookLM 官方說明頁為準，本表僅供概估。
       </div>
     </section>
 
@@ -134,7 +136,7 @@
 
       <div class="card" style="border-left: 4px solid var(--success);">
         <span class="step-badge">Step 2</span> <strong>上傳來源</strong>
-        <p style="margin-top: 0.5rem;">支援 PDF（guideline、paper）、Google Docs、網址、YouTube 影片連結、純文字貼上等多種格式。同一本 Notebook 可以放多份來源，方便交叉比對。</p>
+        <p style="margin-top: 0.5rem;">支援 PDF（guideline、paper）、Google Docs／Sheets、Google Drive 連結、網址、YouTube 影片連結、圖片、EPUB 電子書、純文字貼上等多種格式。同一本 Notebook 可以放多份來源，方便交叉比對。</p>
       </div>
 
       <div class="card" style="border-left: 4px solid var(--warning);">
@@ -162,11 +164,11 @@
         </div>
         <div class="card">
           <strong>🎬 影片摘要（Video Overview）</strong>
-          <p>把來源做成有旁白＋視覺畫面的影片解說，比純語音多了圖表與重點字卡，適合視覺型學習或分享給同事快速看懂。</p>
+          <p>把來源做成有旁白＋視覺畫面的影片解說，比純語音多了圖表與重點字卡，適合視覺型學習或分享給同事快速看懂。付費方案另有動畫更精緻的 Cinematic 版本（目前僅英文）。</p>
         </div>
         <div class="card">
           <strong>🖼️ 簡報（Slides）</strong>
-          <p>把來源重點整理成投影片形式，適合快速生出晨會或科內報告的骨架，再自己微調。</p>
+          <p>把來源重點整理成投影片形式，適合快速生出晨會或科內報告的骨架。可對單張投影片提出修改意見重新生成，也能匯出 PPTX 檔，接續在 PowerPoint 裡編輯。</p>
         </div>
         <div class="card">
           <strong>🧠 心智圖（Mind Map）</strong>
@@ -178,7 +180,7 @@
         </div>
         <div class="card">
           <strong>🃏 學習卡（Flashcards）</strong>
-          <p>把內容轉成一問一答的字卡，翻牌自我檢測，適合背診斷準則、劑量、分類這類需要記憶的重點。</p>
+          <p>把內容轉成一問一答的字卡，翻牌自我檢測，適合背診斷準則、劑量、分類這類需要記憶的重點。可設定難度與張數，作答進度會保存，下次登入可接續複習。</p>
         </div>
         <div class="card">
           <strong>✅ 測驗（Quiz）</strong>
@@ -186,7 +188,7 @@
         </div>
         <div class="card">
           <strong>📊 資訊圖表（Infographic）</strong>
-          <p>把重點濃縮成一張視覺化圖表，適合抓一份文件的核心數字與流程，或當社群衛教圖的草稿。</p>
+          <p>把重點濃縮成一張視覺化圖表，適合抓一份文件的核心數字與流程，或當社群衛教圖的草稿。提供十種預設視覺風格（手繪筆記、專業、科學插畫等）可挑選。</p>
         </div>
         <div class="card">
           <strong>📋 資料表（Data table）</strong>
@@ -196,6 +198,50 @@
 
       <div class="box-tip">
         <strong>保守提醒：</strong>工作室功能持續在更新，實際選項與名稱以你登入後看到的面板為準（本站列的是 2026 年 7 月的版本）。這些產出都是「輔助理解」的形式轉換，不是新資訊來源 — 內容仍然來自你上傳的文件，一樣可能有遺漏或簡化，重要細節還是要回原文確認。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Advanced Features ─── -->
+    <section id="advanced-features">
+      <h2>進階功能</h2>
+      <p>基本問答之外，這幾個功能能明顯改變 NotebookLM 的使用方式，而且免費方案都能使用：</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>🔍 Deep Research — 幫你找來源</strong>
+          <p>在來源面板選「Web」，輸入研究問題，AI 會擬定搜尋計畫、上網瀏覽並整理成一份附引用的研究報告，完成後可一鍵把報告與找到的網頁全部匯入 Notebook 當來源。另有 Fast Research 快速模式，適合簡單查找。免費方案有每月次數限制。</p>
+        </div>
+        <div class="card">
+          <strong>🎭 對話角色設定</strong>
+          <p>點對話框旁的設定圖示，用文字描述你希望 AI 扮演的角色與對話目標（例如「嚴格的審稿人」「口試模擬考官」），之後整本 Notebook 的問答都會照這個設定進行。所有方案皆可使用。</p>
+        </div>
+        <div class="card">
+          <strong>💾 對話紀錄自動儲存</strong>
+          <p>對話會自動保存且僅自己可見，下次開啟同一本 Notebook 可以接續先前的討論；也能把一段對話的結論直接轉成語音摘要或報告，不必重新提問一次。</p>
+        </div>
+        <div class="card">
+          <strong>🌐 精選筆記本（Featured Notebooks）</strong>
+          <p>NotebookLM 首頁有官方與合作機構（學者、期刊、出版社）策劃的公開筆記本，可直接開啟提問。適合觀摩專業團隊如何組織來源，也能訂閱有興趣的主題。</p>
+        </div>
+      </div>
+
+      <div class="box-tip">
+        <strong>Deep Research 的來源要自己把關：</strong>它從公開網路搜尋，找到的不一定是 peer-reviewed 文獻或官方指引 — 匯入後先逐一檢視來源清單，刪掉品質不足的網頁，再開始提問。這一步做確實，後面所有問答的可信度才有基礎。
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">對話角色設定 — 審稿人模式範例</div>
+        <div class="prompt-content">你是一位嚴格但有建設性的醫學期刊審稿人。
+
+針對我上傳的稿件與參考文獻：
+1. 逐段質疑方法學與推論的弱點，指出證據不足的主張
+2. 每個批評都要引用來源中的具體段落作為依據
+3. 用「主要修改建議」與「次要修改建議」分級列出
+4. 語氣直接，不需要客套，但每個問題都附上可行的修改方向
+
+只根據我上傳的來源評論，不要引用外部知識。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
     </section>
 
@@ -217,6 +263,18 @@
         <div class="card">
           <strong>🎤 晨會 / 報告準備</strong>
           <p>把病例相關的文獻和 guideline 放進同一本 Notebook，用語音摘要或簡報功能快速抓重點，再手動整理成自己的報告架構。</p>
+        </div>
+        <div class="card">
+          <strong>🔍 不熟主題的文獻起手</strong>
+          <p>接到不熟悉的主題（新藥、少見病原、跨科議題）時，先用 Deep Research 蒐集公開文獻與指引當起點，檢視並篩選來源品質後，再進入交叉提問。</p>
+        </div>
+        <div class="card">
+          <strong>📝 投稿前自我審查</strong>
+          <p>把自己的稿件與引用文獻一起上傳，用「審稿人模式」的角色設定（見上方進階功能）讓 AI 先挑一輪毛病，投稿前補強最弱的段落。</p>
+        </div>
+        <div class="card">
+          <strong>🃏 考前複習</strong>
+          <p>把考試範圍的講義或 guideline 上傳，用學習卡與測驗功能自我檢測；進度會保存，可以分多天複習完一整份範圍。</p>
         </div>
       </div>
 
