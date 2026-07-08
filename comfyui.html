@@ -57,6 +57,7 @@
       <ol>
         <li><a href="#open-vs-closed">先搞懂：開源 vs 閉源</a></li>
         <li><a href="#why">為什麼醫療人員要學本機生圖</a></li>
+        <li><a href="#gallery">開源模型能生成什麼（範例）</a></li>
         <li><a href="#what-is">ComfyUI 是什麼</a></li>
         <li><a href="#check">先確認你的電腦能不能跑（分流）</a></li>
         <li><a href="#route-a">路線 A：桌面版安裝 + 第一張圖</a></li>
@@ -118,8 +119,17 @@
         <p style="margin: 0;">本機生圖<strong>需要一張夠力的顯示卡</strong>（見下方硬體門檻），而且比線上工具難上手。如果你只是偶爾做張衛教圖，<a href="ai-image.html">Part 4</a> 的線上工具就夠了，不必勉強裝這套。這頁適合的是：① 有明確隱私顧慮、素材不能上雲 ② 生圖量大、線上額度不夠用 ③ 單純想玩玩看開源 AI 怎麼運作。三者有一，才值得往下讀。</p>
       </div>
 
-      <h3>開源模型擅長什麼：無文字的質感情境圖</h3>
-      <p>下面四張都是用開源模型（Boogu、Krea2）生成的，各一句英文 prompt、刻意不放任何文字。開源模型的短板是「把字準確寫進圖裡」（見下方<a href="#models">模型段</a>的實測），但純畫面的美感這塊很能打 — 拿來當衛教海報主視覺、社群貼文配圖、簡報背景，再用 <a href="canva.html">Canva</a> 後製疊上文字，就是一條免費、無限次的配圖產線。點圖可放大。</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Gallery ─── -->
+    <section id="gallery">
+      <h2>開源模型能生成什麼</h2>
+      <p>下面全是用開源模型（Boogu／Krea2／Z-Image）在本機或雲端生成的，各一句英文 prompt、刻意不放文字。重點不是「線上工具做不到」— 乾淨的圖線上也做得到、甚至更好；重點是這些都是<strong>免費、無限次、資料留在你手上</strong>生出來的，而且從溫馨插畫到照片級寫實都行。點圖放大。</p>
+
+      <h3>溫馨插畫風</h3>
+      <p>適合衛教海報主視覺、社群貼文配圖、簡報背景，再用 <a href="canva.html">Canva</a> 疊上文字（開源模型不擅長把字寫進圖裡，見<a href="#models">模型段</a>實測）。</p>
       <div class="result-compare">
         <figure>
           <img src="images/comfyui/care-scene-krea2.webp" alt="水彩風插畫：穿藍色刷手服的護理師微笑俯身，照顧坐著的白髮長者，明亮診間、窗邊綠意盎然" loading="lazy">
@@ -138,6 +148,39 @@
         <figure>
           <img src="images/comfyui/nutrition-krea2.webp" alt="俯拍插畫：白盤上擺滿生菜、胡蘿蔔、番茄、莓果、全穀與蛋白質的均衡餐盤，周圍散放莓果與檸檬" loading="lazy">
           <figcaption>均衡飲食衛教配圖（Krea2 生成）</figcaption>
+        </figure>
+      </div>
+
+      <h3>照片級寫實</h3>
+      <p>不只卡通 — 開源模型的寫實也很能打，等於一批免費、無版權疑慮的類 stock 素材。<strong>畫面中的人物都是 AI 合成、非真實病人</strong>：需要人物情境又不想動用真實病人照片時，這正是 <a href="ai-safety.html">Part 3</a> 提倡的安全作法。</p>
+      <div class="result-compare">
+        <figure>
+          <img src="images/comfyui/clinic-scene-real.webp" alt="照片級寫實：亞洲女護理師穿藍色刷手服微笑著與白髮長者交談，明亮診間、大片採光窗，另一位家屬在側" loading="lazy">
+          <figcaption>診間衛教場景（Z-Image 生成，AI 合成人物）</figcaption>
+        </figure>
+        <figure>
+          <img src="images/comfyui/active-seniors-real.webp" alt="照片級寫實：一對亞洲銀髮夫妻在綠樹成蔭的公園並肩散步、相視而笑，晨光灑落" loading="lazy">
+          <figcaption>銀髮健康生活（Z-Image 生成，AI 合成人物）</figcaption>
+        </figure>
+      </div>
+      <div class="result-compare">
+        <figure>
+          <img src="images/comfyui/healthy-plate-real.webp" alt="照片級寫實食物攝影：陶盤上有炙烤鮭魚、綜合生菜沙拉、糙米飯與烤時蔬，窗邊自然光" loading="lazy">
+          <figcaption>均衡餐盤（Boogu 生成）</figcaption>
+        </figure>
+        <figure>
+          <img src="images/comfyui/medical-still-real.webp" alt="照片級寫實靜物：白桌面上擺著聽診器、血壓計與七日藥盒，簡潔的醫療編輯攝影風格" loading="lazy">
+          <figcaption>醫療小物靜物（Z-Image 生成）</figcaption>
+        </figure>
+      </div>
+      <div class="result-compare">
+        <figure>
+          <img src="images/comfyui/handwashing-macro-real.webp" alt="照片級寫實微距：一雙手在不鏽鋼水槽的流水下搓出綿密肥皂泡，水珠飛濺，窗邊自然光" loading="lazy">
+          <figcaption>洗手微距（Boogu 生成）</figcaption>
+        </figure>
+        <figure>
+          <img src="images/comfyui/portrait-skin-real.webp" alt="照片級寫實人像：一位面帶微笑的亞洲中年女性，皮膚紋理、細紋與雀斑清晰可見，窗光柔和" loading="lazy">
+          <figcaption>寫實膚質人像（Z-Image 生成，AI 合成人物）</figcaption>
         </figure>
       </div>
     </section>
