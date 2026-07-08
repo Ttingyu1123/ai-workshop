@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>本機／開源生圖入門 — ComfyUI + RunningHub</title>
-  <meta name="description" content="用 ComfyUI 在自己電腦上生圖，資料不出機器；沒有獨立顯示卡就用 RunningHub 線上跑。醫療人員的本機／開源生圖操作入門，非節點工程。">
+  <title>本機／開源生圖入門 — ComfyUI + Comfy Cloud</title>
+  <meta name="description" content="用 ComfyUI 在自己電腦上生圖，資料不出機器；沒有獨立顯示卡就改用雲端（Comfy Cloud）線上跑。醫療人員的本機／開源生圖操作入門，非節點工程。">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="本機／開源生圖入門 — ComfyUI + RunningHub">
-  <meta property="og:description" content="用 ComfyUI 在自己電腦上生圖，資料不出機器；沒有獨立顯示卡就用 RunningHub 線上跑。醫療人員的本機／開源生圖操作入門，非節點工程。">
+  <meta property="og:title" content="本機／開源生圖入門 — ComfyUI + Comfy Cloud">
+  <meta property="og:description" content="用 ComfyUI 在自己電腦上生圖，資料不出機器；沒有獨立顯示卡就改用雲端（Comfy Cloud）線上跑。醫療人員的本機／開源生圖操作入門，非節點工程。">
   <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/comfyui.html">
   <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
   <meta name="twitter:card" content="summary">
@@ -47,7 +47,7 @@
   <div class="hero">
     <div class="hero-badge">番外・本機生圖</div>
     <h1>本機／開源生圖入門</h1>
-    <p>ComfyUI ＋ RunningHub — 在自己電腦上生圖，資料不出機器</p>
+    <p>ComfyUI ＋ Comfy Cloud — 在自己電腦上生圖，資料不出機器</p>
     <div class="squiggle"></div>
   </div>
 
@@ -126,7 +126,7 @@
     <!-- ─── Gallery ─── -->
     <section id="gallery">
       <h2>開源模型能生成什麼</h2>
-      <p>以下影像皆以開源模型（Boogu／Krea2／Z-Image）在本機或雲端生成，每張各使用一句英文 prompt、且刻意不含文字。重點不在於「線上工具做不到」— 乾淨的圖線上同樣能生成、甚至表現更好；而在於這些影像都是<strong>免費、可無限次產生、資料留在自己手上</strong>完成的，且涵蓋從溫馨插畫到照片級寫實的範圍。點圖可放大。</p>
+      <p>以下影像皆以<strong>開放權重（open-weights）模型</strong>（Boogu／Krea2／Z-Image）生成，每張各使用一句英文 prompt、且刻意不含文字。重點不在於「線上工具做不到」— 乾淨的圖線上同樣能生成、甚至表現更好；而在於這類模型可下載到本機執行：<strong>在本機執行就免費、可無限次產生、資料留在自己手上</strong>，能力也涵蓋從溫馨插畫到照片級寫實的範圍。點圖可放大。</p>
 
       <h3>溫馨插畫風</h3>
       <p>適合衛教海報主視覺、社群貼文配圖、簡報背景，再用 <a href="canva.html">Canva</a> 疊上文字（開源模型不擅長把字寫進圖裡，見<a href="#models">模型段</a>實測）。</p>
@@ -152,7 +152,7 @@
       </div>
 
       <h3>照片級寫實</h3>
-      <p>開源模型不僅能畫插畫，寫實表現同樣出色，可作為一批免費、無版權疑慮的圖庫（stock photo）素材。<strong>畫面中的人物皆為 AI 合成、並非真實病人</strong>：當需要人物情境又不想動用真實病人照片時，這正是 <a href="ai-safety.html">Part 3</a> 所提倡的安全作法。</p>
+      <p>開放權重模型不僅能畫插畫，寫實表現同樣出色，可作為衛教簡報與社群貼文的圖庫（stock photo）替代素材。<strong>畫面中的人物皆為 AI 合成、並非真實病人</strong>，能降低真人肖像與圖庫授權的風險，也呼應 <a href="ai-safety.html">Part 3</a>「不動用真實病人照片」的原則。但正式對外發布前，仍須確認所用模型的授權條款與院內使用規範。</p>
       <div class="result-compare">
         <figure>
           <img src="images/comfyui/clinic-scene-real.webp" alt="照片級寫實：亞洲女護理師穿藍色刷手服微笑著與白髮長者交談，明亮診間、大片採光窗，另一位家屬在側" loading="lazy">
@@ -218,7 +218,7 @@
     <!-- ─── Check hardware ─── -->
     <section id="check">
       <h2>先確認你的電腦能不能跑（分流）</h2>
-      <p>本機生圖靠的是<strong>顯示卡（GPU）</strong>來運算 — 不是 CPU，也不是記憶體。因此第一步並非急著下載，而是先確認電腦是否配備足夠效能的顯示卡。</p>
+      <p>本機生圖主要靠<strong>顯示卡（GPU）</strong>來運算，對顯示卡的要求遠高於 CPU 或記憶體（技術上 CPU 也能運算，但慢到不實用）。因此第一步並非急著下載，而是先確認電腦是否配備足夠效能的顯示卡。</p>
 
       <h3>先分清楚兩種顯示卡</h3>
       <div class="card-grid">
@@ -228,9 +228,10 @@
         </div>
         <div class="card">
           <strong>💻 內建顯示卡（內顯）</strong>
-          <p>直接<strong>整合在 CPU 裡</strong>、跟系統共用記憶體的顯示功能（如 Intel UHD Graphics）。一般文書筆電多半只有內顯 — 能上網、播放影片，但<strong>無法運行生圖模型。</strong></p>
+          <p>直接<strong>整合在 CPU 裡</strong>、跟系統共用記憶體的顯示功能（如 Intel UHD Graphics）。一般文書筆電多半只有內顯 — 能上網、播放影片，但<strong>難以順利運行生圖模型。</strong></p>
         </div>
       </div>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">＊ Apple 晶片、Intel Arc、AMD 等非 NVIDIA 路線，ComfyUI 技術上也支援，但安裝較複雜、相容性與速度不一。本課以最穩定的 NVIDIA 獨立顯示卡為準，沒有就改用雲端（路線 B）體驗。</p>
 
       <div class="box-tip">
         <strong>怎麼查我有沒有獨立顯示卡（Windows）：</strong>按 <code>Ctrl + Shift + Esc</code> 開「工作管理員」→ 點「效能」分頁 → 左邊看有沒有列出「GPU」。如果同時出現兩個 GPU（一個是 Intel／AMD 內顯，一個是 NVIDIA），或列出 NVIDIA GeForce／RTX 字樣，代表你有獨立顯示卡。只看到 Intel(R) UHD / Iris 這類，就是只有內顯。
@@ -256,19 +257,19 @@
 
       <div class="box-danger">
         <h4>💾 硬碟空間：模型以「GB」為單位計算</h4>
-        <p style="margin: 0;">ComfyUI 軟體本身約 15 GB，但真正佔用空間的是<strong>模型檔</strong>：一個 SD 1.5 約 2–7 GB、一個 SDXL 約 6–7 GB、一個 Flux 動輒 <strong>12–24 GB</strong>。下載數個不同畫風的模型後，硬碟空間很快便會減少數十 GB。建議<strong>預留 50 GB 以上</strong>的可用空間，並盡量安裝於容量較大的磁碟，避免佔滿系統碟。作業系統需 Windows 10 以上（建議 11）。</p>
+        <p style="margin: 0;">ComfyUI 桌面版本體與執行環境約需數 GB，加上預設模型後可能達十幾 GB；但真正佔用空間的是<strong>模型檔</strong>：一個 SD 1.5 約 2–7 GB、一個 SDXL 約 6–7 GB、一個 Flux 動輒 <strong>12–24 GB</strong>。下載數個不同畫風的模型後，硬碟空間很快便會減少數十 GB。建議<strong>預留 50 GB 以上</strong>的可用空間，並盡量安裝於容量較大的磁碟，避免佔滿系統碟。作業系統需 Windows 10 以上（建議 11）。</p>
       </div>
 
       <div class="box-success">
         <h4>🚦 走哪條路？</h4>
         <ul style="margin-bottom: 0;">
           <li><strong>有 NVIDIA 獨立顯示卡（8 GB 以上最理想）</strong> → 走 <a href="#route-a">路線 A：桌面版安裝</a>，在自己電腦上跑。</li>
-          <li><strong>只有內建顯示卡／使用 Mac／筆電無法負荷</strong> → 直接前往 <a href="#route-b">路線 B：改用雲端（Comfy Cloud）</a>，免安裝、免顯示卡，同樣能體驗 ComfyUI。</li>
+          <li><strong>只有內建顯示卡、使用非 NVIDIA 顯示卡、或筆電效能不足</strong> → 前往 <a href="#route-b">路線 B：改用雲端（Comfy Cloud）</a>，免安裝、免顯示卡，同樣能體驗 ComfyUI。（Apple Silicon Mac 亦可用桌面版，見下方補充。）</li>
         </ul>
       </div>
 
       <div class="box-tip">
-        <strong>Mac 使用者：</strong>Apple 晶片（M 系列）的 Mac 也能執行 ComfyUI，但速度較 NVIDIA 獨立顯示卡慢上不少，模型選擇也較受限。建議先透過路線 B 體驗；若確實要在本機執行，再研究桌面版的 macOS 安裝方式。
+        <strong>Mac 使用者：</strong>Apple Silicon Mac（M 系列）可安裝桌面版執行 ComfyUI，但速度與模型相容性視機型而定，通常慢於 NVIDIA 獨立顯示卡。課堂上若想避免安裝排錯，建議先用雲端（路線 B）；確實要在本機執行，再研究桌面版的 macOS 安裝方式。
       </div>
     </section>
 
@@ -286,7 +287,7 @@
       </div>
       <div class="card" style="border-left: 4px solid var(--success);">
         <span class="step-badge">Step 2</span> <strong>一鍵安裝</strong>
-        <p style="margin-top: 0.5rem;">執行安裝檔，跟著精靈按下一步即可。它會自動下載並設定 Python 與繪圖運算元件，全程約 30–45 分鐘（視網速而定），佔用約 15 GB 空間。此過程讓其自動執行即可。</p>
+        <p style="margin-top: 0.5rem;">執行安裝檔，跟著精靈按下一步即可。它會自動下載並設定 Python 與繪圖運算元件，全程約 30–45 分鐘（視網速而定），連同預設模型約佔十幾 GB 空間。此過程讓其自動執行即可。</p>
       </div>
       <div class="card" style="border-left: 4px solid var(--warning);">
         <span class="step-badge">Step 3</span> <strong>載入內建的「文字生圖」範本</strong>
@@ -339,10 +340,10 @@
       <div class="box-tip">
         <strong>不只 SD 和 Flux — 開源生圖正在百花齊放（2026 年 7 月）：</strong>2025–2026 年陸續出現多款實力強勁的新開源模型，此處先建立認識即可，待實際需求出現時再深入研究：
         <ul style="margin-bottom: 0.5rem;">
-          <li><strong>Boogu Image</strong>（Apache 2.0，可商用）— 目前開源模型裡<strong>文字渲染最強</strong>的，分 Base／Turbo／Edit 三種，ComfyUI 免裝外掛就能跑</li>
+          <li><strong>Boogu Image</strong>（開放權重；授權與檔案以 <a href="https://huggingface.co/Comfy-Org/Boogu-Image" target="_blank">官方 Hugging Face repo</a> 為準）— 作者實測<strong>文字渲染表現最佳</strong>，分 Base／Turbo／Edit 三種，ComfyUI 免裝外掛就能跑</li>
           <li><strong>Qwen-Image</strong>（阿里巴巴，Apache 2.0）— 也很擅長把文字畫進圖裡，構圖創意在同類裡領先</li>
           <li><strong>Z-Image</strong>（阿里巴巴 Tongyi）— 主打輕量快速、消費級顯示卡即可執行；但實測<strong>繁體中文容易輸出為簡體字</strong>，用於中文設計時須特別留意</li>
-          <li><strong>Krea 2</strong>（12B）— <strong>美感最強</strong>的開源模型，但幾乎不會寫中文字，適合純畫面、文字後製再加</li>
+          <li><strong>Krea 2</strong>（12B，開放權重，Comfy-Org 提供本機版）— <strong>美感最強</strong>的開放權重模型，但幾乎不會寫中文字，適合純畫面、文字後製再加</li>
           <li><strong>FLUX.2</strong>（Black Forest Labs）— Flux 的新一代，畫質與多圖參考更強</li>
         </ul>
         這些新模型多半與 Flux 相同，採「分開釋出」的方式（diffusion model＋文字編碼器＋VAE 分成數個檔案），載入方式類似。<strong>初學者無須急於採用最新模型</strong> — 先以 SD 1.5 熟悉整體流程，待確實需要更佳畫質或文字表現時，再選擇其一切換。
@@ -382,7 +383,7 @@
         <tbody>
           <tr><td><code>models/checkpoints</code></td><td><strong>主模型（checkpoint）</strong> — 最常下載、最常放的就是這裡，SD 1.5／SDXL 的完整模型都放這</td></tr>
           <tr><td><code>models/diffusion_models</code></td><td>部分新架構模型（如 Flux 的 diffusion model 檔）會單獨放這，有時也叫 <code>unet</code></td></tr>
-          <tr><td><code>models/clip</code></td><td><strong>CLIP／文字編碼器（text encoder）</strong> — 負責「讀懂你的提示詞」。SD 1.5 這類舊模型多半已內含不用管；但 Flux、Qwen-Image、SD3 這類新架構要<strong>另外下載 CLIP／T5 文字編碼器</strong>放這，缺了就無法生成。有些版本的資料夾叫 <code>text_encoders</code></td></tr>
+          <tr><td><code>models/text_encoders</code><br><span style="color:var(--text-light);font-size:0.85em;">舊版相容名稱：<code>models/clip</code></span></td><td><strong>CLIP／文字編碼器（text encoder）</strong> — 負責「讀懂你的提示詞」。SD 1.5 這類舊模型多半已內含不用管；但 Flux、Qwen-Image、SD3 這類新架構要<strong>另外下載 CLIP／T5 文字編碼器</strong>放這，缺了就無法生成。</td></tr>
           <tr><td><code>models/vae</code></td><td><strong>VAE 檔</strong> — 影響成品的色彩與細節；有些主模型已內含就不用另放，有些（尤其 Flux）要另外下載對應的 VAE 放這</td></tr>
           <tr><td><code>models/loras</code></td><td><strong>LoRA</strong> — 一種小型「風格外掛」，掛在主模型上微調畫風（進階再研究，入門用不到）</td></tr>
         </tbody>
@@ -417,7 +418,7 @@
         </div>
       </div>
       <div class="box-tip">
-        <strong>費用：</strong>免費層提供每月一批免費 credits（每月重置、不累積），只在 GPU 實際運算時扣；用完可以等下個月或改訂閱。<span style="font-family: var(--font-hand); color: var(--text-light);">📅 免費額度與計費為 2026 年 7 月查證，數字會調整，以 <a href="https://comfy.org/cloud/pricing/" target="_blank">官方定價頁</a> 為準。</span>
+        <strong>費用：</strong>免費層提供每月一批免費 credits（每月重置、不累積、實際額度以登入後帳號顯示為準），只在 GPU 實際運算時扣；用完可以等下個月或改訂閱。<span style="font-family: var(--font-hand); color: var(--text-light);">📅 免費額度與計費為 2026 年 7 月查證，數字會調整，以 <a href="https://comfy.org/cloud/pricing/" target="_blank">官方定價頁</a> 為準。</span>
       </div>
 
       <div class="box-danger">
