@@ -59,10 +59,14 @@
         <li><a href="#what-is-canva">Canva 是什麼</a></li>
         <li><a href="#free-vs-pro">免費 vs Pro</a></li>
         <li><a href="#templates">模板系統</a></li>
+        <li><a href="#quick-start">10 分鐘上手</a></li>
+        <li><a href="#layout-basics">排版三原則</a></li>
         <li><a href="#magic-studio">AI 功能（Magic Studio）</a></li>
         <li><a href="#ai-integration">與 AI 生圖銜接</a></li>
+        <li><a href="#handout-elements">衛教單張實用元素</a></li>
         <li><a href="#medical-examples">醫療應用範例</a></li>
-        <li><a href="#export-license">匯出與授權注意</a></li>
+        <li><a href="#team-templates">團隊模板複用</a></li>
+        <li><a href="#export-license">匯出格式與授權注意</a></li>
       </ol>
     </nav>
 
@@ -145,6 +149,93 @@
       </div>
 
       <p>新建作品時，Canva 首頁的搜尋框直接打用途（例如「衛教海報」「醫療簡報」），會自動帶出對應尺寸的模板選項，不用自己記尺寸數字。</p>
+
+      <!-- TODO(補圖)：Canva 首頁搜尋「衛教海報」的模板結果頁截圖，存 images/canva/template-search.webp（.result-compare 單 figure + lightbox；本頁尚無 lightbox IIFE，第一張圖進來時從 ai-image.html 頁尾複製） -->
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Quick Start ─── -->
+    <section id="quick-start">
+      <h2>10 分鐘上手</h2>
+      <p>Canva 的編輯畫面只需要認識四個區域，之後所有操作都在這四區之間進行：</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>⬅️ 左側面板</strong>
+          <p>素材的來源 — 設計（換模板）、元素（圖示、形狀、圖表）、文字、上傳（放你自己的圖片）都在這裡，點選或拖進畫布即可使用。</p>
+        </div>
+        <div class="card">
+          <strong>⬆️ 上方工具列</strong>
+          <p>點選畫布上的任何東西，工具列就會變成它的設定 — 選到文字出現字型字級，選到圖片出現濾鏡裁切。找不到設定時，先確認有沒有點選到對象。</p>
+        </div>
+        <div class="card">
+          <strong>🎨 中央畫布</strong>
+          <p>作品本身。元素直接用滑鼠拖拉移動、拉角落控制點縮放，點兩下文字即可編輯內容。</p>
+        </div>
+        <div class="card">
+          <strong>↗️ 右上角「分享」</strong>
+          <p>完成後的出口 — 下載檔案、複製協作連結、直接列印都收在這顆按鈕裡。</p>
+        </div>
+      </div>
+
+      <!-- TODO(補圖)：Canva 編輯介面全景截圖（可標註左側面板／上方工具列／畫布／右上分享四區），存 images/canva/editor-overview.webp -->
+
+      <p>認識介面後，照這五步完成你的第一份作品：</p>
+
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">Step 1</span> <strong>搜尋模板</strong>
+        <p style="margin-top: 0.5rem;">首頁搜尋框輸入「衛教海報」，挑一個版面配置接近你需求的模板點開 — 挑「架構」不用挑「顏色」，配色之後都能改。</p>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">Step 2</span> <strong>換上自己的圖</strong>
+        <p style="margin-top: 0.5rem;">左側「上傳」把圖片傳進 Canva，再把它拖到模板原有的圖片上放開 — 會自動替換並沿用原本的框形與大小，不用手動對位。</p>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">Step 3</span> <strong>改文字</strong>
+        <p style="margin-top: 0.5rem;">點兩下模板裡的文字直接改成自己的內容。中文字型建議從上方工具列的字型選單挑「思源黑體」等明確標示繁中的字型，避免預設英文字型顯示中文時筆畫怪異。</p>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">Step 4</span> <strong>微調位置</strong>
+        <p style="margin-top: 0.5rem;">拖曳元素時畫面會出現粉紅色對齊輔助線，跟著線放開就能對齊其他元素。改壞了隨時 Ctrl+Z（Mac 為 Cmd+Z）復原，作品全程自動儲存。</p>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">Step 5</span> <strong>匯出</strong>
+        <p style="margin-top: 0.5rem;">右上角「分享」→「下載」，選擇檔案格式（格式怎麼挑見<a href="#export-license">最後一節</a>）。</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Layout Basics ─── -->
+    <section id="layout-basics">
+      <h2>排版三原則</h2>
+      <p>沒有設計背景也能把版面做得專業 — 只要守住三條規則。模板本身已經符合這三條，你的任務是改內容時不要破壞它們：</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>📏 對齊</strong>
+          <p>每個元素都應該與其他元素的某條邊線對齊，不要憑感覺放。拖曳時跟著 Canva 的粉紅色輔助線走，或全選後用上方「位置」的對齊按鈕一次排好。</p>
+        </div>
+        <div class="card">
+          <strong>🌬️ 留白</strong>
+          <p>版面不需要填滿。內容與紙張邊緣保持距離、區塊之間留出空隙 — 資訊擠在一起時讀者哪裡都不會看，適當留白反而讓重點更醒目。</p>
+        </div>
+        <div class="card">
+          <strong>🔠 字級層級</strong>
+          <p>整份作品的文字只用三種大小：大標題、區塊重點、內文。層級一多讀者就抓不到閱讀順序，字級差距要明顯（例如標題是內文的兩倍以上）。</p>
+        </div>
+      </div>
+
+      <div class="analogy">
+        排版原則就像無菌操作的基本動作 — 規則本身不多，難的是每一步都不破功。模板幫你把「初始狀態」擺對了，你只要在改內容時維持住對齊、留白和層級，成品就不會走樣。
+      </div>
+
+      <div class="box-tip">
+        <strong>顏色也一樣克制：</strong>整份作品的顏色控制在三種以內。最安全的做法是直接沿用模板的配色，只換圖與文字；真的要改色，改「同一種顏色的深淺」比引入新顏色安全。
+      </div>
+
+      <!-- TODO(補圖)：同一份衛教單張的「改前 vs 改後」對比（左：沒對齊、塞滿、字級混亂的版本；右：套用三原則的版本），存 images/canva/layout-before.webp 與 layout-after.webp，用 .result-compare 雙 figure -->
     </section>
 
     <hr class="section-divider">
@@ -207,6 +298,30 @@
 結構：一句話標題、3-4 個重點條列（每點不超過 20 字）、一句提醒何時就醫
 語氣：親切、不說教<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
+
+      <!-- TODO(補圖)：本頁核心對比 — 左：AI 生成的無文字插圖原圖，右：Canva 加完繁中標題與重點文字的成品，存 images/canva/ai-raw.webp 與 canva-final.webp，用 .result-compare 雙 figure。照上方 Step 1-3 實做一次即可產出 -->
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Handout Elements ─── -->
+    <section id="handout-elements">
+      <h2>衛教單張實用元素</h2>
+      <p>除了圖和文字，衛教單張上還有兩種元素特別值得認識，都能在 Canva 內直接完成，不用另外找工具：</p>
+
+      <h3>QR code — 連到延伸資訊</h3>
+      <p>單張版面放不下的細節（完整衛教文章、掛號連結、醫院官網），放一個 QR code 讓民眾用手機掃。左側面板最下方的「應用程式」搜尋 <strong>QR code</strong>，輸入網址就會生成圖案，拖到版面角落即可。</p>
+      <div class="box-tip">
+        <strong>列印前務必實測：</strong>QR code 縮太小或顏色太淺會掃不出來。印刷品上建議至少 2×2 公分、維持深色圖案配淺色底，並在送印前用自己的手機對著螢幕或試印稿實際掃一次確認。
+      </div>
+
+      <h3>圖表 — 數據視覺化</h3>
+      <p>要呈現數據（例如接種率變化、血糖目標區間）時，不用在 Excel 做圖再截圖 — 左側「元素」搜尋「圖表」，選長條圖或圓餅圖後直接在右側表格輸入數字，圖表即時更新，顏色也能配合整體版面調整。</p>
+      <div class="box-tip">
+        <strong>保守建議：</strong>衛教對象是一般民眾，圖表以「一張圖講一件事」為原則 — 長條圖比較數量、圓餅圖看占比，兩種就涵蓋絕大多數需求，複雜的統計圖形留給學術簡報。
+      </div>
+
+      <!-- TODO(補圖)：放了 QR code 與圖表的衛教單張成品截圖（或 Canva 內圖表編輯畫面），存 images/canva/qr-chart.webp -->
     </section>
 
     <hr class="section-divider">
@@ -229,13 +344,48 @@
         <span class="step-badge">情境 3</span> <strong>社群貼文</strong>
         <p style="margin-top: 0.5rem;">4:5 IG 模板 → 放入生成的插圖或圖示組 → 加金句標題 → 用「調整大小」功能一鍵複製成限時動態（9:16）版本，一次做兩種尺寸。</p>
       </div>
+
+      <!-- TODO(補圖)：情境 1 的完整衛教單張成品 1-2 張（可與 ai-integration 段的成品共用素材），存 images/canva/handout-example.webp -->
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Team Templates ─── -->
+    <section id="team-templates">
+      <h2>團隊模板複用</h2>
+      <p>延續開頭的 Order Set 類比 — 套餐醫囑的價值在於「建好一次、全科使用」。你花心思做好的第一份衛教單張，也應該變成科內的共用起點，之後同事只要換圖改字，配色與版面自動一致：</p>
+
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">做法 1</span> <strong>分享連結請同事建立副本（免費版即可）</strong>
+        <p style="margin-top: 0.5rem;">右上角「分享」複製連結傳給同事，對方開啟後用「檔案 → 建立副本」以你的設計為起點修改，不會動到你的原檔。</p>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--success);">
+        <span class="step-badge">做法 2</span> <strong>品牌範本（Pro／團隊方案）</strong>
+        <p style="margin-top: 0.5rem;">付費方案可把設計發佈成正式範本、搭配品牌套件固定科室的配色與字型，成員從範本新建作品時樣式自動套用 — 常態性產出衛教內容的科室才需要。</p>
+      </div>
+
+      <div class="box-tip">
+        <strong>分享連結的權限要分清楚：</strong>「分享」時可以選擇對方是<strong>僅供檢視、可以評論、還是可以編輯</strong>。給主管過稿用「可以評論」（對方能標註意見但改不動內容），確定要共同製作才開「可以編輯」— 可編輯連結任何拿到的人都能改，轉傳前先想一下。
+      </div>
     </section>
 
     <hr class="section-divider">
 
     <!-- ─── Export & License ─── -->
     <section id="export-license">
-      <h2>匯出與授權注意</h2>
+      <h2>匯出格式與授權注意</h2>
+      <p>右上角「分享 → 下載」時的格式選擇，依用途決定：</p>
+      <table>
+        <thead>
+          <tr><th>用途</th><th>格式</th><th>注意</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>列印張貼（衛教單張、海報）</td><td><strong>PDF（列印）</strong></td><td>解析度最高的選項；送印刷廠時勾選「裁切標記和出血」</td></tr>
+          <tr><td>螢幕觀看、LINE 傳送、網頁</td><td>PNG</td><td>畫質與檔案大小的平衡最好；照片為主的內容可改用 JPG 縮小檔案</td></tr>
+          <tr><td>簡報之後要回 PowerPoint 修改</td><td>PPTX</td><td>Canva 的中文字型 PowerPoint 端不一定有，匯出後會被替換 — 開啟後逐頁檢查版面</td></tr>
+          <tr><td>去背素材疊到其他設計上</td><td>PNG（透明背景）</td><td>「透明背景」選項為 Pro 功能</td></tr>
+        </tbody>
+      </table>
       <div class="box-danger">
         <strong>使用前務必確認：</strong>
         <ul>

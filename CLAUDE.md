@@ -146,6 +146,7 @@ ai-workshop/
 - [x] 語音轉文字（ai-transcribe.html，番外）
 - [x] CapCut 教學頁面（capcut.html）
 - [x] Canva 教學頁面（canva.html）
+- [ ] canva.html 補圖 — 頁內有 6 處 `TODO(補圖)` 註記（模板搜尋結果／編輯介面全景／排版改前後對比／AI 原圖 vs Canva 成品對比／QR＋圖表成品／醫療範例成品，最後兩張可共用素材），檔名與擺法都寫在註記裡；用戶實做一張衛教單張順手截圖即可全數覆蓋。注意：本頁目前沒有 lightbox IIFE，第一張圖進來時要從 ai-image.html 頁尾複製（2026-07-09 新增五段教學：10 分鐘上手／排版三原則／衛教單張實用元素／團隊模板複用／匯出格式表）
 - [x] AI Agent 教學頁面（ai-agent.html，Part 5）
 - [x] GitHub Pages 建站教學頁面（github-pages.html）
 - [x] 免費帳號實測 Google Flow（2026-07-07 用戶實測＋官方額度文件，已回填 google-flow.html）：選單看得到 Omni Flash 但免費 credits 只能用於 Veo 3.1 三檔；每日 50 credits 確認（首次生成觸發、不累計、升級即作廢）；Veo Lite 是 10 credits **不是 0**（原頁面寫零 credits 已修正）；Quality 一次 100 > 日額度 50，免費層實際用不到；1080p upscale 免費帳號不可用、4K 僅 Ultra；Flow Tools 34 款免費全開（但 remix 別人的工具需訂閱，免費帳號顯示 Upgrade to remix）；YouTube Shorts／YouTube Create App 內建 Gemini Omni 生成、所有帳號免費（10 秒上限、SynthID 浮水印），是免費層體驗 Omni 的出口。影片生成免費層實測：選單最高只能選 Veo 3.1 Fast、秒數固定 8 秒、下載只有 270p 動態 GIF 與 720p 原始檔（用戶更正，非 480p）；生圖 0 credits 不走 credits 計費但免費帳號另有每日生圖次數上限（0 credits ≠ 無限）、選單顯示 Nano Banana Pro；中文口白可生成會對嘴但咬字用詞偶有錯，教學建議正式片走 TTS。生圖下載解析度：免費帳號可選 1K/2K、4K 不開放（實測 2026-07-07，bullet 已回填頁面）；生圖引號逐字控制實測：不編造、零錯字，但會小幅同義改寫，關鍵句需逐字校對（衛教海報入門 vs 進階 prompt 對比圖在 images/google-flow/poster-*.webp）
