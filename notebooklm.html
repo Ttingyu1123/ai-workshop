@@ -133,6 +133,13 @@
       </div>
 
       <p>另外，NotebookLM 已把百萬 token 等級的長上下文開放給所有方案 — 來源不多的小型 Notebook（例如兩三份 guideline），可能整批直接讀入、不需要檢索篩選；來源越多，檢索環節的角色就越重，漏抓的風險也隨之增加。這也是「一個主題一本 Notebook、來源寧精不濫」的架構層理由。</p>
+
+      <div class="result-compare">
+        <figure>
+          <img src="images/notebooklm/rag-overview.webp" alt="手繪風資訊圖：NotebookLM 為什麼比較可靠？以三步驟說明 RAG（切塊建索引、檢索相關段落、生成並附出處），搭配病歷調閱類比，並標出兩個出錯環節（檢索漏抓、模型誤讀），結論是 RAG 降低憑空編造但降不掉漏讀和摘錯" loading="lazy">
+          <figcaption>一張圖看懂 RAG — 三步驟、病歷類比與兩個出錯環節（點擊放大）</figcaption>
+        </figure>
+      </div>
     </section>
 
     <hr class="section-divider">
@@ -369,6 +376,31 @@
   </footer>
 
   <script>
+  (function () {
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<span class="lightbox-close">✕ 關閉</span><img alt=""><div class="lightbox-caption"></div>';
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img');
+    const lbCap = lb.querySelector('.lightbox-caption');
+    document.querySelectorAll('.result-compare figure').forEach(fig => {
+      fig.addEventListener('click', () => {
+        const img = fig.querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = fig.querySelector('figcaption').textContent;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    lb.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  })();
+
   function copyPrompt(btn) {
     const content = btn.parentElement;
     const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
