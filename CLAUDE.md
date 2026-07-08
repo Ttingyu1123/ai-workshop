@@ -139,7 +139,7 @@ ai-workshop/
 ### 內容
 - [x] 加入用戶生成的圖片範例（ai-image.html 全 9 個 prompt 附 ChatGPT vs Gemini 對比圖，`.result-compare` 元件在 style.css）
 - [ ] 範例牆／學員作品頁（靜態 gallery + Google 表單收件，等有作品再做）
-- [ ] notebooklm.html 補「點引用標記跳回原文」實截圖（基本操作 Step 4，用戶在家截 — remote desktop 不便截圖）；順便重截 `images/notebooklm/guideline-compare.webp`（現版只帶到一列，且幾乎所有儲存格都露出 `<br><br>` 原始標記 — 這是 NotebookLM 表格渲染問題、換位置截避不掉，要在提問時加一句「表格儲存格內不要使用 HTML 標記，改用頓號或分行」重新生成後再截，並多帶兩三列）
+- [ ] notebooklm.html 補「點引用標記跳回原文」實截圖（基本操作 Step 4，用戶在家截 — remote desktop 不便截圖）。註：guideline-compare.webp 已重截換新（2026-07-08）；NotebookLM 表格輸出會露 `<br><br>` 原始標記，解法是提問時加「表格儲存格內不要使用 HTML 標記，改用頓號或分行」
 - [x] AI 文字應用（ai-writing.html，Part 2）
 - [x] AI 安全與隱私（ai-safety.html，Part 3）
 - [x] NotebookLM 文獻工具（notebooklm.html，番外）
