@@ -55,6 +55,7 @@
 
     <nav class="toc" aria-label="目錄">
       <ol>
+        <li><a href="#open-vs-closed">先搞懂：開源 vs 閉源</a></li>
         <li><a href="#why">為什麼醫療人員要學本機生圖</a></li>
         <li><a href="#what-is">ComfyUI 是什麼</a></li>
         <li><a href="#check">先確認你的電腦能不能跑（分流）</a></li>
@@ -68,6 +69,29 @@
       <h4>📌 這頁的定位</h4>
       <p style="margin: 0;">這是一堂<strong>操作課</strong>，不是節點工程。目標只有一個：讓你在自己的電腦（或免費雲端）上，用開源模型生出第一張圖。我們<strong>不教</strong>怎麼從零連接節點、自建工作流 — 那是另一個世界。這頁也不是要取代 <a href="ai-image.html">Part 4 — AI 圖像生成</a>，線上的 ChatGPT／Gemini 生圖仍然是最快上手的路；本機生圖是給「有隱私需求」或「想完全免費、無限次生成」的人多一個選項。</p>
     </div>
+
+    <!-- ─── Open vs Closed ─── -->
+    <section id="open-vs-closed">
+      <h2>先搞懂：開源 vs 閉源</h2>
+      <p>這頁一直講「開源生圖」，先花一分鐘把這個名詞弄清楚，後面才好懂。所謂開源、閉源，差別在於<strong>模型本身你拿不拿得到</strong>。</p>
+      <div class="card-grid">
+        <div class="card">
+          <strong>🔒 閉源（Proprietary）</strong>
+          <p>模型鎖在公司的伺服器裡，你只能透過它的網站或 App 使用，<strong>拿不到、也看不到模型本身</strong>。<span style="color: var(--text-light);">例：ChatGPT、Gemini、Midjourney。</span></p>
+          <p style="margin-bottom: 0;"><span style="color: var(--success);">好處</span>免安裝、開箱即用。<br><span style="color: var(--danger);">代價</span>資料要上傳雲端、有額度限制、公司說了算。</p>
+        </div>
+        <div class="card">
+          <strong>🔓 開源（Open Source）</strong>
+          <p>模型公開釋出，任何人都能<strong>免費下載到自己電腦跑</strong>，甚至修改。<span style="color: var(--text-light);">例：Stable Diffusion、Flux。</span></p>
+          <p style="margin-bottom: 0;"><span style="color: var(--success);">好處</span>免費無限次、資料留在本機、完全可控。<br><span style="color: var(--danger);">代價</span>要自己張羅硬體、下載模型、安裝設定。</p>
+        </div>
+      </div>
+      <div class="analogy">
+        閉源像上<strong>餐廳</strong>點菜 — 走進去點就有得吃，但廚房不讓進、食譜不外流。開源像人家把<strong>食譜和食材整包送你</strong> — 自己回家煮，要有廚房（顯示卡）也要花工，但之後想煮幾次都免費、口味自己調。ComfyUI 就是那間「自己家的廚房」。
+      </div>
+    </section>
+
+    <hr class="section-divider">
 
     <!-- ─── Why ─── -->
     <section id="why">
@@ -145,16 +169,24 @@
       <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 規格資訊更新於 2026 年 7 月 — 以 <a href="https://docs.comfy.org/installation/system_requirements" target="_blank">ComfyUI 官方系統需求</a> 為準。</p>
       <table>
         <thead>
-          <tr><th>VRAM（顯示卡記憶體）</th><th>能跑什麼</th></tr>
+          <tr><th>VRAM（顯示卡記憶體）</th><th>建議拿來跑</th></tr>
         </thead>
         <tbody>
-          <tr><td>4 GB（最低）</td><td>勉強能啟動，只跑得動最輕量的舊模型</td></tr>
-          <tr><td>8 GB（舒適）</td><td>順跑 SD 1.5 這類經典模型，入門足夠</td></tr>
-          <tr><td>12 GB</td><td>解鎖畫質更好的 SDXL 模型</td></tr>
-          <tr><td>16 GB 以上</td><td>跑得動最新的 Flux 等大型模型</td></tr>
+          <tr><td>4 GB（最低）</td><td>勉強能啟動，只順跑最輕量的舊模型</td></tr>
+          <tr><td>8 GB（入門舒適）</td><td>順跑 SD 1.5 這類經典模型，入門足夠</td></tr>
+          <tr><td>12 GB</td><td>畫質更好的 SDXL 模型跑起來舒服</td></tr>
+          <tr><td>16 GB 以上</td><td>跑最新的 Flux 等大型模型最順</td></tr>
         </tbody>
       </table>
-      <p>另外需要：Windows 10 以上（建議 11）、約 15 GB 以上的硬碟空間（軟體＋模型）。</p>
+
+      <div class="box-tip">
+        <strong>VRAM 不夠，多半不是「跑不動」而是「跑得慢」：</strong>這張表是「舒適線」不是「及格線」。實際上 8 GB 的舊顯示卡照樣能跑 Flux 這種大模型 — 只是<strong>用時間換記憶體</strong>：一張圖從幾秒變成等上一兩分鐘，生成當下電腦也會明顯卡頓。所以 VRAM 小不用直接放棄本機，先裝起來跑跑看能不能接受那個速度，真的太慢再考慮換卡或走 <a href="#route-b">路線 B 雲端</a>。
+      </div>
+
+      <div class="box-danger">
+        <h4>💾 別忘了硬碟空間 — 模型是以「GB」為單位的</h4>
+        <p style="margin: 0;">ComfyUI 軟體本身約 15 GB，但真正吃空間的是<strong>模型檔</strong>：一個 SD 1.5 約 2–7 GB、一個 SDXL 約 6–7 GB、一個 Flux 動輒 <strong>12–24 GB</strong>。多下載幾個不同畫風的模型，硬碟很快就少幾十 GB。建議<strong>預留 50 GB 以上</strong>的空閒空間，最好裝在容量大的磁碟，不要塞爆系統碟。作業系統需 Windows 10 以上（建議 11）。</p>
+      </div>
 
       <div class="box-success">
         <h4>🚦 走哪條路？</h4>
@@ -222,19 +254,36 @@
       <h2>模型從哪來</h2>
       <p>ComfyUI 本身只是「畫圖的軟體」，真正決定畫風與品質的是<strong>模型（model／checkpoint）</strong>。桌面版第一次會幫你下載一個預設模型，夠你跑出第一張圖；想換不同畫風，就得自己再下載別的模型。</p>
 
-      <p>開源生圖模型主要有這幾個世代，VRAM 需求由低到高：</p>
+      <h3>先認識 Stable Diffusion 與它的世代</h3>
+      <p><strong>Stable Diffusion</strong> 是 2022 年開源釋出的生圖模型，它掀起了「在自己電腦上生圖」的整波風潮 — 前面講的開源生圖，講的幾乎都是它與它的後代。因為開源，全世界的社群不斷拿它改良、推出新版本，於是就有了「世代」之分。你會一直看到的三個名字，其實是同一條演進線上的不同階段：</p>
       <div class="card">
         <ul style="margin-bottom: 0;">
-          <li><strong>SD 1.5</strong> — 最經典、最省資源，8 GB 顯卡就能順跑，入門首選。</li>
-          <li><strong>SDXL</strong> — 畫質更高、細節更好，建議 12 GB 以上。</li>
-          <li><strong>Flux</strong> — 最新一代、對文字與構圖理解最強，但吃資源，建議 16 GB 以上。</li>
+          <li><strong>SD 1.5</strong>（2022）— 最經典、最省資源的元老版，社群資源最多，8 GB 顯示卡就能順跑，<strong>入門首選</strong>。</li>
+          <li><strong>SDXL</strong>（2023）— Stable Diffusion 的高畫質大改版，細節與構圖更好，建議 12 GB 以上。</li>
+          <li><strong>Flux</strong>（2024）— 由原 Stable Diffusion 核心團隊出走另組的 Black Forest Labs 推出的新家族，對文字與複雜構圖的理解最強，但也最吃資源（建議 16 GB 以上，8 GB 可跑但慢）。</li>
         </ul>
       </div>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">可以把它們想成同一款軟體的「版本演進」：越新的越聰明、畫質越好，代價是越吃顯示卡。新手從 SD 1.5 起步，熟了再往上跳。</p>
 
       <div class="box-tip">
         <strong>去哪下載模型：</strong>建議用 <a href="https://huggingface.co/" target="_blank">Hugging Face</a> — 這是 AI 界最大的開源模型平台，Stable Diffusion、Flux 的官方模型都在上面，來源清楚、相對單純。下載模型檔（通常是 <code>.safetensors</code> 格式）後，放進 ComfyUI 安裝目錄下的模型資料夾，重新整理就能在模型載入框選到。
         <br><br>
         網路上還有其他更大的模型分享站，但內容龐雜、混有大量成人與版權不明的內容，醫療衛教用途建議<strong>先從 Hugging Face 的官方模型開始</strong>就好，需求單純又不踩雷。
+      </div>
+
+      <h3>模型檔要放哪個資料夾</h3>
+      <p>下載回來的檔案不是隨便丟就好 — ComfyUI 靠「放對資料夾」來認出每種模型。安裝目錄下有個 <code>models</code> 資料夾，裡面依類型分好子資料夾，<strong>通常</strong>對應如下（桌面版可從選單直接「開啟模型資料夾」，不用自己找路徑）：</p>
+      <table>
+        <thead><tr><th style="white-space:nowrap;">資料夾</th><th>放什麼</th></tr></thead>
+        <tbody>
+          <tr><td><code>models/checkpoints</code></td><td><strong>主模型（checkpoint）</strong> — 最常下載、最常放的就是這裡，SD 1.5／SDXL 的完整模型都放這</td></tr>
+          <tr><td><code>models/diffusion_models</code></td><td>部分新架構模型（如 Flux 的 diffusion model 檔）會單獨放這，有時也叫 <code>unet</code></td></tr>
+          <tr><td><code>models/vae</code></td><td><strong>VAE 檔</strong> — 影響成品的色彩與細節；有些主模型已內含就不用另放，有些（尤其 Flux）要另外下載對應的 VAE 放這</td></tr>
+          <tr><td><code>models/loras</code></td><td><strong>LoRA</strong> — 一種小型「風格外掛」，掛在主模型上微調畫風（進階再研究，入門用不到）</td></tr>
+        </tbody>
+      </table>
+      <div class="box-tip">
+        <strong>放完記得刷新：</strong>丟進資料夾後，回到 ComfyUI 介面重新整理（或重開），模型載入框的下拉選單才會出現新檔案。選不到，八成是放錯資料夾或忘了刷新。一個模型頁面若同時要你下載 checkpoint／diffusion model 和對應的 VAE，兩個都要下載、各放各的資料夾，缺一張圖就會怪怪的。
       </div>
 
       <div class="box-danger">
@@ -248,40 +297,46 @@
     <!-- ─── Route B ─── -->
     <section id="route-b">
       <h2>路線 B：沒有獨立顯示卡就上雲端</h2>
-      <p>沒有夠力的顯示卡，一樣能體驗 ComfyUI — 把運算交給雲端就好。<a href="https://www.runninghub.ai/" target="_blank">RunningHub</a> 是把整套 ComfyUI 搬到瀏覽器上的平台：<strong>你在網頁上操作，實際運算跑在對方的高效能顯示卡上</strong>，你的電腦只要能開網頁就行，免安裝、免顯示卡。</p>
+      <p>沒有夠力的顯示卡，一樣能體驗 ComfyUI — 把運算交給雲端就好。原理都是<strong>你在瀏覽器上操作，實際運算跑在對方的高效能顯示卡上</strong>，你的電腦只要能開網頁就行，免安裝、免顯示卡。這類服務有好幾家，新手我最推薦從<strong>官方的 Comfy Cloud</strong> 開始。</p>
 
+      <h3>首選：Comfy Cloud（官方雲端）</h3>
+      <p><a href="https://www.comfy.org/" target="_blank">ComfyUI</a> 官方自己推出的雲端版 <strong>Comfy Cloud</strong>，對新手有兩個關鍵好處：</p>
       <div class="card-grid">
         <div class="card">
-          <strong>✅ 適合誰</strong>
-          <p>只有內建顯示卡的文書筆電、Mac、想先試水溫不想裝軟體的人。零安裝，註冊完就能用。</p>
+          <strong>🧩 介面跟桌面版一模一樣</strong>
+          <p>同一個官方團隊做的，操作、範本、節點跟你在路線 A 學的桌面版完全一致 — 桌面版學到的直接搬過來，不用重新適應另一套介面。</p>
         </div>
         <div class="card">
-          <strong>⚠️ 要留意</strong>
-          <p>運算在雲端，代表<strong>你的輸入會上傳到對方伺服器</strong> — 這就失去了本機生圖「資料不出機器」的隱私優勢。<strong>涉及病人資料、個資的素材不要上傳</strong>，回到 <a href="ai-safety.html">Part 3</a> 的三秒檢查。</p>
+          <strong>🆓 有免費層、Google 登入即用</strong>
+          <p>用 Google 帳號登入就自動套用免費層，不用綁信用卡；而且只有「實際生成」才計費，你在畫面上搭建、調參數的時間不燒額度。</p>
         </div>
       </div>
+      <div class="box-tip">
+        <strong>費用：</strong>免費層提供每月一批免費 credits（每月重置、不累積），只在 GPU 實際運算時扣；用完可以等下個月或改訂閱。<span style="font-family: var(--font-hand); color: var(--text-light);">📅 免費額度與計費為 2026 年 7 月查證，數字會調整，以 <a href="https://comfy.org/cloud/pricing/" target="_blank">官方定價頁</a> 為準。</span>
+      </div>
 
-      <h3>大致怎麼用</h3>
+      <div class="box-danger">
+        <h4>⚠️ 上雲就失去「資料不出機器」的隱私優勢</h4>
+        <p style="margin: 0;">不論哪一家雲端，運算都在別人的伺服器上跑，代表<strong>你的輸入與上傳的圖會離開你的電腦</strong> — 這正是本機生圖最大的優勢，上雲就沒了。所以<strong>涉及病人資料、個資、臨床影像的素材，一律不要上傳到任何雲端平台</strong>，回到 <a href="ai-safety.html">Part 3</a> 的三秒檢查。真要處理敏感素材，就得走路線 A 的本機生圖。</p>
+      </div>
+
+      <h3>大致怎麼用（以 Comfy Cloud 為例）</h3>
       <div class="card">
         <ol style="margin-bottom: 0;">
-          <li>到 <a href="https://www.runninghub.ai/" target="_blank">runninghub.ai</a> 註冊帳號。</li>
-          <li>從平台上現成的工作流（workflow）或 AI App 挑一個文字生圖的來用。</li>
-          <li>改提示詞、按執行，雲端跑完把圖回傳給你，直接下載。</li>
+          <li>用 Google 帳號登入官方雲端。</li>
+          <li>載入內建的 Text to Image 範本（跟桌面版同一個）。</li>
+          <li>改提示詞、按生成，雲端跑完直接在瀏覽器看圖、下載。</li>
         </ol>
       </div>
 
       <div class="box-tip">
-        <strong>費用：</strong>RunningHub 採免費額度＋付費方案的模式，有免費額度可以先試。<span style="font-family: var(--font-hand); color: var(--text-light);">📅 具體免費額度與計費方式會調整，以 <a href="https://www.runninghub.ai/" target="_blank">官網</a> 當下公告為準 — 本頁不列數字以免過時。</span>
-      </div>
-
-      <div class="box-tip">
-        <strong>其他線上跑 ComfyUI 的選擇（帶過，需要再深入研究）：</strong>除了 RunningHub，還有 <a href="https://www.runcomfy.com/" target="_blank">RunComfy</a>、以及 ComfyUI 官方推出的 <strong>Comfy Cloud</strong> 等，都是「在瀏覽器裡跑完整 ComfyUI、不用自己的顯示卡」的服務，定位相近、計費各異。先用一家上手就好，不必比較。
+        <strong>其他雲端選擇（帶過，需要再深入研究）：</strong><a href="https://www.runninghub.ai/" target="_blank">RunningHub</a>（另附大量現成工作流與 AI App 可直接套用，偏「挑現成的來用」）、<a href="https://www.runcomfy.com/" target="_blank">RunComfy</a> 等，也都是「瀏覽器跑完整 ComfyUI、不用自己顯示卡」的服務，定位相近、計費各異。先用官方 Comfy Cloud 上手，有特殊需求再比較別家。
       </div>
     </section>
 
     <!-- ─── Navigation ─── -->
     <div class="box-success">
-      <strong>🎯 現在就做（10 分鐘）：</strong>先按 <code>Ctrl + Shift + Esc</code> → 效能分頁，查清楚自己有沒有 NVIDIA 獨立顯示卡。有的話，去 <a href="https://www.comfy.org/download" target="_blank">comfy.org/download</a> 下載桌面版開始安裝；沒有的話，到 <a href="https://www.runninghub.ai/" target="_blank">RunningHub</a> 註冊，挑一個文字生圖工作流，生出你的第一張開源模型圖。無論哪條路，目標都是今天生出第一張「不經過任何大公司雲端」的圖。
+      <strong>🎯 現在就做（10 分鐘）：</strong>先按 <code>Ctrl + Shift + Esc</code> → 效能分頁，查清楚自己有沒有 NVIDIA 獨立顯示卡。有的話，去 <a href="https://www.comfy.org/download" target="_blank">comfy.org/download</a> 下載桌面版開始安裝，生出第一張「完全不上雲」的圖；沒有的話，用 Google 帳號登入官方 <strong>Comfy Cloud</strong>，載入 Text to Image 範本跑一次。無論哪條路，目標都是今天親手用開源模型生出你的第一張圖。
     </div>
 
     <div class="nav-links">
