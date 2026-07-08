@@ -62,7 +62,7 @@
         <li><a href="#check">先確認你的電腦能不能跑（分流）</a></li>
         <li><a href="#route-a">路線 A：桌面版安裝 + 第一張圖</a></li>
         <li><a href="#models">模型從哪來</a></li>
-        <li><a href="#route-b">路線 B：沒有獨立顯示卡就上雲端</a></li>
+        <li><a href="#route-b">路線 B：無獨立顯示卡時改用雲端</a></li>
       </ol>
     </nav>
 
@@ -79,16 +79,16 @@
         <div class="card">
           <strong>🔒 閉源（Proprietary）</strong>
           <p>模型鎖在公司的伺服器裡，你只能透過它的網站或 App 使用，<strong>拿不到、也看不到模型本身</strong>。<span style="color: var(--text-light);">例：ChatGPT、Gemini、Midjourney。</span></p>
-          <p style="margin-bottom: 0;"><span style="color: var(--success);">好處</span>免安裝、開箱即用。<br><span style="color: var(--danger);">代價</span>資料要上傳雲端、有額度限制、公司說了算。</p>
+          <p style="margin-bottom: 0;"><span style="color: var(--success);">好處</span>免安裝、開箱即用。<br><span style="color: var(--danger);">代價</span>資料須上傳雲端、有額度限制、使用規則由服務商決定。</p>
         </div>
         <div class="card">
           <strong>🔓 開源（Open Source）</strong>
           <p>模型公開釋出，任何人都能<strong>免費下載到自己電腦跑</strong>，甚至修改。<span style="color: var(--text-light);">例：Stable Diffusion、Flux。</span></p>
-          <p style="margin-bottom: 0;"><span style="color: var(--success);">好處</span>免費無限次、資料留在本機、完全可控。<br><span style="color: var(--danger);">代價</span>要自己張羅硬體、下載模型、安裝設定。</p>
+          <p style="margin-bottom: 0;"><span style="color: var(--success);">好處</span>免費無限次、資料留在本機、完全可控。<br><span style="color: var(--danger);">代價</span>需自行準備硬體、下載模型並完成安裝設定。</p>
         </div>
       </div>
       <div class="analogy">
-        閉源像上<strong>餐廳</strong>點菜 — 走進去點就有得吃，但廚房不讓進、食譜不外流。開源像人家把<strong>食譜和食材整包送你</strong> — 自己回家煮，要有廚房（顯示卡）也要花工，但之後想煮幾次都免費、口味自己調。ComfyUI 就是那間「自己家的廚房」。
+        以餐廳作比喻：閉源像上<strong>餐廳</strong>用餐 — 點了就有得吃，但廚房不對外開放、食譜也不外流。開源則像餐廳把<strong>完整的食譜與食材一併交給你</strong> — 需要自備廚房（顯示卡）也需投入心力，但之後可無限次製作、口味亦能自行調整。ComfyUI 扮演的正是「自家廚房」的角色。
       </div>
     </section>
 
@@ -97,7 +97,7 @@
     <!-- ─── Why ─── -->
     <section id="why">
       <h2>為什麼醫療人員要學本機生圖</h2>
-      <p>線上生圖工具（ChatGPT、Gemini、Google Flow）好用又快，但有三件事它們做不到，而這三件事對醫療場景特別重要。</p>
+      <p>線上生圖工具（ChatGPT、Gemini、Google Flow）既方便又快速，但在三個面向上有其限制，而這三點對醫療場景尤其重要。</p>
 
       <div class="card-grid">
         <div class="card">
@@ -106,17 +106,17 @@
         </div>
         <div class="card">
           <strong>♾️ 免費、無限次</strong>
-          <p>模型下載到本機後，生成完全免費，沒有每日額度、沒有 credits、沒有訂閱。想抽幾張就抽幾張 — 電費以外零成本。</p>
+          <p>模型下載到本機後，生成完全免費，沒有每日額度、沒有 credits、沒有訂閱。可不限次數生成，除電費外沒有額外成本。</p>
         </div>
         <div class="card">
           <strong>🎛️ 完全可控、可微調</strong>
-          <p>模型、參數、風格全在你手上：固定參數就能<strong>重現</strong>同一種畫風、用 LoRA 換風格、批次自動生成大量配圖。這是 ChatGPT／Gemini 給不了的控制權。（線上工具確實會擋掉寫實血腥類內容，但那種圖衛教也用不上。）</p>
+          <p>模型、參數、風格皆由你掌控：固定參數即可<strong>重現</strong>同一種畫風、以 LoRA 切換風格、批次自動產生大量配圖。這是 ChatGPT／Gemini 無法提供的控制程度。（線上工具確實會封鎖寫實血腥類內容，但該類影像本非衛教所需。）</p>
         </div>
       </div>
 
       <div class="box-danger">
         <h4>⚖️ 誠實講缺點</h4>
-        <p style="margin: 0;">本機生圖<strong>需要一張夠力的顯示卡</strong>（見下方硬體門檻），而且比線上工具難上手。如果你只是偶爾做張衛教圖，<a href="ai-image.html">Part 4</a> 的線上工具就夠了，不必勉強裝這套。這頁適合的是：① 有明確隱私顧慮、素材不能上雲 ② 生圖量大、線上額度不夠用 ③ 單純想玩玩看開源 AI 怎麼運作。三者有一，才值得往下讀。</p>
+        <p style="margin: 0;">本機生圖<strong>需要一張夠力的顯示卡</strong>（見下方硬體門檻），而且比線上工具難上手。如果只是偶爾製作衛教圖，<a href="ai-image.html">Part 4</a> 的線上工具已足夠，不需特地安裝這套工具。本頁適合的對象是：① 有明確隱私顧慮、素材不能上雲 ② 生圖量大、線上額度不敷使用 ③ 想深入了解開源 AI 的運作方式。三者符合其一，才建議繼續往下閱讀。</p>
       </div>
 
     </section>
@@ -126,7 +126,7 @@
     <!-- ─── Gallery ─── -->
     <section id="gallery">
       <h2>開源模型能生成什麼</h2>
-      <p>下面全是用開源模型（Boogu／Krea2／Z-Image）在本機或雲端生成的，各一句英文 prompt、刻意不放文字。重點不是「線上工具做不到」— 乾淨的圖線上也做得到、甚至更好；重點是這些都是<strong>免費、無限次、資料留在你手上</strong>生出來的，而且從溫馨插畫到照片級寫實都行。點圖放大。</p>
+      <p>以下影像皆以開源模型（Boogu／Krea2／Z-Image）在本機或雲端生成，每張各使用一句英文 prompt、且刻意不含文字。重點不在於「線上工具做不到」— 乾淨的圖線上同樣能生成、甚至表現更好；而在於這些影像都是<strong>免費、可無限次產生、資料留在自己手上</strong>完成的，且涵蓋從溫馨插畫到照片級寫實的範圍。點圖可放大。</p>
 
       <h3>溫馨插畫風</h3>
       <p>適合衛教海報主視覺、社群貼文配圖、簡報背景，再用 <a href="canva.html">Canva</a> 疊上文字（開源模型不擅長把字寫進圖裡，見<a href="#models">模型段</a>實測）。</p>
@@ -152,7 +152,7 @@
       </div>
 
       <h3>照片級寫實</h3>
-      <p>不只卡通 — 開源模型的寫實也很能打，等於一批免費、無版權疑慮的類 stock 素材。<strong>畫面中的人物都是 AI 合成、非真實病人</strong>：需要人物情境又不想動用真實病人照片時，這正是 <a href="ai-safety.html">Part 3</a> 提倡的安全作法。</p>
+      <p>開源模型不僅能畫插畫，寫實表現同樣出色，可作為一批免費、無版權疑慮的圖庫（stock photo）素材。<strong>畫面中的人物皆為 AI 合成、並非真實病人</strong>：當需要人物情境又不想動用真實病人照片時，這正是 <a href="ai-safety.html">Part 3</a> 所提倡的安全作法。</p>
       <div class="result-compare">
         <figure>
           <img src="images/comfyui/clinic-scene-real.webp" alt="照片級寫實：亞洲女護理師穿藍色刷手服微笑著與白髮長者交談，明亮診間、大片採光窗，另一位家屬在側" loading="lazy">
@@ -175,13 +175,18 @@
       </div>
       <div class="result-compare">
         <figure>
-          <img src="images/comfyui/handwashing-macro-real.webp" alt="照片級寫實微距：一雙手在不鏽鋼水槽的流水下搓出綿密肥皂泡，水珠飛濺，窗邊自然光" loading="lazy">
-          <figcaption>洗手微距（Boogu 生成）</figcaption>
+          <img src="images/comfyui/handwashing-macro-real.webp" alt="照片級寫實微距：一雙手在不鏽鋼水槽的流水下搓出綿密肥皂泡，水珠飛濺，窗邊自然光；仔細看手指數目異常，多出一根" loading="lazy">
+          <figcaption>洗手微距（Boogu 生成）— 請注意：這雙手有六根手指，見下方提醒</figcaption>
         </figure>
         <figure>
           <img src="images/comfyui/portrait-skin-real.webp" alt="照片級寫實人像：一位面帶微笑的亞洲中年女性，皮膚紋理、細紋與雀斑清晰可見，窗光柔和" loading="lazy">
           <figcaption>寫實膚質人像（Z-Image 生成，AI 合成人物）</figcaption>
         </figure>
+      </div>
+
+      <div class="box-danger">
+        <h4>⚠️ 再逼真也要人工檢查：AI 生圖的常見錯誤</h4>
+        <p style="margin: 0;">上方「洗手微距」乍看專業，但仔細觀察會發現<strong>那雙手有六根手指</strong>。手部（手指數目、關節、交疊處）是 AI 生圖最容易出錯的部位，文字、對稱物件與細小結構也常有瑕疵。這類錯誤<strong>開源與線上工具都會發生</strong>，而且畫面越寫實越容易被忽略。凡是要對外發布、尤其醫療衛教用途的影像，成品務必逐一檢查後再採用。</p>
       </div>
     </section>
 
@@ -190,7 +195,7 @@
     <!-- ─── What is ComfyUI ─── -->
     <section id="what-is">
       <h2>ComfyUI 是什麼</h2>
-      <p><a href="https://www.comfy.org/" target="_blank">ComfyUI</a> 是一套免費、開源的 AI 生圖軟體，裝在自己的電腦上跑。它最有名的畫面是一堆用線連起來的「節點」，看起來很嚇人 — 但你完全<strong>不需要自己接線</strong>：它內建現成的範本，你只要載入範本、改幾個字、按生成，就會出圖。</p>
+      <p><a href="https://www.comfy.org/" target="_blank">ComfyUI</a> 是一套免費、開源的 AI 生圖軟體，裝在自己的電腦上跑。它最為人所知的畫面是由許多連線組成的「節點」，初看容易令人卻步 — 但你完全<strong>不需要自行接線</strong>：軟體內建現成範本，只要載入範本、修改少數文字、執行生成即可產出圖像。</p>
 
       <div class="analogy">
         線上生圖工具（ChatGPT、Gemini）像<strong>自動販賣機</strong> — 投幣、按鈕、掉出飲料，簡單但只能買它有的。ComfyUI 像<strong>自己家的咖啡機</strong> — 一開始要學怎麼裝豆子、加水（安裝＋下載模型），但之後想煮多少杯都免費，還能自己調濃淡。這頁只教你「用內建的預設配方煮出第一杯」，不教你拆機器改管線。
@@ -213,7 +218,7 @@
     <!-- ─── Check hardware ─── -->
     <section id="check">
       <h2>先確認你的電腦能不能跑（分流）</h2>
-      <p>本機生圖靠的是<strong>顯示卡（GPU）</strong>來運算 — 不是 CPU，也不是記憶體。所以第一步不是急著下載，而是先搞清楚你的電腦有沒有一張夠力的顯示卡。</p>
+      <p>本機生圖靠的是<strong>顯示卡（GPU）</strong>來運算 — 不是 CPU，也不是記憶體。因此第一步並非急著下載，而是先確認電腦是否配備足夠效能的顯示卡。</p>
 
       <h3>先分清楚兩種顯示卡</h3>
       <div class="card-grid">
@@ -223,7 +228,7 @@
         </div>
         <div class="card">
           <strong>💻 內建顯示卡（內顯）</strong>
-          <p>直接<strong>整合在 CPU 裡</strong>、跟系統共用記憶體的顯示功能（如 Intel UHD Graphics）。一般文書筆電多半只有內顯 — 能上網、看影片，但<strong>跑不動生圖模型。</strong></p>
+          <p>直接<strong>整合在 CPU 裡</strong>、跟系統共用記憶體的顯示功能（如 Intel UHD Graphics）。一般文書筆電多半只有內顯 — 能上網、播放影片，但<strong>無法運行生圖模型。</strong></p>
         </div>
       </div>
 
@@ -246,24 +251,24 @@
       </table>
 
       <div class="box-tip">
-        <strong>VRAM 不夠，多半不是「跑不動」而是「跑得慢」：</strong>這張表是「舒適線」不是「及格線」。實際上 8 GB 的舊顯示卡照樣能跑 Flux 這種大模型 — 只是<strong>用時間換記憶體</strong>：一張圖從幾秒變成等上一兩分鐘，生成當下電腦也會明顯卡頓。所以 VRAM 小不用直接放棄本機，先裝起來跑跑看能不能接受那個速度，真的太慢再考慮換卡或走 <a href="#route-b">路線 B 的雲端（官方 Comfy Cloud）</a>。
+        <strong>VRAM 不足，多半不是「無法執行」而是「速度較慢」：</strong>這張表是「舒適配置」而非「最低門檻」。實際上 8 GB 的舊顯示卡同樣能執行 Flux 這類大型模型 — 只是<strong>以時間換取記憶體</strong>：單張圖從數秒延長為一至兩分鐘，生成過程中電腦也會明顯延遲。因此 VRAM 較小不需直接放棄本機方案，可先行安裝並實測速度是否可接受，若確實過慢再考慮升級顯示卡或改走 <a href="#route-b">路線 B 的雲端（官方 Comfy Cloud）</a>。
       </div>
 
       <div class="box-danger">
-        <h4>💾 別忘了硬碟空間 — 模型是以「GB」為單位的</h4>
-        <p style="margin: 0;">ComfyUI 軟體本身約 15 GB，但真正吃空間的是<strong>模型檔</strong>：一個 SD 1.5 約 2–7 GB、一個 SDXL 約 6–7 GB、一個 Flux 動輒 <strong>12–24 GB</strong>。多下載幾個不同畫風的模型，硬碟很快就少幾十 GB。建議<strong>預留 50 GB 以上</strong>的空閒空間，最好裝在容量大的磁碟，不要塞爆系統碟。作業系統需 Windows 10 以上（建議 11）。</p>
+        <h4>💾 硬碟空間：模型以「GB」為單位計算</h4>
+        <p style="margin: 0;">ComfyUI 軟體本身約 15 GB，但真正佔用空間的是<strong>模型檔</strong>：一個 SD 1.5 約 2–7 GB、一個 SDXL 約 6–7 GB、一個 Flux 動輒 <strong>12–24 GB</strong>。下載數個不同畫風的模型後，硬碟空間很快便會減少數十 GB。建議<strong>預留 50 GB 以上</strong>的可用空間，並盡量安裝於容量較大的磁碟，避免佔滿系統碟。作業系統需 Windows 10 以上（建議 11）。</p>
       </div>
 
       <div class="box-success">
         <h4>🚦 走哪條路？</h4>
         <ul style="margin-bottom: 0;">
           <li><strong>有 NVIDIA 獨立顯示卡（8 GB 以上最理想）</strong> → 走 <a href="#route-a">路線 A：桌面版安裝</a>，在自己電腦上跑。</li>
-          <li><strong>只有內建顯示卡／是 Mac／筆電跑不動</strong> → 直接跳 <a href="#route-b">路線 B：上雲端（RunningHub）</a>，免裝、免顯示卡，一樣能體驗 ComfyUI。</li>
+          <li><strong>只有內建顯示卡／使用 Mac／筆電無法負荷</strong> → 直接前往 <a href="#route-b">路線 B：改用雲端（Comfy Cloud）</a>，免安裝、免顯示卡，同樣能體驗 ComfyUI。</li>
         </ul>
       </div>
 
       <div class="box-tip">
-        <strong>Mac 使用者：</strong>Apple 晶片（M 系列）的 Mac 也能跑 ComfyUI，但速度比 NVIDIA 獨顯慢不少，模型選擇也較受限。想先體驗建議走路線 B；真的想在本機跑再研究桌面版的 macOS 安裝。
+        <strong>Mac 使用者：</strong>Apple 晶片（M 系列）的 Mac 也能執行 ComfyUI，但速度較 NVIDIA 獨立顯示卡慢上不少，模型選擇也較受限。建議先透過路線 B 體驗；若確實要在本機執行，再研究桌面版的 macOS 安裝方式。
       </div>
     </section>
 
@@ -272,7 +277,7 @@
     <!-- ─── Route A ─── -->
     <section id="route-a">
       <h2>路線 A：桌面版安裝 + 跑出第一張圖</h2>
-      <p>過去裝 ComfyUI 要自己弄 Python 環境，對非工程背景的人很勸退。現在官方推出 <strong>ComfyUI Desktop（桌面版）</strong>，一個安裝檔就把 Python、繪圖驅動需要的元件全部自動裝好，跟裝一般軟體一樣。</p>
+      <p>過去安裝 ComfyUI 需自行建置 Python 環境，對非工程背景的使用者門檻偏高。現在官方推出 <strong>ComfyUI Desktop（桌面版）</strong>，單一安裝檔便會自動裝好 Python 與繪圖運算所需的元件，與安裝一般軟體無異。</p>
 
       <h3>安裝步驟</h3>
       <div class="card" style="border-left: 4px solid var(--primary);">
@@ -281,19 +286,19 @@
       </div>
       <div class="card" style="border-left: 4px solid var(--success);">
         <span class="step-badge">Step 2</span> <strong>一鍵安裝</strong>
-        <p style="margin-top: 0.5rem;">執行安裝檔，跟著精靈按下一步即可。它會自動下載並設定 Python 與繪圖運算元件，全程約 30–45 分鐘（看網速），佔用約 15 GB 空間。這段時間放著讓它跑就好。</p>
+        <p style="margin-top: 0.5rem;">執行安裝檔，跟著精靈按下一步即可。它會自動下載並設定 Python 與繪圖運算元件，全程約 30–45 分鐘（視網速而定），佔用約 15 GB 空間。此過程讓其自動執行即可。</p>
       </div>
       <div class="card" style="border-left: 4px solid var(--warning);">
         <span class="step-badge">Step 3</span> <strong>載入內建的「文字生圖」範本</strong>
-        <p style="margin-top: 0.5rem;">開啟 ComfyUI 後，從選單找到範本（Templates），選最基本的 <strong>Text to Image</strong>（文字生圖）。畫面上會出現一組已經接好線的節點 — 別被線嚇到，你不用碰它們。第一次載入時，它通常會提示你下載一個預設模型，照著按確認下載即可。</p>
+        <p style="margin-top: 0.5rem;">開啟 ComfyUI 後，從選單找到範本（Templates），選最基本的 <strong>Text to Image</strong>（文字生圖）。畫面上會出現一組已連接好的節點 — 無需理會這些連線，也不必調整。第一次載入時，通常會提示你下載一個預設模型，依提示確認下載即可。</p>
       </div>
       <div class="card" style="border-left: 4px solid var(--highlighter-purple);">
         <span class="step-badge">Step 4</span> <strong>改 prompt、按生成</strong>
-        <p style="margin-top: 0.5rem;">在畫面上找到寫著英文提示詞的框（正向提示詞），把裡面的字換成你要的內容，按下 <strong>Queue（排入生成）</strong>。等幾秒到幾十秒，右邊就會出現你的第一張本機生成圖。</p>
+        <p style="margin-top: 0.5rem;">在畫面上找到寫著英文提示詞的框（正向提示詞），將其中文字替換為所需內容，按下 <strong>Queue（排入生成）</strong>。約數秒至數十秒後，右側便會出現你的第一張本機生成圖。</p>
       </div>
 
-      <h3>畫面上那幾個框在幹嘛（點到為止）</h3>
-      <p>你不需要理解每條線，但認得這四個框，之後要改東西才知道改哪裡：</p>
+      <h3>認識畫面上的幾個主要區塊（概要）</h3>
+      <p>你不需要理解每條連線，但認得這四個區塊，日後需要調整時才知道從何著手：</p>
       <div class="card">
         <ul style="margin-bottom: 0;">
           <li><strong>模型載入框（Load Checkpoint）</strong> — 決定用哪個模型畫圖，像是選哪位畫師。</li>
@@ -329,23 +334,23 @@
           <li><strong>Flux</strong>（2024）— 由原 Stable Diffusion 核心團隊出走另組的 Black Forest Labs 推出的新家族，對文字與複雜構圖的理解最強，但也最吃資源（建議 16 GB 以上，8 GB 可跑但慢）。</li>
         </ul>
       </div>
-      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">可以把它們想成同一款軟體的「版本演進」：越新的越聰明、畫質越好，代價是越吃顯示卡。新手從 SD 1.5 起步，熟了再往上跳。</p>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">可以把它們想成同一款軟體的「版本演進」：越新的模型能力越強、畫質越好，代價是越耗用顯示卡資源。初學者由 SD 1.5 入門，熟悉後再逐步嘗試較新的模型。</p>
 
       <div class="box-tip">
-        <strong>不只 SD 和 Flux — 開源生圖正在百花齊放（2026 年 7 月）：</strong>2025–2026 冒出一票實力很強的新開源模型，先知道名字就好，等需求上來再研究：
+        <strong>不只 SD 和 Flux — 開源生圖正在百花齊放（2026 年 7 月）：</strong>2025–2026 年陸續出現多款實力強勁的新開源模型，此處先建立認識即可，待實際需求出現時再深入研究：
         <ul style="margin-bottom: 0.5rem;">
           <li><strong>Boogu Image</strong>（Apache 2.0，可商用）— 目前開源模型裡<strong>文字渲染最強</strong>的，分 Base／Turbo／Edit 三種，ComfyUI 免裝外掛就能跑</li>
           <li><strong>Qwen-Image</strong>（阿里巴巴，Apache 2.0）— 也很擅長把文字畫進圖裡，構圖創意在同類裡領先</li>
-          <li><strong>Z-Image</strong>（阿里巴巴 Tongyi）— 主打輕量快速、消費級顯示卡就跑得動；但實測<strong>繁體中文容易吐成簡體字</strong>，做中文設計要特別當心</li>
+          <li><strong>Z-Image</strong>（阿里巴巴 Tongyi）— 主打輕量快速、消費級顯示卡即可執行；但實測<strong>繁體中文容易輸出為簡體字</strong>，用於中文設計時須特別留意</li>
           <li><strong>Krea 2</strong>（12B）— <strong>美感最強</strong>的開源模型，但幾乎不會寫中文字，適合純畫面、文字後製再加</li>
           <li><strong>FLUX.2</strong>（Black Forest Labs）— Flux 的新一代，畫質與多圖參考更強</li>
         </ul>
-        這些新模型多半跟 Flux 一樣是「拆開放」的（diffusion model＋文字編碼器＋VAE 分成幾個檔），載入方式類似。<strong>新手不必急著追新</strong> — 先用 SD 1.5 把流程跑順，真的需要更好的畫質或文字，再挑一個跳過去。
+        這些新模型多半與 Flux 相同，採「分開釋出」的方式（diffusion model＋文字編碼器＋VAE 分成數個檔案），載入方式類似。<strong>初學者無須急於採用最新模型</strong> — 先以 SD 1.5 熟悉整體流程，待確實需要更佳畫質或文字表現時，再選擇其一切換。
       </div>
 
       <div class="box-danger">
         <h4>🀄 做中文衛教前先知道：開源模型還「寫不好」繁體中文</h4>
-        <p>用開源模型直接在圖上生繁體中文，目前很不可靠 — 筆畫多的字（濱、廳、衛、醫、濟、膚…）幾乎全軍覆沒，密集排版也常出現重複、錯字、互相擠壓。這是用 53 組 prompt 實測五大模型後的結論：<strong>大標題（4 字以內）堪用，長文字與精確排版務必後期手動加</strong> — 用 <a href="canva.html">Canva</a> 疊繁中文字最穩，跟 <a href="ai-image.html">Part 4</a>、<a href="google-flow.html">Google Flow</a> 的作法一致（引號逐字校對、關鍵字後製）。</p>
+        <p>用開源模型直接在圖上生成繁體中文，目前很不可靠 — 筆畫多的字（濱、廳、衛、醫、濟、膚…）幾乎無一正確，密集排版也常出現重複、錯字、互相擠壓。這是用 53 組 prompt 實測五大模型後的結論：<strong>大標題（4 字以內）堪用，長文字與精確排版務必後期手動加</strong> — 用 <a href="canva.html">Canva</a> 疊繁中文字最穩，跟 <a href="ai-image.html">Part 4</a>、<a href="google-flow.html">Google Flow</a> 的作法一致（引號逐字校對、關鍵字後製）。</p>
         <p style="margin-bottom: 0;"><strong>延伸閱讀（實測含大量對比圖，開新分頁）：</strong></p>
         <ul style="margin-bottom: 0;">
           <li><a href="https://tingyudeco.com/blog/open-source-t2i-traditional-chinese-test" target="_blank">2026 開源 T2I 繁體中文實測：五大模型誰寫得最正確？</a> — ERNIE／Qwen／Boogu／Z-Image／KREA 2，53 組 prompt 全面比較</li>
@@ -364,11 +369,11 @@
           <figcaption>連文字最強的 Boogu，硬加的「MENTAL WELLBEING」也糊了</figcaption>
         </figure>
       </div>
-      <p>其實不只繁體中文 — 上面兩張一張是模型想標<strong>英文</strong>器官名、一張是模型自己手癢加字，結果全糊成亂碼。這就是為什麼<strong>圖上文字一律後製</strong>：畫面交給開源模型，文字用 <a href="canva.html">Canva</a> 之類另外疊。</p>
+      <p>其實不只繁體中文 — 上面兩張，一張是模型嘗試標示<strong>英文</strong>器官名稱、一張是模型自行加入文字，結果皆糊成亂碼。這正是<strong>圖上文字一律後製</strong>的原因：畫面交由開源模型生成，文字則以 <a href="canva.html">Canva</a> 等工具另行疊加。</p>
 
       <h3>去哪下載模型</h3>
       <p>建議用 <a href="https://huggingface.co/" target="_blank">Hugging Face</a> — AI 界最大的開源模型平台，Stable Diffusion、Flux 和上面提到的新模型，官方版都在上面，來源清楚。下載模型檔（通常是 <code>.safetensors</code> 格式）後，放進下一節說的對應資料夾、重新整理，就能在模型載入框選到。</p>
-      <p>網路上還有其他更大的模型分享站，但內容龐雜、混有大量成人與版權不明的內容 — 醫療衛教用途<strong>先從 Hugging Face 的官方模型入手</strong>就好，需求單純又不踩雷。</p>
+      <p>網路上還有其他規模更大的模型分享站，但內容龐雜、混有大量成人與版權不明的內容 — 醫療衛教用途<strong>先從 Hugging Face 的官方模型入手</strong>即可，來源單純，也較無誤觸不當內容的風險。</p>
 
       <h3>模型檔要放哪個資料夾</h3>
       <p>下載回來的檔案不是隨便丟就好 — ComfyUI 靠「放對資料夾」來認出每種模型。安裝目錄下有個 <code>models</code> 資料夾，裡面依類型分好子資料夾，<strong>通常</strong>對應如下（桌面版可從選單直接「開啟模型資料夾」，不用自己找路徑）：</p>
@@ -383,12 +388,12 @@
         </tbody>
       </table>
       <div class="box-tip">
-        <strong>放完記得刷新：</strong>丟進資料夾後，回到 ComfyUI 介面重新整理（或重開），模型載入框的下拉選單才會出現新檔案。選不到，八成是放錯資料夾或忘了刷新。一個新模型（如 Flux、Qwen-Image）的頁面常要你<strong>分開下載 diffusion model、文字編碼器（CLIP／T5）和 VAE 三個檔</strong>，各放各的資料夾，缺一個就會報錯或畫面壞掉 — 這是新手最常卡關的地方。
+        <strong>放置後記得重新整理：</strong>檔案放入資料夾後，回到 ComfyUI 介面重新整理（或重新開啟），模型載入框的下拉選單才會出現新檔案。若選不到，多半是放錯資料夾或未重新整理。一個新模型（如 Flux、Qwen-Image）的頁面常要求<strong>分開下載 diffusion model、文字編碼器（CLIP／T5）與 VAE 三個檔案</strong>，各自放入對應資料夾，缺少任一個都會導致錯誤或成像異常 — 這也是初學者最常遇到的障礙。
       </div>
 
       <div class="box-danger">
         <h4>⚖️ 授權與用途提醒</h4>
-        <p style="margin: 0;">開源不等於「什麼都能做」。每個模型有自己的授權條款（有些禁商用、有些禁特定用途），生成的圖若要用在正式衛教文宣、對外發布，記得看一下該模型的授權說明。醫療衛教內容也一樣要守 <a href="ai-safety.html">Part 3</a> 的原則：不生成可辨識的真實病人臉孔、不編造醫療數據。</p>
+        <p style="margin: 0;">開源不等於「什麼都能做」。每個模型有自己的授權條款（有些禁商用、有些禁特定用途），生成的圖若要用於正式衛教文宣或對外發布，請先查看該模型的授權說明。醫療衛教內容也一樣要守 <a href="ai-safety.html">Part 3</a> 的原則：不生成可辨識的真實病人臉孔、不編造醫療數據。</p>
       </div>
     </section>
 
@@ -397,18 +402,18 @@
     <!-- ─── Route B ─── -->
     <section id="route-b">
       <h2>路線 B：沒有獨立顯示卡就上雲端</h2>
-      <p>沒有夠力的顯示卡，一樣能體驗 ComfyUI — 把運算交給雲端就好。原理都是<strong>你在瀏覽器上操作，實際運算跑在對方的高效能顯示卡上</strong>，你的電腦只要能開網頁就行，免安裝、免顯示卡。這類服務有好幾家，新手我最推薦從<strong>官方的 Comfy Cloud</strong> 開始。</p>
+      <p>即使沒有足夠效能的顯示卡，一樣能體驗 ComfyUI — 將運算交由雲端執行即可。其原理相同：<strong>你在瀏覽器上操作，實際運算則在對方的高效能顯示卡上進行</strong>，你的電腦只要能開啟網頁即可，免安裝、免顯示卡。這類服務有數家，初學者建議從<strong>官方的 Comfy Cloud</strong> 入手。</p>
 
       <h3>首選：Comfy Cloud（官方雲端）</h3>
       <p><a href="https://www.comfy.org/" target="_blank">ComfyUI</a> 官方自己推出的雲端版 <strong>Comfy Cloud</strong>，對新手有兩個關鍵好處：</p>
       <div class="card-grid">
         <div class="card">
           <strong>🧩 介面跟桌面版一模一樣</strong>
-          <p>同一個官方團隊做的，操作、範本、節點跟你在路線 A 學的桌面版完全一致 — 桌面版學到的直接搬過來，不用重新適應另一套介面。</p>
+          <p>由同一官方團隊開發，操作、範本、節點與你在路線 A 學到的桌面版完全一致 — 學過的操作可直接沿用，無須重新適應另一套介面。</p>
         </div>
         <div class="card">
           <strong>🆓 有免費層、Google 登入即用</strong>
-          <p>用 Google 帳號登入就自動套用免費層，不用綁信用卡；而且只有「實際生成」才計費，你在畫面上搭建、調參數的時間不燒額度。</p>
+          <p>用 Google 帳號登入即自動套用免費層，無須綁定信用卡；且僅在「實際生成」時計費，於畫面上搭建流程、調整參數的時間不消耗額度。</p>
         </div>
       </div>
       <div class="box-tip">
@@ -417,7 +422,7 @@
 
       <div class="box-danger">
         <h4>⚠️ 上雲就失去「資料不出機器」的隱私優勢</h4>
-        <p style="margin: 0;">不論哪一家雲端，運算都在別人的伺服器上跑，代表<strong>你的輸入與上傳的圖會離開你的電腦</strong> — 這正是本機生圖最大的優勢，上雲就沒了。所以<strong>涉及病人資料、個資、臨床影像的素材，一律不要上傳到任何雲端平台</strong>，回到 <a href="ai-safety.html">Part 3</a> 的三秒檢查。真要處理敏感素材，就得走路線 A 的本機生圖。</p>
+        <p style="margin: 0;">不論哪一家雲端，運算都在對方的伺服器上進行，代表<strong>你的輸入與上傳的圖會離開你的電腦</strong> — 這正是本機生圖最大的優勢，改用雲端後便不復存在。因此<strong>涉及病人資料、個資、臨床影像的素材，一律不要上傳至任何雲端平台</strong>，回到 <a href="ai-safety.html">Part 3</a> 的三秒檢查。若須處理敏感素材，應採用路線 A 的本機生圖。</p>
       </div>
 
       <h3>大致怎麼用（以 Comfy Cloud 為例）</h3>
@@ -430,13 +435,13 @@
       </div>
 
       <div class="box-tip">
-        <strong>其他雲端選擇（帶過，需要再深入研究）：</strong><a href="https://www.runninghub.ai/" target="_blank">RunningHub</a>（另附大量現成工作流與 AI App 可直接套用，偏「挑現成的來用」）、<a href="https://www.runcomfy.com/" target="_blank">RunComfy</a> 等，也都是「瀏覽器跑完整 ComfyUI、不用自己顯示卡」的服務，定位相近、計費各異。先用官方 Comfy Cloud 上手，有特殊需求再比較別家。
+        <strong>其他雲端選擇（概述，需要時再深入研究）：</strong><a href="https://www.runninghub.ai/" target="_blank">RunningHub</a>（另附大量現成工作流與 AI App 可直接套用，偏向直接運用現成成果）、<a href="https://www.runcomfy.com/" target="_blank">RunComfy</a> 等，同樣是「在瀏覽器執行完整 ComfyUI、無須自備顯示卡」的服務，定位相近、計費各異。建議先以官方 Comfy Cloud 入門，有特殊需求時再比較其他服務。
       </div>
     </section>
 
     <!-- ─── Navigation ─── -->
     <div class="box-success">
-      <strong>🎯 現在就做（10 分鐘）：</strong>先按 <code>Ctrl + Shift + Esc</code> → 效能分頁，查清楚自己有沒有 NVIDIA 獨立顯示卡。有的話，去 <a href="https://www.comfy.org/download" target="_blank">comfy.org/download</a> 下載桌面版開始安裝，生出第一張「完全不上雲」的圖；沒有的話，用 Google 帳號登入官方 <strong>Comfy Cloud</strong>，載入 Text to Image 範本跑一次。無論哪條路，目標都是今天親手用開源模型生出你的第一張圖。
+      <strong>🎯 現在就做（10 分鐘）：</strong>先按 <code>Ctrl + Shift + Esc</code> → 效能分頁，確認電腦是否配備 NVIDIA 獨立顯示卡。若有，前往 <a href="https://www.comfy.org/download" target="_blank">comfy.org/download</a> 下載桌面版並開始安裝，生成第一張「完全不上雲」的圖；若無，以 Google 帳號登入官方 <strong>Comfy Cloud</strong>，載入 Text to Image 範本執行一次。無論採用哪條路線，目標都是今天親手以開源模型生成你的第一張圖。
     </div>
 
     <div class="nav-links">
