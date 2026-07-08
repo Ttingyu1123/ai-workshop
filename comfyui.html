@@ -188,6 +188,61 @@
         <h4>⚠️ 再逼真也要人工檢查：AI 生圖的常見錯誤</h4>
         <p style="margin: 0;">上方「洗手微距」乍看專業，但仔細觀察會發現<strong>那雙手有六根手指</strong>。手部（手指數目、關節、交疊處）是 AI 生圖最容易出錯的部位，文字、對稱物件與細小結構也常有瑕疵。這類錯誤<strong>開源與線上工具都會發生</strong>，而且畫面越寫實越容易被忽略。凡是要對外發布、尤其醫療衛教用途的影像，成品務必逐一檢查後再採用。</p>
       </div>
+
+      <h3>📋 上面這些圖的 Prompt（可複製）</h3>
+      <p>以下是產生上方每張圖所用的示範英文 prompt（開源模型對英文理解最準）。想自行重現或改成其他主題，複製後修改即可；每組末尾附一段<strong>共用的負向提示詞（Negative）</strong>，貼進反向提示詞框，用來壓掉文字與畸形。</p>
+
+      <p style="margin-bottom: 0.4rem;"><strong>溫馨插畫風</strong></p>
+      <div class="prompt-block">
+        <div class="prompt-label">護病衛教主視覺（Krea2）</div>
+        <div class="prompt-content">A warm and friendly illustration of a smiling nurse in light blue scrubs gently caring for an elderly patient in a bright sunlit clinic, soft watercolor textures, calm pastel color palette, caring and reassuring atmosphere, modern editorial illustration style<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="prompt-block">
+        <div class="prompt-label">公衛洗手社群圖（Boogu）</div>
+        <div class="prompt-content">A cheerful modern flat illustration of diverse people of different ages washing their hands together at a row of sinks, soft rounded shapes, bright uplifting colors, public health campaign style, clean minimal background<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="prompt-block">
+        <div class="prompt-label">身心健康療癒插畫（Krea2）</div>
+        <div class="prompt-content">A calming illustration representing mental wellbeing and rest, a person sitting peacefully under a large tree beside a quiet lake at golden hour, serene hopeful mood, dreamy soft watercolor style, muted warm colors<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="prompt-block">
+        <div class="prompt-label">均衡飲食衛教配圖（Krea2）</div>
+        <div class="prompt-content">A vibrant top-down illustration of a colorful balanced healthy meal, fresh vegetables, fruits, whole grains and lean protein beautifully arranged on a wooden table, appetizing flat illustration style, fresh bright natural colors<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="prompt-block">
+        <div class="prompt-label">插畫組共用負向提示詞（Negative）</div>
+        <div class="prompt-content">text, letters, words, captions, labels, watermark, signature, deformed hands, extra fingers, distorted faces, low quality, blurry<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <p style="margin-bottom: 0.4rem;"><strong>照片級寫實</strong></p>
+      <div class="prompt-block">
+        <div class="prompt-label">診間衛教場景（Z-Image）</div>
+        <div class="prompt-content">A warm documentary-style photograph of a friendly female nurse in blue scrubs explaining something to a smiling elderly patient in a bright modern clinic, natural window light, candid, photorealistic, shot on 50mm lens, shallow depth of field<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="prompt-block">
+        <div class="prompt-label">銀髮健康生活（Z-Image）</div>
+        <div class="prompt-content">A photorealistic candid lifestyle photograph of an elderly Asian couple walking together in a sunny green park, healthy active lifestyle, warm morning light, shot on 85mm lens<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="prompt-block">
+        <div class="prompt-label">均衡餐盤（Boogu）</div>
+        <div class="prompt-content">A photorealistic top-down food photography shot of a balanced healthy meal, fresh green salad, grilled salmon, brown rice and colorful roasted vegetables on a ceramic plate, natural soft daylight, appetizing, shot on 50mm lens<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="prompt-block">
+        <div class="prompt-label">醫療小物靜物（Z-Image）</div>
+        <div class="prompt-content">A clean photorealistic still life of a stethoscope, a blood pressure monitor and a weekly pill organizer on a white wooden desk, soft natural light, medical editorial photography, minimal composition<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="prompt-block">
+        <div class="prompt-label">洗手微距（Boogu）— 即上方六指瑕疵圖</div>
+        <div class="prompt-content">A photorealistic macro close-up of hands lathering soap under running water at a stainless steel sink, water droplets in mid-air, soft natural window light, clean clinical setting, shot on 100mm macro lens, shallow depth of field<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="prompt-block">
+        <div class="prompt-label">寫實膚質人像（Z-Image）</div>
+        <div class="prompt-content">A photorealistic portrait of a smiling middle-aged Asian woman with natural skin texture and subtle freckles, soft window light, shallow depth of field, shot on 85mm f/1.4<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="prompt-block">
+        <div class="prompt-label">寫實組共用負向提示詞（Negative）</div>
+        <div class="prompt-content">cartoon, illustration, anime, 3d render, plastic skin, waxy, deformed hands, extra fingers, distorted face, text, watermark, low quality, blurry<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
     </section>
 
     <hr class="section-divider">
