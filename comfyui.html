@@ -180,7 +180,7 @@
       </table>
 
       <div class="box-tip">
-        <strong>VRAM 不夠，多半不是「跑不動」而是「跑得慢」：</strong>這張表是「舒適線」不是「及格線」。實際上 8 GB 的舊顯示卡照樣能跑 Flux 這種大模型 — 只是<strong>用時間換記憶體</strong>：一張圖從幾秒變成等上一兩分鐘，生成當下電腦也會明顯卡頓。所以 VRAM 小不用直接放棄本機，先裝起來跑跑看能不能接受那個速度，真的太慢再考慮換卡或走 <a href="#route-b">路線 B 雲端</a>。
+        <strong>VRAM 不夠，多半不是「跑不動」而是「跑得慢」：</strong>這張表是「舒適線」不是「及格線」。實際上 8 GB 的舊顯示卡照樣能跑 Flux 這種大模型 — 只是<strong>用時間換記憶體</strong>：一張圖從幾秒變成等上一兩分鐘，生成當下電腦也會明顯卡頓。所以 VRAM 小不用直接放棄本機，先裝起來跑跑看能不能接受那個速度，真的太慢再考慮換卡或走 <a href="#route-b">路線 B 的雲端（官方 Comfy Cloud）</a>。
       </div>
 
       <div class="box-danger">
@@ -266,6 +266,17 @@
       <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">可以把它們想成同一款軟體的「版本演進」：越新的越聰明、畫質越好，代價是越吃顯示卡。新手從 SD 1.5 起步，熟了再往上跳。</p>
 
       <div class="box-tip">
+        <strong>不只 SD 和 Flux — 開源生圖正在百花齊放（2026 年 7 月）：</strong>2025–2026 冒出一票實力很強的新開源模型，先知道名字就好，等畫質需求上來再研究：
+        <ul style="margin-bottom: 0.5rem;">
+          <li><strong>Qwen-Image</strong>（阿里巴巴）— 特別擅長「把文字準確畫進圖裡」，採 Apache 2.0 授權可商用</li>
+          <li><strong>Z-Image</strong>（阿里巴巴 Tongyi）— 主打輕量快速，<strong>中英文字渲染都好</strong>，消費級顯示卡就跑得動 — 常做<strong>中文衛教</strong>的人特別值得試</li>
+          <li><strong>Krea 2</strong> — 主打美感的開源模型，已能在 ComfyUI 直接跑（分 RAW／Turbo 兩版）</li>
+          <li><strong>FLUX.2</strong>（Black Forest Labs）— Flux 的新一代，畫質與多圖參考更強</li>
+        </ul>
+        這些新模型多半跟 Flux 一樣是「拆開放」的（diffusion model＋文字編碼器＋VAE 分成幾個檔），載入方式類似。<strong>新手不必急著追新</strong> — 先用 SD 1.5 把流程跑順，真的需要更好的中文字或畫質，再挑一個跳過去。
+      </div>
+
+      <div class="box-tip">
         <strong>去哪下載模型：</strong>建議用 <a href="https://huggingface.co/" target="_blank">Hugging Face</a> — 這是 AI 界最大的開源模型平台，Stable Diffusion、Flux 的官方模型都在上面，來源清楚、相對單純。下載模型檔（通常是 <code>.safetensors</code> 格式）後，放進 ComfyUI 安裝目錄下的模型資料夾，重新整理就能在模型載入框選到。
         <br><br>
         網路上還有其他更大的模型分享站，但內容龐雜、混有大量成人與版權不明的內容，醫療衛教用途建議<strong>先從 Hugging Face 的官方模型開始</strong>就好，需求單純又不踩雷。
@@ -278,12 +289,13 @@
         <tbody>
           <tr><td><code>models/checkpoints</code></td><td><strong>主模型（checkpoint）</strong> — 最常下載、最常放的就是這裡，SD 1.5／SDXL 的完整模型都放這</td></tr>
           <tr><td><code>models/diffusion_models</code></td><td>部分新架構模型（如 Flux 的 diffusion model 檔）會單獨放這，有時也叫 <code>unet</code></td></tr>
+          <tr><td><code>models/clip</code></td><td><strong>CLIP／文字編碼器（text encoder）</strong> — 負責「讀懂你的提示詞」。SD 1.5 這類舊模型多半已內含不用管；但 Flux、Qwen-Image、SD3 這類新架構要<strong>另外下載 CLIP／T5 文字編碼器</strong>放這，缺了就無法生成。有些版本的資料夾叫 <code>text_encoders</code></td></tr>
           <tr><td><code>models/vae</code></td><td><strong>VAE 檔</strong> — 影響成品的色彩與細節；有些主模型已內含就不用另放，有些（尤其 Flux）要另外下載對應的 VAE 放這</td></tr>
           <tr><td><code>models/loras</code></td><td><strong>LoRA</strong> — 一種小型「風格外掛」，掛在主模型上微調畫風（進階再研究，入門用不到）</td></tr>
         </tbody>
       </table>
       <div class="box-tip">
-        <strong>放完記得刷新：</strong>丟進資料夾後，回到 ComfyUI 介面重新整理（或重開），模型載入框的下拉選單才會出現新檔案。選不到，八成是放錯資料夾或忘了刷新。一個模型頁面若同時要你下載 checkpoint／diffusion model 和對應的 VAE，兩個都要下載、各放各的資料夾，缺一張圖就會怪怪的。
+        <strong>放完記得刷新：</strong>丟進資料夾後，回到 ComfyUI 介面重新整理（或重開），模型載入框的下拉選單才會出現新檔案。選不到，八成是放錯資料夾或忘了刷新。一個新模型（如 Flux、Qwen-Image）的頁面常要你<strong>分開下載 diffusion model、文字編碼器（CLIP／T5）和 VAE 三個檔</strong>，各放各的資料夾，缺一個就會報錯或畫面壞掉 — 這是新手最常卡關的地方。
       </div>
 
       <div class="box-danger">
