@@ -108,14 +108,37 @@
           <p>模型下載到本機後，生成完全免費，沒有每日額度、沒有 credits、沒有訂閱。想抽幾張就抽幾張 — 電費以外零成本。</p>
         </div>
         <div class="card">
-          <strong>🎛️ 不受線上內容審查</strong>
-          <p>線上工具對「醫療」相關內容常過度保守 — 傷口、器官、解剖、手術示意圖有時會被拒絕生成。本機模型由你掌控，衛教用途的醫療影像不會動不動就被擋。</p>
+          <strong>🎛️ 完全可控、可微調</strong>
+          <p>模型、參數、風格全在你手上：固定參數就能<strong>重現</strong>同一種畫風、用 LoRA 換風格、批次自動生成大量配圖。這是 ChatGPT／Gemini 給不了的控制權。（線上工具確實會擋掉寫實血腥類內容，但那種圖衛教也用不上。）</p>
         </div>
       </div>
 
       <div class="box-danger">
         <h4>⚖️ 誠實講缺點</h4>
         <p style="margin: 0;">本機生圖<strong>需要一張夠力的顯示卡</strong>（見下方硬體門檻），而且比線上工具難上手。如果你只是偶爾做張衛教圖，<a href="ai-image.html">Part 4</a> 的線上工具就夠了，不必勉強裝這套。這頁適合的是：① 有明確隱私顧慮、素材不能上雲 ② 生圖量大、線上額度不夠用 ③ 單純想玩玩看開源 AI 怎麼運作。三者有一，才值得往下讀。</p>
+      </div>
+
+      <h3>開源模型擅長什麼：無文字的質感情境圖</h3>
+      <p>下面四張都是用開源模型（Boogu、Krea2）生成的，各一句英文 prompt、刻意不放任何文字。開源模型的短板是「把字準確寫進圖裡」（見下方<a href="#models">模型段</a>的實測），但純畫面的美感這塊很能打 — 拿來當衛教海報主視覺、社群貼文配圖、簡報背景，再用 <a href="canva.html">Canva</a> 後製疊上文字，就是一條免費、無限次的配圖產線。點圖可放大。</p>
+      <div class="result-compare">
+        <figure>
+          <img src="images/comfyui/care-scene-krea2.webp" alt="水彩風插畫：穿藍色刷手服的護理師微笑俯身，照顧坐著的白髮長者，明亮診間、窗邊綠意盎然" loading="lazy">
+          <figcaption>護病衛教主視覺（Krea2 生成）</figcaption>
+        </figure>
+        <figure>
+          <img src="images/comfyui/handwashing-boogu.webp" alt="扁平插畫：不同年齡與族裔的人們一起在洗手台前洗手，色彩明亮的公共衛生宣導風格" loading="lazy">
+          <figcaption>公衛洗手社群圖（Boogu 生成）</figcaption>
+        </figure>
+      </div>
+      <div class="result-compare">
+        <figure>
+          <img src="images/comfyui/wellbeing-krea2.webp" alt="水彩插畫：一人靠著大樹坐在湖畔，夕陽金光灑在水面，手捧冒著熱氣的杯子，寧靜療癒的氛圍" loading="lazy">
+          <figcaption>身心健康療癒插畫（Krea2 生成）</figcaption>
+        </figure>
+        <figure>
+          <img src="images/comfyui/nutrition-krea2.webp" alt="俯拍插畫：白盤上擺滿生菜、胡蘿蔔、番茄、莓果、全穀與蛋白質的均衡餐盤，周圍散放莓果與檸檬" loading="lazy">
+          <figcaption>均衡飲食衛教配圖（Krea2 生成）</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -288,6 +311,18 @@
         </ul>
       </div>
 
+      <div class="result-compare">
+        <figure>
+          <img src="images/comfyui/heart-garbled-krea2.webp" alt="Krea2 生成的心臟解剖圖，構造大致成形但周圍的英文標籤全是無意義亂碼，如 Puscay vena cava、Arolsarl" loading="lazy">
+          <figcaption>Krea2 的心臟解剖 — 構造勉強，標籤全糊成亂碼英文</figcaption>
+        </figure>
+        <figure>
+          <img src="images/comfyui/wellbeing-garbled-boogu.webp" alt="Boogu 生成的湖畔療癒水彩，畫面很美但右下角自動長出糊掉的英文字 MENTAL MELE WELLBEING" loading="lazy">
+          <figcaption>連文字最強的 Boogu，硬加的「MENTAL WELLBEING」也糊了</figcaption>
+        </figure>
+      </div>
+      <p>其實不只繁體中文 — 上面兩張一張是模型想標<strong>英文</strong>器官名、一張是模型自己手癢加字，結果全糊成亂碼。這就是為什麼<strong>圖上文字一律後製</strong>：畫面交給開源模型，文字用 <a href="canva.html">Canva</a> 之類另外疊。</p>
+
       <h3>去哪下載模型</h3>
       <p>建議用 <a href="https://huggingface.co/" target="_blank">Hugging Face</a> — AI 界最大的開源模型平台，Stable Diffusion、Flux 和上面提到的新模型，官方版都在上面，來源清楚。下載模型檔（通常是 <code>.safetensors</code> 格式）後，放進下一節說的對應資料夾、重新整理，就能在模型載入框選到。</p>
       <p>網路上還有其他更大的模型分享站，但內容龐雜、混有大量成人與版權不明的內容 — 醫療衛教用途<strong>先從 Hugging Face 的官方模型入手</strong>就好，需求單純又不踩雷。</p>
@@ -381,6 +416,31 @@
   </footer>
 
   <script>
+  (function () {
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<span class="lightbox-close">✕ 關閉</span><img alt=""><div class="lightbox-caption"></div>';
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img');
+    const lbCap = lb.querySelector('.lightbox-caption');
+    document.querySelectorAll('.result-compare figure').forEach(fig => {
+      fig.addEventListener('click', () => {
+        const img = fig.querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = fig.querySelector('figcaption').textContent;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    lb.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  })();
+
   function copyPrompt(btn) {
     const content = btn.parentElement;
     const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
