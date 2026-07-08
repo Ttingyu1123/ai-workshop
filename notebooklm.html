@@ -56,6 +56,7 @@
     <nav class="toc" aria-label="目錄">
       <ol>
         <li><a href="#what-is-notebooklm">NotebookLM 是什麼</a></li>
+        <li><a href="#how-it-works">背後原理 — RAG</a></li>
         <li><a href="#credits">免費額度與方案</a></li>
         <li><a href="#basic-steps">基本操作</a></li>
         <li><a href="#studio-features">產出功能</a></li>
@@ -97,6 +98,41 @@
       <div class="analogy">
         一般 AI 像是「憑印象回答問題的學長」— 講得頭頭是道，但你不確定他是不是記錯了。NotebookLM 像是「手上拿著病歷、每句話都指給你看出處的專科護理師」— 你問一句，她翻到病歷的那一頁指給你看，講的都有憑有據，不會憑空掰。
       </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── How It Works (RAG) ─── -->
+    <section id="how-it-works">
+      <h2>背後原理 — RAG 檢索增強生成</h2>
+      <p>NotebookLM 的底層核心是一種叫 <strong>RAG</strong>（Retrieval-Augmented Generation，檢索增強生成）的架構。理解它的運作方式，就能明白這個工具為什麼可靠、又為什麼仍然會出錯 — 後面「限制與注意」列的每一條，都是這個架構的自然結果。</p>
+
+      <p>你上傳的來源加總起來遠超過 AI 一次能讀的量（免費方案一本 Notebook 可放 50 個來源，每個來源上限約 50 萬字），所以它不可能每次回答都「重讀全部文件」。實際流程分三步：</p>
+
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span class="step-badge">1</span> <strong>切塊建索引</strong>
+        <p style="margin-top: 0.5rem;">上傳來源時，系統先把文件切成小段落並建立索引 — 就像病歷室把卷宗分頁歸檔，之後才找得快。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--success);">
+        <span class="step-badge">2</span> <strong>檢索相關段落</strong>
+        <p style="margin-top: 0.5rem;">你提問時，系統先從索引中「檢索」出與問題最相關的段落，只把這幾段連同你的問題一起送給 AI 模型（Gemini）。</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--warning);">
+        <span class="step-badge">3</span> <strong>限定範圍生成＋強制附出處</strong>
+        <p style="margin-top: 0.5rem;">模型被明確指示「只能根據送進來的段落回答」，而且每個句子都要對應回來源的具體位置 — 這就是你點引用標記能跳回原文的原因，也是它比一般聊天 AI 少「憑空編造」的關鍵。</p>
+      </div>
+
+      <div class="analogy">
+        整個流程很像調閱病歷：病歷室不會把整座病歷庫搬給你，而是依索引調出相關的那幾份卷宗（檢索）；回覆你的人只根據調出的頁面回答，並在每個結論旁註明頁碼（限定範圍生成＋出處）。回答有憑有據 — 但如果相關的那一頁沒被調出來，答案就會有遺漏。
+      </div>
+
+      <div class="box-tip">
+        <strong>所以它為什麼還是會錯？</strong>兩個環節都可能失手：<strong>檢索可能漏抓</strong> — 真正相關的段落沒被選進去，答案就不完整；<strong>模型可能誤讀</strong> — 段落抓對了，但摘要時簡化或曲解了原意。RAG 大幅降低的是「憑空編造」，降不掉「漏讀」和「摘錯」— 這正是本頁一再強調「重要結論要點回原文核對」的原因：核對出處，就是在人工補上這兩個環節的漏洞。
+      </div>
+
+      <p>另外，NotebookLM 已把百萬 token 等級的長上下文開放給所有方案 — 來源不多的小型 Notebook（例如兩三份 guideline），可能整批直接讀入、不需要檢索篩選；來源越多，檢索環節的角色就越重，漏抓的風險也隨之增加。這也是「一個主題一本 Notebook、來源寧精不濫」的架構層理由。</p>
     </section>
 
     <hr class="section-divider">
@@ -297,6 +333,7 @@
     <!-- ─── Limitations ─── -->
     <section id="limitations">
       <h2>限制與注意</h2>
+      <p>這一節的每一條，都能從<a href="#how-it-works">背後原理</a>推出來 — 不是工具不成熟，而是 RAG 架構的固有特性。</p>
 
       <div class="box-tip">
         <strong>回答品質取決於來源品質：</strong>NotebookLM 不會幫你判斷來源本身的正確性或權威性 — 上傳一份過時或有錯誤的文件，AI 照樣會根據它回答。重要的臨床結論，還是要回到原文、甚至查證原始文獻或指引本體再下判斷，不要把 AI 摘要當成最終答案。
