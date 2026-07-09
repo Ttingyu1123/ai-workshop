@@ -159,7 +159,7 @@ ai-workshop/
 ### 技術
 - [x] OG 圖片（og-image.png，doodle 插畫，與 website repo `public/images/insights/ai-workshop.png` 是同一張圖，換圖時要兩邊同步）
 - [x] favicon（聽診器笑臉，從 og-image.png 裁出三種尺寸）
-- [x] Google Analytics — GA4 已掛全站（Measurement ID `G-L05KFZJS9L`，snippet 在各頁 `</head>` 前；新頁面記得帶上）
+- [x] Google Analytics — GA4 已掛全站（Measurement ID `G-L05KFZJS9L`，snippet 在各頁 `</head>` 前；新頁面記得帶上）。**本站是獨立 GA4 property `544090519`**，與 website（532664866）分開——Bot 每日流量報告靠其 `.env` 的 `GA4_PROPERTY_ID_WORKSHOP` 指向本站，曾因誤記為「共用 property」導致報告連續為 0（2026-07-09 修正）
 - [x] sitemap.xml + robots.txt（新增頁面時 sitemap 要補一條）
 - [x] Prompt 產生器（prompt-builder.html）
 - [x] 每課「現在就做」小任務框
