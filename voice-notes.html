@@ -114,7 +114,7 @@
 
   <main class="container">
 
-    <p>走廊上想到的點子、查完房想記的重點、演講前想順的稿 — 用講的比用打的快。這個工具使用瀏覽器內建的語音辨識（建議用 <strong>Chrome 或 Edge</strong>），按下麥克風即時把你說的話轉成文字，講完一鍵複製，貼給 ChatGPT／Gemini 整理成正式筆記。不需帳號、不需安裝，但<strong>需要網路連線</strong>。</p>
+    <p>走廊上想到的點子、查完房想記的重點、演講前想順的稿 — 用講的比用打的快。這個工具使用瀏覽器內建的語音辨識（電腦用 <strong>Chrome 或 Edge</strong>；手機也能用：<strong>Android 用 Chrome、iPhone 請用 Safari</strong>），按下麥克風即時把你說的話轉成文字，講完一鍵複製，貼給 ChatGPT／Gemini 整理成正式筆記。不需帳號、不需安裝，但<strong>需要網路連線</strong>。</p>
 
     <div class="box-danger">
       <strong>🔒 開口前先想一下：</strong>瀏覽器的語音辨識會把聲音傳到雲端伺服器運算（Chrome 傳給 Google），<strong>請勿口述病人姓名、病歷號等可識別資訊</strong> — 需要處理敏感錄音時，改用 <a href="ai-transcribe.html">語音轉文字</a> 頁介紹的本機離線工具。
@@ -166,7 +166,7 @@
     <div class="card-grid">
       <div class="card">
         <strong>❓ 按了沒反應</strong>
-        <p>先確認瀏覽器是 Chrome 或 Edge、麥克風權限按了「允許」。若狀態顯示「聆聽中」卻一直沒有字，看<strong>音量條</strong>：講話時沒跳動，代表聲音沒進到瀏覽器 — 到 Windows「設定 → 系統 → 音效 → 輸入」確認選對輸入裝置（旁邊的音量條講話時要會動），改完重新整理本頁。</p>
+        <p>先確認瀏覽器支援：電腦用 Chrome 或 Edge、Android 用 Chrome、<strong>iPhone 只有 Safari 支援</strong>（iPhone 上的 Chrome 不行）；麥克風權限要按「允許」。若狀態顯示「聆聽中」卻一直沒有字，看<strong>音量條</strong>：講話時沒跳動，代表聲音沒進到瀏覽器 — 到系統音效設定確認選對輸入裝置，改完重新整理本頁。</p>
       </div>
       <div class="card">
         <strong>❓ 講到一半自動停了</strong>
@@ -234,7 +234,7 @@
       micBtn.disabled = true;
       statusEl.textContent = '此瀏覽器不支援語音辨識';
       errorEl.style.display = 'block';
-      errorEl.textContent = '這個瀏覽器沒有內建語音辨識功能，請改用電腦版 Chrome 或 Edge 開啟本頁。';
+      errorEl.textContent = '這個瀏覽器沒有內建語音辨識功能 — 電腦請用 Chrome 或 Edge；Android 用 Chrome；iPhone 請改用 Safari 開啟本頁（iPhone 上的 Chrome 不支援）。';
       return;
     }
 
