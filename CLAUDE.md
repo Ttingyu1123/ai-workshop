@@ -109,11 +109,9 @@ ai-workshop/
 - Header 是**分區錨點導航**（不列單頁，永不爆版）：首頁 / 基礎必修(#core) / 創作應用(#create) / 進階實戰(#advanced) / 番外工具(#extras) — 錨點指向 index.html 的四個 section。作品集連結只在 footer，不放 header
 - 每頁把自己所屬分區的連結標 `.active`：Part 1-3 → #core、Part 4-6 → #create、Part 7 → #advanced、番外頁 → #extras
 - 閱讀鏈（底部 nav-links）：Part 1→2→3→4→5→6→7 → 番外 notebooklm → ai-transcribe → capcut → canva → github-pages → chrome-skills
-- 課程分區：基礎必修（基礎/文字/安全）、創作應用（圖像/影片/Flow）、進階實戰（Agent）、番外工具（5 頁）
+- 課程分區：基礎必修（基礎/文字/安全）、創作應用（圖像/影片/Flow）、進階實戰（Agent）、番外工具
 - **新增課程不要動 header** — 只加 index 卡片和串閱讀鏈
-- Footer：© TingYu's Deco — AI Workshop + IG + GitHub + 作品集
-- 當前頁 nav link 加 `.active` class
-- 作品集連結：https://tingyudeco.com（外部連結）
+- Footer：© TingYu's Deco — AI Workshop + IG + GitHub + 作品集（https://tingyudeco.com，外部連結）；當前頁 nav link 加 `.active`
 
 ## 新增頁面 SOP
 
@@ -137,39 +135,23 @@ ai-workshop/
 
 ## 待做項目
 
-### 內容
-- [x] 加入用戶生成的圖片範例（ai-image.html 全 9 個 prompt 附 ChatGPT vs Gemini 對比圖，`.result-compare` 元件在 style.css）
 - [ ] 範例牆／學員作品頁（靜態 gallery + Google 表單收件，等有作品再做）
-- [x] notebooklm.html 補「點引用標記跳回原文」實截圖（citation-source-check.webp，2026-07-09 用戶自截）。註：NotebookLM 表格輸出會露 `<br><br>` 原始標記，解法是提問時加「表格儲存格內不要使用 HTML 標記，改用頓號或分行」
-- [x] AI 文字應用（ai-writing.html，Part 2）
-- [x] AI 安全與隱私（ai-safety.html，Part 3）
-- [x] NotebookLM 文獻工具（notebooklm.html，番外）
-- [x] 語音轉文字（ai-transcribe.html，番外）
-- [x] CapCut 教學頁面（capcut.html）
-- [x] Canva 教學頁面（canva.html）
-- [x] canva.html 補圖完成（2026-07-09 用戶自截 12 張，images/canva/ 全 12 檔）：模板兩入口、編輯介面全景、ChatGPT 文案＋底圖流程、Canva 加字過程、對齊輔助線、AI 原圖 vs 成品對比、QR code、圖表面板、含 QR 成品。原「排版改前後對比」以「對齊輔助線實拍」替代。lightbox IIFE 已加。素材主題：糖尿病血糖監測衛教單張（清松手寫體）
-- [x] AI Agent 教學頁面（ai-agent.html，Part 5）
-- [x] GitHub Pages 建站教學頁面（github-pages.html）
-- [x] 免費帳號實測 Google Flow（2026-07-07 用戶實測＋官方額度文件，已回填 google-flow.html）：選單看得到 Omni Flash 但免費 credits 只能用於 Veo 3.1 三檔；每日 50 credits 確認（首次生成觸發、不累計、升級即作廢）；Veo Lite 是 10 credits **不是 0**（原頁面寫零 credits 已修正）；Quality 一次 100 > 日額度 50，免費層實際用不到；1080p upscale 免費帳號不可用、4K 僅 Ultra；Flow Tools 34 款免費全開（但 remix 別人的工具需訂閱，免費帳號顯示 Upgrade to remix）；YouTube Shorts／YouTube Create App 內建 Gemini Omni 生成、所有帳號免費（10 秒上限、SynthID 浮水印），是免費層體驗 Omni 的出口。影片生成免費層實測：選單最高只能選 Veo 3.1 Fast、秒數固定 8 秒、下載只有 270p 動態 GIF 與 720p 原始檔（用戶更正，非 480p）；生圖 0 credits 不走 credits 計費但免費帳號另有每日生圖次數上限（0 credits ≠ 無限）、選單顯示 Nano Banana Pro；中文口白可生成會對嘴但咬字用詞偶有錯，教學建議正式片走 TTS。生圖下載解析度：免費帳號可選 1K/2K、4K 不開放（實測 2026-07-07，bullet 已回填頁面）；生圖引號逐字控制實測：不編造、零錯字，但會小幅同義改寫，關鍵句需逐字校對（衛教海報入門 vs 進階 prompt 對比圖在 images/google-flow/poster-*.webp）
 - [ ] 衛教單專區 → **獨立成站**（預計 >20 張，受眾是民眾非醫療人員，另開 repo，不放本站）
-- [x] 番外 — 本機／開源生圖入門（comfyui.html）：操作課定位，桌面版安裝＋跑第一張圖，無顯卡走雲端。額度實測（2026-07-09）：**Comfy Cloud 免費層已收**（官方 2026-03 曾公告每月免費 credits，7 月用戶登入實測帳號內無免費額度，頁面已改為「需訂閱、以帳號顯示為準」）；**RunningHub 每日登入贈 100 credits**（用戶確認），故路線 B 免費入口改推 RunningHub、Comfy Cloud 降為「介面與桌面版一致但需訂閱」
-- [x] comfyui.html 後續 — ai-image.html `#advanced-tools` 的 ComfyUI／RunningHub 兩張卡已加導流連結指向 comfyui.html；RunningHub 卡優點同步更新為「每日登入贈 100 credits」（2026-07-09）
-- [ ] 番外 — 得獎作品復盤：Midjourney × Kling 工作流（用戶的得獎影片＝MJ 生圖 → Kling 圖生影片，兩工具是上下游、一頁講完不拆兩頁）：定位是案例復盤不是工具大全 — 從得獎作品倒推每個決策（MJ 段：風格 prompt、角色/風格一致性；Kling 段：圖生影片、首尾幀銜接、運鏡），學員不必跟做付費段，想動手的用 ChatGPT 免費生圖＋Kling 免費額度跟做圖生影片（接 Part 4→5 產線）。素材（得獎影片、MJ 原圖、prompt 紀錄）由用戶提供。寫完後回頭加導流連結：ai-video.html 免費工具區的 Kling 卡、ai-image.html `#advanced-tools` 的 Midjourney 卡。若 MJ prompt 技巧內容爆量再拆獨立頁（2026-07-07 修正決策：原「MJ 不開頁」的前提「用戶不熟 MJ」錯誤 — 得獎作品即 MJ+Kling 製作）
+- [ ] 番外 — 得獎作品復盤：Midjourney × Kling 工作流（得獎影片＝MJ 生圖 → Kling 圖生影片，上下游一頁講完不拆頁）。定位是案例復盤不是工具大全：從作品倒推決策（MJ 段：風格 prompt、角色/風格一致性；Kling 段：圖生影片、首尾幀、運鏡）；學員可用 ChatGPT 免費生圖＋Kling 免費額度跟做（接 Part 4→5 產線）。素材由用戶提供；寫完回頭在 ai-video.html 的 Kling 卡、ai-image.html `#advanced-tools` 的 Midjourney 卡加導流；MJ 內容爆量再拆頁（2026-07-07 決策）
+- [ ] chrome-skills.html 補圖
 
-### 技術
-- [x] OG 圖片（og-image.png，doodle 插畫，與 website repo `public/images/insights/ai-workshop.png` 是同一張圖，換圖時要兩邊同步）
-- [x] favicon（聽診器笑臉，從 og-image.png 裁出三種尺寸）
-- [x] Google Analytics — GA4 已掛全站（Measurement ID `G-L05KFZJS9L`，snippet 在各頁 `</head>` 前；新頁面記得帶上）。**本站是獨立 GA4 property `544090519`**，與 website（532664866）分開——Bot 每日流量報告靠其 `.env` 的 `GA4_PROPERTY_ID_WORKSHOP` 指向本站，曾因誤記為「共用 property」導致報告連續為 0（2026-07-09 修正）
-- [x] sitemap.xml + robots.txt（新增頁面時 sitemap 要補一條）
-- [x] Prompt 產生器（prompt-builder.html）
-- [x] 每課「現在就做」小任務框
-- [x] 首頁 QR code（qr-site.png）
+已完成項目的過程紀錄（各頁建置、canva 補圖、Flow/ComfyUI 實測經過等）不留在本檔——查 git log 或 Obsidian `03_Projects/AI-Workshop/`。
+
+## 工具實測事實（改相關頁面時引用，勿憑印象改數字）
+
+- **Google Flow 免費層**（2026-07-07 實測）：每日 50 credits（首次生成觸發、不累計、升級即作廢）；只能用 Veo 3.1 三檔，Omni Flash 需訂閱；Veo Lite 10 credits **不是 0**；Quality 一次 100 超過日額度、免費層用不到；1080p upscale 不可用、4K 僅 Ultra。影片：最高 Veo 3.1 Fast、固定 8 秒、下載只有 270p GIF 與 720p 原始檔。生圖：0 credits 但另有每日次數上限（0 credits ≠ 無限）、下載可選 1K/2K、4K 不開放；引號逐字控制不編造但會小幅同義改寫，關鍵句需逐字校對。中文口白可對嘴但咬字偶錯，正式片建議 TTS。Flow Tools 34 款免費全開但 remix 需訂閱。YouTube Shorts／Create App 內建 Gemini Omni 全帳號免費（10 秒上限、SynthID 浮水印），是免費層體驗 Omni 的出口。影片模型現況：Gemini Omni（旗艦）與 Veo 3.1 並存
+- **ComfyUI 雲端額度**（2026-07-09 實測）：Comfy Cloud 免費層已收（需訂閱、以帳號顯示為準）；RunningHub 每日登入贈 100 credits——comfyui.html 路線 B 免費入口推 RunningHub
+- **NotebookLM**：表格輸出會露 `<br><br>` 原始標記，解法是提問時加「表格儲存格內不要使用 HTML 標記，改用頓號或分行」
 
 ## 注意事項
 
 - **官方署名**：衛生福利部台中醫院 感染科 曾婷玉醫師（螢幕 footer 與列印版權行都用這個，不放 IG/GitHub/個人網站）。列印（Ctrl+P）時每頁自動帶版權 footer 與淡浮水印（style.css `@media print` 的 `body::before/::after`），螢幕上不顯示；改署名時螢幕 footer（各頁 HTML）和 print（style.css）兩處都要改
-
 - 不要用 Delius Swash Caps 字型（大寫 I 看起來像 J，對 AI 主題致命）
 - Prompt 區塊的 `copyPrompt()` 函式在每個頁面的 `<script>` 中重複定義（刻意，避免外部 JS 依賴）
-- Google Flow 的免費額度是每日 50 credits（只能用 Veo 3.1 三檔，Omni Flash 需訂閱；Veo Lite 每段 10 credits 不是零），付費方案是每月額度
-- 影片模型：Gemini Omni（最新旗艦）和 Veo 3.1 並存
+- **GA4**：本站是獨立 property `544090519`（Measurement ID `G-L05KFZJS9L`），與 website（532664866）分開——Bot 每日流量報告靠其 `.env` 的 `GA4_PROPERTY_ID_WORKSHOP` 指向本站；曾因誤記「共用 property」致報告連續為 0（2026-07-09 修正，詳見 Obsidian 踩坑記錄）
+- og-image.png 與 website repo `public/images/insights/ai-workshop.png` 是同一張圖，換圖時兩邊同步
