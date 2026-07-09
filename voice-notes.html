@@ -133,6 +133,7 @@
       <div id="interim" class="dictate-interim" aria-hidden="true"></div>
       <div class="dictate-actions">
         <button id="copy-btn" class="tool-btn">📋 複製全部</button>
+        <button id="export-btn" class="tool-btn">💾 匯出 txt</button>
         <button id="clear-btn" class="tool-btn">🗑️ 清空</button>
         <span id="char-count" class="dictate-count">0 字</span>
       </div>
@@ -360,6 +361,20 @@
         this.textContent = '✓ 已複製';
         setTimeout(() => { this.textContent = '📋 複製全部'; }, 2000);
       });
+    });
+
+    $('export-btn').addEventListener('click', () => {
+      if (!output.value) return;
+      const d = new Date();
+      const pad = n => String(n).padStart(2, '0');
+      const filename = '口述筆記-' + d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + '-' + pad(d.getHours()) + pad(d.getMinutes()) + '.txt';
+      // ﻿ = UTF-8 BOM，讓舊版記事本與 Excel 開啟時不會亂碼
+      const blob = new Blob(['\ufeff' + output.value], { type: 'text/plain;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(a.href);
     });
 
     $('clear-btn').addEventListener('click', () => {
