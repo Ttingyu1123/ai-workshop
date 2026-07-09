@@ -651,6 +651,26 @@ td {
   color: var(--text-light);
 }
 
+/* 首頁卡片牆：兩欄縮短頁面長度；單卡分區（如進階實戰）自動撐滿整列 */
+.workshop-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin: 1.25rem 0;
+}
+
+.workshop-grid .workshop-card {
+  margin: 0;
+}
+
+.workshop-grid > .workshop-card:only-child {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .workshop-grid { grid-template-columns: 1fr; }
+}
+
 /* ─── Navigation ─── */
 
 .nav-links {
