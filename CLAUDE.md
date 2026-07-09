@@ -30,6 +30,7 @@ ai-workshop/
 ├── prompt-builder.html # 番外 — Prompt 產生器（純前端字串組裝，零 API；表單樣式在頁內 <style>）
 ├── chrome-skills.html  # 番外 — Chrome Skills（Gemini in Chrome 存 prompt 成快捷鍵；純文字教學＋9 個醫療 Skills 範本，圖待補）
 ├── voice-notes.html    # 番外 — 口述筆記小工具（Web Speech API 即時聽寫，純前端零依賴；限 Chrome/Edge、辨識走雲端非離線，頁內已標示勿口述病人資料）
+├── pdf-to-images.html  # 番外 — PDF 轉圖檔小工具（pdf.js + JSZip 皆 cdnjs 載入，轉換全在本機、檔案不上傳；NotebookLM 簡報→Canva 產線的中繼站）
 ├── images/<頁名>/       # 內文圖片，一頁一資料夾（規格見「圖片擺放規範」）；ai-image/ = Part 4 對比圖（來源 PNG 在 Downloads\教學素材）
 ├── sitemap.xml         # 新增頁面時記得加一條
 ├── robots.txt
