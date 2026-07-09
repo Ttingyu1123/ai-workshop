@@ -126,6 +126,26 @@
       <div class="box-tip">
         <strong>怎麼選：</strong>純錄音轉逐字稿，中文口音優先選雅婷；已經在用 Google 工具鏈、想省一步操作，用 Google AI Studio；本身就有 Microsoft 365 帳號，直接用 Word／Teams 最方便；來源已經是影片檔，就用 CapCut 字幕順便解決。
       </div>
+
+      <h3>本機離線轉錄（開源）— 敏感內容的出路</h3>
+      <p>上面四個工具都是雲端服務，錄音會離開你的電腦。如果錄音內容較敏感（例如內部討論、不便上傳的會議），可以改用開源的本機轉錄工具 — 整個轉錄過程都在自己的電腦上完成，音檔不會傳到任何伺服器。</p>
+
+      <div class="card">
+        <strong>🖥️ Buzz（開源、免費）</strong>
+        <p>桌面應用程式，Windows／Mac／Linux 都有安裝檔，背後引擎是 OpenAI 開源的 Whisper 語音辨識模型。安裝後匯入音檔或影片即可離線轉逐字稿，支援輸出純文字與字幕格式。GitHub 頁面：<a href="https://github.com/chidiwilliams/buzz" target="_blank" rel="noopener">chidiwilliams/buzz</a>。同類工具還有介面更新穎的 <a href="https://github.com/thewh1teagle/vibe" target="_blank" rel="noopener">Vibe</a>，功能相近，擇一使用即可。</p>
+      </div>
+
+      <div class="box-tip">
+        <strong>本機轉錄的兩個注意點：</strong>
+        <ul style="margin-bottom: 0;">
+          <li><strong>常輸出簡體字</strong> — Whisper 辨識中文語音時經常輸出簡體，轉完把逐字稿交給 ChatGPT／Gemini 時，順手請它「轉為台灣慣用的繁體中文」即可，正好與下方 Step 3 的整理流程合併處理。</li>
+          <li><strong>速度取決於電腦效能</strong> — 沒有獨立顯示卡的筆電，轉一小時錄音可能需要等待數十分鐘。首次使用需下載辨識模型（數百 MB 至數 GB），建議先用短錄音試轉，確認速度與品質可接受再處理長檔案。</li>
+        </ul>
+      </div>
+
+      <div class="box-danger" style="margin-top: 1rem;">
+        <strong>提醒：</strong>「本機離線」解決的是資料外流問題，不代表可以拿病人資料隨意處理 — 含病人資訊的逐字稿仍屬敏感資料，儲存與後續使用仍須遵守院內規範；轉完若要丟給雲端 AI 整理（Step 3），上傳前一樣要先去識別化。
+      </div>
     </section>
 
     <hr class="section-divider">
