@@ -43,6 +43,10 @@
     }
     .dictate-status { font-family: var(--font-hand); font-size: 1.05rem; color: var(--text-light); }
     .dictate-status.on { color: var(--danger); font-weight: 700; }
+    .dictate-meter-row { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.9rem; }
+    .dictate-meter { flex: 1; height: 10px; background: var(--paper); border: 2px solid var(--secondary); border-radius: 999px; overflow: hidden; }
+    #level-bar { height: 100%; width: 0%; background: var(--success); border-radius: 999px; transition: width 0.08s linear; }
+    .dictate-device { font-size: 0.82rem; color: var(--text-light); max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .dictate-output {
       width: 100%;
       min-height: 11rem;
@@ -121,6 +125,10 @@
         <button id="mic-btn" class="mic-btn">🎙️ 開始口述</button>
         <span id="status" class="dictate-status">待機中 — 按下按鈕並允許使用麥克風</span>
       </div>
+      <div class="dictate-meter-row">
+        <div class="dictate-meter" title="音量條 — 講話時應該要跳動"><div id="level-bar"></div></div>
+        <span id="device-name" class="dictate-device"></span>
+      </div>
       <textarea id="transcript" class="dictate-output" placeholder="你說的話會出現在這裡，轉完可以直接在框內修改…" aria-label="口述文字結果"></textarea>
       <div id="interim" class="dictate-interim" aria-hidden="true"></div>
       <div class="dictate-actions">
@@ -158,7 +166,7 @@
     <div class="card-grid">
       <div class="card">
         <strong>❓ 按了沒反應</strong>
-        <p>確認瀏覽器是 Chrome 或 Edge（Firefox 不支援、Safari 支援度不穩定），且網址列跳出的麥克風權限詢問要按「允許」。</p>
+        <p>先確認瀏覽器是 Chrome 或 Edge、麥克風權限按了「允許」。若狀態顯示「聆聽中」卻一直沒有字，看<strong>音量條</strong>：講話時沒跳動，代表聲音沒進到瀏覽器 — 到 Windows「設定 → 系統 → 音效 → 輸入」確認選對輸入裝置（旁邊的音量條講話時要會動），改完重新整理本頁。</p>
       </div>
       <div class="card">
         <strong>❓ 講到一半自動停了</strong>
@@ -232,9 +240,40 @@
 
     let listening = false;   // 使用者意圖：按下「開始」到按下「停止」之間為 true
     let recognition = null;
+    let meterStream = null, audioCtx = null, rafId = null;
 
     function updateCount() {
       charCount.textContent = output.value.length + ' 字';
+    }
+
+    // 音量條＋收音裝置名稱：讓使用者看見「聲音有沒有進到瀏覽器」——
+    // 辨識沒反應時，音量條會動＝辨識服務問題；不會動＝收音裝置問題
+    async function startMeter() {
+      try {
+        meterStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const track = meterStream.getAudioTracks()[0];
+        $('device-name').textContent = '收音裝置：' + (track.label || '未知');
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 512;
+        audioCtx.createMediaStreamSource(meterStream).connect(analyser);
+        const data = new Uint8Array(analyser.frequencyBinCount);
+        const bar = $('level-bar');
+        (function loop() {
+          analyser.getByteTimeDomainData(data);
+          let max = 0;
+          for (let i = 0; i < data.length; i++) { const v = Math.abs(data[i] - 128); if (v > max) max = v; }
+          bar.style.width = Math.min(100, max * 1.6) + '%';
+          rafId = requestAnimationFrame(loop);
+        })();
+      } catch (_) { /* 拿不到音訊串流時不擋辨識流程，只是沒有音量條 */ }
+    }
+
+    function stopMeter() {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      if (audioCtx) { audioCtx.close(); audioCtx = null; }
+      if (meterStream) { meterStream.getTracks().forEach(t => t.stop()); meterStream = null; }
+      $('level-bar').style.width = '0%';
     }
 
     function showError(msg) {
@@ -246,8 +285,8 @@
       micBtn.classList.toggle('listening', on);
       micBtn.textContent = on ? '⏹️ 停止' : '🎙️ 開始口述';
       statusEl.classList.toggle('on', on);
-      statusEl.textContent = on ? '🔴 聆聽中 — 對著麥克風說話' : '待機中 — 按下按鈕並允許使用麥克風';
-      if (!on) interimEl.textContent = '';
+      statusEl.textContent = on ? '🔴 聆聽中 — 對著麥克風說話（下方音量條應隨聲音跳動）' : '待機中 — 按下按鈕並允許使用麥克風';
+      if (!on) { interimEl.textContent = ''; stopMeter(); }
     }
 
     function createRecognition() {
@@ -309,6 +348,7 @@
         recognition.start();
         listening = true;
         setListeningUI(true);
+        startMeter();
       } catch (_) {
         showError('無法啟動語音辨識，請重新整理頁面後再試。');
       }
