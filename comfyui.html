@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>本機／開源生圖入門 — ComfyUI + Comfy Cloud</title>
-  <meta name="description" content="用 ComfyUI 在自己電腦上生圖，資料不出機器；沒有獨立顯示卡就改用雲端（Comfy Cloud）線上跑。醫療人員的本機／開源生圖操作入門，非節點工程。">
+  <title>本機／開源生圖入門 — ComfyUI + RunningHub</title>
+  <meta name="description" content="用 ComfyUI 在自己電腦上生圖，資料不出機器；沒有獨立顯示卡就改用雲端（RunningHub 每日贈額度）線上跑。醫療人員的本機／開源生圖操作入門，非節點工程。">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="本機／開源生圖入門 — ComfyUI + Comfy Cloud">
-  <meta property="og:description" content="用 ComfyUI 在自己電腦上生圖，資料不出機器；沒有獨立顯示卡就改用雲端（Comfy Cloud）線上跑。醫療人員的本機／開源生圖操作入門，非節點工程。">
+  <meta property="og:title" content="本機／開源生圖入門 — ComfyUI + RunningHub">
+  <meta property="og:description" content="用 ComfyUI 在自己電腦上生圖，資料不出機器；沒有獨立顯示卡就改用雲端（RunningHub 每日贈額度）線上跑。醫療人員的本機／開源生圖操作入門，非節點工程。">
   <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/comfyui.html">
   <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
   <meta name="twitter:card" content="summary">
@@ -47,7 +47,7 @@
   <div class="hero">
     <div class="hero-badge">番外・本機生圖</div>
     <h1>本機／開源生圖入門</h1>
-    <p>ComfyUI ＋ Comfy Cloud — 在自己電腦上生圖，資料不出機器</p>
+    <p>ComfyUI — 在自己電腦上生圖，資料不出機器；無顯示卡改走雲端</p>
     <div class="squiggle"></div>
   </div>
 
@@ -252,6 +252,13 @@
       <h2>ComfyUI 是什麼</h2>
       <p><a href="https://www.comfy.org/" target="_blank">ComfyUI</a> 是一套免費、開源的 AI 生圖軟體，裝在自己的電腦上跑。它最為人所知的畫面是由許多連線組成的「節點」，初看容易令人卻步 — 但你完全<strong>不需要自行接線</strong>：軟體內建現成範本，只要載入範本、修改少數文字、執行生成即可產出圖像。</p>
 
+      <div class="result-compare">
+        <figure>
+          <img src="images/comfyui/workflow-interface.webp" alt="ComfyUI 節點式介面截圖：載入擴散模型、雙 CLIP 載入器、CLIP 文字編碼（提示詞）、圖片尺寸、KSampler、VAE 解碼、儲存圖片等節點，以彩色連線串成一個 Flux 文生圖工作流" loading="lazy">
+          <figcaption>ComfyUI 的節點式介面 — 內建文生圖範本的實際畫面：左側載入模型、中間輸入提示詞與尺寸，連到右側取樣、解碼、存圖。流程是範本現成的，實際只需修改提示詞文字。</figcaption>
+        </figure>
+      </div>
+
       <div class="analogy">
         線上生圖工具（ChatGPT、Gemini）像<strong>自動販賣機</strong> — 投幣、按鈕、掉出飲料，簡單但只能買它有的。ComfyUI 像<strong>自己家的咖啡機</strong> — 一開始要學怎麼裝豆子、加水（安裝＋下載模型），但之後想煮多少杯都免費，還能自己調濃淡。這頁只教你「用內建的預設配方煮出第一杯」，不教你拆機器改管線。
       </div>
@@ -307,7 +314,7 @@
       </table>
 
       <div class="box-tip">
-        <strong>VRAM 不足，多半不是「無法執行」而是「速度較慢」：</strong>這張表是「舒適配置」而非「最低門檻」。實際上 8 GB 的舊顯示卡同樣能執行 Flux 這類大型模型 — 只是<strong>以時間換取記憶體</strong>：單張圖從數秒延長為一至兩分鐘，生成過程中電腦也會明顯延遲。因此 VRAM 較小不需直接放棄本機方案，可先行安裝並實測速度是否可接受，若確實過慢再考慮升級顯示卡或改走 <a href="#route-b">路線 B 的雲端（官方 Comfy Cloud）</a>。
+        <strong>VRAM 不足，多半不是「無法執行」而是「速度較慢」：</strong>這張表是「舒適配置」而非「最低門檻」。實際上 8 GB 的舊顯示卡同樣能執行 Flux 這類大型模型 — 只是<strong>以時間換取記憶體</strong>：單張圖從數秒延長為一至兩分鐘，生成過程中電腦也會明顯延遲。因此 VRAM 較小不需直接放棄本機方案，可先行安裝並實測速度是否可接受，若確實過慢再考慮升級顯示卡或改走 <a href="#route-b">路線 B 的雲端</a>。
       </div>
 
       <div class="box-danger">
@@ -319,7 +326,7 @@
         <h4>🚦 走哪條路？</h4>
         <ul style="margin-bottom: 0;">
           <li><strong>有 NVIDIA 獨立顯示卡（8 GB 以上最理想）</strong> → 走 <a href="#route-a">路線 A：桌面版安裝</a>，在自己電腦上跑。</li>
-          <li><strong>只有內建顯示卡、使用非 NVIDIA 顯示卡、或筆電效能不足</strong> → 前往 <a href="#route-b">路線 B：改用雲端（Comfy Cloud）</a>，免安裝、免顯示卡，同樣能體驗 ComfyUI。（Apple Silicon Mac 亦可用桌面版，見下方補充。）</li>
+          <li><strong>只有內建顯示卡、使用非 NVIDIA 顯示卡、或筆電效能不足</strong> → 前往 <a href="#route-b">路線 B：改用雲端</a>，免安裝、免顯示卡，同樣能體驗 ComfyUI。（Apple Silicon Mac 亦可用桌面版，見下方補充。）</li>
         </ul>
       </div>
 
@@ -458,22 +465,15 @@
     <!-- ─── Route B ─── -->
     <section id="route-b">
       <h2>路線 B：沒有獨立顯示卡就上雲端</h2>
-      <p>即使沒有足夠效能的顯示卡，一樣能體驗 ComfyUI — 將運算交由雲端執行即可。其原理相同：<strong>你在瀏覽器上操作，實際運算則在對方的高效能顯示卡上進行</strong>，你的電腦只要能開啟網頁即可，免安裝、免顯示卡。這類服務有數家，初學者建議從<strong>官方的 Comfy Cloud</strong> 入手。</p>
+      <p>即使沒有足夠效能的顯示卡，一樣能體驗 ComfyUI — 將運算交由雲端執行即可。其原理相同：<strong>你在瀏覽器上操作，實際運算則在對方的高效能顯示卡上進行</strong>，你的電腦只要能開啟網頁即可，免安裝、免顯示卡。這類服務有數家：想<strong>免費體驗</strong>，建議從每日贈送額度的 <strong>RunningHub</strong> 入手；官方的 <strong>Comfy Cloud</strong> 介面與桌面版完全一致，但目前需付費訂閱。</p>
 
-      <h3>首選：Comfy Cloud（官方雲端）</h3>
-      <p><a href="https://www.comfy.org/" target="_blank">ComfyUI</a> 官方自己推出的雲端版 <strong>Comfy Cloud</strong>，對新手有兩個關鍵好處：</p>
-      <div class="card-grid">
-        <div class="card">
-          <strong>🧩 介面跟桌面版一模一樣</strong>
-          <p>由同一官方團隊開發，操作、範本、節點與你在路線 A 學到的桌面版完全一致 — 學過的操作可直接沿用，無須重新適應另一套介面。</p>
-        </div>
-        <div class="card">
-          <strong>🆓 有免費層、Google 登入即用</strong>
-          <p>用 Google 帳號登入即自動套用免費層，無須綁定信用卡；且僅在「實際生成」時計費，於畫面上搭建流程、調整參數的時間不消耗額度。</p>
-        </div>
-      </div>
+      <h3>免費入手：RunningHub</h3>
+      <p><a href="https://www.runninghub.ai/" target="_blank">RunningHub</a> 是在瀏覽器上執行完整 ComfyUI 的雲端服務，對初學者最實際的優點是<strong>每日登入即贈 100 credits</strong>，足夠每天免費生成數張圖；平台上另有大量現成工作流與 AI 應用可直接套用，不必自行搭建流程。介面同樣是 ComfyUI 節點，本頁學到的觀念可直接沿用。<span style="font-family: var(--font-hand); color: var(--text-light);">📅 每日贈點為 2026 年 7 月實測，額度規則會調整，以站方公告為準。</span></p>
+
+      <h3>官方雲端：Comfy Cloud（目前需訂閱）</h3>
+      <p><a href="https://www.comfy.org/" target="_blank">ComfyUI</a> 官方自己推出的雲端版 <strong>Comfy Cloud</strong>，最大優點是<strong>介面與桌面版一模一樣</strong>：由同一官方團隊開發，操作、範本、節點與你在路線 A 學到的桌面版完全一致 — 學過的操作可直接沿用，無須重新適應另一套介面。</p>
       <div class="box-tip">
-        <strong>費用：</strong>免費層提供每月一批免費 credits（每月重置、不累積、實際額度以登入後帳號顯示為準），只在 GPU 實際運算時扣；用完可以等下個月或改訂閱。<span style="font-family: var(--font-hand); color: var(--text-light);">📅 免費額度與計費為 2026 年 7 月查證，數字會調整，以 <a href="https://comfy.org/cloud/pricing/" target="_blank">官方定價頁</a> 為準。</span>
+        <strong>費用：</strong>官方曾於 2026 年 3 月公告免費層（每月一批免費 credits、Google 登入即用），但 <strong>2026 年 7 月實測登入後，帳號內已無免費 credits 可用</strong>，免費層可能已調整或結束，目前應視為訂閱制付費服務（入門方案約 US$20／月）。以登入後帳號實際顯示與 <a href="https://comfy.org/cloud/pricing/" target="_blank">官方定價頁</a> 為準。
       </div>
 
       <div class="box-danger">
@@ -481,23 +481,23 @@
         <p style="margin: 0;">不論哪一家雲端，運算都在對方的伺服器上進行，代表<strong>你的輸入與上傳的圖會離開你的電腦</strong> — 這正是本機生圖最大的優勢，改用雲端後便不復存在。因此<strong>涉及病人資料、個資、臨床影像的素材，一律不要上傳至任何雲端平台</strong>，回到 <a href="ai-safety.html">Part 3</a> 的三秒檢查。若須處理敏感素材，應採用路線 A 的本機生圖。</p>
       </div>
 
-      <h3>大致怎麼用（以 Comfy Cloud 為例）</h3>
+      <h3>大致怎麼用</h3>
       <div class="card">
         <ol style="margin-bottom: 0;">
-          <li>用 Google 帳號登入官方雲端。</li>
-          <li>載入內建的 Text to Image 範本（跟桌面版同一個）。</li>
+          <li>註冊並登入雲端服務（RunningHub／Comfy Cloud 皆可用 Google 帳號）。</li>
+          <li>載入現成的文生圖工作流：RunningHub 從工作流廣場挑選一個；Comfy Cloud 用內建的 Text to Image 範本（跟桌面版同一個）。</li>
           <li>改提示詞、按生成，雲端跑完直接在瀏覽器看圖、下載。</li>
         </ol>
       </div>
 
       <div class="box-tip">
-        <strong>其他雲端選擇（概述，需要時再深入研究）：</strong><a href="https://www.runninghub.ai/" target="_blank">RunningHub</a>（另附大量現成工作流與 AI App 可直接套用，偏向直接運用現成成果）、<a href="https://www.runcomfy.com/" target="_blank">RunComfy</a> 等，同樣是「在瀏覽器執行完整 ComfyUI、無須自備顯示卡」的服務，定位相近、計費各異。建議先以官方 Comfy Cloud 入門，有特殊需求時再比較其他服務。
+        <strong>其他雲端選擇（概述，需要時再深入研究）：</strong><a href="https://www.runcomfy.com/" target="_blank">RunComfy</a> 等，同樣是「在瀏覽器執行完整 ComfyUI、無須自備顯示卡」的服務，定位相近、計費各異，有特殊需求時再比較。
       </div>
     </section>
 
     <!-- ─── Navigation ─── -->
     <div class="box-success">
-      <strong>🎯 現在就做（10 分鐘）：</strong>先按 <code>Ctrl + Shift + Esc</code> → 效能分頁，確認電腦是否配備 NVIDIA 獨立顯示卡。若有，前往 <a href="https://www.comfy.org/download" target="_blank">comfy.org/download</a> 下載桌面版並開始安裝，生成第一張「完全不上雲」的圖；若無，以 Google 帳號登入官方 <strong>Comfy Cloud</strong>，載入 Text to Image 範本執行一次。無論採用哪條路線，目標都是今天親手以開源模型生成你的第一張圖。
+      <strong>🎯 現在就做（10 分鐘）：</strong>先按 <code>Ctrl + Shift + Esc</code> → 效能分頁，確認電腦是否配備 NVIDIA 獨立顯示卡。若有，前往 <a href="https://www.comfy.org/download" target="_blank">comfy.org/download</a> 下載桌面版並開始安裝，生成第一張「完全不上雲」的圖；若無，註冊 <strong>RunningHub</strong> 領每日贈送的 100 credits，挑一個現成的文生圖工作流執行一次。無論採用哪條路線，目標都是今天親手以開源模型生成你的第一張圖。
     </div>
 
     <div class="nav-links">
