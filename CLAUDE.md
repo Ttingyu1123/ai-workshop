@@ -14,7 +14,7 @@
 ai-workshop/
 ├── CLAUDE.md           # 本檔
 ├── style.css           # 全站共用樣式（Doodle 設計系統）
-├── index.html          # 首頁（分區卡片牆：#core / #create / #advanced / #extras）
+├── index.html          # 首頁（分區卡片牆：#core / #create / #advanced / #tools / #extras；卡片用 .workshop-grid 兩欄排列，單卡分區自動撐滿整列，header 錨點不含 #tools — 小工具累積到 4-5 個再考慮升格）
 ├── ai-fundamentals.html # Part 1 — AI 基礎觀念
 ├── ai-writing.html     # Part 2 — AI 文字應用
 ├── ai-safety.html      # Part 3 — AI 安全與隱私（必修）
