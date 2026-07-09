@@ -150,7 +150,16 @@
 
       <p>新建作品時，Canva 首頁的搜尋框直接打用途（例如「衛教海報」「醫療簡報」），會自動帶出對應尺寸的模板選項，不用自己記尺寸數字。</p>
 
-      <!-- TODO(補圖)：Canva 首頁搜尋「衛教海報」的模板結果頁截圖，存 images/canva/template-search.webp（.result-compare 單 figure + lightbox；本頁尚無 lightbox IIFE，第一張圖進來時從 ai-image.html 頁尾複製） -->
+      <div class="result-compare">
+        <figure>
+          <img src="images/canva/template-search-home.webp" alt="Canva 首頁搜尋框輸入「醫療簡報」，下方 Canva 範本區立即列出多款醫療主題的簡報模板縮圖牆" loading="lazy">
+          <figcaption>入口一 — 首頁搜尋框直接搜用途</figcaption>
+        </figure>
+        <figure>
+          <img src="images/canva/template-search-panel.webp" alt="Canva 編輯器左側範本面板搜尋「醫療」的結果，直向捲動的醫療簡報模板縮圖清單，部分標示 EDU 徽章" loading="lazy">
+          <figcaption>入口二 — 編輯器左側「範本」面板隨時換</figcaption>
+        </figure>
+      </div>
     </section>
 
     <hr class="section-divider">
@@ -179,7 +188,12 @@
         </div>
       </div>
 
-      <!-- TODO(補圖)：Canva 編輯介面全景截圖（可標註左側面板／上方工具列／畫布／右上分享四區），存 images/canva/editor-overview.webp -->
+      <div class="result-compare">
+        <figure>
+          <img src="images/canva/editor-overview.webp" alt="Canva 編輯介面全景：左側是範本與素材面板、上方是藍色工具列（檔案、調整尺寸、編輯），中央是空白簡報畫布，右上角有分享按鈕" loading="lazy">
+          <figcaption>編輯介面 — 左側面板・上方工具列・中央畫布・右上分享</figcaption>
+        </figure>
+      </div>
 
       <p>認識介面後，照這五步完成你的第一份作品：</p>
 
@@ -193,7 +207,7 @@
       </div>
       <div class="card" style="border-left: 4px solid var(--primary);">
         <span class="step-badge">Step 3</span> <strong>改文字</strong>
-        <p style="margin-top: 0.5rem;">點兩下模板裡的文字直接改成自己的內容。中文字型建議從上方工具列的字型選單挑「思源黑體」等明確標示繁中的字型，避免預設英文字型顯示中文時筆畫怪異。</p>
+        <p style="margin-top: 0.5rem;">點兩下模板裡的文字直接改成自己的內容。中文字型建議從上方工具列的字型選單挑選明確標示繁體中文、且授權允許對外使用的字型（例如思源黑體、清松手寫體這類開源字型），避免預設英文字型顯示中文時筆畫怪異。</p>
       </div>
       <div class="card" style="border-left: 4px solid var(--primary);">
         <span class="step-badge">Step 4</span> <strong>微調位置</strong>
@@ -235,7 +249,12 @@
         <strong>顏色也一樣克制：</strong>整份作品的顏色控制在三種以內。最安全的做法是直接沿用模板的配色，只換圖與文字；真的要改色，改「同一種顏色的深淺」比引入新顏色安全。
       </div>
 
-      <!-- TODO(補圖)：同一份衛教單張的「改前 vs 改後」對比（左：沒對齊、塞滿、字級混亂的版本；右：套用三原則的版本），存 images/canva/layout-before.webp 與 layout-after.webp，用 .result-compare 雙 figure -->
+      <div class="result-compare">
+        <figure>
+          <img src="images/canva/text-align-guides.webp" alt="Canva 編輯畫面：拖曳衛教單張的文字框時出現粉紅色對齊輔助線，四行重點文字對齊同一條左緣線，行距顯示相同的等距標記" loading="lazy">
+          <figcaption>拖曳時的粉紅色對齊輔助線 — 跟著線放，四行重點自動切齊等距</figcaption>
+        </figure>
+      </div>
     </section>
 
     <hr class="section-divider">
@@ -301,7 +320,38 @@
 語氣：親切、不說教<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
 
-      <!-- TODO(補圖)：本頁核心對比 — 左：AI 生成的無文字插圖原圖，右：Canva 加完繁中標題與重點文字的成品，存 images/canva/ai-raw.webp 與 canva-final.webp，用 .result-compare 雙 figure。照上方 Step 1-3 實做一次即可產出 -->
+      <p>以下是這條流程的實際操作紀錄 — 主題是「糖尿病患者的日常血糖監測」衛教圖：</p>
+
+      <div class="result-compare">
+        <figure>
+          <img src="images/canva/gpt-copy.webp" alt="ChatGPT 對話截圖：貼上衛教單張文案 prompt 後，生成標題「量血糖，是認識身體的第一步」加四點條列（照醫囑量不必亂量、飯前飯後分開記、數字和狀況一起寫、太高太低先別慌）與就醫提醒" loading="lazy">
+          <figcaption><span class="tool-chatgpt">ChatGPT</span> 先生成短文案（用上方 prompt）</figcaption>
+        </figure>
+        <figure>
+          <img src="images/canva/gpt-image.webp" alt="ChatGPT 對話截圖：接著要求依文案生成 4:5 直式、莫蘭迪配色、每個重點留空白格的無文字衛教底圖，下方是生成的淡紫綠色底圖" loading="lazy">
+          <figcaption><span class="tool-chatgpt">ChatGPT</span> 再依文案生成無文字底圖</figcaption>
+        </figure>
+      </div>
+
+      <div class="result-compare">
+        <figure>
+          <img src="images/canva/canva-add-text.webp" alt="Canva 編輯畫面：AI 底圖已上傳為背景，用文字工具在每個空白格補上繁體中文重點，字型為清松手寫體" loading="lazy">
+          <figcaption>底圖下載後匯入 Canva，逐格補上繁體中文</figcaption>
+        </figure>
+      </div>
+
+      <p>前後對照 — 左邊是 AI 交出的無文字底圖，右邊是 Canva 加完字的成品：</p>
+
+      <div class="result-compare">
+        <figure>
+          <img src="images/canva/ai-raw.webp" alt="AI 生成的無文字衛教底圖原圖：淡紫奶油配色、上方橢圓標題框與五個內容框全部留白，每格左側配可愛插圖（血糖機、餐盤時鐘、筆記本、安心的病人、醫院電話）" loading="lazy">
+          <figcaption>AI 原圖 — 完全無文字，只有構圖與插圖</figcaption>
+        </figure>
+        <figure>
+          <img src="images/canva/canva-final.webp" alt="Canva 加字後的成品：標題「量血糖，是認識身體的第一步」，四行手寫體重點與底部就醫提醒文字，中文字型工整無錯字" loading="lazy">
+          <figcaption>Canva 成品 — 繁體中文精準疊上，零錯字</figcaption>
+        </figure>
+      </div>
     </section>
 
     <hr class="section-divider">
@@ -317,13 +367,25 @@
         <strong>列印前務必實測：</strong>QR code 縮太小或顏色太淺會掃不出來。印刷品上建議至少 2×2 公分、維持深色圖案配淺色底，並在送印前用自己的手機對著螢幕或試印稿實際掃一次確認。
       </div>
 
+      <div class="result-compare">
+        <figure>
+          <img src="images/canva/qr-app.webp" alt="Canva 的 QR code 應用程式面板：左側輸入網址與更新條碼按鈕，畫布上的衛教單張中央是選取中的 QR code 元素，可拖到角落調整大小" loading="lazy">
+          <figcaption>QR code 應用程式 — 輸入網址即生成，拖到版面角落調整</figcaption>
+        </figure>
+      </div>
+
       <h3>圖表 — 數據視覺化</h3>
       <p>要呈現數據（例如接種率變化、血糖目標區間）時，不用在 Excel 做圖再截圖 — 左側「元素」搜尋「圖表」，選長條圖或圓餅圖後直接在右側表格輸入數字，圖表即時更新，顏色也能配合整體版面調整。</p>
       <div class="box-tip">
         <strong>保守建議：</strong>衛教對象是一般民眾，圖表以「一張圖講一件事」為原則 — 長條圖比較數量、圓餅圖看占比，兩種就涵蓋絕大多數需求，複雜的統計圖形留給學術簡報。
       </div>
 
-      <!-- TODO(補圖)：放了 QR code 與圖表的衛教單張成品截圖（或 Canva 內圖表編輯畫面），存 images/canva/qr-chart.webp -->
+      <div class="result-compare">
+        <figure>
+          <img src="images/canva/chart-panel.webp" alt="Canva 圖表面板：左側選甜甜圈圖並在表格輸入各組數據，畫布上即時顯示對應比例的甜甜圈圖，顏色可配合版面調整" loading="lazy">
+          <figcaption>圖表面板 — 左側輸入數據，畫布即時更新</figcaption>
+        </figure>
+      </div>
     </section>
 
     <hr class="section-divider">
@@ -347,7 +409,12 @@
         <p style="margin-top: 0.5rem;">4:5 IG 模板 → 放入生成的插圖或圖示組 → 加金句標題 → 用「調整大小」功能一鍵複製成限時動態（9:16）版本，一次做兩種尺寸。</p>
       </div>
 
-      <!-- TODO(補圖)：情境 1 的完整衛教單張成品 1-2 張（可與 ai-integration 段的成品共用素材），存 images/canva/handout-example.webp -->
+      <div class="result-compare">
+        <figure>
+          <img src="images/canva/handout-example.webp" alt="完成的衛教單張成品：量血糖主題，標題加四大重點各配可愛插圖，右下角附 QR code 連到延伸資訊，底部是就醫提醒 — AI 底圖、Canva 繁中文字與 QR code 的完整組合" loading="lazy">
+          <figcaption>情境 1 的實際成品 — AI 底圖＋Canva 繁中字＋QR code</figcaption>
+        </figure>
+      </div>
     </section>
 
     <hr class="section-divider">
@@ -423,6 +490,31 @@
   </footer>
 
   <script>
+  (function () {
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<span class="lightbox-close">✕ 關閉</span><img alt=""><div class="lightbox-caption"></div>';
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img');
+    const lbCap = lb.querySelector('.lightbox-caption');
+    document.querySelectorAll('.result-compare figure').forEach(fig => {
+      fig.addEventListener('click', () => {
+        const img = fig.querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = fig.querySelector('figcaption').textContent;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    lb.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  })();
+
   function copyPrompt(btn) {
     const content = btn.parentElement;
     const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
