@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>口述筆記 — 講話直接變文字</title>
+  <meta name="description" content="口述筆記小工具 — 按下麥克風，講話即時轉成文字，一鍵複製交給 AI 整理。純網頁工具，不需帳號、不需安裝。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="口述筆記 — 講話直接變文字">
+  <meta property="og:description" content="按下麥克風，講話即時轉成文字，一鍵複製交給 AI 整理。純網頁工具，不需帳號、不需安裝。">
+  <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/voice-notes.html">
+  <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 本頁專用：口述筆記工具（doodle 風） */
+    .dictate-panel { background: white; border: var(--doodle-border); border-radius: var(--radius-sketch); padding: 1.5rem 2rem; margin: 1.5rem 0; }
+    .dictate-controls { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .mic-btn {
+      font-family: var(--font-hand);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: white;
+      background: var(--primary);
+      border: 3px solid var(--secondary);
+      border-radius: 999px;
+      padding: 0.7rem 1.8rem;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    .mic-btn:hover { transform: scale(1.03); }
+    .mic-btn:disabled { background: #9ca3af; cursor: not-allowed; transform: none; }
+    .mic-btn.listening { background: var(--danger); animation: mic-pulse 1.4s ease-in-out infinite; }
+    @keyframes mic-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.45); }
+      50% { box-shadow: 0 0 0 12px rgba(220, 38, 38, 0); }
+    }
+    .dictate-status { font-family: var(--font-hand); font-size: 1.05rem; color: var(--text-light); }
+    .dictate-status.on { color: var(--danger); font-weight: 700; }
+    .dictate-output {
+      width: 100%;
+      min-height: 11rem;
+      margin-top: 1.25rem;
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text);
+      background: var(--paper);
+      border: 2px solid var(--secondary);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      resize: vertical;
+    }
+    .dictate-output:focus { outline: 3px solid var(--primary); outline-offset: 1px; }
+    .dictate-interim { min-height: 1.6rem; margin-top: 0.4rem; font-size: 0.98rem; color: var(--text-light); font-style: italic; }
+    .dictate-actions { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.75rem; flex-wrap: wrap; }
+    .dictate-actions .tool-btn {
+      font-family: var(--font-hand);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--secondary);
+      background: white;
+      border: 2px solid var(--secondary);
+      border-radius: 8px;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+    }
+    .dictate-actions .tool-btn:hover { background: var(--paper); }
+    .dictate-count { font-size: 0.85rem; color: var(--text-light); margin-left: auto; }
+    .dictate-error { margin-top: 0.75rem; color: var(--danger); font-size: 0.95rem; display: none; }
+  </style>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L05KFZJS9L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L05KFZJS9L');
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="index.html#core">基礎必修</a>
+        <a href="index.html#create">創作應用</a>
+        <a href="index.html#advanced">進階實戰</a>
+        <a href="index.html#extras" class="active">番外工具</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">番外・小工具</div>
+    <h1>口述筆記</h1>
+    <p>按下麥克風開始講，文字即時出現，複製帶走</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <p>走廊上想到的點子、查完房想記的重點、演講前想順的稿 — 用講的比用打的快。這個工具使用瀏覽器內建的語音辨識（建議用 <strong>Chrome 或 Edge</strong>），按下麥克風即時把你說的話轉成文字，講完一鍵複製，貼給 ChatGPT／Gemini 整理成正式筆記。不需帳號、不需安裝，但<strong>需要網路連線</strong>。</p>
+
+    <div class="box-danger">
+      <strong>🔒 開口前先想一下：</strong>瀏覽器的語音辨識會把聲音傳到雲端伺服器運算（Chrome 傳給 Google），<strong>請勿口述病人姓名、病歷號等可識別資訊</strong> — 需要處理敏感錄音時，改用 <a href="ai-transcribe.html">語音轉文字</a> 頁介紹的本機離線工具。
+    </div>
+
+    <div class="dictate-panel">
+      <div class="dictate-controls">
+        <button id="mic-btn" class="mic-btn">🎙️ 開始口述</button>
+        <span id="status" class="dictate-status">待機中 — 按下按鈕並允許使用麥克風</span>
+      </div>
+      <textarea id="transcript" class="dictate-output" placeholder="你說的話會出現在這裡，轉完可以直接在框內修改…" aria-label="口述文字結果"></textarea>
+      <div id="interim" class="dictate-interim" aria-hidden="true"></div>
+      <div class="dictate-actions">
+        <button id="copy-btn" class="tool-btn">📋 複製全部</button>
+        <button id="clear-btn" class="tool-btn">🗑️ 清空</button>
+        <span id="char-count" class="dictate-count">0 字</span>
+      </div>
+      <div id="error-msg" class="dictate-error"></div>
+    </div>
+
+    <div class="box-tip">
+      <strong>它轉出來的字有兩個特性，屬正常現象：</strong>一是<strong>幾乎沒有標點符號</strong>，整段連在一起；二是專有名詞、藥名、中英夾雜容易辨識錯誤。都不用手動修 — 這個工具的定位是「快速抓下想法的草稿」，複製後交給 AI 整理（下方 Prompt），標點和通順度那一步會補好；只有<strong>專有名詞和數字</strong>需要你在 AI 整理後親自校對。
+    </div>
+
+    <h2>複製之後，交給 AI 整理</h2>
+    <p>把上面框裡的文字全選複製，貼進下面這段 Prompt 一起送給 ChatGPT／Gemini：</p>
+
+    <div class="prompt-block">
+      <div class="prompt-label">口述草稿 → 條列筆記</div>
+      <div class="prompt-content">以下是我用語音輸入的口述筆記，沒有標點、可能有同音錯字。請幫我：
+
+1. 加上標點、修正明顯的同音錯字，整理成通順的文字
+2. 依內容分段，整理成條列式筆記，重點在前
+3. 如果內容中有待辦事項，另外列一區「待辦」
+4. 專有名詞或藥名若你不確定我原意，保留原文並在後面標註【請確認】，不要自行猜測改寫
+
+口述內容：
+[貼上複製的文字]<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+    </div>
+
+    <p>更多整理逐字稿的 Prompt（會議紀錄、演講摘要），見 <a href="ai-transcribe.html#prompts">番外 — 語音轉文字</a>。</p>
+
+    <h2>常見問題</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <strong>❓ 按了沒反應</strong>
+        <p>確認瀏覽器是 Chrome 或 Edge（Firefox 不支援、Safari 支援度不穩定），且網址列跳出的麥克風權限詢問要按「允許」。</p>
+      </div>
+      <div class="card">
+        <strong>❓ 講到一半自動停了</strong>
+        <p>安靜幾秒後辨識引擎會自動斷線，本工具會自動重新連上 — 看到狀態仍是「聆聽中」就繼續講，中間漏掉一兩秒屬正常。</p>
+      </div>
+      <div class="card">
+        <strong>❓ 中文辨識得準嗎</strong>
+        <p>日常口語相當可用；醫學名詞和中英夾雜錯誤率較高。順序建議：先講完抓下大意，交給 AI 整理，最後只校對名詞和數字。</p>
+      </div>
+      <div class="card">
+        <strong>❓ 電腦很舊會不會跑不動</strong>
+        <p>不會。辨識在雲端伺服器運算，本機幾乎零負擔，老電腦也順 — 代價是斷網就不能用。</p>
+      </div>
+    </div>
+
+    <div class="box-success">
+      <strong>🎯 現在就做：</strong>按下麥克風，用 30 秒講出你今天想記住的三件事，複製後用上面的 Prompt 交給 ChatGPT 整理 — 對比一下：同樣內容用打字要花多久？
+    </div>
+
+    <!-- ─── Navigation ─── -->
+    <div class="nav-links">
+      <a href="ai-transcribe.html" class="nav-link">← 番外 — 語音轉文字</a>
+      <a href="index.html" class="nav-link">回目錄</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 衛生福利部台中醫院 感染科 曾婷玉醫師 — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function copyPrompt(btn) {
+    const content = btn.parentElement;
+    const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  // ─── 口述筆記（瀏覽器內建 Web Speech API，不連本站以外的自建伺服器）───
+  (function () {
+    const $ = id => document.getElementById(id);
+    const micBtn = $('mic-btn');
+    const statusEl = $('status');
+    const output = $('transcript');
+    const interimEl = $('interim');
+    const errorEl = $('error-msg');
+    const charCount = $('char-count');
+
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) {
+      micBtn.disabled = true;
+      statusEl.textContent = '此瀏覽器不支援語音辨識';
+      errorEl.style.display = 'block';
+      errorEl.textContent = '這個瀏覽器沒有內建語音辨識功能，請改用電腦版 Chrome 或 Edge 開啟本頁。';
+      return;
+    }
+
+    let listening = false;   // 使用者意圖：按下「開始」到按下「停止」之間為 true
+    let recognition = null;
+
+    function updateCount() {
+      charCount.textContent = output.value.length + ' 字';
+    }
+
+    function showError(msg) {
+      errorEl.style.display = 'block';
+      errorEl.textContent = msg;
+    }
+
+    function setListeningUI(on) {
+      micBtn.classList.toggle('listening', on);
+      micBtn.textContent = on ? '⏹️ 停止' : '🎙️ 開始口述';
+      statusEl.classList.toggle('on', on);
+      statusEl.textContent = on ? '🔴 聆聽中 — 對著麥克風說話' : '待機中 — 按下按鈕並允許使用麥克風';
+      if (!on) interimEl.textContent = '';
+    }
+
+    function createRecognition() {
+      const r = new SR();
+      r.lang = 'zh-TW';
+      r.continuous = true;
+      r.interimResults = true;
+
+      r.onresult = e => {
+        let interim = '';
+        for (let i = e.resultIndex; i < e.results.length; i++) {
+          const text = e.results[i][0].transcript;
+          if (e.results[i].isFinal) {
+            output.value += text;
+            updateCount();
+          } else {
+            interim += text;
+          }
+        }
+        interimEl.textContent = interim;
+        output.scrollTop = output.scrollHeight;
+      };
+
+      r.onerror = e => {
+        if (e.error === 'no-speech' || e.error === 'aborted') return; // 靜默逾時交給 onend 自動重連
+        listening = false;
+        setListeningUI(false);
+        const messages = {
+          'not-allowed': '麥克風權限被拒絕 — 請點網址列左側的鎖頭圖示，把麥克風改為「允許」後重試。',
+          'service-not-allowed': '瀏覽器不允許使用語音辨識服務，請改用電腦版 Chrome 或 Edge。',
+          'audio-capture': '找不到麥克風 — 請確認麥克風已接上且沒有被其他程式佔用。',
+          'network': '無法連上語音辨識服務 — 請確認網路連線正常，並使用 Chrome 或 Edge 開啟本頁。'
+        };
+        showError(messages[e.error] || '語音辨識發生錯誤（' + e.error + '），請重試一次。');
+      };
+
+      // 引擎在安靜幾秒後會自行結束；只要使用者沒按停止就自動重連
+      r.onend = () => {
+        if (listening) {
+          try { r.start(); } catch (_) { /* 已在啟動中則忽略 */ }
+        } else {
+          setListeningUI(false);
+        }
+      };
+
+      return r;
+    }
+
+    micBtn.addEventListener('click', () => {
+      if (listening) {
+        listening = false;
+        recognition.stop();
+        setListeningUI(false);
+        return;
+      }
+      errorEl.style.display = 'none';
+      recognition = createRecognition();
+      try {
+        recognition.start();
+        listening = true;
+        setListeningUI(true);
+      } catch (_) {
+        showError('無法啟動語音辨識，請重新整理頁面後再試。');
+      }
+    });
+
+    $('copy-btn').addEventListener('click', function () {
+      if (!output.value) return;
+      navigator.clipboard.writeText(output.value).then(() => {
+        this.textContent = '✓ 已複製';
+        setTimeout(() => { this.textContent = '📋 複製全部'; }, 2000);
+      });
+    });
+
+    $('clear-btn').addEventListener('click', () => {
+      output.value = '';
+      interimEl.textContent = '';
+      updateCount();
+    });
+
+    output.addEventListener('input', updateCount);
+  })();
+  </script>
+
+</body>
+</html>
