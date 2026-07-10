@@ -87,7 +87,7 @@ ai-workshop/
 - `.box-tip.page-summary` — 每個**教學頁** `<main>` 開頭的「📌 本頁重點」摘要框（這頁教什麼／適合誰／注意 三個 bullet，內容取自頁面實際章節；純工具頁不放，工具的 GEO 資訊由 JSON-LD WebApplication 承擔）
 - `.result-compare` — **本站圖片擺放的預設格式**（見下方「圖片擺放規範」）
 - `.site-header` — sticky header + 純 CSS 漢堡選單（checkbox hack）
-- `.site-footer` — footer 含 IG/GitHub SVG icon
+- `.site-footer` — footer 含 IG SVG icon（GitHub icon 於 2026-07-10 移除：作者 GitHub 有未完成專案，不適合作對外信任訊號）
 
 ### 圖片擺放規範（預設格式）
 
@@ -118,7 +118,7 @@ ai-workshop/
 - 閱讀鏈（底部 nav-links）：Part 1→2→3→4→5→6→7 → 番外 notebooklm → ai-transcribe → capcut → canva → github-pages → chrome-skills
 - 課程分區：基礎必修（基礎/文字/安全）、創作應用（圖像/影片/Flow）、進階實戰（Agent）、番外工具
 - **新增課程不要動 header** — 只加 index 卡片和串閱讀鏈
-- Footer：© TingYu's Deco — AI Workshop + IG + GitHub + 作品集（https://tingyudeco.com，外部連結）；當前頁 nav link 加 `.active`
+- Footer：官方署名 + `.footer-license` 授權句（連 about.html）+ IG + 作品集（https://tingyudeco.com，外部連結）；不放 GitHub（2026-07-10 移除）；當前頁 nav link 加 `.active`
 
 ## 新增頁面 SOP
 
