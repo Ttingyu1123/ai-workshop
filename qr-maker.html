@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code 產生器 — 貼上網址馬上有</title>
+  <meta name="description" content="QR Code 產生器小工具 — 貼上網址或文字，即時生成 QR Code，可下載 PNG。全程在瀏覽器內本機生成，內容不會上傳到任何伺服器，衛教單張、報名表單、投影片皆適用。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="QR Code 產生器 — 貼上網址馬上有">
+  <meta property="og:description" content="貼上網址或文字，即時生成 QR Code，可下載 PNG。全程在瀏覽器內本機生成，內容不上傳。">
+  <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/qr-maker.html">
+  <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 本頁專用：QR Code 產生器（doodle 風） */
+    .qr-panel { background: white; border: var(--doodle-border); border-radius: var(--radius-sketch); padding: 1.5rem 2rem; margin: 1.5rem 0; }
+    .qr-label { display: block; font-family: var(--font-hand); font-size: 1.15rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.5rem; }
+    .qr-textarea {
+      width: 100%;
+      box-sizing: border-box;
+      font-family: var(--font-body, inherit);
+      font-size: 1rem;
+      line-height: 1.6;
+      padding: 0.75rem 1rem;
+      border: 2px solid var(--secondary);
+      border-radius: 10px;
+      background: var(--paper);
+      resize: vertical;
+    }
+    .qr-textarea:focus { outline: none; border-color: var(--primary); background: white; }
+    .qr-charcount { font-size: 0.85rem; color: var(--text-light); margin-top: 0.4rem; }
+    .qr-warning { margin-top: 0.6rem; color: var(--warning); font-size: 0.92rem; font-weight: 600; display: none; }
+    .qr-options { display: flex; gap: 1.75rem; flex-wrap: wrap; margin-top: 1.1rem; align-items: center; }
+    .qr-options fieldset { border: none; padding: 0; margin: 0; display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+    .qr-options legend { float: left; font-family: var(--font-hand); font-size: 1.05rem; font-weight: 700; color: var(--secondary); margin-right: 0.2rem; }
+    .qr-options label { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.92rem; cursor: pointer; }
+    .qr-options input[type="radio"] { accent-color: var(--primary); width: 1rem; height: 1rem; }
+    .qr-preview { display: flex; justify-content: center; align-items: center; margin: 1.5rem 0; min-height: 120px; }
+    .qr-preview canvas { max-width: 100%; height: auto; border: 2px solid var(--secondary); border-radius: 8px; background: white; }
+    .qr-actions { display: flex; justify-content: center; }
+    .qr-actions .tool-btn {
+      font-family: var(--font-hand);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: white;
+      background: var(--primary);
+      border: 3px solid var(--secondary);
+      border-radius: 999px;
+      padding: 0.6rem 1.75rem;
+      cursor: pointer;
+    }
+    .qr-actions .tool-btn:hover { transform: scale(1.03); }
+    @media (max-width: 640px) {
+      .qr-panel { padding: 1.1rem 1rem; }
+    }
+  </style>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L05KFZJS9L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L05KFZJS9L');
+  </script>
+  <!-- QR Code 生成元件：僅載入函式庫，生成運算本身在本機瀏覽器內執行 -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="index.html#core">基礎必修</a>
+        <a href="index.html#create">創作應用</a>
+        <a href="index.html#advanced">進階實戰</a>
+        <a href="index.html#extras" class="active">番外工具</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">番外・小工具</div>
+    <h1>QR Code 產生器</h1>
+    <p>貼上網址或文字，即時生成，一鍵下載</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <p>衛教單張想附連結、課程報名表要放上投影片、名片想加聯絡資訊 — 這些場合都需要一個 QR Code。網路上多數線上工具要嘛塞滿廣告，要嘛要求註冊帳號才能下載高解析度圖檔。這個工具只做一件事：貼上內容、選好尺寸，馬上生成可下載的 QR Code，不需要帳號、不需要安裝任何軟體。</p>
+
+    <div class="box-tip">
+      <strong>🔒 內容不會離開你的電腦：</strong>QR Code 的生成運算全部在你的瀏覽器內完成，貼上的網址或文字<strong>不會上傳到任何伺服器</strong>。含個案資訊的內容也請留意 — 建議只放公開連結，不要把病人資料編進 QR Code 內容。
+    </div>
+
+    <div class="qr-panel">
+      <label for="qr-text" class="qr-label">輸入網址或文字：</label>
+      <textarea id="qr-text" class="qr-textarea" rows="4" placeholder="貼上網址，或想印在單張上的文字…">https://ttingyu1123.github.io/ai-workshop/</textarea>
+      <div id="qr-charcount" class="qr-charcount">0 字</div>
+      <div id="qr-warning" class="qr-warning">⚠️ 內容偏長，QR Code 的模塊會非常密，手機掃描容易失敗 — 建議改放縮短過的連結（例如用短網址服務）。</div>
+
+      <div class="qr-options">
+        <fieldset>
+          <legend>尺寸：</legend>
+          <label><input type="radio" name="qr-size" value="512" checked> 512px（螢幕顯示、投影片）</label>
+          <label><input type="radio" name="qr-size" value="1024"> 1024px（列印、海報）</label>
+        </fieldset>
+        <fieldset>
+          <legend>容錯等級：</legend>
+          <label><input type="radio" name="qr-ecc" value="M" checked> M（一般使用）</label>
+          <label><input type="radio" name="qr-ecc" value="H"> H（要印在單張上、可能折到弄髒選這個）</label>
+        </fieldset>
+      </div>
+
+      <div class="qr-preview">
+        <canvas id="qr-canvas" width="512" height="512" aria-label="QR Code 預覽"></canvas>
+      </div>
+
+      <div class="qr-actions">
+        <button id="qr-download" class="tool-btn">⬇️ 下載 PNG</button>
+      </div>
+
+    </div>
+
+    <h2>常見使用場景</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <strong>📋 衛教單張連結</strong>
+        <p>單張紙印不下完整的衛教內容，QR Code 掃了就能連到完整版網頁 — 版面不擠，資訊也不打折扣。</p>
+      </div>
+      <div class="card">
+        <strong>📝 Google 表單報名</strong>
+        <p>把課程報名表單網址轉成 QR Code，貼在公告欄或群組海報上，學員掃描即可直接填寫，不必手動輸入落落長的網址。</p>
+      </div>
+      <div class="card">
+        <strong>🖥️ 投影片最後一頁</strong>
+        <p>演講、實體課投影片的最後一頁放上主辦單位網站或問卷連結的 QR Code，聽眾拍照就能收藏，比口頭念網址有效得多。</p>
+      </div>
+      <div class="card">
+        <strong>💼 名片與聯絡資訊</strong>
+        <p>把個人網站、預約掛號連結，或本篇下方提到的 Wi-Fi 格式編成 QR Code，印在名片或診間牆上，來訪者掃描即可取得。</p>
+      </div>
+    </div>
+
+    <h2>常見問題</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <strong>❓ 掃不到怎麼辦</strong>
+        <p>優先檢查三件事：QR Code 與背景是否對比足夠（深色圖案配淺色底最穩，避免套用花俏色彩）；周圍是否留有足夠白邊（本工具已自動加上）；列印尺寸是否過小 — 手機鏡頭對太小的 QR Code 較難對焦，海報用途建議選 1024px 尺寸。</p>
+      </div>
+      <div class="card">
+        <strong>❓ 內容改了，QR Code 要重印嗎</strong>
+        <p>如果 QR Code 裡放的是網址（例如公告頁面連結），只要那個網頁本身的內容更新，QR Code 完全不必重印，掃描後看到的就是最新內容。但如果日後網址本身改變（例如換了網域），舊的 QR Code 就會失效，需要重新生成。</p>
+      </div>
+      <div class="card">
+        <strong>❓ 可以放 Wi-Fi 密碼嗎</strong>
+        <p>可以。在輸入框貼上這個格式：<code>WIFI:T:WPA;S:名稱;P:密碼;;</code>（把「名稱」「密碼」換成實際的 SSID 與密碼），大多數手機掃描後會直接提示連線，不必手動輸入。</p>
+      </div>
+    </div>
+
+    <div class="box-success">
+      <strong>🎯 現在就做：</strong>把你下一份衛教單張或報名表單的連結貼進上面的輸入框，選好尺寸與容錯等級後下載 PNG，直接插進 Word 或簡報裡試試看 — 用手機相機掃一次，確認真的能開啟正確的頁面。
+    </div>
+
+    <!-- ─── Navigation ─── -->
+    <div class="nav-links">
+      <a href="github-pages.html" class="nav-link">← 番外 — 用 GitHub Pages 架網站</a>
+      <a href="index.html" class="nav-link">回目錄 →</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 衛生福利部台中醫院 感染科 曾婷玉醫師 — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // ─── QR Code 產生器（qrcode-generator 本機渲染，內容不上傳）───
+  (function () {
+    const $ = id => document.getElementById(id);
+    const textEl = $('qr-text');
+    const charEl = $('qr-charcount');
+    const warnEl = $('qr-warning');
+    const canvasEl = $('qr-canvas');
+    const downloadBtn = $('qr-download');
+
+    const QUIET_MODULES = 4;   // 白邊留白寬度（QR 模塊數），規格最低要求即為 4
+    const WARN_LONG = '⚠️ 內容偏長，QR Code 的模塊會非常密，手機掃描容易失敗 — 建議改放縮短過的連結（例如用短網址服務）。';
+    let debounceTimer = null;
+
+    function opt(name) {
+      const el = document.querySelector('input[name="' + name + '"]:checked');
+      return el ? el.value : null;
+    }
+
+    function updateCharCount() {
+      const len = textEl.value.length;
+      charEl.textContent = len + ' 字';
+      warnEl.textContent = WARN_LONG;
+      warnEl.style.display = len > 500 ? 'block' : 'none';
+    }
+
+    function render() {
+      const text = textEl.value.trim();
+      const size = parseInt(opt('qr-size'), 10) || 512;
+      const ecc = opt('qr-ecc') || 'M';
+
+      if (!window.qrcode) {
+        return; // 函式庫還在載入中，load 事件會再呼叫一次
+      }
+
+      const ctx = canvasEl.getContext('2d');
+      if (!text) {
+        canvasEl.width = size;
+        canvasEl.height = size;
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, size, size);
+        return;
+      }
+
+      let qr;
+      try {
+        qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8']; // 中文等多位元組字元必須用 UTF-8 編碼
+        qr = qrcode(0, ecc);      // 型號 0 = 依內容長度自動選擇
+        qr.addData(text, 'Byte');
+        qr.make();
+      } catch (_) {
+        warnEl.textContent = '⚠️ 內容太長，超過 QR Code 的容量上限 — 請縮短內容，或只放連結。';
+        warnEl.style.display = 'block';
+        return;
+      }
+
+      // 逐模塊繪製：cell 取整數像素避免縫隙，四周留 QUIET_MODULES 格白邊
+      const count = qr.getModuleCount();
+      const cell = Math.max(1, Math.floor(size / (count + QUIET_MODULES * 2)));
+      const finalSize = cell * (count + QUIET_MODULES * 2);
+      canvasEl.width = finalSize;
+      canvasEl.height = finalSize;
+      const fctx = canvasEl.getContext('2d');
+      fctx.fillStyle = '#ffffff';
+      fctx.fillRect(0, 0, finalSize, finalSize);
+      fctx.fillStyle = '#000000';
+      for (let r = 0; r < count; r++) {
+        for (let c = 0; c < count; c++) {
+          if (qr.isDark(r, c)) {
+            fctx.fillRect((c + QUIET_MODULES) * cell, (r + QUIET_MODULES) * cell, cell, cell);
+          }
+        }
+      }
+    }
+
+    function scheduleRender() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(render, 300);
+    }
+
+    textEl.addEventListener('input', () => {
+      updateCharCount();
+      scheduleRender();
+    });
+    document.querySelectorAll('input[name="qr-size"], input[name="qr-ecc"]').forEach(el => {
+      el.addEventListener('change', render);
+    });
+
+    downloadBtn.addEventListener('click', () => {
+      const a = document.createElement('a');
+      a.href = canvasEl.toDataURL('image/png');
+      a.download = 'qrcode.png';
+      a.click();
+    });
+
+    updateCharCount();
+    // 函式庫是 defer 載入，等待其就緒後再生成初始畫面
+    if (window.qrcode) {
+      render();
+    } else {
+      window.addEventListener('load', render);
+    }
+  })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>批次加浮水印 — 衛教圖一次署名</title>
+  <meta name="description" content="批次加浮水印小工具 — 拖入多張圖片，統一加上署名文字，一鍵打包下載。全程在瀏覽器內處理，檔案不上傳，適合衛教圖發布前的自我保護。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="批次加浮水印 — 衛教圖一次署名">
+  <meta property="og:description" content="拖入多張圖片，統一加上署名文字，一鍵打包下載。全程在瀏覽器內處理，檔案不上傳。">
+  <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/watermark.html">
+  <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 本頁專用：批次加浮水印工具（doodle 風） */
+    .wm-panel { background: white; border: var(--doodle-border); border-radius: var(--radius-sketch); padding: 1.5rem 2rem; margin: 1.5rem 0; }
+    .drop-zone {
+      border: 3px dashed var(--secondary);
+      border-radius: var(--radius-sketch);
+      background: var(--paper);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .drop-zone:hover, .drop-zone.dragover { background: #eaf6fc; border-color: var(--primary); }
+    .drop-zone .dz-icon { font-size: 2.4rem; display: block; margin-bottom: 0.5rem; }
+    .drop-zone .dz-main { font-family: var(--font-hand); font-size: 1.35rem; font-weight: 700; color: var(--secondary); }
+    .drop-zone .dz-sub { font-size: 0.9rem; color: var(--text-light); margin-top: 0.35rem; }
+    .wm-options { display: flex; gap: 1.75rem; flex-wrap: wrap; margin-top: 1.1rem; align-items: center; }
+    .wm-options fieldset { border: none; padding: 0; margin: 0; display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+    .wm-options legend { float: left; font-family: var(--font-hand); font-size: 1.05rem; font-weight: 700; color: var(--secondary); margin-right: 0.2rem; }
+    .wm-options label { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.92rem; cursor: pointer; }
+    .wm-options input[type="radio"] { accent-color: var(--primary); width: 1rem; height: 1rem; }
+    .wm-options input[type="text"] {
+      font-family: var(--font-hand);
+      font-size: 1.05rem;
+      padding: 0.4rem 0.75rem;
+      border: 2px solid var(--secondary);
+      border-radius: 8px;
+      min-width: 280px;
+      flex: 1;
+    }
+    #opt-text { width: 100%; }
+    .wm-preview-wrap { margin-top: 1.25rem; text-align: center; display: none; }
+    .wm-preview-label { font-family: var(--font-hand); font-size: 1rem; color: var(--text-light); margin-bottom: 0.5rem; }
+    .wm-preview-wrap canvas {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid var(--secondary);
+      border-radius: 8px;
+      background:
+        linear-gradient(45deg, #e5e7eb 25%, transparent 25%, transparent 75%, #e5e7eb 75%, #e5e7eb),
+        linear-gradient(45deg, #e5e7eb 25%, #f9fafb 25%, #f9fafb 75%, #e5e7eb 75%, #e5e7eb);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
+    }
+    .wm-status { margin-top: 1rem; font-family: var(--font-hand); font-size: 1.1rem; color: var(--text-light); min-height: 1.6rem; }
+    .wm-status.busy { color: var(--primary); font-weight: 700; }
+    .wm-error { margin-top: 0.75rem; color: var(--danger); font-size: 0.95rem; display: none; }
+    .wm-actions { display: none; align-items: center; gap: 0.75rem; margin-top: 1.1rem; flex-wrap: wrap; }
+    .wm-actions .tool-btn {
+      font-family: var(--font-hand);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: white;
+      background: var(--primary);
+      border: 3px solid var(--secondary);
+      border-radius: 999px;
+      padding: 0.55rem 1.5rem;
+      cursor: pointer;
+    }
+    .wm-actions .tool-btn:hover { transform: scale(1.03); }
+    .wm-actions .tool-btn:disabled { background: #9ca3af; cursor: not-allowed; transform: none; }
+    .wm-total { font-size: 0.85rem; color: var(--text-light); margin-left: auto; }
+    .wm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+    .wm-card { background: var(--paper); border: 2px solid var(--secondary); border-radius: 8px; padding: 0.5rem; text-align: center; }
+    .wm-card img { width: 100%; height: auto; display: block; border: 1px solid #d1d5db; background: white; border-radius: 4px; }
+    .wm-card .wm-meta { font-size: 0.8rem; color: var(--text-light); margin: 0.4rem 0 0.3rem; word-break: break-all; }
+    .wm-card .wm-dl {
+      font-family: var(--font-hand);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--secondary);
+      background: white;
+      border: 2px solid var(--secondary);
+      border-radius: 6px;
+      padding: 0.15rem 0.7rem;
+      cursor: pointer;
+    }
+    .wm-card .wm-dl:hover { background: #eaf6fc; }
+    @media (max-width: 640px) {
+      .wm-panel { padding: 1.1rem 1rem; }
+      .wm-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+      .wm-options input[type="text"] { min-width: 0; width: 100%; }
+    }
+  </style>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L05KFZJS9L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L05KFZJS9L');
+  </script>
+  <!-- ZIP 打包：轉換元件從 CDN 載入，繪製運算本身仍全在本機瀏覽器內執行 -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="index.html#core">基礎必修</a>
+        <a href="index.html#create">創作應用</a>
+        <a href="index.html#advanced">進階實戰</a>
+        <a href="index.html#extras" class="active">番外工具</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">番外・小工具</div>
+    <h1>批次加浮水印</h1>
+    <p>多張圖片一次加上署名文字，本機處理不上傳</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <p>衛教圖做好上傳社群後，很快就會被轉傳、截圖、去背再利用——出處往往在流傳過程中消失，甚至被冠上別人的名字。在圖片角落加上一行淡淡的署名文字，是低成本卻有效的自我保護：即使圖片被複製到其他管道，出處仍清楚可見。這個工具讓你一次替多張圖片加上同一段署名，設定好樣式套用到全部圖片後，打包下載。</p>
+
+    <div class="box-success">
+      <strong>🔒 圖片不會離開你的電腦：</strong>所有繪製運算都在瀏覽器內完成，圖片檔案<strong>不會上傳到任何伺服器</strong>。含個案資訊的圖片，下載後仍請依原始保密層級管理。
+    </div>
+
+    <div class="wm-panel">
+      <div id="drop-zone" class="drop-zone" role="button" tabindex="0" aria-label="選擇或拖放圖片檔案">
+        <span class="dz-icon">🖼️➜✍️</span>
+        <span class="dz-main">點一下選擇圖片，或直接把檔案拖進來</span>
+        <div class="dz-sub">可一次選取多張・支援 jpg／png／webp・檔案不會上傳</div>
+      </div>
+      <input type="file" id="file-input" accept="image/png,image/jpeg,image/webp,.png,.jpg,.jpeg,.webp" multiple style="display:none" aria-label="選擇圖片檔案">
+
+      <div class="wm-options">
+        <fieldset id="opt-text">
+          <legend>署名文字：</legend>
+          <input type="text" id="wm-text" value="© 姓名／單位" placeholder="換成你自己的署名，例如：© 台中醫院 感染科 曾婷玉醫師" aria-label="浮水印文字">
+        </fieldset>
+      </div>
+
+      <div class="wm-options">
+        <fieldset id="opt-position">
+          <legend>位置：</legend>
+          <label><input type="radio" name="position" value="bottom-right" checked> 右下</label>
+          <label><input type="radio" name="position" value="bottom-left"> 左下</label>
+          <label><input type="radio" name="position" value="top-right"> 右上</label>
+          <label><input type="radio" name="position" value="top-left"> 左上</label>
+          <label><input type="radio" name="position" value="center"> 置中</label>
+        </fieldset>
+        <fieldset id="opt-size">
+          <legend>大小：</legend>
+          <label><input type="radio" name="size" value="small"> 小</label>
+          <label><input type="radio" name="size" value="medium" checked> 中</label>
+          <label><input type="radio" name="size" value="large"> 大</label>
+        </fieldset>
+        <fieldset id="opt-color">
+          <legend>顏色：</legend>
+          <label><input type="radio" name="color" value="white" checked> 白</label>
+          <label><input type="radio" name="color" value="black"> 黑</label>
+        </fieldset>
+        <fieldset id="opt-opacity">
+          <legend>透明度：</legend>
+          <label><input type="radio" name="opacity" value="1"> 100%</label>
+          <label><input type="radio" name="opacity" value="0.7" checked> 70%</label>
+          <label><input type="radio" name="opacity" value="0.45"> 45%</label>
+        </fieldset>
+      </div>
+
+      <div id="preview-wrap" class="wm-preview-wrap">
+        <div class="wm-preview-label">預覽（第一張圖片・調整設定會即時更新）</div>
+        <canvas id="preview-canvas"></canvas>
+      </div>
+
+      <div id="status" class="wm-status">等待圖片 — 選好圖片就能預覽與套用署名</div>
+      <div id="error-msg" class="wm-error"></div>
+
+      <div id="actions" class="wm-actions">
+        <button id="apply-btn" class="tool-btn">✍️ 套用到全部</button>
+        <button id="zip-btn" class="tool-btn" style="display:none">📦 打包下載全部（ZIP）</button>
+        <span id="total-info" class="wm-total"></span>
+      </div>
+
+      <div id="result-grid" class="wm-grid"></div>
+    </div>
+
+    <div class="box-tip">
+      <strong>💡 浮水印防的是什麼：</strong>這個功能能防止的是隨手轉傳時遺失出處——圖片被分享到其他群組或帳號，角落的署名仍會留著。它防不了刻意裁切浮水印的行為；若圖片內容重要、擔心被裁切移除，建議改選較大字級、較淡的透明度，並把位置改成置中，讓文字覆蓋在畫面主體上，裁切後就難以再利用。
+    </div>
+
+    <h2>常見問題</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <strong>❓ 浮水印會不會擋住重要內容</strong>
+        <p>預設放在角落、大小抓在圖寬的 4% 左右，通常不影響閱讀。若圖片邊角本身有重要資訊，可以改選「置中」並調高透明度，觀察預覽再決定。</p>
+      </div>
+      <div class="card">
+        <strong>❓ 一次能處理幾張圖片</strong>
+        <p>沒有固定張數限制，實際上限取決於瀏覽器記憶體與圖片檔案大小。一次處理數十張教學海報通常沒有問題，圖片解析度很高時建議分批處理。</p>
+      </div>
+      <div class="card">
+        <strong>❓ 加浮水印會不會讓圖片變模糊</strong>
+        <p>不會，工具只在原圖上疊加文字，圖片本身的解析度與畫質不會被壓縮或縮小。輸出的 JPG 品質固定在 0.92，是接近無感的壓縮程度。</p>
+      </div>
+    </div>
+
+    <div class="box-success">
+      <strong>🎯 現在就做：</strong>找 3-5 張已經做好、還沒發佈的衛教圖拖進上面的框，填入自己的署名，套用到全部後打包下載——之後每一批要發佈的圖片，都先經過這一步再上傳。
+    </div>
+
+    <!-- ─── Navigation ─── -->
+    <div class="nav-links">
+      <a href="ai-image.html" class="nav-link">← Part 4 — AI 圖像生成</a>
+      <a href="canva.html" class="nav-link">番外 — Canva 設計入門 →</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 衛生福利部台中醫院 感染科 曾婷玉醫師 — AI Workshop</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // ─── 批次加浮水印（canvas 本機繪製，檔案不上傳）───
+  (function () {
+    const $ = id => document.getElementById(id);
+    const dropZone = $('drop-zone');
+    const fileInput = $('file-input');
+    const textInput = $('wm-text');
+    const statusEl = $('status');
+    const errorEl = $('error-msg');
+    const actionsEl = $('actions');
+    const applyBtn = $('apply-btn');
+    const zipBtn = $('zip-btn');
+    const totalEl = $('total-info');
+    const previewWrap = $('preview-wrap');
+    const previewCanvas = $('preview-canvas');
+    const gridEl = $('result-grid');
+
+    const FONT = "'LXGW WenKai TC'";
+    const SIZE_RATIO = { small: 0.025, medium: 0.04, large: 0.06 };
+
+    let sources = [];    // { file, img, url }
+    let results = [];    // { blob, url, name }
+    let fontReady = false;
+    let processing = false;
+
+    function opt(name) {
+      const el = document.querySelector('input[name="' + name + '"]:checked');
+      return el ? el.value : '';
+    }
+
+    function showError(msg) {
+      errorEl.style.display = 'block';
+      errorEl.textContent = msg;
+    }
+    function clearError() {
+      errorEl.style.display = 'none';
+      errorEl.textContent = '';
+    }
+    function setStatus(msg, busy) {
+      statusEl.textContent = msg;
+      statusEl.classList.toggle('busy', !!busy);
+    }
+    function fmtSize(bytes) {
+      return bytes >= 1048576 ? (bytes / 1048576).toFixed(1) + ' MB' : Math.round(bytes / 1024) + ' KB';
+    }
+
+    async function ensureFont() {
+      if (fontReady) return;
+      try {
+        await document.fonts.load("700 32px " + FONT);
+        await document.fonts.ready;
+      } catch (_) { /* 字型載入失敗仍可用系統字型繼續畫，不中斷流程 */ }
+      fontReady = true;
+    }
+
+    function currentSettings() {
+      return {
+        text: textInput.value.trim() || '© 姓名／單位',
+        position: opt('position') || 'bottom-right',
+        size: SIZE_RATIO[opt('size')] ? opt('size') : 'medium',
+        color: opt('color') || 'white',
+        opacity: parseFloat(opt('opacity') || '0.7')
+      };
+    }
+
+    function drawWatermark(ctx, w, h, s) {
+      const fontPx = Math.max(14, Math.round(w * SIZE_RATIO[s.size]));
+      const margin = Math.round(fontPx * 0.8);
+      ctx.save();
+      ctx.font = '700 ' + fontPx + 'px ' + FONT + ', sans-serif';
+      ctx.globalAlpha = s.opacity;
+      ctx.lineJoin = 'round';
+      ctx.lineWidth = Math.max(2, Math.round(fontPx * 0.08));
+
+      let x, y;
+      switch (s.position) {
+        case 'bottom-left':
+          ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
+          x = margin; y = h - margin; break;
+        case 'top-right':
+          ctx.textAlign = 'right'; ctx.textBaseline = 'top';
+          x = w - margin; y = margin; break;
+        case 'top-left':
+          ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+          x = margin; y = margin; break;
+        case 'center':
+          ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+          x = w / 2; y = h / 2; break;
+        default: // bottom-right
+          ctx.textAlign = 'right'; ctx.textBaseline = 'bottom';
+          x = w - margin; y = h - margin;
+      }
+
+      if (s.color === 'black') {
+        ctx.strokeStyle = 'rgba(255,255,255,0.65)';
+        ctx.fillStyle = '#111111';
+      } else {
+        ctx.strokeStyle = 'rgba(0,0,0,0.55)';
+        ctx.fillStyle = '#ffffff';
+      }
+      ctx.strokeText(s.text, x, y);
+      ctx.fillText(s.text, x, y);
+      ctx.restore();
+    }
+
+    async function drawPreview() {
+      if (!sources.length) return;
+      await ensureFont();
+      const img = sources[0].img;
+      previewCanvas.width = img.naturalWidth;
+      previewCanvas.height = img.naturalHeight;
+      const ctx = previewCanvas.getContext('2d');
+      ctx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
+      ctx.drawImage(img, 0, 0);
+      drawWatermark(ctx, previewCanvas.width, previewCanvas.height, currentSettings());
+    }
+
+    function resetResults() {
+      results.forEach(r => URL.revokeObjectURL(r.url));
+      results = [];
+      gridEl.innerHTML = '';
+      totalEl.textContent = '';
+      zipBtn.style.display = 'none';
+    }
+
+    function resetSources() {
+      sources.forEach(s => URL.revokeObjectURL(s.url));
+      sources = [];
+      resetResults();
+      previewWrap.style.display = 'none';
+      actionsEl.style.display = 'none';
+    }
+
+    function loadImageFile(file) {
+      return new Promise((resolve, reject) => {
+        const url = URL.createObjectURL(file);
+        const img = new Image();
+        img.onload = () => resolve({ file, img, url });
+        img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('load-failed')); };
+        img.src = url;
+      });
+    }
+
+    async function pickFiles(fileList) {
+      const files = Array.from(fileList || []).filter(f =>
+        /^image\/(png|jpeg|webp)$/.test(f.type) || /\.(jpe?g|png|webp)$/i.test(f.name)
+      );
+      if (!files.length) {
+        showError('請選擇圖片檔案（jpg／png／webp）。');
+        return;
+      }
+      clearError();
+      resetSources();
+      setStatus('讀取圖片中…', true);
+      try {
+        sources = await Promise.all(files.map(loadImageFile));
+      } catch (_) {
+        setStatus('讀取失敗', false);
+        showError('有圖片讀取失敗，請確認檔案未損壞後重新選擇。');
+        return;
+      }
+      previewWrap.style.display = 'block';
+      actionsEl.style.display = 'flex';
+      setStatus('已選 ' + sources.length + ' 張圖片 — 調整上方設定即時預覽，滿意後按「套用到全部」', false);
+      drawPreview();
+    }
+
+    function outputSpec(file) {
+      const dot = file.name.lastIndexOf('.');
+      const base = dot > 0 ? file.name.slice(0, dot) : file.name;
+      const ext = (dot > 0 ? file.name.slice(dot + 1) : '').toLowerCase();
+      const isJpg = ext === 'jpg' || ext === 'jpeg' || file.type === 'image/jpeg';
+      return {
+        isJpg: isJpg,
+        mime: isJpg ? 'image/jpeg' : 'image/png',
+        name: base + '-署名.' + (isJpg ? 'jpg' : 'png')
+      };
+    }
+
+    function appendCard(idx) {
+      const r = results[idx];
+      const card = document.createElement('div');
+      card.className = 'wm-card';
+      const img = document.createElement('img');
+      img.src = r.url;
+      img.alt = r.name + ' 加署名後的預覽';
+      img.loading = 'lazy';
+      const meta = document.createElement('div');
+      meta.className = 'wm-meta';
+      meta.textContent = r.name + '・' + fmtSize(r.blob.size);
+      const btn = document.createElement('button');
+      btn.className = 'wm-dl';
+      btn.textContent = '⬇ 下載這張';
+      btn.addEventListener('click', () => {
+        const a = document.createElement('a');
+        a.href = r.url;
+        a.download = r.name;
+        a.click();
+      });
+      card.append(img, meta, btn);
+      gridEl.appendChild(card);
+    }
+
+    async function applyAll() {
+      if (!sources.length || processing) return;
+      processing = true;
+      applyBtn.disabled = true;
+      clearError();
+      resetResults();
+      await ensureFont();
+      const s = currentSettings();
+
+      for (let i = 0; i < sources.length; i++) {
+        setStatus('套用署名中 — 第 ' + (i + 1) + ' / ' + sources.length + ' 張…', true);
+        const item = sources[i];
+        const spec = outputSpec(item.file);
+        const canvas = document.createElement('canvas');
+        canvas.width = item.img.naturalWidth;
+        canvas.height = item.img.naturalHeight;
+        const ctx = canvas.getContext('2d');
+        if (spec.isJpg) {
+          ctx.fillStyle = '#ffffff';       // JPG 不支援透明，先鋪白底避免預設黑底
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+        ctx.drawImage(item.img, 0, 0);
+        drawWatermark(ctx, canvas.width, canvas.height, s);
+
+        const blob = await new Promise(res => canvas.toBlob(res, spec.mime, 0.92));
+        canvas.width = canvas.height = 0;   // 立即釋放點陣記憶體，多張大圖才不會爆
+        if (!blob) continue;
+
+        const url = URL.createObjectURL(blob);
+        results.push({ blob, url, name: spec.name });
+        appendCard(results.length - 1);
+      }
+
+      const totalBytes = results.reduce((sum, r) => sum + r.blob.size, 0);
+      totalEl.textContent = results.length + ' 張・共 ' + fmtSize(totalBytes);
+      zipBtn.style.display = results.length ? 'inline-block' : 'none';
+      if (results.length) {
+        setStatus('✅ 完成 — 共 ' + results.length + ' 張，可單張下載或打包 ZIP', false);
+      } else {
+        setStatus('沒有產生任何結果，請重新選擇圖片再試一次', false);
+      }
+      applyBtn.disabled = false;
+      processing = false;
+    }
+
+    zipBtn.addEventListener('click', async () => {
+      if (!results.length || !window.JSZip) return;
+      zipBtn.disabled = true;
+      zipBtn.textContent = '📦 打包中…';
+      try {
+        const zip = new JSZip();
+        results.forEach(r => zip.file(r.name, r.blob));
+        const blob = await zip.generateAsync({ type: 'blob' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = '浮水印圖片.zip';
+        a.click();
+        URL.revokeObjectURL(a.href);
+      } catch (_) {
+        showError('打包失敗 — 圖片仍可逐張下載。');
+      } finally {
+        zipBtn.disabled = false;
+        zipBtn.textContent = '📦 打包下載全部（ZIP）';
+      }
+    });
+
+    applyBtn.addEventListener('click', applyAll);
+
+    ['position', 'size', 'color', 'opacity'].forEach(name => {
+      document.querySelectorAll('input[name="' + name + '"]').forEach(el => {
+        el.addEventListener('change', drawPreview);
+      });
+    });
+    textInput.addEventListener('input', drawPreview);
+
+    dropZone.addEventListener('click', () => fileInput.click());
+    dropZone.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); }
+    });
+    fileInput.addEventListener('change', () => {
+      pickFiles(fileInput.files);
+      fileInput.value = '';             // 同一批檔案再選一次也要能觸發 change
+    });
+    ['dragover', 'dragenter'].forEach(ev => dropZone.addEventListener(ev, e => {
+      e.preventDefault();
+      dropZone.classList.add('dragover');
+    }));
+    ['dragleave', 'drop'].forEach(ev => dropZone.addEventListener(ev, e => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+    }));
+    dropZone.addEventListener('drop', e => pickFiles(e.dataTransfer.files));
+  })();
+  </script>
+
+</body>
+</html>

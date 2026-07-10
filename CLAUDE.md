@@ -31,6 +31,10 @@ ai-workshop/
 ├── chrome-skills.html  # 番外 — Chrome Skills（Gemini in Chrome 存 prompt 成快捷鍵；純文字教學＋9 個醫療 Skills 範本，圖待補）
 ├── voice-notes.html    # 番外 — 口述筆記小工具（Web Speech API 即時聽寫，純前端零依賴；限 Chrome/Edge、辨識走雲端非離線，頁內已標示勿口述病人資料）
 ├── pdf-to-images.html  # 番外 — PDF 轉圖檔小工具（pdf.js + JSZip 皆 cdnjs 載入，轉換全在本機、檔案不上傳；NotebookLM 簡報→Canva 產線的中繼站）
+├── redact-image.html   # 番外 — 圖片去識別化小工具（canvas 框選塗黑/馬賽克，零依賴；給 AI 看截圖前先遮病人資料，與 ai-safety 呼應）
+├── image-resize.html   # 番外 — 圖片壓縮與轉檔小工具（canvas 批次縮圖/轉格式＋heic2any 轉 HEIC＋JSZip 打包；重編碼順帶清 EXIF/GPS）
+├── qr-maker.html       # 番外 — QR Code 產生器（qrcode-generator cdnjs 載入，本機生成；勿用 qrcodejs——中文 UTF-8 會 code length overflow，2026-07 踩過）
+├── watermark.html      # 番外 — 批次加浮水印小工具（canvas 疊署名文字＋JSZip 打包；canvas 用 LXGW 字型前必須 await document.fonts）
 ├── images/<頁名>/       # 內文圖片，一頁一資料夾（規格見「圖片擺放規範」）；ai-image/ = Part 4 對比圖（來源 PNG 在 Downloads\教學素材）
 ├── sitemap.xml         # 新增頁面時記得加一條
 ├── robots.txt
