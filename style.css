@@ -731,6 +731,23 @@ td {
   color: var(--text-light);
 }
 
+.footer-license {
+  flex-basis: 100%;
+  order: 3;
+  font-family: var(--font-hand);
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.footer-license a {
+  color: var(--text-light);
+  text-decoration: underline;
+}
+
+.footer-license a:hover {
+  color: var(--primary);
+}
+
 .footer-links {
   display: flex;
   align-items: center;
@@ -876,7 +893,7 @@ td {
 
   /* 每頁紙底部的版權宣告（position:fixed 在列印時會出現在每一頁） */
   body::after {
-    content: "© 2026 衛生福利部台中醫院 感染科 曾婷玉醫師 — AI Workshop";
+    content: "© 2026 衛生福利部台中醫院 感染科 曾婷玉醫師 — AI Workshop・教材授權 CC BY-NC-SA 4.0";
     position: fixed;
     bottom: 0;
     left: 0;

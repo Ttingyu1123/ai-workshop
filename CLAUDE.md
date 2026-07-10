@@ -35,6 +35,7 @@ ai-workshop/
 ├── image-resize.html   # 番外 — 圖片壓縮與轉檔小工具（canvas 批次縮圖/轉格式＋heic2any 轉 HEIC＋JSZip 打包；重編碼順帶清 EXIF/GPS）
 ├── qr-maker.html       # 番外 — QR Code 產生器（qrcode-generator cdnjs 載入，本機生成；勿用 qrcodejs——中文 UTF-8 會 code length overflow，2026-07 踩過）
 ├── watermark.html      # 番外 — 批次加浮水印小工具（canvas 疊署名文字＋JSZip 打包；canvas 用 LXGW 字型前必須 await document.fonts）
+├── about.html          # 關於本站與授權（作者介紹＋使用聲明＋CC BY-NC-SA 4.0 條款＋引用格式；只從 footer 連入，不進 header/index 卡片）
 ├── images/<頁名>/       # 內文圖片，一頁一資料夾（規格見「圖片擺放規範」）；ai-image/ = Part 4 對比圖（來源 PNG 在 Downloads\教學素材）
 ├── sitemap.xml         # 新增頁面時記得加一條
 ├── robots.txt
@@ -83,6 +84,7 @@ ai-workshop/
 - `.analogy` — 醫學類比框
 - `.box-tip` / `.box-danger` / `.box-success` — 提示框
 - `.box-success` 小任務框 — 每個課程頁底部 nav-links 前有一個「🎯 現在就做」5-15 分鐘實作任務（新頁面必加）
+- `.box-tip.page-summary` — 每個**教學頁** `<main>` 開頭的「📌 本頁重點」摘要框（這頁教什麼／適合誰／注意 三個 bullet，內容取自頁面實際章節；純工具頁不放，工具的 GEO 資訊由 JSON-LD WebApplication 承擔）
 - `.result-compare` — **本站圖片擺放的預設格式**（見下方「圖片擺放規範」）
 - `.site-header` — sticky header + 純 CSS 漢堡選單（checkbox hack）
 - `.site-footer` — footer 含 IG/GitHub SVG icon
@@ -121,10 +123,10 @@ ai-workshop/
 ## 新增頁面 SOP
 
 1. 複製 google-flow.html 作模板（骨架最標準）
-2. 更新 `<title>` / `<meta description>` / og 四項（og:url 指向新頁）/ hero badge / h1
+2. 更新 `<title>` / `<meta description>` / og 四項（og:url 指向新頁）/ hero badge / h1；同步更新 SEO 標記：`rel="canonical"`（與 og:url 同值）與 JSON-LD 的 name/description/url（`@type`：教學頁 `LearningResource`、純工具頁 `WebApplication`；author/license 照抄模板不動）
 3. header nav **不要動連結清單**，只把自己所屬分區標 `.active`（分區歸屬見「導航結構」）
 4. 更新 TOC；底部 nav-links 串進閱讀鏈（同時要改前一頁的「下一課」連結）
-5. nav-links 前加一個 `.box-success`「🎯 現在就做」小任務框（5-15 分鐘可完成的實作）
+5. nav-links 前加一個 `.box-success`「🎯 現在就做」小任務框（5-15 分鐘可完成的實作）；教學頁另在 `<main>` 開頭加 `.box-tip.page-summary`「📌 本頁重點」摘要框（見「元件」）
 6. 確認 `</head>` 前有 GA4 snippet（G-L05KFZJS9L，從模板複製就會帶到）
 7. 在 index.html 對應分區加課程卡片；sitemap.xml 補一條
 8. 含方案/價格/額度的內容：表格上方加「📅 資訊更新於 YYYY 年 M 月 — 以官方公告為準」；查證不到的數字寫保守描述，不編數字
@@ -156,6 +158,7 @@ ai-workshop/
 ## 注意事項
 
 - **官方署名**：衛生福利部台中醫院 感染科 曾婷玉醫師（螢幕 footer 與列印版權行都用這個，不放 IG/GitHub/個人網站）。列印（Ctrl+P）時每頁自動帶版權 footer 與淡浮水印（style.css `@media print` 的 `body::before/::after`），螢幕上不顯示；改署名時螢幕 footer（各頁 HTML）和 print（style.css）兩處都要改
+- **授權條款**：全站教材採 **CC BY-NC-SA 4.0**（2026-07-10 定案，人讀版正本在 about.html）。機器可讀宣告有四處，改授權時必須全部同步：(1) 各頁 head 的 `rel="license"` 與 JSON-LD `license` (2) 各頁 footer `.footer-license` 授權句 (3) style.css `@media print` 的 `body::after` 版權行 (4) about.html 條款內文。每頁 head 另有 `rel="canonical"`＋`meta author/copyright`＋JSON-LD（結構見「新增頁面 SOP」步驟 2）
 - 不要用 Delius Swash Caps 字型（大寫 I 看起來像 J，對 AI 主題致命）
 - Prompt 區塊的 `copyPrompt()` 函式在每個頁面的 `<script>` 中重複定義（刻意，避免外部 JS 依賴）
 - **GA4**：本站是獨立 property `544090519`（Measurement ID `G-L05KFZJS9L`），與 website（532664866）分開——Bot 每日流量報告靠其 `.env` 的 `GA4_PROPERTY_ID_WORKSHOP` 指向本站；曾因誤記「共用 property」致報告連續為 0（2026-07-09 修正，詳見 Obsidian 踩坑記錄）

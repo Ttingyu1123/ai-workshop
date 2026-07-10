@@ -11,6 +11,44 @@
   <meta property="og:url" content="https://ttingyu1123.github.io/ai-workshop/ai-video.html">
   <meta property="og:image" content="https://ttingyu1123.github.io/ai-workshop/og-image.png">
   <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://ttingyu1123.github.io/ai-workshop/ai-video.html">
+  <meta name="author" content="曾婷玉醫師（衛生福利部台中醫院 感染科）">
+  <meta name="copyright" content="© 2026 衛生福利部台中醫院 感染科 曾婷玉醫師">
+  <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "AI 影片製作 — 剪輯基礎到語音合成",
+    "description": "首尾幀、關鍵幀等剪輯觀念，搭配 AI 語音合成與影片生成工具，完整短影片製作流程。",
+    "url": "https://ttingyu1123.github.io/ai-workshop/ai-video.html",
+    "inLanguage": "zh-TW",
+    "learningResourceType": "教學頁面",
+    "educationalLevel": "入門",
+    "audience": {
+      "@type": "EducationalAudience",
+      "educationalRole": "醫療人員"
+    },
+    "isAccessibleForFree": true,
+    "author": {
+      "@type": "Person",
+      "name": "曾婷玉",
+      "honorificSuffix": "醫師",
+      "jobTitle": "感染科醫師",
+      "affiliation": {
+        "@type": "Hospital",
+        "name": "衛生福利部台中醫院"
+      },
+      "url": "https://ttingyu1123.github.io/ai-workshop/about.html"
+    },
+    "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "AI Workshop — 醫療人員的 AI 工作坊",
+      "url": "https://ttingyu1123.github.io/ai-workshop/"
+    }
+  }
+  </script>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -52,6 +90,16 @@
   </div>
 
   <main class="container">
+
+    <!-- ─── 本頁重點 ─── -->
+    <div class="box-tip page-summary">
+      <strong>📌 本頁重點</strong>
+      <ul style="margin: 0.5rem 0 0;">
+        <li><strong>這頁教什麼：</strong>剪輯基礎觀念（首尾幀、關鍵幀、FPS、轉場等）、三步驟短影片製作流程、腳本生成／AI 語音合成（TTS）／AI 音樂生成（BGM）的實用 Prompt，以及免費與付費影片工具總整理。</li>
+        <li><strong>適合誰：</strong>想獨立做出衛教短影片的醫療人員，建議先讀過 <a href="ai-image.html">Part 4 — AI 圖像</a> 熟悉生圖，再接續本頁與下一課 <a href="google-flow.html">Part 6 — Google Flow</a>。</li>
+        <li><strong>注意：</strong>動手前先做 3 秒安全檢查（有沒有病人資料、會不會給病人看、我能不能負責），BGM 對外發布時要確認授權可商用，AI 語音與影片片段仍需人工審稿。</li>
+      </ul>
+    </div>
 
     <!-- TOC -->
     <nav class="toc" aria-label="目錄">
@@ -558,6 +606,7 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">© 2026 衛生福利部台中醫院 感染科 曾婷玉醫師 — AI Workshop</div>
+      <div class="footer-license">教材授權 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC-SA 4.0</a> — 非商業使用可分享與改作，須署名並以相同授權釋出 · <a href="about.html">關於本站與授權</a></div>
       <div class="footer-links">
         <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
         <a href="https://github.com/Ttingyu1123" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
