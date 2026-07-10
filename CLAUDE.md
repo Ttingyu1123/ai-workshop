@@ -5,7 +5,7 @@
 ## 技術架構
 
 - **純靜態站**：HTML + CSS + vanilla JS，零依賴、零 build
-- **部署**：GitHub Pages（`main` branch → `https://ttingyu1123.github.io/ai-workshop/`）
+- **部署**：GitHub Pages（`main` branch → 自訂網域 `https://workshop.tingyudeco.com/`；舊網址 `ttingyu1123.github.io/ai-workshop` 301 轉址，2026-07-11 綁定，DNS 在 Cloudflare tingyudeco.com zone 的 CNAME `workshop`）
 - **設計系統**：Doodle 手繪風（基於 typeui.sh/design-skills/doodle）
 
 ## 檔案結構
@@ -40,7 +40,7 @@ ai-workshop/
 ├── sitemap.xml         # 新增頁面時記得加一條
 ├── robots.txt
 ├── qr-site.png         # 首頁 QR code（實體課投影片用）
-├── 404.html            # GitHub Pages 404（連結用 /ai-workshop/ 絕對路徑）
+├── 404.html            # GitHub Pages 404（連結用根目錄 / 絕對路徑——自訂網域後站點在根，勿再加 /ai-workshop/ 前綴）
 ├── og-image.png        # OG 分享圖（doodle 插畫 1024x1024，與 website Insights 卡片同一張）
 ├── favicon-32.png      # favicon（從 og-image 聽診器笑臉裁出）
 ├── favicon.png         # favicon 64x64
