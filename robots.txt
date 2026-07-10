@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ttingyu1123.github.io/ai-workshop/sitemap.xml
+Sitemap: https://workshop.tingyudeco.com/sitemap.xml
