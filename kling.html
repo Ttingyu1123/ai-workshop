@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kling（可靈）AI 影片生成 — 手機也能做的 AI 影片工具</title>
-  <meta name="description" content="Kling 國際版教學 — 手機 App 直接操作、每日登入送免費靈感值，文生影片、圖生影片、首尾幀一次學會，是 Google Flow 之外的另一個免費入口。">
+  <meta name="description" content="Kling 教學 — 手機 App 直接操作、每日登入送免費靈感值，文生影片、圖生影片、首尾幀一次學會，是 Google Flow 之外的另一個免費入口。">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Kling（可靈）AI 影片生成 — 手機也能做的 AI 影片工具">
-  <meta property="og:description" content="Kling 國際版教學 — 手機 App 直接操作、每日登入送免費靈感值，文生影片、圖生影片、首尾幀一次學會，是 Google Flow 之外的另一個免費入口。">
+  <meta property="og:description" content="Kling 教學 — 手機 App 直接操作、每日登入送免費靈感值，文生影片、圖生影片、首尾幀一次學會，是 Google Flow 之外的另一個免費入口。">
   <meta property="og:url" content="https://workshop.tingyudeco.com/kling.html">
   <meta property="og:image" content="https://workshop.tingyudeco.com/og-image.png">
   <meta name="twitter:card" content="summary">
@@ -20,7 +20,7 @@
     "@context": "https://schema.org",
     "@type": "LearningResource",
     "name": "Kling（可靈）AI 影片生成 — 手機也能做的 AI 影片工具",
-    "description": "Kling 國際版教學 — 手機 App 直接操作、每日登入送免費靈感值，文生影片、圖生影片、首尾幀一次學會，是 Google Flow 之外的另一個免費入口。",
+    "description": "Kling 教學 — 手機 App 直接操作、每日登入送免費靈感值，文生影片、圖生影片、首尾幀一次學會，是 Google Flow 之外的另一個免費入口。",
     "url": "https://workshop.tingyudeco.com/kling.html",
     "inLanguage": "zh-TW",
     "learningResourceType": "教學頁面",
@@ -95,7 +95,7 @@
     <div class="box-tip page-summary">
       <strong>📌 本頁重點</strong>
       <ul style="margin: 0.5rem 0 0;">
-        <li><strong>這頁教什麼：</strong>Kling 國際版的註冊與手機 App 安裝、每日免費靈感值的使用方式、文生影片與圖生影片的實作步驟，以及 Prompt 撰寫要點。</li>
+        <li><strong>這頁教什麼：</strong>Kling 的註冊與手機 App 安裝、每日免費靈感值的使用方式、文生影片與圖生影片的實作步驟，以及 Prompt 撰寫要點。</li>
         <li><strong>適合誰：</strong>已讀過 <a href="google-flow.html">Part 6 — Google Flow 實戰</a>、想在手機上直接操作 AI 影片生成的醫療人員，特別適合實體課現場實作。</li>
         <li><strong>注意：</strong>免費層輸出有浮水印、解析度上限約 720p；額度政策曾多次調整，實際數字以 App 內顯示為準；上傳素材前務必確認不含病人資料。</li>
       </ul>
@@ -116,11 +116,7 @@
     <!-- ─── What is Kling ─── -->
     <section id="what-is-kling">
       <h2>Kling 是什麼</h2>
-      <p>Kling（可靈）是中國網路公司快手（Kuaishou）推出的 AI 影片生成服務。台灣用戶要使用的是<strong>國際版</strong>（<a href="https://klingai.com" target="_blank">klingai.com</a>，手機 App 在 App Store／Google Play 搜尋「KLING AI」即可找到），介面以英文為主、提示詞可用中文；中國版需要中國手機號碼註冊，不適用於台灣用戶。國際版支援文生影片、圖生影片、首尾幀與運鏡控制等功能，中文 Prompt 也能使用。</p>
-
-      <div class="analogy">
-        Kling 就像醫院的「行動超音波車」— 不用固定在檢查室（電腦前）才能用，推到床邊（掏出手機）就能立即操作，適合臨時、現場、快速的需求。
-      </div>
+      <p>Kling（可靈）是一款 AI 影片生成服務，支援文生影片、圖生影片、首尾幀與運鏡控制等功能。網頁版在 <a href="https://klingai.com" target="_blank">klingai.com</a>，手機 App 在 App Store／Google Play 搜尋「KLING AI」即可找到；介面以英文為主、提示詞可用中文。</p>
     </section>
 
     <hr class="section-divider">
@@ -152,18 +148,7 @@
     <!-- ─── Signup ─── -->
     <section id="signup">
       <h2>註冊與安裝</h2>
-      <p>Kling 有兩個版本，先確認自己要用哪一個：</p>
-
-      <div class="card-grid">
-        <div class="card">
-          <strong>🌍 國際版（台灣用戶用這個）</strong>
-          <p>網址 <a href="https://klingai.com" target="_blank">klingai.com</a>，手機 App 搜尋「KLING AI」下載。用 Google 帳號、Apple 帳號或任一 email 即可註冊，<strong>不需要中國手機號碼</strong>。介面以英文為主。</p>
-        </div>
-        <div class="card">
-          <strong>🇨🇳 中國版</strong>
-          <p>需要中國手機號碼註冊，且地區限制在中國境內使用。台灣用戶不適用，本頁不涉及此版本。</p>
-        </div>
-      </div>
+      <p>用 Google 帳號、Apple 帳號或任一 email 即可註冊，三個步驟完成：</p>
 
       <div class="card">
         <ol style="margin-bottom: 0;">
