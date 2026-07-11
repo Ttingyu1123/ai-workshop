@@ -38,6 +38,7 @@ ai-workshop/
 ├── crop-element.html   # 番外 — 元素擷取小工具（方框/套索/筆刷圈選累加成遮罩，裁到最小外框、範圍外透明；零依賴，接 Canva 去背後取單一元素）
 ├── qr-maker.html       # 番外 — QR Code 產生器（qrcode-generator cdnjs 載入，本機生成；勿用 qrcodejs——中文 UTF-8 會 code length overflow，2026-07 踩過）
 ├── watermark.html      # 番外 — 批次加浮水印小工具（canvas 疊署名文字＋JSZip 打包；canvas 用 LXGW 字型前必須 await document.fonts）
+├── handout-20260723.html # 第一堂課課堂講義（**學員限定隱藏頁**：刻意不進 index/sitemap/header、head 有 noindex，只靠課堂 QR code 進入——審計時勿當 orphan page「補登」；QR 圖在課程素材資料夾 20260723 第一堂課/qr-handout-20260723.png，Prompt 正本在 Obsidian 03_Projects/AI-Workshop/第一堂課 課堂講義.md）
 ├── about.html          # 關於本站與授權（作者介紹＋使用聲明＋CC BY-NC-SA 4.0 條款＋引用格式；只從 footer 連入，不進 header/index 卡片）
 ├── images/<頁名>/       # 內文圖片，一頁一資料夾（規格見「圖片擺放規範」）；ai-image/ = Part 4 對比圖（來源 PNG 在 Downloads\教學素材）
 ├── sitemap.xml         # 新增頁面時記得加一條
