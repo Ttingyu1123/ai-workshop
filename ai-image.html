@@ -429,6 +429,30 @@
 
       <h3>6. 用參考圖片</h3>
       <p>如果你有一張喜歡的風格參考圖，直接上傳給 ChatGPT 說「用這個風格畫一張新的…」。AI 會分析參考圖的風格元素（配色、線條、構圖），比用文字描述更精準。</p>
+
+      <h3>7. 想要乾淨、無浮水印的圖？從源頭選對入口</h3>
+      <p>Gemini 免費層生成的圖，右下角會帶一個可見的星形浮水印；ChatGPT 免費層則沒有這個角落標記。想要乾淨的教材配圖，正確做法是<strong>從一開始就選對生成入口</strong>，而不是事後去抹掉浮水印。</p>
+      <div class="box-danger">
+        <strong>先說清楚：不要用工具去除浮水印。</strong>那個星形標記（以及圖片內嵌、肉眼看不到的 SynthID）是 Google 用來標示「這是 AI 生成圖」的來源機制，Gemini 服務條款也明文禁止移除或遮蔽它。刻意抹掉它，等於讓 AI 圖偽裝成真實照片 — 這與 <a href="ai-safety.html">Part 3 — AI 安全與隱私</a> 教的來源透明原則正好相反，在醫療衛教場域尤其不該做。順帶一提：即使遮掉可見標記，隱形的 SynthID 仍在，抹不乾淨。
+      </div>
+      <p>要拿到沒有可見浮水印的圖，直接選這些入口：</p>
+      <div class="card-grid">
+        <div class="card">
+          <strong class="pro">✓ 免費、無可見浮水印</strong>
+          <ul>
+            <li><strong>ChatGPT 免費層生圖</strong> — 無角落標記，本頁最推薦的起點</li>
+            <li><strong>ComfyUI 本機生圖</strong> — 完全在自己電腦跑，不加浮水印（見 <a href="comfyui.html">本機／開源生圖入門</a>）</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong class="con">△ 需付費，但輸出乾淨</strong>
+          <ul>
+            <li><strong>Nano Banana Pro</strong>（Google AI Studio／API 的 Imagen）— 無右下角可見標記（隱形 SynthID 仍保留）</li>
+          </ul>
+        </div>
+      </div>
+      <p>如果你就是想用 Gemini 免費層、又不想要角落那個標記，合法做法是<strong>在構圖上預留</strong>：生成時要求主體置中、四周留白，讓浮水印落在可裁切的邊緣，事後用本站的 <a href="crop-element.html">元素擷取</a> 或 <a href="image-resize.html">圖片壓縮與轉檔</a> 做正常裁切即可 — 這是裁掉邊角，不是專門的「去浮水印」工具。</p>
+      <p style="color: var(--text-light); font-size: 0.95rem;">各家浮水印政策時有調整，以你實際生成出來的結果為準。無論用哪個入口，把 AI 生成的圖用於學術或正式場合時，都應主動標註「AI 生成」。</p>
     </section>
 
     <hr class="section-divider">
