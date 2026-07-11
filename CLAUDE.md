@@ -35,6 +35,7 @@ ai-workshop/
 ├── pdf-to-images.html  # 番外 — PDF 轉圖檔小工具（pdf.js + JSZip 皆 cdnjs 載入，轉換全在本機、檔案不上傳；NotebookLM 簡報→Canva 產線的中繼站）
 ├── redact-image.html   # 番外 — 圖片去識別化小工具（canvas 框選塗黑/馬賽克，零依賴；給 AI 看截圖前先遮病人資料，與 ai-safety 呼應）
 ├── image-resize.html   # 番外 — 圖片壓縮與轉檔小工具（canvas 批次縮圖/轉格式＋heic2any 轉 HEIC＋JSZip 打包；重編碼順帶清 EXIF/GPS）
+├── crop-element.html   # 番外 — 元素擷取小工具（方框/套索/筆刷圈選累加成遮罩，裁到最小外框、範圍外透明；零依賴，接 Canva 去背後取單一元素）
 ├── qr-maker.html       # 番外 — QR Code 產生器（qrcode-generator cdnjs 載入，本機生成；勿用 qrcodejs——中文 UTF-8 會 code length overflow，2026-07 踩過）
 ├── watermark.html      # 番外 — 批次加浮水印小工具（canvas 疊署名文字＋JSZip 打包；canvas 用 LXGW 字型前必須 await document.fonts）
 ├── about.html          # 關於本站與授權（作者介紹＋使用聲明＋CC BY-NC-SA 4.0 條款＋引用格式；只從 footer 連入，不進 header/index 卡片）
