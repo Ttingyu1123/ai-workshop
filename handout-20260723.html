@@ -56,6 +56,20 @@
 
   <main class="container">
 
+    <!-- ─── 快速跳轉 ─── -->
+    <nav aria-label="Prompt 快速跳轉" style="margin: 1.5rem 0;">
+      <div style="font-family: var(--font-hand); font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 0.6rem;">🚀 快速跳轉 — 找 Prompt 不用滑</div>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+        <a href="#prompt1" style="display: block; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 1</strong><br>🖼️ 衛教海報</a>
+        <a href="#prompt2" style="display: block; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 2</strong><br>🧸 微縮公仔海報</a>
+        <a href="#prompt3" style="display: block; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 3</strong><br>🎬 讓圖動起來</a>
+        <a href="#prompt4" style="display: block; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 4</strong><br>🕹️ 解謎遊戲</a>
+      </div>
+      <div style="margin-top: 0.6rem; font-size: 0.95rem;">
+        其他段落：<a href="#prep">課前準備</a> · <a href="#concept-image">AI 怎麼畫圖</a> · <a href="#safety">安全必修</a> · <a href="#homework">回家作業說明</a>
+      </div>
+    </nav>
+
     <!-- ─── 本頁說明 ─── -->
     <div class="box-tip page-summary">
       <strong>📌 這一頁是什麼</strong>
@@ -65,18 +79,6 @@
         <li><strong>先記住一條：</strong>今天所有操作都不涉及病人資料 — 這是醫療人員使用 AI 的第一條紅線，詳見下方「安全必修」。</li>
       </ul>
     </div>
-
-    <nav class="toc" aria-label="目錄">
-      <ol>
-        <li><a href="#prep">課前準備（2 分鐘）</a></li>
-        <li><a href="#task1">實作 ①　含標題文字的衛教海報</a></li>
-        <li><a href="#concept-image">觀念插播　AI 是怎麼「畫」出圖的？</a></li>
-        <li><a href="#task2">實作 ②　你的專屬微縮公仔海報</a></li>
-        <li><a href="#safety">安全必修　三條紅線</a></li>
-        <li><a href="#task3">實作 ③　讓海報動起來</a></li>
-        <li><a href="#homework">回家作業　用 AI 做一款解謎遊戲</a></li>
-      </ol>
-    </nav>
 
     <!-- ─── 課前準備 ─── -->
     <section id="prep">
@@ -106,7 +108,7 @@
         <li>左下角選擇「建立圖像」，或按「＋」選擇「創作圖像」，送出。</li>
         <li>等待生成（約 1–2 分鐘）。</li>
       </ol>
-      <div class="prompt-block">
+      <div class="prompt-block" id="prompt1" style="scroll-margin-top: 80px;">
         <div class="prompt-label">Prompt 1 — 衛教海報</div>
         <div class="prompt-content">生成一張衛教海報。
 主題：預防流感
@@ -165,7 +167,7 @@
         <h4>🔒 上傳照片前，停 3 秒</h4>
         <p style="margin: 0;">只上傳<strong>自己的</strong>生活照。病人照片、含病歷資訊的工作截圖、有同事入鏡且未經同意的照片 — 一律不上傳。免費版 AI 工具上傳的內容可能被用於模型訓練，送出前請當成「會被別人看到」來判斷。</p>
       </div>
-      <div class="prompt-block">
+      <div class="prompt-block" id="prompt2" style="scroll-margin-top: 80px;">
         <div class="prompt-label">Prompt 2 — 微縮公仔海報（改寫器）</div>
         <div class="prompt-content">以下提示詞，幫我改寫成「職類」，標題改為「標題」，輸出可一鍵複製的格式：
 請創作一幅直式 4:5 精緻 3D 微縮模型海報，10K 超高解析畫質，細節極度豐富，放大100倍仍清晰不失真。
@@ -271,7 +273,7 @@ Use clear directional arrows and UI connectors to avoid confusion.<button class=
         <li>右下角選擇「直向（9:16）」。</li>
         <li>貼上 Prompt 3，送出並等待生成 — 影片比圖片久，通常需要數分鐘。</li>
       </ol>
-      <div class="prompt-block">
+      <div class="prompt-block" id="prompt3" style="scroll-margin-top: 80px;">
         <div class="prompt-label">Prompt 3 — 讓圖片動起來（貼到 Gemini 或 Google Flow）</div>
         <div class="prompt-content">Use the uploaded image as the exact visual reference and the first frame.
 Create a single continuous "living miniature diorama" animation. Preserve the original composition, framing, perspective, spatial layout, character identities, facial features, hairstyles, clothing, body proportions, visual style, props, furniture, lighting, colors, signs, labels, and all printed text exactly as shown in the source image.
@@ -324,7 +326,7 @@ Avoid scene changes, camera movement, large body movements, exaggerated gestures
         <strong>🧠 觀念插播　這就是「Agent」</strong>
         <p style="margin: 0.4rem 0 0;">前三個實作是「你問一句、它答一句」的聊天模式；這個作業不一樣 — 你交代一個<strong>目標</strong>，它自己拆步驟、寫程式、測試、修錯，直到完成。這種「替你做」而不只是「回答你」的工作方式叫 <strong>Agent（代理人）</strong>，是目前 AI 發展最快的方向。想深入了解，見 <a href="ai-agent.html">Part 7 — AI Agent 實作</a>。</p>
       </div>
-      <div class="prompt-block">
+      <div class="prompt-block" id="prompt4" style="scroll-margin-top: 80px;">
         <div class="prompt-label">Prompt 4 — 《深夜醫院：遺失的病例》遊戲生成</div>
         <div class="prompt-content">你是一位資深遊戲設計師、前端工程師、UI／UX 設計師與品質保證測試工程師。
 請獨立規劃、設計、實作並測試一款可直接在瀏覽器遊玩的單頁解謎遊戲。
