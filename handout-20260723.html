@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一堂課 課堂講義（學員限定）— AI Workshop</title>
+  <meta name="description" content="第一堂課課堂講義：現場實作 3 項＋回家作業 1 項，含 4 組完整 Prompt。">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="第一堂課 課堂講義（學員限定）— AI Workshop">
+  <meta property="og:description" content="現場做 2 張圖、1 支影片，再帶 1 個遊戲回家 — 含 4 組完整 Prompt。">
+  <meta property="og:url" content="https://workshop.tingyudeco.com/handout-20260723.html">
+  <meta property="og:image" content="https://workshop.tingyudeco.com/og-image.png">
+  <meta name="author" content="曾婷玉醫師（衛生福利部台中醫院 感染科）">
+  <meta name="copyright" content="© 2026 衛生福利部台中醫院 感染科 曾婷玉醫師">
+  <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L05KFZJS9L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L05KFZJS9L');
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="index.html#core">基礎必修</a>
+        <a href="index.html#create">創作應用</a>
+        <a href="index.html#advanced">進階實戰</a>
+        <a href="index.html#extras">番外工具</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">學員限定</div>
+    <h1>第一堂課 課堂講義</h1>
+    <p>現場做 2 張圖、1 支影片，再帶 1 個遊戲回家</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <!-- ─── 本頁說明 ─── -->
+    <div class="box-tip page-summary">
+      <strong>📌 這一頁是什麼</strong>
+      <ul style="margin: 0.5rem 0 0;">
+        <li><strong>學員專屬：</strong>這頁不在網站選單裡，只有掃課堂 QR code 的你才找得到 — 建議先加入書籤，之後隨時回來複製 Prompt。</li>
+        <li><strong>今天會做：</strong>實作 ① 衛教海報 → 實作 ② 你的專屬公仔海報 → 實作 ③ 讓海報動起來；另有 1 個回家作業（用 AI 做一款解謎遊戲）。</li>
+        <li><strong>先記住一條：</strong>今天所有操作都不涉及病人資料 — 這是醫療人員使用 AI 的第一條紅線，詳見下方「安全必修」。</li>
+      </ul>
+    </div>
+
+    <nav class="toc" aria-label="目錄">
+      <ol>
+        <li><a href="#prep">課前準備（2 分鐘）</a></li>
+        <li><a href="#task1">實作 ①　含標題文字的衛教海報</a></li>
+        <li><a href="#concept-image">觀念插播　AI 是怎麼「畫」出圖的？</a></li>
+        <li><a href="#task2">實作 ②　你的專屬微縮公仔海報</a></li>
+        <li><a href="#safety">安全必修　三條紅線</a></li>
+        <li><a href="#task3">實作 ③　讓海報動起來</a></li>
+        <li><a href="#homework">回家作業　用 AI 做一款解謎遊戲</a></li>
+      </ol>
+    </nav>
+
+    <!-- ─── 課前準備 ─── -->
+    <section id="prep">
+      <h2>🧰 課前準備（2 分鐘）</h2>
+      <p>只需要三樣東西，全部免費：</p>
+      <ol>
+        <li><strong>一個 Google 帳號</strong>（能登入即可，平常收 Gmail 的那個就行）。</li>
+        <li><strong>手機上能開啟 ChatGPT 或 Gemini</strong> — 裝 App 或用瀏覽器開網頁版都可以，並完成登入。兩個工具擇一即可，今天的實作兩者都能完成；實作 ③ 的影片生成以 Gemini App 示範。</li>
+        <li><strong>網路連線</strong> — 生圖與生影片都在雲端運算，訊號穩定即可。</li>
+      </ol>
+      <div class="box-tip">
+        <strong>💡 還沒有帳號？</strong>
+        <p style="margin: 0.4rem 0 0;">現在申請也來得及：ChatGPT 與 Gemini 都能直接用 Google 帳號登入，不需要另外設定密碼。</p>
+      </div>
+    </section>
+
+    <!-- ─── 實作 1 ─── -->
+    <section id="task1">
+      <h2>🖼️ 實作 ①　含標題文字的衛教海報</h2>
+      <p>第一張圖，我們讓 AI 從零生出一張帶有中文標題的衛教海報 — 從打字到完成大約兩分鐘。</p>
+      <h3>操作步驟</h3>
+      <ol>
+        <li>按下方 Prompt 1 的「📋 複製」。</li>
+        <li>打開 ChatGPT 或 Gemini（手機 App 或網頁版皆可）。</li>
+        <li>在對話框貼上 Prompt 1。</li>
+        <li>把「主題」「大標題」「副標」改成你想要的內容 — 第一次也可以先照原文生成，熟悉流程後再改。</li>
+        <li>左下角選擇「建立圖像」，或按「＋」選擇「創作圖像」，送出。</li>
+        <li>等待生成（約 1–2 分鐘）。</li>
+      </ol>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt 1 — 衛教海報</div>
+        <div class="prompt-content">生成一張衛教海報。
+主題：預防流感
+圖片上的文字：
+- 大標題：「預防流感 從手開始」（置頂，大字，白色）
+- 副標：「正確洗手 5 步驟」（標題下方，較小）
+風格：扁平設計，主色調淡藍色，明亮溫暖
+構圖：直式 3:4，標題在上方 1/3，下方 2/3 是洗手步驟插圖
+注意：繁體中文字要清晰可讀，字體風格要統一<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="box-tip">
+        <strong>💡 改字的訣竅</strong>
+        <p style="margin: 0.4rem 0 0;">把主題換成你科別的內容試試：「大腸鏡檢查前準備」「正確量血壓」「疫苗接種須知」。注意這張海報刻意只放<strong>十幾個字</strong> — AI 生圖的中文字數愈多愈容易出錯，字少是它能成功的關鍵。生出來若有錯字，同一段 Prompt 再生一次即可，每次結果都不同。</p>
+      </div>
+    </section>
+
+    <!-- ─── 觀念插播：生圖原理 ─── -->
+    <section id="concept-image">
+      <h2>🧠 觀念插播　AI 是怎麼「畫」出圖的？</h2>
+      <div class="analogy">
+        <strong>🩺 醫學類比</strong>
+        <p style="margin: 0.4rem 0 0;">課堂上說過，文字 AI 像一位「憑經驗接話」的總醫師。生圖 AI 是它的親戚：它從一片雜訊出發，依照你的描述一步步「猜」出整張圖 — 像顯影中的 X 光片逐漸清晰。因為每次都是重新猜，<strong>同一段描述每次生成的結果都不同</strong>；也因為它是「畫出印象」而不是「排版文字」，中文字對它來說只是形狀相似的圖案，筆畫常常出錯。</p>
+      </div>
+      <p>由此推出生圖的三個實用技巧，等一下實作 ② 就會用到：</p>
+      <div class="card-grid">
+        <div class="card">
+          <h4>🔤 圖裡的中文字，愈少愈好</h4>
+          <p>字多必錯。正式的衛教單張建議「圖歸圖、字歸字」：讓 AI 生成留白的圖，文字之後用 Canva 加上去最穩。</p>
+        </div>
+        <div class="card">
+          <h4>🎨 風格詞很好用</h4>
+          <p>「扁平設計」「水彩」「3D 公仔風」— 換一個詞，整張圖的氣質就完全不同。實作 ② 的長 Prompt 有一大半都在描述風格。</p>
+        </div>
+        <div class="card">
+          <h4>🔁 多生幾張，挑最好的</h4>
+          <p>每次結果都不同，不必一次就滿意。同一段 Prompt 生三、四張再挑選，是專業使用者的常態做法。</p>
+        </div>
+      </div>
+      <p>想深入了解生圖工具與更多範例，課後可讀 <a href="ai-image.html">Part 4 — AI 圖像生成</a>。</p>
+    </section>
+
+    <!-- ─── 實作 2 ─── -->
+    <section id="task2">
+      <h2>🧸 實作 ②　你的專屬微縮公仔海報</h2>
+      <p>這一張是今天的主角：一張「忙碌又荒謬的醫療人生」微縮公仔海報，主角就是<strong>你的職業</strong>。這次我們多學一招 — <strong>先請 AI 幫你改寫 Prompt，再拿改好的 Prompt 去生圖</strong>。</p>
+      <h3>操作步驟</h3>
+      <ol>
+        <li>按下方 Prompt 2 的「📋 複製」，貼到對話框。</li>
+        <li>修改<strong>第一行</strong>：把「職類」改成你的職業（護理師、藥師、醫檢師、放射師、營養師…），「標題」改成你想要的標題，按「傳送」。</li>
+        <li>AI 會輸出一段改寫完成的完整提示詞 — 按訊息上的「複製」。</li>
+        <li>另外開啟一個「<strong>新對話</strong>」，貼上剛剛複製的提示詞。</li>
+        <li>（可不做）按左下角「＋」選擇「新增照片和檔案」，上傳<strong>自己的</strong>照片 — 公仔會長得像你。不上傳也能生成，AI 會自行設計人物。</li>
+        <li>左下角選擇「建立圖像」，或按「＋」選擇「創作圖像」，送出並等待生成。</li>
+      </ol>
+      <div class="box-danger">
+        <h4>🔒 上傳照片前，停 3 秒</h4>
+        <p style="margin: 0;">只上傳<strong>自己的</strong>生活照。病人照片、含病歷資訊的工作截圖、有同事入鏡且未經同意的照片 — 一律不上傳。免費版 AI 工具上傳的內容可能被用於模型訓練，送出前請當成「會被別人看到」來判斷。</p>
+      </div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt 2 — 微縮公仔海報（改寫器）</div>
+        <div class="prompt-content">以下提示詞，幫我改寫成「職類」，標題改為「標題」，輸出可一鍵複製的格式：
+請創作一幅直式 4:5 精緻 3D 微縮模型海報，10K 超高解析畫質，細節極度豐富，放大100倍仍清晰不失真。
+主題：「【感染科醫師的日常】」
+副標題：「【感染科醫師 | 忙碌又荒謬的醫療人生】」
+整體風格：
+韓系可愛 3D 立體公仔風 × 日系手帳拼貼 × 溫柔醫療資訊圖表 × 醫院職場日常故事感 × IG 爆款療癒海報感。整體像一套擺放在真實桌面上的收藏級手作微縮模型，帶有高級醫療系文創公仔氛圍。
+色調以低飽和莫蘭迪色系為主，融合 Tiffany 藍、奶油白、霧灰藍、淺木質色與柔和冷白光。畫面乾淨療癒，但帶有「醫院忙到靈魂出竅」的可愛荒謬感。
+中央主角：
+請根據【參考人物圖片】完整複製人物五官神韻、髮型與表情，生成超精緻 3D 公仔。角色為年輕亞洲女性感染科醫師，穿著白袍、綠色 scrubs、掛著聽診器與識別證，坐在大型醫院工作桌前。
+主角正在：
+一邊看筆電與病歷，一邊接電話，同時桌上還有一堆待簽文件與檢驗報告，呈現多工爆炸中的感染科醫師日常。
+桌面細節：
+筆電、病歷夾、聽診器、抗生素用藥表、咖啡杯、手機、便利貼、值班行程表、原子筆、平板、護理站電話、血液培養報告、電腦螢幕、鍵盤、便當盒、小餅乾、醫療書籍、文件堆、醫院 badge、口罩。
+背景場景：
+大型醫院感染科辦公室 × 護理站 × 病房走廊微縮場景。背景加入醫院 Logo、感染科招牌、病房號碼牌、白板、值班表、抗生素管理海報、醫療監測儀器、小型盆栽與暖色桌燈。
+四周擺放與感染科相關的微縮道具：
+細菌培養皿、顯微鏡、病毒模型、藥瓶、PCR 報告、血液檢體、聽診器、換藥小推車、點滴架、醫療平板、藍色醫療手套、防護隔離衣、N95口罩。
+畫面四周安排 6–8 個 Q 版小分身，每個都是主角的迷你版本，1:3 頭身比例，五官、髮型與穿搭完全一致，呈現忙碌又可愛的感染科日常任務：
+1. 一邊狂奔去會診
+2. 抱著超厚病歷崩潰中
+3. 在病房前講電話討論抗生素
+4. 熬夜值班喝咖啡
+5. 對著細菌培養皿研究
+6. 坐在地上整理紗布、優碘、棉棒等換藥物品
+7. 靈魂出竅漂浮在護理站上方
+8. 偷偷吃小餅乾補充體力
+
+整體構圖：
+45度俯視角 isometric perspective，具備強烈空間層次感。前景、中景、後景清楚分離，像高級收藏模型盒。畫面加入手帳拼貼元素、便利貼、小箭頭、醫療 icon、可愛資訊框、時間標籤與溫柔 UI 設計。
+光影：
+柔和自然光＋醫院冷白環境光混合，帶有高級電影感與療癒氛圍。材質呈現真實 3D 公仔質感、微縮模型細節、柔霧塑膠與高級樹脂材質。
+風格關鍵字：
+ultra detailed, miniature diorama, collectible toy, cute doctor figurine, hospital life, infectious disease physician, kawaii medical office, cinematic lighting, premium toy photography, korean cute aesthetic, japanese diary collage, hyper realistic 3D render, medical miniature world, busy hospital atmosphere, healing mood, IG viral poster style, highly detailed, 10K resolution
+【資訊標示排版規則】
+Every chibi character MUST have its own matching task label placed directly beside the correct character.
+Each action label should be visually connected to the corresponding miniature doctor using:
+— arrows
+— dotted guideline connectors
+— speech-bubble callouts
+— infographic UI pointers
+The text labels and time tags MUST align correctly with the matching character action.
+No floating random labels.
+No misplaced captions.
+No disconnected annotations.
+Use clean Japanese planner-style infographic layout with highly organized visual hierarchy.
+Each miniature doctor and its label should form a cohesive grouped composition.
+Labels should appear:
+— close to the character
+— near the action being performed
+— spatially aligned
+— easy to read
+— visually balanced
+The poster should resemble a premium medical diary infographic with accurate callout placement and organized annotation design.
+Use clear directional arrows and UI connectors to avoid confusion.<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="box-tip">
+        <strong>💡 為什麼要先「改寫」再生圖？</strong>
+        <p style="margin: 0.4rem 0 0;">這段 Prompt 裡的桌面道具、背景場景、八個小分身動作，都是針對「感染科醫師」設計的。與其自己逐項改，不如把改寫工作也交給 AI — 它會把培養皿換成藥櫃（藥師）或檢體架（醫檢師），連小分身的動作都一起換成你職業的日常。這就是課堂教的「對話式修改」：AI 的產出，可以再交給 AI 加工。改寫結果裡的小分身動作若不合你意，直接告訴它「第 3 個動作改成…」再要一版即可。</p>
+      </div>
+    </section>
+
+    <!-- ─── 安全必修 ─── -->
+    <section id="safety">
+      <h2>🚦 安全必修　三條紅線</h2>
+      <p>工具再方便，這三條底線不變 — 它們是今天這堂課<strong>最重要的八分鐘</strong>：</p>
+      <div class="card-grid">
+        <div class="card">
+          <h4>1️⃣ 病人資料，絕不輸入</h4>
+          <p>姓名、病歷號、出生日期、可辨識的照片 — 任何 AI 工具都不輸入。免費工具的輸入內容可能被用於模型訓練。</p>
+        </div>
+        <div class="card">
+          <h4>2️⃣ AI 產出，查證才用</h4>
+          <p>AI 的目標是把話接得「順」，不是接得「對」。文獻引用、藥物劑量、精確數字，發出前必查證。</p>
+        </div>
+        <div class="card">
+          <h4>3️⃣ 對外文件，人工把關</h4>
+          <p>要掛你名字發出去的東西，最終版本由你負責。AI 是很會寫的助理，不是權威。</p>
+        </div>
+      </div>
+      <p>想問臨床問題不是不行，而是先「去識別化」— 把「這個病人」變成「一種情境」再問：</p>
+      <div class="box-danger">
+        <h4>❌ 不行</h4>
+        <p style="margin: 0;">「病人王○○，病歷號 1234567，肺炎住院中……幫我寫病摘」</p>
+      </div>
+      <div class="box-success">
+        <h4>✅ 可以</h4>
+        <p style="margin: 0;">「一位 70 歲糖尿病患者因社區型肺炎住院，請列出出院衛教重點」</p>
+      </div>
+      <p>需要給 AI 看截圖時，先用網站的<a href="redact-image.html">「圖片去識別化」小工具</a>框選塗黑 — 全程在自己裝置上處理、不上傳。完整內容見 <a href="ai-safety.html">Part 3 — AI 安全與隱私</a>（本站唯一的必修頁）。</p>
+    </section>
+
+    <!-- ─── 實作 3 ─── -->
+    <section id="task3">
+      <h2>🎬 實作 ③　讓海報動起來</h2>
+      <p>把剛剛生成的公仔海報變成一支「活起來的微縮模型」短片：主角眨眼、咖啡冒煙、小分身各忙各的 — 而畫面上的文字一個都不能動。</p>
+      <h3>操作步驟</h3>
+      <ol>
+        <li>按下方 Prompt 3 的「📋 複製」。</li>
+        <li>打開 Gemini App。</li>
+        <li>左下角按「＋」選擇「建立影片」。</li>
+        <li>上傳實作 ② 生成的公仔海報（這段 Prompt 的第一句就要求以上傳的圖作為第一幀）。</li>
+        <li>右下角選擇「直向（9:16）」。</li>
+        <li>貼上 Prompt 3，送出並等待生成 — 影片比圖片久，通常需要數分鐘。</li>
+      </ol>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt 3 — 讓圖片動起來（貼到 Gemini 或 Google Flow）</div>
+        <div class="prompt-content">Use the uploaded image as the exact visual reference and the first frame.
+Create a single continuous "living miniature diorama" animation. Preserve the original composition, framing, perspective, spatial layout, character identities, facial features, hairstyles, clothing, body proportions, visual style, props, furniture, lighting, colors, signs, labels, and all printed text exactly as shown in the source image.
+CAMERA LOCK:
+A completely static locked-off tripod shot with a fixed lens and fixed focal length. The camera remains perfectly motionless throughout the entire video. No pan, no tilt, no zoom, no dolly, no orbit, no push-in, no pull-out, no handheld movement, no reframing, no cropping change, no camera shake, no cuts, no transitions, no parallax shift, and no change of viewpoint.
+CHARACTER ANIMATION:
+Animate every human character in the image, including the main central character and all miniature or chibi characters.
+Every character remains inside their original position and assigned area. Each character performs only the subtle action already implied by their current pose, expression, surrounding props, and work task.
+The main character gently blinks, breathes naturally, makes a very small head movement, slightly shifts her eyes, subtly moves her shoulders, and performs small natural hand and finger movements while continuing her existing task.
+All miniature characters independently come to life with small localized motions appropriate to their current activities, such as:
+blinking, breathing, writing, typing, answering a phone, checking documents, carrying papers, pipetting, handling test tubes, adjusting a microscope, looking through a microscope, operating laboratory equipment, sipping coffee, eating a small snack, or taking one or two tiny steps in place.
+Characters that appear to be running should perform a cute two-step running-in-place motion without traveling across the image. Characters holding objects must keep holding the same objects. No character may leave their original zone, cross behind another area, change position, change size, or interact with objects outside their immediate workspace.
+MOTION STYLE:
+Soft, slow, delicate, cute, natural, believable, and slightly playful motion. All characters move asynchronously, with different timing, so the scene feels naturally alive rather than mechanically synchronized. Use restrained micro-animation rather than exaggerated full-body action.
+Maintain the original distinction between visual styles. A realistic main character must remain realistic, while miniature or chibi characters must remain miniature 3D chibi figures. Do not transform one style into another.
+SECONDARY MOTION:
+Add only minimal environmental micro-motion, such as gentle steam rising from a coffee cup, tiny monitor indicator lights blinking, a subtle machine status light, an extremely slight paper-edge flutter, and very small natural movement in loose hair or fabric.
+TEXT AND OBJECT LOCK:
+Every title, Chinese character, English word, number, schedule, label, poster, memo, clipboard, chart, sign, screen interface, and printed document remains perfectly static, sharp, readable, correctly spelled, and unchanged throughout the entire video.
+The background, architecture, display case, desks, laboratory equipment, furniture, shelves, walls, floor, and decorative elements remain completely fixed. Preserve the exact number and placement of all people and objects.
+The scene should feel like a museum-grade miniature medical workplace display quietly coming to life while the camera observes from a fixed position.
+End the video with every character still located in their original area and with the overall composition closely matching the first frame.
+Avoid scene changes, camera movement, large body movements, exaggerated gestures, dancing, characters walking across the frame, object relocation, new objects, disappearing objects, duplicated characters, identity drift, face changes, hairstyle changes, costume changes, body deformation, extra limbs, extra fingers, warped hands, melting objects, flickering textures, unstable lighting, background reconstruction, text deformation, changing letters, changing numbers, new subtitles, blur, or loss of detail.<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="analogy">
+        <strong>🧠 觀念插播　為什麼這段 Prompt 一半都在「禁止」？</strong>
+        <p style="margin: 0.4rem 0 0;">AI 影片最常失敗的原因不是「動不起來」，而是<strong>「動太多」</strong>：鏡頭亂飄、人物走位、文字融化變形。所以這段 Prompt 的策略是「鎖鏡頭、鎖文字、只做微動作」— 眨眼、呼吸、咖啡冒煙，動得少反而像。這是圖生影片成功率最高的入門姿勢：先有一張好圖，再給它一點點生命。</p>
+      </div>
+      <div class="box-tip">
+        <strong>💡 額度與替代方案</strong>
+        <p style="margin: 0.4rem 0 0;">影片生成消耗的運算量遠大於圖片，免費帳號有每日次數限制（以 App 顯示為準），生成一支約 8 秒。額度用完或想在電腦上操作，同一段 Prompt 也能貼到 Google Flow（免費層每日 50 credits），完整教學見 <a href="google-flow.html">Part 6 — Google Flow 實戰</a>；影片工具全覽見 <a href="ai-video.html">Part 5 — AI 影片製作</a>。</p>
+      </div>
+    </section>
+
+    <!-- ─── 回家作業 ─── -->
+    <section id="homework">
+      <h2>🕹️ 回家作業　用 AI 做一款解謎遊戲</h2>
+      <p>最後這組 Prompt 是回家的福利：讓 AI 從企劃、美術、程式到測試，<strong>獨力做出一款可以直接遊玩的網頁解謎遊戲</strong>《深夜醫院：遺失的病例》— 你不需要寫任何一行程式。</p>
+      <h3>操作步驟（在電腦上進行）</h3>
+      <ol>
+        <li>下載並安裝「ChatGPT」桌面版程式（電腦搜尋「ChatGPT 下載」，認明 openai.com）。</li>
+        <li>在電腦建立一個獨立的新資料夾，取個名字（例如「深夜醫院遊戲」）。</li>
+        <li>ChatGPT 左上角按「檔案」，選擇剛剛建立的資料夾 — 這一步是授權它在這個資料夾裡工作。</li>
+        <li>輸入框右下角選擇模型（建議選較強的推理模型，寫程式的品質差很多）。</li>
+        <li>按下方 Prompt 4 的「📋 複製」，貼上，送出。</li>
+        <li>接著就看它工作：規劃、寫程式、自我測試。過程中遇到不懂的地方，直接用中文問它 — 它就是你的工程師。</li>
+        <li>完成後，打開資料夾裡的 HTML 檔案（通常叫 index.html），就能開始玩。</li>
+      </ol>
+      <div class="analogy">
+        <strong>🧠 觀念插播　這就是「Agent」</strong>
+        <p style="margin: 0.4rem 0 0;">前三個實作是「你問一句、它答一句」的聊天模式；這個作業不一樣 — 你交代一個<strong>目標</strong>，它自己拆步驟、寫程式、測試、修錯，直到完成。這種「替你做」而不只是「回答你」的工作方式叫 <strong>Agent（代理人）</strong>，是目前 AI 發展最快的方向。想深入了解，見 <a href="ai-agent.html">Part 7 — AI Agent 實作</a>。</p>
+      </div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt 4 — 《深夜醫院：遺失的病例》遊戲生成</div>
+        <div class="prompt-content">你是一位資深遊戲設計師、前端工程師、UI／UX 設計師與品質保證測試工程師。
+請獨立規劃、設計、實作並測試一款可直接在瀏覽器遊玩的單頁解謎遊戲。
+# 遊戲名稱
+《深夜醫院：遺失的病例》
+# 核心任務
+玩家在深夜醒來，發現醫院局部停電，一份重要病例從醫療資訊系統中消失。玩家必須依序探索四個區域、解開四個互相關聯的謎題，取得最終密碼並離開醫院。
+遊戲必須可以從開始畫面一路正常遊玩到結局，不可只建立靜態畫面、展示型介面、無效按鈕或尚未完成的功能。
+# 執行方式
+請先在內部完成需求拆解、遊戲流程、資料結構、畫面架構與測試策略，再直接開始實作。
+除非遇到無法繼續的外部權限問題，否則不要要求使用者逐步確認，也不要停留在提案、規格書或程式碼片段階段。
+請自行完成：
+1. 遊戲企劃
+2. 謎題設計
+3. 視覺設計
+4. HTML、CSS、JavaScript 程式實作
+5. 遊戲狀態管理
+6. 響應式版面
+7. 功能測試
+8. 錯誤修正
+9. 最終交付
+
+# 技術規格
+建立一款可在現代桌面與行動瀏覽器執行的網頁遊戲。
+優先使用：
+- HTML5
+- CSS3
+- Vanilla JavaScript
+如環境適合，也可以使用 React、Vue 或其他前端框架，但不得增加不必要的部署複雜度。
+遊戲必須：
+- 可直接開啟並遊玩
+- 不依賴付費 API
+- 不要求登入
+- 不要求後端伺服器
+- 不使用真實病人資料
+- 不使用受版權限制且未授權的素材
+- 不可只有文字冒險，必須具備完整視覺介面
+- 不可使用 alert 作為主要互動方式
+- 不可出現失效按鈕或假功能
+- 不可把謎題答案直接顯示在程式介面上
+- 避免把所有解答以明文集中寫在容易被查看的位置
+# 遊戲背景
+深夜 02:17，醫院突然發生局部停電。
+玩家在一間無人的值班室醒來，桌上的電腦顯示：
+「病例資料不完整。系統將於 30 分鐘後自動清除暫存紀錄。」
+一份關鍵病例已從系統中消失。
+玩家必須前往以下四個區域：
+1. 護理站
+2. 檢驗室
+3. 藥局
+4. 地下機房
+每一區都必須有獨立場景、互動物件與謎題。前一關獲得的物品或資訊，必須實際用於下一關。
+# 遊戲流程
+## 開始畫面
+包含：
+- 遊戲標題
+- 簡短背景故事
+- 「開始遊戲」按鈕
+- 「遊戲說明」按鈕
+- 音效開關
+- 清楚的醫院夜間視覺氛圍
+## 第一關：護理站
+場景元素可包括：
+- 交班白板
+- 病房配置圖
+- 護理紀錄
+- 電話
+- 抽屜
+- 時鐘
+- 閃爍的緊急照明
+謎題方向：
+玩家必須比較交班紀錄、床號與時間資訊，找出正確病房編號。
+完成後取得：
+- 一張檢驗申請單
+- 或一組可用於檢驗室的識別碼
+謎題必須依靠觀察與推理，不能只靠隨機猜測。
+## 第二關：檢驗室
+場景元素可包括：
+- 檢體架
+- 血液分析儀
+- 條碼標籤
+- 檢驗報告
+- 冰箱
+- 顯微鏡
+- 警示燈
+謎題方向：
+玩家根據上一關取得的識別碼，找到對應檢體，再依提示排列數值、色碼、符號或檢驗項目。
+完成後取得：
+- 藥品代碼
+- 藥櫃位置
+- 或一張部分損毀的處方
+不得要求玩家具備專業醫學知識；所有必要資訊都必須在遊戲中提供。
+## 第三關：藥局
+場景元素可包括：
+- 藥櫃
+- 處方籤
+- 分裝台
+- 藥袋
+- 冰箱
+- 條碼掃描器
+- 上鎖抽屜
+謎題方向：
+玩家根據檢驗室獲得的線索，從多個藥袋、圖示、編號或顏色中找出正確組合。
+完成後取得：
+- 機房門禁卡
+- 維修代碼
+- 或四位數密碼的一部分
+藥名可以使用虛構名稱，避免形成真實用藥建議。
+## 第四關：地下機房
+場景元素可包括：
+- 伺服器機櫃
+- 電力控制盤
+- 網路拓撲圖
+- 門禁終端
+- 故障螢幕
+- 備援電源
+- 資料恢復主機
+謎題方向：
+玩家必須整合前三關獲得的資訊，完成最後的電力、網路或資料排序謎題。
+最後輸入唯一正確的恢復密碼，找回病例並解除醫院封鎖。
+# 結局
+完成最終謎題後，顯示：
+- 病例恢復成功
+- 醫院照明逐步恢復
+- 玩家成功離開
+- 遊戲完成時間
+- 使用提示次數
+- 找到的隱藏物件數量
+- 「重新遊玩」按鈕
+可加入一個合理的小反轉，但不能破壞故事邏輯。
+# 謎題設計規則
+四個謎題必須符合以下條件：
+1. 每個謎題都有唯一解。
+2. 所有必要線索都能在遊戲中找到。
+3. 前一關的結果會影響下一關。
+4. 不可依靠外部搜尋或專業知識。
+5. 不可使用純粹隨機答案。
+6. 不可因操作順序不同而導致無法破關。
+7. 玩家輸入錯誤時，要提供合理回饋。
+8. 玩家不得因誤操作永久失去必要物品。
+9. 提示內容應逐步揭露，不可第一次提示就直接給答案。
+10. 請自行驗證所有謎題從線索到答案的邏輯完整性。
+# 核心功能
+遊戲至少包含：
+- 四個完整場景
+- 場景切換
+- 可點擊互動物件
+- 物品欄
+- 物品選取與使用
+- 場景調查文字
+- 對話框或資訊面板
+- 謎題輸入介面
+- 錯誤答案回饋
+- 三階段提示系統
+- 遊戲進度顯示
+- 音效開關
+- 重新開始功能
+- 勝利畫面
+- 遊戲計時
+- 提示使用次數統計
+- localStorage 自動保存進度
+- 清除存檔並重新開始
+- 鍵盤與滑鼠基本操作
+- 行動裝置觸控操作
+- 基本無障礙標籤
+# 視覺風格
+整體採用：
+- 電影感深夜醫院
+- 懸疑但不恐怖
+- 深藍、青綠、冷白與少量警示紅
+- 柔和光影
+- 清楚易讀的繁體中文
+- 現代化遊戲 UI
+- 醫療資訊系統與復古解謎介面的混合風格
+- 桌面版與手機版都要有良好可讀性
+避免：
+- 血腥畫面
+- 驚嚇圖像
+- 真實病人照片
+- 過度陰暗而看不清互動物件
+- 大量小字
+- 低對比文字
+- 廉價預設按鈕
+- 只有文字與色塊的簡陋介面
+# 畫面素材規則
+請自行製作遊戲所需的視覺素材。
+優先順序：
+1. 自行繪製 SVG
+2. CSS 圖形與光影
+3. Canvas 繪圖
+4. 若系統具備圖像生成工具，可自行生成場景背景並整合進遊戲
+所有圖像必須保持統一風格。
+如果無法直接呼叫生圖工具，仍須使用 SVG、CSS、圖示與版面設計完成具有完整視覺層次的遊戲，不可因此省略畫面。
+不要使用來源不明的外部圖片。
+# 音效
+可加入簡單音效，例如：
+- 按鈕點擊
+- 解鎖
+- 取得物品
+- 輸入錯誤
+- 電力恢復
+- 伺服器啟動
+音效必須可以關閉。
+若無法合法取得音效，可使用 Web Audio API 生成簡單提示音，不要因缺乏音效素材而停止開發。
+# 介面配置
+建議包含：
+- 上方：場景名稱、進度、計時器
+- 中央：主要場景
+- 側邊或底部：物品欄
+- 角落：提示、音效、重新開始
+- 彈出式面板：文件、謎題與調查內容
+互動物件應有適度的 hover、focus 或觸控提示，但不要讓答案過度明顯。
+# 狀態管理
+請建立清楚的遊戲狀態，包括：
+- 目前場景
+- 已調查物件
+- 已取得物品
+- 已完成謎題
+- 已解鎖區域
+- 玩家選取中的物品
+- 提示使用階段
+- 遊戲開始時間
+- 已經過時間
+- 音效設定
+- 隱藏物件紀錄
+- 遊戲是否完成
+重新載入頁面後，遊戲應能從最近進度繼續。
+
+# 測試要求
+完成實作後，請實際測試並修正問題。
+至少測試：
+1. 從新遊戲開始到正常破關的完整流程。
+2. 每一關輸入正確答案。
+3. 每一關輸入錯誤答案。
+4. 未取得必要物品時嘗試進入下一關。
+5. 對同一物件重複互動。
+6. 不按預期順序調查物件。
+7. 使用提示系統。
+8. 重新整理頁面後讀取存檔。
+9. 清除存檔並重新開始。
+10. 勝利後重新遊玩。
+11. 手機尺寸畫面。
+12. 桌面尺寸畫面。
+13. 鍵盤焦點與基本無障礙操作。
+14. 所有按鈕是否有效。
+15. 是否存在無法繼續、無限循環或死局。
+16. 四個謎題是否真的具有唯一解。
+17. 所有線索文字與最終答案是否一致。
+發現問題後直接修正並重新測試，不要只列出尚未解決的錯誤。
+# 程式品質
+請確保：
+- 結構清楚
+- 函式與變數命名合理
+- 避免重複程式碼
+- 不在 console 留下錯誤
+- 不建立無用途的套件依賴
+- 不把主要內容全部塞在單一巨大函式
+- 重要邏輯有必要的註解
+- 介面文字使用繁體中文
+- 遊戲資料與畫面邏輯適度分離
+# 最終交付要求
+最終交付必須包含：
+1. 可直接執行的完整遊戲檔案。
+2. 清楚的啟動方式。
+3. 遊戲操作說明。
+4. 完整破關流程的測試結果。
+5. 已完成與已驗證功能清單。
+6. 如有任何技術限制，必須如實說明。
+7. 不要只提供部分程式碼。
+8. 不要只提供設計稿。
+9. 不要只提供開發計畫。
+10. 不要宣稱已測試實際上未執行的功能。
+請以「可完整遊玩、可驗證、無假功能」為最高優先級，視覺華麗程度其次。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="box-tip">
+        <strong>💡 做出來之後</strong>
+        <p style="margin: 0.4rem 0 0;">玩過一輪後，試著對它說「第二關太難了，多給一個線索」或「把結局改成…」— 它會直接修改程式。這份 Prompt 也是一份範本：把「深夜醫院」換成你想做的任何主題（科內教學問答、迎新闖關遊戲），架構照用即可。</p>
+      </div>
+    </section>
+
+    <!-- ─── 課後 ─── -->
+    <div class="box-success">
+      <h4>🎯 回家之後</h4>
+      <p style="margin: 0;">今天的三個實作只是整片風景的一角。課程網站上還有文字應用、影片製作、文獻工具、簡報排版等完整教學，以及口述筆記、去識別化、QR code 產生器等免費小工具 — 從<a href="index.html">首頁</a>挑一個有興趣的主題，每頁最後都有 5–15 分鐘的「現在就做」小任務。有任何做出來的作品，歡迎下次上課分享。</p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 衛生福利部台中醫院 感染科 曾婷玉醫師 — AI Workshop</div>
+      <div class="footer-license">教材授權 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC-SA 4.0</a> — 非商業使用可分享與改作，須署名並以相同授權釋出 · <a href="about.html">關於本站與授權</a></div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function copyPrompt(btn) {
+    const content = btn.parentElement;
+    const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+  </script>
+
+</body>
+</html>
