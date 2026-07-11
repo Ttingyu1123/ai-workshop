@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kling（可靈）AI 影片生成 — 手機也能做的 AI 影片工具</title>
+  <meta name="description" content="Kling 國際版教學 — 手機 App 直接操作、每日登入送免費靈感值，文生影片、圖生影片、首尾幀一次學會，是 Google Flow 之外的另一個免費入口。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Kling（可靈）AI 影片生成 — 手機也能做的 AI 影片工具">
+  <meta property="og:description" content="Kling 國際版教學 — 手機 App 直接操作、每日登入送免費靈感值，文生影片、圖生影片、首尾幀一次學會，是 Google Flow 之外的另一個免費入口。">
+  <meta property="og:url" content="https://workshop.tingyudeco.com/kling.html">
+  <meta property="og:image" content="https://workshop.tingyudeco.com/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://workshop.tingyudeco.com/kling.html">
+  <meta name="author" content="曾婷玉醫師（衛生福利部台中醫院 感染科）">
+  <meta name="copyright" content="© 2026 衛生福利部台中醫院 感染科 曾婷玉醫師">
+  <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "Kling（可靈）AI 影片生成 — 手機也能做的 AI 影片工具",
+    "description": "Kling 國際版教學 — 手機 App 直接操作、每日登入送免費靈感值，文生影片、圖生影片、首尾幀一次學會，是 Google Flow 之外的另一個免費入口。",
+    "url": "https://workshop.tingyudeco.com/kling.html",
+    "inLanguage": "zh-TW",
+    "learningResourceType": "教學頁面",
+    "educationalLevel": "入門",
+    "audience": {
+      "@type": "EducationalAudience",
+      "educationalRole": "醫療人員"
+    },
+    "isAccessibleForFree": true,
+    "author": {
+      "@type": "Person",
+      "name": "曾婷玉",
+      "honorificSuffix": "醫師",
+      "jobTitle": "感染科醫師",
+      "affiliation": {
+        "@type": "Hospital",
+        "name": "衛生福利部台中醫院"
+      },
+      "url": "https://workshop.tingyudeco.com/about.html"
+    },
+    "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "AI Workshop — 醫療人員的 AI 工作坊",
+      "url": "https://workshop.tingyudeco.com/"
+    }
+  }
+  </script>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L05KFZJS9L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L05KFZJS9L');
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✏️</span> AI Workshop</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">☰</label>
+      <nav class="site-nav">
+        <a href="index.html">首頁</a>
+        <a href="index.html#core">基礎必修</a>
+        <a href="index.html#create">創作應用</a>
+        <a href="index.html#advanced">進階實戰</a>
+        <a href="index.html#extras" class="active">番外工具</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">番外・影片工具</div>
+    <h1>Kling（可靈）AI 影片生成</h1>
+    <p>手機就能做，每日有免費靈感值可用</p>
+    <div class="squiggle"></div>
+  </div>
+
+  <main class="container">
+
+    <!-- ─── 本頁重點 ─── -->
+    <div class="box-tip page-summary">
+      <strong>📌 本頁重點</strong>
+      <ul style="margin: 0.5rem 0 0;">
+        <li><strong>這頁教什麼：</strong>Kling 國際版的註冊與手機 App 安裝、每日免費靈感值的使用方式、文生影片與圖生影片的實作步驟，以及 Prompt 撰寫要點。</li>
+        <li><strong>適合誰：</strong>已讀過 <a href="google-flow.html">Part 6 — Google Flow 實戰</a>、想在手機上直接操作 AI 影片生成的醫療人員，特別適合實體課現場實作。</li>
+        <li><strong>注意：</strong>免費層輸出有浮水印、解析度上限約 720p；額度政策曾多次調整，實際數字以 App 內顯示為準；上傳素材前務必確認不含病人資料。</li>
+      </ul>
+    </div>
+
+    <nav class="toc" aria-label="目錄">
+      <ol>
+        <li><a href="#what-is-kling">Kling 是什麼</a></li>
+        <li><a href="#why-kling">為什麼多學一個 Kling</a></li>
+        <li><a href="#signup">註冊與安裝</a></li>
+        <li><a href="#credits">免費額度怎麼用</a></li>
+        <li><a href="#text-to-video">實作一：文生影片</a></li>
+        <li><a href="#image-to-video">實作二：圖生影片</a></li>
+        <li><a href="#prompt-tips">Prompt 撰寫要點</a></li>
+      </ol>
+    </nav>
+
+    <!-- ─── What is Kling ─── -->
+    <section id="what-is-kling">
+      <h2>Kling 是什麼</h2>
+      <p>Kling（可靈）是中國網路公司快手（Kuaishou）推出的 AI 影片生成服務。台灣用戶要使用的是<strong>國際版</strong>（<a href="https://klingai.com" target="_blank">klingai.com</a>，手機 App 在 App Store／Google Play 搜尋「KLING AI」即可找到），介面以英文為主、提示詞可用中文；中國版需要中國手機號碼註冊，不適用於台灣用戶。國際版支援文生影片、圖生影片、首尾幀與運鏡控制等功能，中文 Prompt 也能使用。</p>
+
+      <div class="analogy">
+        Kling 就像醫院的「行動超音波車」— 不用固定在檢查室（電腦前）才能用，推到床邊（掏出手機）就能立即操作，適合臨時、現場、快速的需求。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Why Kling ─── -->
+    <section id="why-kling">
+      <h2>為什麼多學一個 Kling</h2>
+      <p><a href="google-flow.html">Part 6</a> 已經教過 Google Flow，這裡不是要取代它，而是多一個互補的免費入口 — 兩者各有擅長的情境，實體課或臨時需要用手機操作時，Kling 特別方便。</p>
+
+      <table>
+        <thead>
+          <tr><th>面向</th><th>Google Flow</th><th>Kling</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>操作載體</td><td>主要在電腦瀏覽器</td><td>手機 App 可直接完整操作</td></tr>
+          <tr><td>免費額度發放</td><td>每日 50 credits（首次生成時觸發、不累計）</td><td>每日登入即贈靈感值（需主動登入領取）</td></tr>
+          <tr><td>時長與模式自由度</td><td>Veo 3.1 固定 8 秒</td><td>時長與畫質模式較彈性</td></tr>
+          <tr><td>圖生影片與首尾幀</td><td>皆支援</td><td>皆支援，操作介面更直覺</td></tr>
+        </tbody>
+      </table>
+
+      <div class="box-tip">
+        <strong>兩者互補，不是取代：</strong>正式的衛教影片製作流程仍以 <a href="google-flow.html">Part 6 — Google Flow</a> 為主課程；Kling 適合作為手機隨手實作、快速測試想法，或 Flow 額度用完時的備用選項。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Signup ─── -->
+    <section id="signup">
+      <h2>註冊與安裝</h2>
+      <p>Kling 有兩個版本，先確認自己要用哪一個：</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong>🌍 國際版（台灣用戶用這個）</strong>
+          <p>網址 <a href="https://klingai.com" target="_blank">klingai.com</a>，手機 App 搜尋「KLING AI」下載。用 Google 帳號、Apple 帳號或任一 email 即可註冊，<strong>不需要中國手機號碼</strong>。介面以英文為主。</p>
+        </div>
+        <div class="card">
+          <strong>🇨🇳 中國版</strong>
+          <p>需要中國手機號碼註冊，且地區限制在中國境內使用。台灣用戶不適用，本頁不涉及此版本。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <ol style="margin-bottom: 0;">
+          <li>手機下載「KLING AI」App（或桌機開啟 klingai.com）</li>
+          <li>選擇用 Google 帳號登入（最快），或用 email 註冊</li>
+          <li>登入後首頁即可看到文生影片／圖生影片的入口</li>
+        </ol>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Credits ─── -->
+    <section id="credits">
+      <h2>免費額度怎麼用</h2>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 資訊更新於 2026 年 7 月 — 額度與方案以官方公告為準。</p>
+
+      <p>Kling 用「靈感值（credits）」計費，<strong>每日登入</strong>可領取免費靈感值，第三方查證約 66 點／日，當日領取、不累積到隔天，且<strong>額度政策曾多次調整</strong>（曾為 166 點）— 實際數字請以 App 內顯示為準。</p>
+
+      <table>
+        <thead>
+          <tr><th>項目</th><th>大致消耗</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>5 秒影片・標準模式</td><td>約 10–20 點</td></tr>
+          <tr><td>5 秒影片・專業／高品質模式</td><td>約 35 點</td></tr>
+        </tbody>
+      </table>
+
+      <p>依此估算，免費層每日額度大致可生成數支標準模式的短影片。免費層可用的模型為 <strong>Kling 2.6</strong>（支援音畫同出、原生音效）；2026 年 2 月發布、支援 4K 的 <strong>Kling 3.0</strong> 需要 Pro 以上訂閱方案才能使用。</p>
+
+      <div class="box-danger">
+        <strong>免費層的兩個限制：</strong>輸出<strong>有浮水印</strong>，解析度上限約 720p；尖峰時段生成排隊時間會明顯較久，建議提早開始操作。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Text to Video ─── -->
+    <section id="text-to-video">
+      <h2>實作一：文生影片</h2>
+      <p>最基本的用法 — 用一段文字描述，直接生成一支短影片。</p>
+
+      <div class="card">
+        <ol style="margin-bottom: 0;">
+          <li>App 首頁選擇「文生影片」（Text to Video）入口</li>
+          <li>在提示詞框輸入描述（中文可用）</li>
+          <li>確認畫質模式與時長（留意上方額度消耗表）</li>
+          <li>按下生成，等待處理完成後即可預覽與下載</li>
+        </ol>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">Kling 文生影片 — 衛教情境範例（正確洗手示範）</div>
+        <div class="prompt-content">明亮乾淨的醫院衛教情境，一雙手在流動的水龍頭下正確洗手，畫面依序呈現：掌心互搓、手指交叉搓洗、搓洗大拇指、沖水，泡沫豐富，動作自然流暢，畫面溫和清爽，適合作為衛教影片素材。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Image to Video ─── -->
+    <section id="image-to-video">
+      <h2>實作二：圖生影片</h2>
+      <p>接站內產線：把 <a href="ai-image.html">Part 4</a> 用 ChatGPT 生成的衛教圖，上傳到 Kling 讓它「動起來」。</p>
+
+      <div class="card">
+        <ol style="margin-bottom: 0;">
+          <li>App 首頁選擇「圖生影片」（Image to Video）入口</li>
+          <li>上傳一張圖片（例：Part 4 生成的衛教海報或插圖）</li>
+          <li>用文字描述你希望畫面如何動起來</li>
+          <li>按下生成，等待處理完成</li>
+        </ol>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">Kling 圖生影片 — 動作描述範例</div>
+        <div class="prompt-content">畫面中的護理師微微點頭並露出微笑，背景保持靜止，鏡頭緩慢向前推進，動作自然、幅度輕微，整體氛圍溫暖親切。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+
+      <p>進階用法是<strong>首尾幀（Frame to Frame）</strong>：指定一張起始畫面與一張結束畫面，讓 AI 生成中間的動畫過程，適合「狀態 A 變成狀態 B」的衛教演示（例如：清潔前 → 清潔後）。</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Prompt Tips ─── -->
+    <section id="prompt-tips">
+      <h2>Prompt 撰寫要點</h2>
+      <p>Kling 的 Prompt 建議依照固定順序描述，短句陳述即可，不需要華麗詞藻：</p>
+
+      <div class="card">
+        <ul style="margin-bottom: 0;">
+          <li><strong>主體</strong> — 畫面中的人物或物件是什麼</li>
+          <li><strong>動作</strong> — 主體正在做什麼、怎麼動</li>
+          <li><strong>運鏡</strong> — 鏡頭是靜止、推近、拉遠還是平移</li>
+          <li><strong>氛圍</strong> — 光線、色調、整體感受</li>
+        </ul>
+      </div>
+
+      <div class="analogy">
+        就像交班時的 SBAR 一樣，先講重點再講細節 — 主體最先講清楚，動作次之，運鏡與氛圍是補充說明，AI 才不會抓錯重點。
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <div class="box-danger">
+      <h4>⚠️ 使用注意事項</h4>
+      <ul style="margin-bottom: 0;">
+        <li><strong>不可上傳含病人資料的圖片或影片</strong> — 上傳前先過 <a href="ai-safety.html">Part 3 — AI 安全與隱私</a> 的三秒安全檢查</li>
+        <li>免費層輸出有浮水印，且僅供個人學習與非商業用途</li>
+        <li>生成內容需經人工審核，確認正確性後才能用於正式衛教</li>
+      </ul>
+    </div>
+
+    <div class="box-success">
+      <strong>🎯 現在就做（10–15 分鐘）：</strong>手機安裝 KLING AI App → 用 Google 帳號登入、領取當日靈感值 → 把一張 AI 生成的衛教圖上傳到圖生影片，做出你的第一支 5 秒動態影片。
+    </div>
+
+    <div class="nav-links">
+      <a href="comfyui.html" class="nav-link">← 番外 — 本機／開源生圖</a>
+      <a href="index.html" class="nav-link">回目錄</a>
+      <span class="nav-link disabled">更多內容製作中</span>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">© 2026 衛生福利部台中醫院 感染科 曾婷玉醫師 — AI Workshop</div>
+      <div class="footer-license">教材授權 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC-SA 4.0</a> — 非商業使用可分享與改作，須署名並以相同授權釋出 · <a href="about.html">關於本站與授權</a></div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/doctor_tingyu/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> IG</a>
+        <a href="https://tingyudeco.com" target="_blank">作品集 ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function copyPrompt(btn) {
+    const content = btn.parentElement;
+    const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+  </script>
+
+</body>
+</html>

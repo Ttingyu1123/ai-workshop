@@ -29,6 +29,8 @@ ai-workshop/
 ├── github-pages.html   # 番外 — GitHub Pages 建站
 ├── prompt-builder.html # 番外 — Prompt 產生器（純前端字串組裝，零 API；表單樣式在頁內 <style>）
 ├── chrome-skills.html  # 番外 — Chrome Skills（Gemini in Chrome 存 prompt 成快捷鍵；純文字教學＋9 個醫療 Skills 範本，圖待補）
+├── comfyui.html        # 番外 — 本機／開源生圖（ComfyUI 桌面版＋RunningHub 雲端兩條路線）
+├── kling.html          # 番外 — Kling（可靈）影片生成（國際版手機 App 實作向；每日登入送靈感值，額度數字為第三方查證、頁內標示以 App 顯示為準）
 ├── voice-notes.html    # 番外 — 口述筆記小工具（Web Speech API 即時聽寫，純前端零依賴；限 Chrome/Edge、辨識走雲端非離線，頁內已標示勿口述病人資料）
 ├── pdf-to-images.html  # 番外 — PDF 轉圖檔小工具（pdf.js + JSZip 皆 cdnjs 載入，轉換全在本機、檔案不上傳；NotebookLM 簡報→Canva 產線的中繼站）
 ├── redact-image.html   # 番外 — 圖片去識別化小工具（canvas 框選塗黑/馬賽克，零依賴；給 AI 看截圖前先遮病人資料，與 ai-safety 呼應）
@@ -115,7 +117,7 @@ ai-workshop/
 所有頁面共用 header/footer：
 - Header 是**分區錨點導航**（不列單頁，永不爆版）：首頁 / 基礎必修(#core) / 創作應用(#create) / 進階實戰(#advanced) / 番外工具(#extras) — 錨點指向 index.html 的四個 section。作品集連結只在 footer，不放 header
 - 每頁把自己所屬分區的連結標 `.active`：Part 1-3 → #core、Part 4-6 → #create、Part 7 → #advanced、番外頁 → #extras
-- 閱讀鏈（底部 nav-links）：Part 1→2→3→4→5→6→7 → 番外 notebooklm → ai-transcribe → capcut → canva → github-pages → chrome-skills
+- 閱讀鏈（底部 nav-links）：Part 1→2→3→4→5→6→7 → 番外 notebooklm → ai-transcribe → capcut → canva → github-pages → chrome-skills → comfyui → kling
 - 課程分區：基礎必修（基礎/文字/安全）、創作應用（圖像/影片/Flow）、進階實戰（Agent）、番外工具
 - **新增課程不要動 header** — 只加 index 卡片和串閱讀鏈
 - Footer：官方署名 + `.footer-license` 授權句（連 about.html）+ IG + 作品集（https://tingyudeco.com，外部連結）；不放 GitHub（2026-07-10 移除）；當前頁 nav link 加 `.active`
@@ -152,6 +154,7 @@ ai-workshop/
 ## 工具實測事實（改相關頁面時引用，勿憑印象改數字）
 
 - **Google Flow 免費層**（2026-07-07 實測）：每日 50 credits（首次生成觸發、不累計、升級即作廢）；只能用 Veo 3.1 三檔，Omni Flash 需訂閱；Veo Lite 10 credits **不是 0**；Quality 一次 100 超過日額度、免費層用不到；1080p upscale 不可用、4K 僅 Ultra。影片：最高 Veo 3.1 Fast、固定 8 秒、下載只有 270p GIF 與 720p 原始檔。生圖：0 credits 但另有每日次數上限（0 credits ≠ 無限）、下載可選 1K/2K、4K 不開放；引號逐字控制不編造但會小幅同義改寫，關鍵句需逐字校對。中文口白可對嘴但咬字偶錯，正式片建議 TTS。Flow Tools 34 款免費全開但 remix 需訂閱。YouTube Shorts／Create App 內建 Gemini Omni 全帳號免費（10 秒上限、SynthID 浮水印），是免費層體驗 Omni 的出口。影片模型現況：Gemini Omni（旗艦）與 Veo 3.1 並存
+- **Kling 免費層**（2026-07-11 第三方查證，非實測）：國際版每日登入贈靈感值約 66 點/日（曾為 166、政策多次調整，頁內一律標「以 App 顯示為準」）；5 秒標準片約 10–20 點、專業模式約 35 點；免費層限 Kling 2.6（音畫同出）、3.0（2026-02 發布、4K）需 Pro 訂閱；輸出有浮水印、上限約 720p、尖峰排隊久
 - **ComfyUI 雲端額度**（2026-07-09 實測）：Comfy Cloud 免費層已收（需訂閱、以帳號顯示為準）；RunningHub 每日登入贈 100 credits——comfyui.html 路線 B 免費入口推 RunningHub
 - **NotebookLM**：表格輸出會露 `<br><br>` 原始標記，解法是提問時加「表格儲存格內不要使用 HTML 標記，改用頓號或分行」
 
