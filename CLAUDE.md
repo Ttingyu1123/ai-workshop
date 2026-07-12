@@ -5,166 +5,96 @@
 ## 技術架構
 
 - **純靜態站**：HTML + CSS + vanilla JS，零依賴、零 build
-- **部署**：GitHub Pages（`main` branch → 自訂網域 `https://workshop.tingyudeco.com/`；舊網址 `ttingyu1123.github.io/ai-workshop` 301 轉址，2026-07-11 綁定，DNS 在 Cloudflare tingyudeco.com zone 的 CNAME `workshop`）
+- **部署**：GitHub Pages（`main` branch → 自訂網域 `https://workshop.tingyudeco.com/`；舊網址 301 轉址；DNS 在 Cloudflare CNAME `workshop`）
 - **設計系統**：Doodle 手繪風（基於 typeui.sh/design-skills/doodle）
 
 ## 檔案結構
 
-```
-ai-workshop/
-├── CLAUDE.md           # 本檔
-├── style.css           # 全站共用樣式（Doodle 設計系統）
-├── index.html          # 首頁（分區卡片牆：#core / #create / #advanced / #tools / #extras；卡片用 .workshop-grid 兩欄排列，單卡分區自動撐滿整列，header 錨點不含 #tools — 小工具累積到 4-5 個再考慮升格）
-├── ai-fundamentals.html # Part 1 — AI 基礎觀念
-├── ai-writing.html     # Part 2 — AI 文字應用
-├── ai-safety.html      # Part 3 — AI 安全與隱私（必修）
-├── ai-image.html       # Part 4 — AI 圖像生成
-├── ai-video.html       # Part 5 — AI 影片製作
-├── google-flow.html    # Part 6 — Google Flow 實戰
-├── ai-agent.html       # Part 7 — AI Agent 實作
-├── notebooklm.html     # 番外 — NotebookLM 文獻工具
-├── ai-transcribe.html  # 番外 — 語音轉文字
-├── capcut.html         # 番外 — CapCut 剪輯
-├── canva.html          # 番外 — Canva 設計
-├── github-pages.html   # 番外 — GitHub Pages 建站
-├── prompt-builder.html # 番外 — Prompt 產生器（純前端字串組裝，零 API；表單樣式在頁內 <style>）
-├── chrome-skills.html  # 番外 — Chrome Skills（Gemini in Chrome 存 prompt 成快捷鍵；純文字教學＋9 個醫療 Skills 範本，圖待補）
-├── comfyui.html        # 番外 — 本機／開源生圖（ComfyUI 桌面版＋RunningHub 雲端兩條路線）
-├── kling.html          # 番外 — Kling（可靈）影片生成（國際版手機 App 實作向；每日登入送靈感值，額度數字為第三方查證、頁內標示以 App 顯示為準）
-├── voice-notes.html    # 番外 — 口述筆記小工具（Web Speech API 即時聽寫，純前端零依賴；限 Chrome/Edge、辨識走雲端非離線，頁內已標示勿口述病人資料）
-├── pdf-to-images.html  # 番外 — PDF 轉圖檔小工具（pdf.js + JSZip 皆 cdnjs 載入，轉換全在本機、檔案不上傳；NotebookLM 簡報→Canva 產線的中繼站）
-├── redact-image.html   # 番外 — 圖片去識別化小工具（canvas 框選塗黑/馬賽克，零依賴；給 AI 看截圖前先遮病人資料，與 ai-safety 呼應）
-├── image-resize.html   # 番外 — 圖片壓縮與轉檔小工具（canvas 批次縮圖/轉格式＋heic2any 轉 HEIC＋JSZip 打包；重編碼順帶清 EXIF/GPS）
-├── crop-element.html   # 番外 — 元素擷取小工具（方框/套索/筆刷圈選累加成遮罩，裁到最小外框、範圍外透明；零依賴，接 Canva 去背後取單一元素）
-├── qr-maker.html       # 番外 — QR Code 產生器（qrcode-generator cdnjs 載入，本機生成；勿用 qrcodejs——中文 UTF-8 會 code length overflow，2026-07 踩過）
-├── watermark.html      # 番外 — 批次加浮水印小工具（canvas 疊署名文字＋JSZip 打包；canvas 用 LXGW 字型前必須 await document.fonts）
-├── handout-20260723.html # 第一堂課課堂講義（**學員限定隱藏頁**：刻意不進 index/sitemap/header、head 有 noindex，只靠課堂 QR code 進入——審計時勿當 orphan page「補登」；QR 圖在課程素材資料夾 20260723 第一堂課/qr-handout-20260723.png，Prompt 正本在 Obsidian 03_Projects/AI-Workshop/第一堂課 課堂講義.md）
-├── about.html          # 關於本站與授權（作者介紹＋使用聲明＋CC BY-NC-SA 4.0 條款＋引用格式；只從 footer 連入，不進 header/index 卡片）
-├── images/<頁名>/       # 內文圖片，一頁一資料夾（規格見「圖片擺放規範」）；ai-image/ = Part 4 對比圖（來源 PNG 在 Downloads\教學素材）
-├── sitemap.xml         # 新增頁面時記得加一條
-├── robots.txt
-├── qr-site.png         # 首頁 QR code（實體課投影片用）
-├── 404.html            # GitHub Pages 404（連結用根目錄 / 絕對路徑——自訂網域後站點在根，勿再加 /ai-workshop/ 前綴）
-├── og-image.png        # OG 分享圖（doodle 插畫 1024x1024，與 website Insights 卡片同一張）
-├── favicon-32.png      # favicon（從 og-image 聽診器笑臉裁出）
-├── favicon.png         # favicon 64x64
-└── apple-touch-icon.png # iOS 書籤圖示 180x180
-```
+頁面平鋪於根目錄，無 build，僅 `images/` 子目錄。核心課程頁 7 個（ai-fundamentals~ai-agent.html，Part 1-7）；番外工具頁約 16 個（notebooklm/capcut/canva/comfyui/kling 等教學頁 + qr-maker/watermark 等零依賴小工具）。
+
+**踩坑**（改對應頁面前必看）：
+- **404.html**：連結用根目錄絕對路徑，勿加 `/ai-workshop/` 前綴
+- **qr-maker.html**：勿用 qrcodejs（中文 UTF-8 overflow），改用 qrcode-generator（cdnjs）
+- **watermark.html**：canvas 用 LXGW 字型前須 `await document.fonts`
+- **voice-notes.html**：限 Chrome/Edge、辨識走雲端非離線，頁內已標示勿口述病人資料
+- **handout-20260723.html**：**學員限定隱藏頁**，不進 index/sitemap/header、head 有 noindex，靠課堂 QR code 進入——審計勿當 orphan page「補登」。Prompt 正本在 Obsidian `03_Projects/AI-Workshop/第一堂課 課堂講義.md`，改講義先改正本
+- **about.html**：僅 footer 連入
+- **index.html**：`.workshop-grid` 兩欄排列，header 錨點不含 `#tools`（小工具累積到 4-5 個再考慮升格）
 
 ## 設計規範
 
 ### 字型
-- **標題/手寫**：`Caveat`（Latin）+ `LXGW WenKai TC`（中文）
-- **內文**：`LXGW WenKai TC`（中文主體）+ `Caveat`（Latin fallback）
-- **程式碼**：`JetBrains Mono`
-- 全部從 Google Fonts 載入
+標題/手寫 `Caveat`+`LXGW WenKai TC`；內文 `LXGW WenKai TC` 主體+`Caveat` fallback；程式碼 `JetBrains Mono`（皆 Google Fonts）。
 
-### 文案語體（寫作風格 — 全站一致，新頁面與改稿一律遵守）
-- **專業但親切**：受眾是不熟 AI 的醫療人員，要好懂；但這是**課堂教學素材**，語體須正式，**避免網路口語與俚俗填充詞**。親切感靠清楚的類比與循序說明達成，不是靠口語詞堆出來的。
-- **禁用口語詞 →改法**：很能打→表現出色｜手癢加字→自行加入文字｜踩雷→誤觸風險｜（急著）追新→採用最新｜塞爆→佔滿｜八成是→多半是｜跑跑看→實際測試｜別被…嚇到→無需理會｜玩玩看→了解運作｜整包送你→一併提供｜說了算→由…決定｜給不了→無法提供｜上雲端→改用雲端｜類 stock→圖庫素材｜想抽幾張就抽幾張→可不限次數生成。同 register 的其他口語一併比照。
-- **保留（這些是親切感來源，不算口語）**：必要的醫學／生活類比（`.analogy` 框）、`🎯 現在就做` 小任務的行動導向語氣、emoji 標記、第二人稱「你」。
-- **交給 subagent 寫／改頁面時，把本節一併貼進 prompt。**
+### 文案語體（全站一致，新頁面與改稿一律遵守）
+- **專業但親切**：受眾是不熟 AI 的醫療人員，要好懂；但這是**課堂教學素材**，語體須正式，**避免網路口語與俚俗填充詞**。
+- **禁用口語詞 →改法**：很能打→表現出色｜手癢加字→自行加入文字｜踩雷→誤觸風險｜追新→採用最新｜塞爆→佔滿｜八成是→多半是｜跑跑看→實際測試｜別被…嚇到→無需理會｜玩玩看→了解運作｜整包送你→一併提供｜說了算→由…決定｜給不了→無法提供｜上雲端→改用雲端｜類 stock→圖庫素材｜想抽幾張就抽幾張→可不限次數生成。同 register 的其他口語一併比照。
+- **保留（不算口語）**：醫學／生活類比（`.analogy` 框）、`🎯 現在就做` 語氣、emoji、第二人稱「你」。交給 subagent 寫／改頁面時把本節一併貼進 prompt。
 
 ### 色彩 Token
-| Token | Hex | 用途 |
-|-------|-----|------|
-| `--primary` | `#49B6E5` | 主色、連結、標籤 |
-| `--secondary` | `#263D5B` | 深色文字、header |
-| `--text` | `#111827` | 內文 |
-| `--success` | `#16A34A` | 優點標記 |
-| `--warning` | `#D97706` | 注意事項 |
-| `--danger` | `#DC2626` | 禁止/缺點 |
+`--primary #49B6E5` 主色/連結/標籤｜`--secondary #263D5B` 深色文字/header｜`--text #111827` 內文｜`--success #16A34A` 優點｜`--warning #D97706` 注意｜`--danger #DC2626` 禁止/缺點
 
 ### 排版
-- Base font-size: 18px，line-height: 1.9
-- Container: max-width 900px，padding 0 32px
-- 背景：筆記本橫線（background-size 36px）
-- 響應式斷點：640px、768px（header）
+Base 18px / line-height 1.9；container max-width 900px；背景筆記本橫線；斷點 640px/768px（header）。
 
 ### 元件
-- `.tool-card` — 工具介紹卡（含 pros-cons）
-- `.prompt-block` — 可複製的 Prompt 區塊（含 `copyPrompt()` JS）
-- `.card` / `.card-grid` — 資訊卡片
-- `.analogy` — 醫學類比框
-- `.box-tip` / `.box-danger` / `.box-success` — 提示框
-- `.box-success` 小任務框 — 每個課程頁底部 nav-links 前有一個「🎯 現在就做」5-15 分鐘實作任務（新頁面必加）
-- `.box-tip.page-summary` — 每個**教學頁** `<main>` 開頭的「📌 本頁重點」摘要框（這頁教什麼／適合誰／注意 三個 bullet，內容取自頁面實際章節；純工具頁不放，工具的 GEO 資訊由 JSON-LD WebApplication 承擔）
-- `.result-compare` — **本站圖片擺放的預設格式**（見下方「圖片擺放規範」）
-- `.site-header` — sticky header + 純 CSS 漢堡選單（checkbox hack）
-- `.site-footer` — footer 含 IG SVG icon（GitHub icon 於 2026-07-10 移除：作者 GitHub 有未完成專案，不適合作對外信任訊號）
+`.tool-card`／`.prompt-block`+`copyPrompt()`／`.card`,`.card-grid`／`.analogy`／`.box-tip`,`.box-danger`,`.box-success`／`.result-compare`（見下方）／`.site-header`,`.site-footer`（sticky header+CSS 漢堡選單；footer 無 GitHub icon，作者有未完成專案）。`.box-success`／`.box-tip.page-summary` 用法見 SOP 步驟 5。
 
 ### 圖片擺放規範（預設格式）
+內文圖一律用 `.result-compare` 縮圖 + lightbox，不要放大圖撐版面。Markup／lightbox IIFE 從 `ai-image.html` 頁尾複製（同 `copyPrompt()` 慣例，每頁 `<script>` 重複定義不抽外部 JS）。
 
-內文放圖一律用 `.result-compare` 縮圖 + lightbox 點擊放大，不要直接放大圖撐版面：
-
-```html
-<div class="result-compare">
-  <figure>
-    <img src="images/<頁名>/<slug>.webp" alt="<具體描述圖片內容>" loading="lazy">
-    <figcaption><span class="tool-chatgpt">ChatGPT</span> 生成結果</figcaption>
-  </figure>
-  <figure>…</figure>
-</div>
-```
-
-- **檔案**：存 `images/<頁名>/`，ASCII slug 檔名（CJK 檔名在 URL 會亂編碼）；WebP 長邊 ≤1200px（Pillow：`im.save(out, "WEBP", quality=Q, method=6)`）。quality 依內容：一般照片/截圖用 82；**滿版小字教學海報用 74**（82 會到 200-250KB，74 落在 150-195KB 且小字仍清晰 — Part 1 全 14 張的實測值，2026-07）。單檔目標 ~150-195KB
-- **海報批次流程**（Part 1 已跑完一輪的 SOP）：來源在 `Downloads\教學素材`（編號＋中文檔名）→ 先 md5sum 查重複（曾有 04/08 同檔）→ 逐張 Read 看內容寫 alt → Pillow 轉檔 → 插入對應章節 → Playwright 全頁捲動驗證（lazy load 圖要捲到才載入，直接查 `naturalWidth` 會誤判 BROKEN）→ commit+push
-- **縮圖**：CSS 固定高度裁切頂部（桌面 180px / 手機 130px，`object-fit: cover`），雙欄並排；點擊開 lightbox 看全圖。直式海報用裁切、不用等比縮小（縮成細長條反而看不清）
-- **圖說**：工具對比用 `.tool-chatgpt`（綠）/ `.tool-gemini`（藍）著色；非對比情境 figcaption 寫圖片說明即可
-- **lightbox JS**：跟 `copyPrompt()` 同慣例，每頁 `<script>` 重複定義、不抽外部 JS — 從 ai-image.html 頁尾複製那段 IIFE（建立 `.lightbox`、點擊/Esc 關閉、鎖背景捲動）
-- **alt 文字**：必須先實際看過圖片內容再寫，不要從檔名猜
+- **檔案**：存 `images/<頁名>/`，ASCII slug 檔名（CJK 檔名 URL 會亂編碼）；WebP 長邊 ≤1200px（Pillow `quality=Q, method=6`）。一般照片/截圖 quality 82；**滿版小字海報用 74**（省重量、字仍清晰）。單檔目標 ~150-195KB
+- **批次流程**：來源 `Downloads\教學素材` → md5sum 查重複 → 逐張 Read 寫 alt → Pillow 轉檔 → 插入章節 → Playwright 全頁捲動驗證（lazy load 要捲到才載入，直接查 `naturalWidth` 會誤判 BROKEN）→ commit+push
+- **縮圖**：CSS 固定高度裁切頂部（桌面 180px/手機 130px），直式海報用裁切不用等比縮小
+- **圖說**：工具對比用 `.tool-chatgpt`（綠）/`.tool-gemini`（藍）著色；alt 須先看過圖片內容再寫，不從檔名猜
 
 ## 導航結構
 
-所有頁面共用 header/footer：
-- Header 是**分區錨點導航**（不列單頁，永不爆版）：首頁 / 基礎必修(#core) / 創作應用(#create) / 進階實戰(#advanced) / 番外工具(#extras) — 錨點指向 index.html 的四個 section。作品集連結只在 footer，不放 header
-- 每頁把自己所屬分區的連結標 `.active`：Part 1-3 → #core、Part 4-6 → #create、Part 7 → #advanced、番外頁 → #extras
-- 閱讀鏈（底部 nav-links）：Part 1→2→3→4→5→6→7 → 番外 notebooklm → ai-transcribe → capcut → canva → github-pages → chrome-skills → comfyui → kling
-- 課程分區：基礎必修（基礎/文字/安全）、創作應用（圖像/影片/Flow）、進階實戰（Agent）、番外工具
-- **新增課程不要動 header** — 只加 index 卡片和串閱讀鏈
-- Footer：官方署名 + `.footer-license` 授權句（連 about.html）+ IG + 作品集（https://tingyudeco.com，外部連結）；不放 GitHub（2026-07-10 移除）；當前頁 nav link 加 `.active`
+- Header 是**分區錨點導航**：首頁 / 基礎必修(#core) / 創作應用(#create) / 進階實戰(#advanced) / 番外工具(#extras)，指向 index.html 四個 section；作品集連結只在 footer
+- 每頁標自己所屬分區 `.active`：Part 1-3→#core、Part 4-6→#create、Part 7→#advanced、番外頁→#extras
+- 閱讀鏈：Part 1→2→3→4→5→6→7→notebooklm→ai-transcribe→capcut→canva→github-pages→chrome-skills→comfyui→kling
+- **新增課程不要動 header** — 只加 index 卡片和串閱讀鏈；Footer 含署名/授權句/IG/作品集，不放 GitHub
 
 ## 新增頁面 SOP
 
 1. 複製 google-flow.html 作模板（骨架最標準）
-2. 更新 `<title>` / `<meta description>` / og 四項（og:url 指向新頁）/ hero badge / h1；同步更新 SEO 標記：`rel="canonical"`（與 og:url 同值）與 JSON-LD 的 name/description/url（`@type`：教學頁 `LearningResource`、純工具頁 `WebApplication`；author/license 照抄模板不動）
-3. header nav **不要動連結清單**，只把自己所屬分區標 `.active`（分區歸屬見「導航結構」）
-4. 更新 TOC；底部 nav-links 串進閱讀鏈（同時要改前一頁的「下一課」連結）
-5. nav-links 前加一個 `.box-success`「🎯 現在就做」小任務框（5-15 分鐘可完成的實作）；教學頁另在 `<main>` 開頭加 `.box-tip.page-summary`「📌 本頁重點」摘要框（見「元件」）
-6. 確認 `</head>` 前有 GA4 snippet（G-L05KFZJS9L，從模板複製就會帶到）
-7. 在 index.html 對應分區加課程卡片；sitemap.xml 補一條
-8. 含方案/價格/額度的內容：表格上方加「📅 資訊更新於 YYYY 年 M 月 — 以官方公告為準」；查證不到的數字寫保守描述，不編數字
-9. 有 `.prompt-block` 就要帶頁尾 `copyPrompt()` script（刻意每頁重複定義，不抽外部 JS）
-10. 有內文圖片就照「圖片擺放規範」：`.result-compare` 縮圖 + 頁尾 lightbox IIFE（從 ai-image.html 複製）
-11. 驗收：`grep` 檢查頁內連結都指向存在的檔案、hero badge 與分區 active 一致；有圖的頁面確認每個 img src 都有對應實體檔案
+2. 更新 title/meta description/og 四項/hero badge/h1；同步 `rel="canonical"`（同 og:url）與 JSON-LD name/description/url（`@type`：教學頁 `LearningResource`、工具頁 `WebApplication`；author/license 照抄不動）
+3. header nav **不要動連結清單**，只標自己分區 `.active`
+4. 更新 TOC；nav-links 串進閱讀鏈（同時改前一頁「下一課」連結）
+5. nav-links 前加 `.box-success`「🎯 現在就做」任務框（5-15 分鐘）；教學頁另在 `<main>` 開頭加 `.box-tip.page-summary`「📌 本頁重點」（教什麼/適合誰/注意；工具頁不放）
+6. 確認 `</head>` 前有 GA4 snippet（G-L05KFZJS9L）
+7. index.html 對應分區加課程卡片；sitemap.xml 補一條
+8. 方案/價格/額度內容加「📅 資訊更新於 YYYY 年 M 月」；查不到就寫保守描述，不編數字
+9. 有 `.prompt-block` 帶頁尾 `copyPrompt()` script（每頁重複定義不抽外部 JS）
+10. 有圖照「圖片擺放規範」：`.result-compare` + lightbox IIFE
+11. 驗收：連結都指向存在檔案、hero badge 與分區 active 一致、img src 都有實體檔案
 
 ### 交給 subagent 寫頁面時
-- Prompt 裡直接貼「完整 header nav 標記」與「底部 nav-links 標記」，不要讓 agent 自己推導
-- 要求先 WebSearch 查證工具現況（2-3 查詢），查不到就寫保守版，嚴禁編造額度/價格數字
+- Prompt 直接貼「完整 header nav 標記」與「底部 nav-links 標記」，不要讓 agent 自己推導
+- 要求先 WebSearch 查證工具現況，查不到就寫保守版，嚴禁編造額度/價格數字
 - 明確劃界：只寫這一個新檔案，不碰導航、不 commit
-- agent 回報完成後必驗：檔案存在、行數合理、結尾是 `</html>`、`copyPrompt` 與 copy-btn 數量相符 — agent 可能中途撞額度死掉，回報訊息可能只是 rate-limit 錯誤
+- 完成後必驗：檔案存在、結尾是 `</html>`、`copyPrompt` 與 copy-btn 數量相符——agent 可能撞額度死掉，回報可能只是 rate-limit 錯誤
 
 ## 待做項目
 
 - [ ] 範例牆／學員作品頁（靜態 gallery + Google 表單收件，等有作品再做）
-- [ ] 衛教單專區 → **獨立成站**（預計 >20 張，受眾是民眾非醫療人員，另開 repo，不放本站）
-- [ ] 番外 — 得獎作品復盤：Midjourney × Kling 工作流（得獎影片＝MJ 生圖 → Kling 圖生影片，上下游一頁講完不拆頁）。定位是案例復盤不是工具大全：從作品倒推決策（MJ 段：風格 prompt、角色/風格一致性；Kling 段：圖生影片、首尾幀、運鏡）；學員可用 ChatGPT 免費生圖＋Kling 免費額度跟做（接 Part 4→5 產線）。素材由用戶提供；寫完回頭在 ai-video.html 的 Kling 卡、ai-image.html `#advanced-tools` 的 Midjourney 卡加導流；MJ 內容爆量再拆頁（2026-07-07 決策）
+- [ ] 衛教單專區 → **獨立成站**（受眾是民眾非醫療人員，另開 repo，不放本站）
+- [ ] 番外 — 得獎作品復盤：Midjourney × Kling 工作流，一頁講完不拆頁；寫完回頭在 ai-video.html Kling 卡、ai-image.html Midjourney 卡加導流
 - [ ] chrome-skills.html 補圖
 
-已完成項目的過程紀錄（各頁建置、canva 補圖、Flow/ComfyUI 實測經過等）不留在本檔——查 git log 或 Obsidian `03_Projects/AI-Workshop/`。
+過程紀錄不留本檔——查 git log 或 Obsidian `03_Projects/AI-Workshop/`。
 
-## 工具實測事實（改相關頁面時引用，勿憑印象改數字）
+## 工具實測事實（改頁前引用，勿憑印象改數字；完整數據見 Obsidian）
 
-- **Google Flow 免費層**（2026-07-07 實測）：每日 50 credits（首次生成觸發、不累計、升級即作廢）；只能用 Veo 3.1 三檔，Omni Flash 需訂閱；Veo Lite 10 credits **不是 0**；Quality 一次 100 超過日額度、免費層用不到；1080p upscale 不可用、4K 僅 Ultra。影片：最高 Veo 3.1 Fast、固定 8 秒、下載只有 270p GIF 與 720p 原始檔。生圖：0 credits 但另有每日次數上限（0 credits ≠ 無限）、下載可選 1K/2K、4K 不開放；引號逐字控制不編造但會小幅同義改寫，關鍵句需逐字校對。中文口白可對嘴但咬字偶錯，正式片建議 TTS。Flow Tools 34 款免費全開但 remix 需訂閱。YouTube Shorts／Create App 內建 Gemini Omni 全帳號免費（10 秒上限、SynthID 浮水印），是免費層體驗 Omni 的出口。影片模型現況：Gemini Omni（旗艦）與 Veo 3.1 並存
-- **Kling 免費層**（2026-07-11 第三方查證，非實測）：國際版每日登入贈靈感值約 66 點/日（曾為 166、政策多次調整，頁內一律標「以 App 顯示為準」）；5 秒標準片約 10–20 點、專業模式約 35 點；免費層限 Kling 2.6（音畫同出）、3.0（2026-02 發布、4K）需 Pro 訂閱；輸出有浮水印、上限約 720p、尖峰排隊久
-- **ComfyUI 雲端額度**（2026-07-09 實測）：Comfy Cloud 免費層已收（需訂閱、以帳號顯示為準）；RunningHub 每日登入贈 100 credits——comfyui.html 路線 B 免費入口推 RunningHub
-- **NotebookLM**：表格輸出會露 `<br><br>` 原始標記，解法是提問時加「表格儲存格內不要使用 HTML 標記，改用頓號或分行」
+- **Google Flow**：免費層每日 50 credits 不累計；Veo Lite 10 credits **不是 0**；影片固定 8 秒、下載僅 270p GIF/720p；口白引號會同義改寫，需逐字校對
+- **Kling**：每日贈靈感值約 66 點（政策常變，頁內標「以 App 顯示為準」）；免費層限 2.6，3.0 需 Pro
+- **ComfyUI**：Comfy Cloud 免費層已收；RunningHub 每日贈 100 credits 為入口
+- **NotebookLM**：表格輸出露 `<br><br>`，提問加「儲存格不要用 HTML 標記」可解
 
 ## 注意事項
 
-- **官方署名**：衛生福利部台中醫院 感染科 曾婷玉醫師（螢幕 footer 與列印版權行都用這個，不放 IG/GitHub/個人網站）。列印（Ctrl+P）時每頁自動帶版權 footer 與淡浮水印（style.css `@media print` 的 `body::before/::after`），螢幕上不顯示；改署名時螢幕 footer（各頁 HTML）和 print（style.css）兩處都要改
-- **授權條款**：全站教材採 **CC BY-NC-SA 4.0**（2026-07-10 定案，人讀版正本在 about.html）。機器可讀宣告有四處，改授權時必須全部同步：(1) 各頁 head 的 `rel="license"` 與 JSON-LD `license` (2) 各頁 footer `.footer-license` 授權句 (3) style.css `@media print` 的 `body::after` 版權行 (4) about.html 條款內文。每頁 head 另有 `rel="canonical"`＋`meta author/copyright`＋JSON-LD（結構見「新增頁面 SOP」步驟 2）
-- 不要用 Delius Swash Caps 字型（大寫 I 看起來像 J，對 AI 主題致命）
-- Prompt 區塊的 `copyPrompt()` 函式在每個頁面的 `<script>` 中重複定義（刻意，避免外部 JS 依賴）
-- **GA4**：本站是獨立 property `544090519`（Measurement ID `G-L05KFZJS9L`），與 website（532664866）分開——Bot 每日流量報告靠其 `.env` 的 `GA4_PROPERTY_ID_WORKSHOP` 指向本站；曾因誤記「共用 property」致報告連續為 0（2026-07-09 修正，詳見 Obsidian 踩坑記錄）
-- og-image.png 與 website repo `public/images/insights/ai-workshop.png` 是同一張圖，換圖時兩邊同步
+- **署名**：衛生福利部台中醫院 感染科 曾婷玉醫師（不放 IG/GitHub/個人網站）。改署名時螢幕 footer 與列印版權行（style.css `@media print`）兩處同步
+- **授權條款**：全站教材採 **CC BY-NC-SA 4.0**（正本 about.html）。改授權須同步四處：(1) 各頁 head `rel="license"` + JSON-LD `license` (2) footer `.footer-license` (3) style.css `body::after` (4) about.html 條款內文
+- 不要用 Delius Swash Caps（大寫 I 像 J，對 AI 主題致命）
+- **GA4**：獨立 property `544090519`（`G-L05KFZJS9L`），與 website（532664866）分開，`.env` 的 `GA4_PROPERTY_ID_WORKSHOP` 指向本站
+- og-image.png 與 website repo `public/images/insights/ai-workshop.png` 同一張圖，換圖兩邊同步
