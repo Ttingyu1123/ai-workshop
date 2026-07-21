@@ -132,6 +132,13 @@
           <p>GitHub Pages 對個人網站免費、不用綁信用卡。額度對個人教學網站通常綽綽有餘；大流量或正式機構服務要用正式主機。</p>
         </div>
       </div>
+
+      <div class="result-compare">
+        <figure>
+          <img src="images/github-pages/how-a-website-goes-online.webp" alt="網站是怎麼出現在網路上的教學海報：先做好內容 → 發布到網路 → 綁定網址 → 任何裝置都能瀏覽；四步驟：①建立網站內容（文章、圖片、影片、表單）②發布到網站平台（放到可 24 小時對外提供服務的平台，常見平台 GitHub Pages、Vercel、Cloudflare Pages、Netlify，這一步也叫部署）③綁定網址（網址就像網站的門牌地址，example.com）④使用者瀏覽網站（不論使用什麼裝置，只要輸入同一個網址，都會看到同一個網站）；新手記憶公式：網站內容＋發布到網路＋網址＝任何人都可以瀏覽" loading="lazy">
+          <figcaption>網站是怎麼上線的 — 內容→發布→網址→瀏覽（點圖放大）</figcaption>
+        </figure>
+      </div>
     </section>
 
     <hr class="section-divider">
@@ -158,6 +165,13 @@
           <strong>GitHub Pages</strong>
           <p>GitHub 內建的免費網站託管功能，把 repository 裡的網頁檔案直接變成一個公開網址。</p>
         </div>
+      </div>
+
+      <div class="result-compare">
+        <figure>
+          <img src="images/github-pages/what-is-github.webp" alt="什麼是 GitHub 新手入門概念圖：放專案、記錄修改、一起協作的線上平台 — 在電腦上寫程式、上傳專案到 GitHub（HTML、CSS、JavaScript、圖片、README、設定檔），可下載最新版本、查看修改紀錄、和別人一起合作；三大功能：①專案倉庫（把網站或程式的所有檔案集中放在同一個地方，一個專案空間叫 Repository）②專案時光機（每次修改都能留下紀錄，知道誰改了什麼，改壞了也能回頭找以前的版本，Commit＝一次有說明的修改紀錄）③協作工作室（很多人可以一起查看、下載、提出建議、共同維護專案）；GitHub 和網站的關係：電腦寫程式 → 上傳 GitHub → Vercel／GitHub Pages → 變成網站；Git 和 GitHub 不一樣：Git 是管理修改紀錄的工具、沒網路也能運作，GitHub 是建立在 Git 之上的線上平台 — 簡單說 Git 是工具，GitHub 是平台" loading="lazy">
+          <figcaption>一張圖看懂 GitHub — 倉庫、時光機與協作中心（點圖放大）</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -332,6 +346,17 @@
         <h4>⚠️ 網站是完全公開的</h4>
         <p>GitHub Pages 上的任何內容，全世界都能搜尋和看到。衛教內容絕對<strong>不可以</strong>含有病人姓名、病歷號、床號、診斷細節等任何可識別病人身分的資訊，即使只是當作範例截圖也不行。</p>
       </div>
+
+      <div class="card">
+        <strong>之後如果和同事一起維護網站，會不會互相蓋掉對方的修改？</strong>
+        <p>不會 — GitHub 的做法是每個人先在自己的「分支」（Branch）上修改，經過檢查後才合併回主版本，所以多人同時工作也不會互相干擾。這套流程屬於進階概念，<strong>單人發布網站完全用不到</strong>，看懂下圖有個印象即可，日後需要協作時再回來查。</p>
+      </div>
+      <div class="result-compare">
+        <figure>
+          <img src="images/github-pages/github-branch-workflow.webp" alt="多人一起改程式為什麼不會亂掉教學海報：看懂 GitHub 的分支與協作流程 — 大家不是直接同時改主版本，而是先在自己的分支工作，確認沒問題再合併回 main；八步驟：建立 Branch → 修改檔案 → Commit → Push → Pull Request → Review → Merge → 主版本更新；名詞解釋：①Branch 工作分支（從目前版本分出去的一條獨立工作線，像先影印一份副本、在副本上修改）②Commit 存檔點（一次有說明的修改紀錄，不是所有修改都混成一團，而是一筆一筆留下紀錄）③Push／Pull 同步方向（Push 把本機的新 Commit 上傳到 GitHub，Pull 把 GitHub 的最新內容拉回自己的電腦）④Pull Request 提出合併申請（請團隊檢查：我完成修改了，可以合併進 main 嗎）⑤Review 檢查與討論（團隊可以查看程式碼、留言、要求調整或批准）⑥Merge 合併回主版本（通過檢查後把分支的修改正式合併到 main）；小提醒：兩個人同時改到同一段內容叫 Merge Conflict，要人工確認後再完成合併；結論：多人協作不會亂，是因為每個人先在分支工作，再經過檢查後合併回主版本" loading="lazy">
+          <figcaption>進階 — 多人協作的分支流程，單人發布用不到（點圖放大）</figcaption>
+        </figure>
+      </div>
     </section>
 
     <!-- ─── Navigation ─── -->
@@ -359,6 +384,31 @@
   </footer>
 
   <script>
+  (function () {
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<span class="lightbox-close">✕ 關閉</span><img alt=""><div class="lightbox-caption"></div>';
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img');
+    const lbCap = lb.querySelector('.lightbox-caption');
+    document.querySelectorAll('.result-compare figure').forEach(fig => {
+      fig.addEventListener('click', () => {
+        const img = fig.querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = fig.querySelector('figcaption').textContent;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    lb.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  })();
+
   function copyPrompt(btn) {
     const content = btn.parentElement;
     const text = content.textContent.replace('📋 複製', '').replace('✓ 已複製', '').trim();

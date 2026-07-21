@@ -364,6 +364,13 @@
       </div>
       <p>日常使用中，RAG 最簡單的形式就是：<strong>把文件上傳給 AI，然後針對文件內容提問</strong>。ChatGPT 和 Claude 都支援上傳 PDF、Word 檔案。這就是最基本的 RAG。</p>
       <p>進階的 RAG 可以建立完整的知識庫（整個科室的 SOP + 衛教文件 + 用藥指引），讓 AI 隨時查詢。不過這需要技術設定，不在入門範圍。</p>
+
+      <div class="result-compare">
+        <figure>
+          <img src="images/ai-fundamentals/sqlite-vs-qdrant.webp" alt="SQLite vs Qdrant 教學海報：傳統資料庫與向量資料庫的差別，同樣都是 Database 但解決的是完全不同的問題 — SQLite 用欄位找資料（精確查詢，SELECT * FROM patients WHERE age > 20，精確比對一模一樣），Qdrant 用意思找資料（語意比對，文字先轉成向量 Embedding，找最相近的向量 Similarity Search）；一眼比較：資料模型關聯式 vs 向量、查詢語言 SQL vs 相似度搜尋、比對方式精確比對 vs 語意比對、適用場景結構化資料交易報表 vs 語意搜尋 RAG 推薦系統；找 Apple 的例子：SQLite 只能找到一模一樣的 Apple，Qdrant 可以找到 Fresh apple、Green apple 甚至 I want something healthy；醫療情境：SQLite 查 diagnosis='Pneumonia' 只能找到 Pneumonia，Qdrant 問肺部感染可以找到 Pneumonia、CAP、Lung infection、Community-acquired pneumonia；RAG 中的角色：文件 → 切分內容 → Embedding 向量化 → Qdrant 向量資料庫 → 找出最相關內容 → LLM 生成更準確的回答；結論：SQLite 回答精確的問題，Qdrant 回答語意的問題" loading="lazy">
+          <figcaption>進階 — 傳統資料庫與向量資料庫：精確查詢 vs 語意查詢（點圖放大）</figcaption>
+        </figure>
+      </div>
     </section>
 
     <hr class="section-divider">
