@@ -21,6 +21,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* 手繪 icon 示範：以 em 為單位隨上下文字級縮放，可同時用於卡片與 h2 標題 */
+    .doodle-ico { height: 1.35em; width: auto; vertical-align: -0.28em; margin-right: 0.12em; }
+    h2 .doodle-ico { height: 1.5em; vertical-align: -0.35em; margin-right: 0.18em; }
+  </style>
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L05KFZJS9L"></script>
   <script>
@@ -60,13 +65,13 @@
     <nav aria-label="Prompt 快速跳轉" style="margin: 1.5rem 0;">
       <div style="font-family: var(--font-hand); font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 0.6rem;">🚀 快速跳轉 — 找 Prompt 不用滑</div>
       <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
-        <a href="#prompt1" style="display: block; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 1</strong><br>📄 衛教文案</a>
-        <a href="#prompt2" style="display: block; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 2</strong><br>🎨 衛教插圖</a>
-        <a href="#prompt3" style="display: block; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 3</strong><br>🖼️ 衛教海報</a>
-        <a href="#prompt4" style="display: block; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 4</strong><br>🧸 袖珍公仔海報</a>
-        <a href="#prompt5" style="display: block; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 5</strong><br>🎬 讓圖動起來</a>
+        <a href="#prompt1" style="display: block; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 1</strong><br><img class="doodle-ico" src="images/icons/doc.png" alt="">衛教文案</a>
+        <a href="#prompt2" style="display: block; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 2</strong><br><img class="doodle-ico" src="images/icons/pencil.png" alt="">衛教插圖</a>
+        <a href="#prompt3" style="display: block; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 3</strong><br><img class="doodle-ico" src="images/icons/poster.png" alt="">衛教海報</a>
+        <a href="#prompt4" style="display: block; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 4</strong><br><img class="doodle-ico" src="images/icons/mascot.png" alt="">袖珍公仔海報</a>
+        <a href="#prompt5" style="display: block; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 5</strong><br><img class="doodle-ico" src="images/icons/clapper.png" alt="">讓圖動起來</a>
         <a href="#prompt6" style="display: block; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 6</strong><br>🕹️ 坦克遊戲</a>
-        <a href="#prompt7" style="display: block; grid-column: 1 / -1; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 7</strong><br>🏥 進階挑戰（選做）：深夜醫院解謎遊戲</a>
+        <a href="#prompt7" style="display: block; grid-column: 1 / -1; background: white; border: 2px solid var(--text); border-radius: 8px; padding: 0.7rem 0.9rem; text-decoration: none; color: var(--text); line-height: 1.5;"><strong style="color: var(--primary);">Prompt 7</strong><br><img class="doodle-ico" src="images/icons/hospital.png" alt="">進階挑戰（選做）：深夜醫院解謎遊戲</a>
       </div>
       <div style="margin-top: 0.6rem; font-size: 0.95rem;">
         其他段落：<a href="#prep">課前準備</a> · <a href="#demo">課堂示範</a> · <a href="#concept-image">AI 怎麼畫圖</a> · <a href="#safety">安全必修</a> · <a href="#homework">回家作業說明</a>
@@ -100,7 +105,7 @@
 
     <!-- ─── 課堂示範 ─── -->
     <section id="demo">
-      <h2>🗣️ 課堂示範　衛教文案＋配圖</h2>
+      <h2><img class="doodle-ico" src="images/icons/megaphone.png" alt="">課堂示範　衛教文案＋配圖</h2>
       <p>這兩段是課堂示範用的 Prompt — 老師投影操作時，你可以在手機上跟著做，或回家再試一次。</p>
       <h3>示範 1　三分鐘生出衛教文案</h3>
       <p>打開 ChatGPT 或 Gemini，貼上送出：</p>
@@ -123,7 +128,7 @@
 
     <!-- ─── 實作 1 ─── -->
     <section id="task1">
-      <h2>🖼️ 實作 ①　含標題文字的衛教海報</h2>
+      <h2><img class="doodle-ico" src="images/icons/poster.png" alt="">實作 ①　含標題文字的衛教海報</h2>
       <p>第一張圖，我們讓 AI 從零生出一張帶有中文標題的衛教海報 — 從打字到完成大約兩分鐘。</p>
       <h3>操作步驟</h3>
       <ol>
@@ -178,7 +183,7 @@
 
     <!-- ─── 實作 2 ─── -->
     <section id="task2">
-      <h2>🧸 實作 ②　你的專屬袖珍公仔海報</h2>
+      <h2><img class="doodle-ico" src="images/icons/mascot.png" alt="">實作 ②　你的專屬袖珍公仔海報</h2>
       <p>這一張是今天的主角：一張「忙碌又荒謬的醫療人生」袖珍公仔海報，主角就是<strong>你的職業</strong>。這次我們多學一招 — <strong>先請 AI 幫你改寫 Prompt，再拿改好的 Prompt 去生圖</strong>。</p>
       <h3>操作步驟</h3>
       <ol>
@@ -288,7 +293,7 @@ Use clear directional arrows and UI connectors to avoid confusion.<button class=
 
     <!-- ─── 實作 3 ─── -->
     <section id="task3">
-      <h2>🎬 實作 ③　讓海報動起來</h2>
+      <h2><img class="doodle-ico" src="images/icons/clapper.png" alt="">實作 ③　讓海報動起來</h2>
       <p>把剛剛生成的公仔海報變成一支「活起來的袖珍模型」短片：主角眨眼、咖啡冒煙、小分身各忙各的 — 而畫面上的文字一個都不能動。</p>
       <h3>操作步驟</h3>
       <ol>
@@ -997,7 +1002,7 @@ README.md 必須包含：
 
     <!-- ─── 課後 ─── -->
     <div class="box-success">
-      <h4>🎯 回家之後</h4>
+      <h4><img class="doodle-ico" src="images/icons/target.png" alt="">回家之後</h4>
       <p style="margin: 0;">今天的三個實作只是整片風景的一角。課程網站上還有文字應用、影片製作、文獻工具、簡報排版等完整教學，以及口述筆記、去識別化、QR code 產生器等免費小工具 — 從<a href="index.html">首頁</a>挑一個有興趣的主題，每頁最後都有 5–15 分鐘的「現在就做」小任務。有任何做出來的作品，歡迎下次上課分享。</p>
     </div>
 
