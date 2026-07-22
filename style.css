@@ -238,14 +238,14 @@ strong { font-weight: 700; }
 }
 
 .toc::before {
-  content: '📋 目錄';
+  content: '目錄';
   font-family: var(--font-hand);
   font-size: 1.2rem;
   position: absolute;
   top: -14px;
   left: 24px;
-  background: var(--paper);
-  padding: 0 8px;
+  background: var(--paper) url('images/icons/checklist.png') 8px center/1.1em no-repeat;
+  padding: 0 8px 0 2em;
 }
 
 .toc ol {
@@ -299,13 +299,15 @@ strong { font-weight: 700; }
 }
 
 .analogy::before {
-  content: '🩺 醫療類比';
+  content: '醫療類比';
   font-family: var(--font-hand);
   font-size: 0.9rem;
   font-weight: 700;
   display: block;
   margin-bottom: 0.25rem;
   color: var(--success);
+  padding-left: 1.6em;
+  background: url('images/icons/stethoscope.png') left center/1.3em no-repeat;
 }
 
 /* ─── Warning / Tip boxes ─── */
@@ -348,9 +350,15 @@ strong { font-weight: 700; }
 }
 
 .box-tip::before {
-  content: '💡';
-  margin-right: 4px;
+  content: '';
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  background: url('images/icons/bulb.png') center/contain no-repeat;
+  vertical-align: -0.25em;
+  margin-right: 5px;
 }
+.box-tip.page-summary::before { display: none; }
 
 /* ─── Cards ─── */
 
@@ -414,6 +422,19 @@ strong { font-weight: 700; }
   color: var(--primary);
   margin-bottom: 0.4rem;
   font-weight: 700;
+}
+
+/* 手繪 icon：取代標題／卡片／區塊標籤前的 emoji，以 em 為單位隨字級縮放 */
+.doodle-ico {
+  height: 1.35em;
+  width: auto;
+  vertical-align: -0.28em;
+  margin-right: 0.14em;
+}
+h1 .doodle-ico, h2 .doodle-ico, h3 .doodle-ico {
+  height: 1.5em;
+  vertical-align: -0.34em;
+  margin-right: 0.18em;
 }
 
 .prompt-content {
@@ -486,15 +507,16 @@ strong { font-weight: 700; }
 .result-compare figure:hover { transform: rotate(-0.5deg); }
 
 .result-compare figure::after {
-  content: '🔍';
+  content: '';
   position: absolute;
   top: 12px;
   right: 12px;
-  background: var(--highlighter-yellow);
+  width: 1.1rem;
+  height: 1.1rem;
+  background: var(--highlighter-yellow) url('images/icons/search.png') center/0.85rem no-repeat;
   border: 1.5px solid var(--text);
   border-radius: 6px;
   padding: 2px 6px;
-  font-size: 0.8rem;
   line-height: 1;
 }
 

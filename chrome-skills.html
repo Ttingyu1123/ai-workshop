@@ -93,7 +93,7 @@
 
     <!-- ─── 本頁重點 ─── -->
     <div class="box-tip page-summary">
-      <strong>📌 本頁重點</strong>
+      <strong><img class="doodle-ico" src="images/icons/notepad.png" alt="">本頁重點</strong>
       <ul style="margin: 0.5rem 0 0;">
         <li><strong>這頁教什麼：</strong>Chrome Skills（Gemini in Chrome 的技能功能）是什麼、如何啟用、如何把常用提示詞存成斜線指令，並附九個醫療人員實用 Skills 範本（讀文獻、查藥、看指引、翻譯、衛教改寫、跨分頁比較）。</li>
         <li><strong>適合誰：</strong>已熟悉基礎提示詞寫法、想加速處理「針對眼前這個網頁」任務的讀者，建議先讀過 <a href="ai-safety.html">Part 3</a> 再使用。</li>
@@ -126,11 +126,11 @@
 
       <div class="card-grid">
         <div class="card">
-          <strong>📌 存一次，到處用</strong>
+          <strong><img class="doodle-ico" src="images/icons/notepad.png" alt="">存一次，到處用</strong>
           <p>提示詞存成 Skill 後，登入同一個 Google 帳號的所有 Chrome 桌機版都會自動同步 — 家裡、醫院、研究室三台電腦共用同一套。</p>
         </div>
         <div class="card">
-          <strong>🌐 綁定網頁</strong>
+          <strong><img class="doodle-ico" src="images/icons/globe.png" alt="">綁定網頁</strong>
           <p>Skill 執行時會讀取你當前分頁（以及你另外選取的分頁）的內容當上下文，最適合「這一頁在講什麼、幫我整理一下」這類任務。</p>
         </div>
         <div class="card">
@@ -138,7 +138,7 @@
           <p>登入 Google 帳號就能用，不需要 Google AI Pro 或任何付費方案。桌機版限定（Windows／Mac／ChromeOS）。</p>
         </div>
         <div class="card">
-          <strong>🗂️ 內建範本庫</strong>
+          <strong><img class="doodle-ico" src="images/icons/folder.png" alt="">內建範本庫</strong>
           <p>網址列輸入 <code>chrome://skills/browse</code> 有 Google 提供的現成 Skills（學習、研究、寫作等分類），可以直接拿來改。<strong>注意：這個範本瀏覽頁需要把 Chrome 切成英文介面才打得開</strong> — 但存好的 Skills 在繁體中文介面下照樣能用，語言限制只卡在「瀏覽官方範本庫」這一頁。</p>
         </div>
       </div>
@@ -174,7 +174,7 @@
     <section id="privacy">
       <h2>用之前的隱私三關</h2>
       <div class="box-danger">
-        <h4>🔒 3 秒安全檢查（這一關比操作更重要）</h4>
+        <h4><img class="doodle-ico" src="images/icons/shield.png" alt="">3 秒安全檢查（這一關比操作更重要）</h4>
         <p><strong>這個網頁上有沒有病人資料？我按下 Skill，等於把「當前這一頁的內容」送給 Google 的 Gemini 處理。</strong></p>
         <p style="margin-bottom: 0;">Chrome Skills 讀取的是你眼前分頁的內容 — 如果你螢幕上開著病歷系統、檢驗報告、含姓名病歷號的 email，一按 Skill 就是把這些資料上傳。<strong>凡是可辨識到特定病人的畫面，一律不要在上面執行 Skill。</strong>先把畫面切到不含病人資料的頁面（論文、指引、去識別化的內容）再用。搞不清楚界線在哪，先回 <a href="ai-safety.html">Part 3 — AI 安全與隱私</a> 補一下 — 這正是為什麼安全課要先上。</p>
       </div>
@@ -261,10 +261,10 @@
         <strong>用法共通原則：</strong>這些 Skills 都是設計成「作用在你當前開著的網頁」。執行前先確認你正停在正確的那一頁（論文頁、藥物頁、指引頁、信件頁），而且<strong>畫面上沒有病人資料</strong>（見上方隱私三關）。
       </div>
 
-      <h3>📚 讀文獻用（停在論文或摘要頁執行）</h3>
+      <h3><img class="doodle-ico" src="images/icons/books.png" alt="">讀文獻用（停在論文或摘要頁執行）</h3>
 
       <div class="prompt-block">
-        <div class="prompt-label">📄 論文速讀</div>
+        <div class="prompt-label"><img class="doodle-ico" src="images/icons/doc.png" alt="">論文速讀</div>
         <div class="prompt-content">請根據我目前開啟的這個網頁（一篇醫學論文或摘要），用繁體中文整理成：
 1. 一句話結論（這篇在講什麼、發現了什麼）
 2. 研究設計與樣本數
@@ -276,7 +276,7 @@
       </div>
 
       <div class="prompt-block">
-        <div class="prompt-label">🔬 PICO 拆解</div>
+        <div class="prompt-label"><img class="doodle-ico" src="images/icons/microscope.png" alt="">PICO 拆解</div>
         <div class="prompt-content">請把目前這個網頁的研究，用繁體中文拆成 PICO 四要素：
 - P 病人族群／收案條件
 - I 介入措施
@@ -297,10 +297,10 @@
 最後給我 3 個「引用這篇之前該存疑的地方」。只根據頁面內容評讀，不要臆測頁面沒有的資訊。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
 
-      <h3>💊 查藥、看指引用（停在藥物或指引頁執行）</h3>
+      <h3><img class="doodle-ico" src="images/icons/pill.png" alt="">查藥、看指引用（停在藥物或指引頁執行）</h3>
 
       <div class="prompt-block">
-        <div class="prompt-label">💊 用藥重點抽取</div>
+        <div class="prompt-label"><img class="doodle-ico" src="images/icons/pill.png" alt="">用藥重點抽取</div>
         <div class="prompt-content">請根據目前這個藥物資訊頁面，用繁體中文整理成表格，欄位包含：適應症、成人常用劑量、腎／肝功能調整、主要禁忌、重大交互作用、常見副作用。
 
 只擷取頁面上實際寫的內容；頁面沒有提到的欄位請標「頁面未提及」，絕對不要自行補充、推測或引用頁面以外的資料。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
@@ -323,16 +323,16 @@
       </div>
 
       <div class="prompt-block">
-        <div class="prompt-label">🌐 醫學翻譯（繁中）</div>
+        <div class="prompt-label"><img class="doodle-ico" src="images/icons/globe.png" alt="">醫學翻譯（繁中）</div>
         <div class="prompt-content">請把目前這個網頁的內容翻成繁體中文（使用台灣醫學慣用語）。
 
 規則：專有名詞、藥名、基因與檢驗縮寫保留英文原文，並在後面用括號附上中文；所有數字、單位、劑量、統計數值一律原樣保留，不要改動或簡化任何臨床數據。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
 
-      <h3>🗣️ 做衛教用</h3>
+      <h3><img class="doodle-ico" src="images/icons/megaphone.png" alt="">做衛教用</h3>
 
       <div class="prompt-block">
-        <div class="prompt-label">🗣️ 轉成民眾衛教版</div>
+        <div class="prompt-label"><img class="doodle-ico" src="images/icons/megaphone.png" alt="">轉成民眾衛教版</div>
         <div class="prompt-content">請把目前這個網頁的醫療內容，改寫成台灣一般民眾看得懂的衛教說明（繁體中文，約國中程度）。
 
 用生活化的比喻、避免專業術語（必須用到時附一句白話解釋），分成四段：「這是什麼／為什麼重要／我該怎麼做／什麼情況要就醫」。語氣親切、不恐嚇、不誇大療效，不編造頁面沒有的數據或建議。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
@@ -363,19 +363,19 @@
       <h2>使用限制與注意</h2>
       <div class="card-grid">
         <div class="card">
-          <strong>🧪 還在實驗階段</strong>
+          <strong><img class="doodle-ico" src="images/icons/flask.png" alt="">還在實驗階段</strong>
           <p>透過 <code>chrome://flags</code> 開啟，代表它還是實驗功能 — 介面、選項位置、甚至開關名稱之後都可能變動。教學步驟以你 Chrome 當下顯示為準。</p>
         </div>
         <div class="card">
-          <strong>💻 只有桌機版</strong>
+          <strong><img class="doodle-ico" src="images/icons/laptop.png" alt="">只有桌機版</strong>
           <p>Windows／Mac／ChromeOS 的 Chrome 才有，手機／平板版沒有。Skills 會在同帳號的桌機之間同步。</p>
         </div>
         <div class="card">
-          <strong>🔒 會讀網頁內容</strong>
+          <strong><img class="doodle-ico" src="images/icons/shield.png" alt="">會讀網頁內容</strong>
           <p>Skill 執行等於把當前頁面內容送給 Gemini。病人資料、含個資的畫面一律不要在上面執行 — 這條沒有例外。</p>
         </div>
         <div class="card">
-          <strong>🙅 它不會「動手做」</strong>
+          <strong><img class="doodle-ico" src="images/icons/handstop.png" alt="">它不會「動手做」</strong>
           <p>Chrome Skills 是「一鍵套用一段提示詞」，不像 <a href="ai-agent.html">Agent</a> 會自己操作多步驟、跨工具完成任務。需要 AI 替你執行一連串動作，那是 Part 7 的範疇。</p>
         </div>
       </div>
@@ -387,7 +387,7 @@
 
     <!-- ─── Navigation ─── -->
     <div class="box-success">
-      <strong>🎯 現在就做（5 分鐘）：</strong>照上面 Step 1-3 開啟 Skills，隨便找一篇今天想讀的論文摘要頁，把「📄 論文速讀」那段貼進 Gemini 跑一次，然後按「Save as Skill」存起來。下次再讀論文，打 <code>/</code> 就有 — 你的第一個 AI 快捷鍵就完成了。
+      <strong><img class="doodle-ico" src="images/icons/target.png" alt="">現在就做（5 分鐘）：</strong>照上面 Step 1-3 開啟 Skills，隨便找一篇今天想讀的論文摘要頁，把「📄 論文速讀」那段貼進 Gemini 跑一次，然後按「Save as Skill」存起來。下次再讀論文，打 <code>/</code> 就有 — 你的第一個 AI 快捷鍵就完成了。
     </div>
 
     <div class="nav-links">

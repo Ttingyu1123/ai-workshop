@@ -93,7 +93,7 @@
 
     <!-- ─── 本頁重點 ─── -->
     <div class="box-tip page-summary">
-      <strong>📌 本頁重點</strong>
+      <strong><img class="doodle-ico" src="images/icons/notepad.png" alt="">本頁重點</strong>
       <ul style="margin: 0.5rem 0 0;">
         <li><strong>這頁教什麼：</strong>開源與閉源生圖模型的差異、為什麼要學本機生圖（資料不出機器、免費無限次），以及硬體門檻自我檢測後，走桌面版安裝（路線 A）或改用免費雲端 RunningHub（路線 B）產出第一張圖。</li>
         <li><strong>適合誰：</strong>有隱私顧慮、素材不能上雲，或生圖量大線上額度不夠用的讀者；偶爾製作衛教圖用 <a href="ai-image.html">Part 4</a> 的線上工具已足夠，不必特地安裝這套工具。</li>
@@ -115,7 +115,7 @@
     </nav>
 
     <div class="box-tip">
-      <h4>📌 這頁的定位</h4>
+      <h4><img class="doodle-ico" src="images/icons/notepad.png" alt="">這頁的定位</h4>
       <p style="margin: 0;">這是一堂<strong>操作課</strong>，不是節點工程。目標只有一個：讓你在自己的電腦（或免費雲端）上，用開源模型生出第一張圖。我們<strong>不教</strong>怎麼從零連接節點、自建工作流 — 那是另一個世界。這頁也不是要取代 <a href="ai-image.html">Part 4 — AI 圖像生成</a>，線上的 ChatGPT／Gemini 生圖仍然是最快上手的路；本機生圖是給「有隱私需求」或「想完全免費、無限次生成」的人多一個選項。</p>
     </div>
 
@@ -125,12 +125,12 @@
       <p>這頁一直講「開源生圖」，先花一分鐘把這個名詞弄清楚，後面才好懂。所謂開源、閉源，差別在於<strong>模型本身你拿不拿得到</strong>。</p>
       <div class="card-grid">
         <div class="card">
-          <strong>🔒 閉源（Proprietary）</strong>
+          <strong><img class="doodle-ico" src="images/icons/shield.png" alt="">閉源（Proprietary）</strong>
           <p>模型鎖在公司的伺服器裡，你只能透過它的網站或 App 使用，<strong>拿不到、也看不到模型本身</strong>。<span style="color: var(--text-light);">例：ChatGPT、Gemini、Midjourney。</span></p>
           <p style="margin-bottom: 0;"><span style="color: var(--success);">好處</span>免安裝、開箱即用。<br><span style="color: var(--danger);">代價</span>資料須上傳雲端、有額度限制、使用規則由服務商決定。</p>
         </div>
         <div class="card">
-          <strong>🔓 開源（Open Source）</strong>
+          <strong><img class="doodle-ico" src="images/icons/shield.png" alt="">開源（Open Source）</strong>
           <p>模型公開釋出，任何人都能<strong>免費下載到自己電腦跑</strong>，甚至修改。<span style="color: var(--text-light);">例：Stable Diffusion、Flux。</span></p>
           <p style="margin-bottom: 0;"><span style="color: var(--success);">好處</span>免費無限次、資料留在本機、完全可控。<br><span style="color: var(--danger);">代價</span>需自行準備硬體、下載模型並完成安裝設定。</p>
         </div>
@@ -149,7 +149,7 @@
 
       <div class="card-grid">
         <div class="card">
-          <strong>🔒 資料不出機器</strong>
+          <strong><img class="doodle-ico" src="images/icons/shield.png" alt="">資料不出機器</strong>
           <p>本機生圖時，你輸入的文字、上傳的參考圖<strong>完全不會離開你的電腦</strong>，不上傳任何雲端伺服器。這正是 <a href="ai-safety.html">Part 3 — AI 安全與隱私</a> 一直強調的原則 — 涉及病人、個資、臨床影像的素材，最安全的做法就是根本不上傳。</p>
         </div>
         <div class="card">
@@ -157,7 +157,7 @@
           <p>模型下載到本機後，生成完全免費，沒有每日額度、沒有 credits、沒有訂閱。可不限次數生成，除電費外沒有額外成本。</p>
         </div>
         <div class="card">
-          <strong>🎛️ 完全可控、可微調</strong>
+          <strong><img class="doodle-ico" src="images/icons/gear.png" alt="">完全可控、可微調</strong>
           <p>模型、參數、風格皆由你掌控：固定參數即可<strong>重現</strong>同一種畫風、以 LoRA 切換風格、批次自動產生大量配圖。這是 ChatGPT／Gemini 無法提供的控制程度。（線上工具確實會封鎖寫實血腥類內容，但該類影像本非衛教所需。）</p>
         </div>
       </div>
@@ -233,7 +233,7 @@
       </div>
 
       <div class="box-danger">
-        <h4>⚠️ 再逼真也要人工檢查：AI 生圖的常見錯誤</h4>
+        <h4><img class="doodle-ico" src="images/icons/warning.png" alt="">再逼真也要人工檢查：AI 生圖的常見錯誤</h4>
         <p style="margin: 0;">上方「洗手微距」乍看專業，但仔細觀察會發現<strong>那雙手有六根手指</strong>。手部（手指數目、關節、交疊處）是 AI 生圖最容易出錯的部位，文字、對稱物件與細小結構也常有瑕疵。這類錯誤<strong>開源與線上工具都會發生</strong>，而且畫面越寫實越容易被忽略。凡是要對外發布、尤其醫療衛教用途的影像，成品務必逐一檢查後再採用。</p>
       </div>
 
@@ -313,11 +313,11 @@
 
       <div class="card-grid">
         <div class="card">
-          <strong>✅ 優點</strong>
+          <strong><img class="doodle-ico" src="images/icons/check.png" alt="">優點</strong>
           <p>免費、無限次、資料留在本機、模型與參數完全可控、開源社群龐大。</p>
         </div>
         <div class="card">
-          <strong>⚠️ 門檻</strong>
+          <strong><img class="doodle-ico" src="images/icons/warning.png" alt="">門檻</strong>
           <p>要有獨立顯示卡、要下載幾 GB 的模型檔、介面比線上工具複雜。第一次安裝約需半小時到一小時。</p>
         </div>
       </div>
@@ -337,7 +337,7 @@
           <p>一張<strong>單獨的晶片</strong>，有自己的專屬記憶體（VRAM），運算力強。桌機／電競筆電常見的 NVIDIA GeForce（如 RTX 4060、4070）就是這類。<strong>本機生圖需要的是這種。</strong></p>
         </div>
         <div class="card">
-          <strong>💻 內建顯示卡（內顯）</strong>
+          <strong><img class="doodle-ico" src="images/icons/laptop.png" alt="">內建顯示卡（內顯）</strong>
           <p>直接<strong>整合在 CPU 裡</strong>、跟系統共用記憶體的顯示功能（如 Intel UHD Graphics）。一般文書筆電多半只有內顯 — 能上網、播放影片，但<strong>難以順利運行生圖模型。</strong></p>
         </div>
       </div>
@@ -371,7 +371,7 @@
       </div>
 
       <div class="box-success">
-        <h4>🚦 走哪條路？</h4>
+        <h4><img class="doodle-ico" src="images/icons/shield.png" alt="">走哪條路？</h4>
         <ul style="margin-bottom: 0;">
           <li><strong>有 NVIDIA 獨立顯示卡（8 GB 以上最理想）</strong> → 走 <a href="#route-a">路線 A：桌面版安裝</a>，在自己電腦上跑。</li>
           <li><strong>只有內建顯示卡、使用非 NVIDIA 顯示卡、或筆電效能不足</strong> → 前往 <a href="#route-b">路線 B：改用雲端</a>，免安裝、免顯示卡，同樣能體驗 ComfyUI。（Apple Silicon Mac 亦可用桌面版，見下方補充。）</li>
@@ -525,7 +525,7 @@
       </div>
 
       <div class="box-danger">
-        <h4>⚠️ 上雲就失去「資料不出機器」的隱私優勢</h4>
+        <h4><img class="doodle-ico" src="images/icons/warning.png" alt="">上雲就失去「資料不出機器」的隱私優勢</h4>
         <p style="margin: 0;">不論哪一家雲端，運算都在對方的伺服器上進行，代表<strong>你的輸入與上傳的圖會離開你的電腦</strong> — 這正是本機生圖最大的優勢，改用雲端後便不復存在。因此<strong>涉及病人資料、個資、臨床影像的素材，一律不要上傳至任何雲端平台</strong>，回到 <a href="ai-safety.html">Part 3</a> 的三秒檢查。若須處理敏感素材，應採用路線 A 的本機生圖。</p>
       </div>
 
@@ -545,7 +545,7 @@
 
     <!-- ─── Navigation ─── -->
     <div class="box-success">
-      <strong>🎯 現在就做（10 分鐘）：</strong>先按 <code>Ctrl + Shift + Esc</code> → 效能分頁，確認電腦是否配備 NVIDIA 獨立顯示卡。若有，前往 <a href="https://www.comfy.org/download" target="_blank">comfy.org/download</a> 下載桌面版並開始安裝，生成第一張「完全不上雲」的圖；若無，註冊 <strong>RunningHub</strong> 領每日贈送的 100 credits，挑一個現成的文生圖工作流執行一次。無論採用哪條路線，目標都是今天親手以開源模型生成你的第一張圖。
+      <strong><img class="doodle-ico" src="images/icons/target.png" alt="">現在就做（10 分鐘）：</strong>先按 <code>Ctrl + Shift + Esc</code> → 效能分頁，確認電腦是否配備 NVIDIA 獨立顯示卡。若有，前往 <a href="https://www.comfy.org/download" target="_blank">comfy.org/download</a> 下載桌面版並開始安裝，生成第一張「完全不上雲」的圖；若無，註冊 <strong>RunningHub</strong> 領每日贈送的 100 credits，挑一個現成的文生圖工作流執行一次。無論採用哪條路線，目標都是今天親手以開源模型生成你的第一張圖。
     </div>
 
     <div class="nav-links">

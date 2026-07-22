@@ -21,11 +21,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* 手繪 icon 示範：以 em 為單位隨上下文字級縮放，可同時用於卡片與 h2 標題 */
-    .doodle-ico { height: 1.35em; width: auto; vertical-align: -0.28em; margin-right: 0.12em; }
-    h2 .doodle-ico { height: 1.5em; vertical-align: -0.35em; margin-right: 0.18em; }
-  </style>
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L05KFZJS9L"></script>
   <script>
@@ -80,7 +75,7 @@
 
     <!-- ─── 本頁說明 ─── -->
     <div class="box-tip page-summary">
-      <strong>📌 這一頁是什麼</strong>
+      <strong><img class="doodle-ico" src="images/icons/notepad.png" alt="">這一頁是什麼</strong>
       <ul style="margin: 0.5rem 0 0;">
         <li><strong>學員專屬：</strong>這頁不在網站選單裡，只有掃課堂 QR code 的你才找得到 — 建議先加入書籤，之後隨時回來複製 Prompt。</li>
         <li><strong>今天會做：</strong>課堂示範（衛教文案＋配圖）→ 實作 ① 衛教海報 → 實作 ② 你的專屬公仔海報 → 實作 ③ 讓海報動起來；另有 1 個回家作業（用 AI 做一款復古坦克遊戲）。</li>
@@ -90,7 +85,7 @@
 
     <!-- ─── 課前準備 ─── -->
     <section id="prep">
-      <h2>🧰 課前準備（2 分鐘）</h2>
+      <h2><img class="doodle-ico" src="images/icons/wrench.png" alt="">課前準備（2 分鐘）</h2>
       <p>只需要三樣東西，全部免費：</p>
       <ol>
         <li><strong>一個 Google 帳號</strong>（能登入即可，平常收 Gmail 的那個就行）。</li>
@@ -98,7 +93,7 @@
         <li><strong>網路連線</strong> — 生圖與生影片都在雲端運算，訊號穩定即可。</li>
       </ol>
       <div class="box-tip">
-        <strong>💡 還沒有帳號？</strong>
+        <strong>還沒有帳號？</strong>
         <p style="margin: 0.4rem 0 0;">現在申請也來得及：ChatGPT 與 Gemini 都能直接用 Google 帳號登入，不需要另外設定密碼。</p>
       </div>
     </section>
@@ -114,7 +109,7 @@
         <div class="prompt-content">你是感染科的衛教護理師。請為65歲以上的長者，寫一份「流感疫苗接種」衛教單張文案：語氣親切易懂、避免專業術語，150字以內，最後條列3個接種前的注意事項<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
       <div class="box-tip">
-        <strong>💡 這段 Prompt 的公式：角色＋任務＋條件＋格式</strong>
+        <strong>這段 Prompt 的公式：角色＋任務＋條件＋格式</strong>
         <p style="margin: 0.4rem 0 0;">角色（衛教護理師）＋任務（寫衛教單張文案）＋條件（65 歲以上長者、親切易懂）＋格式（150 字內、條列 3 點）— 四個都寫到，品質立刻不一樣；少一個，AI 就自己猜一個。初稿不滿意就「追問」：「語氣再溫暖一點」「縮短成 100 字」「改成適合 LINE 群組轉發的版本」。</p>
       </div>
       <h3>示範 2　為衛教文案配一張插圖</h3>
@@ -151,16 +146,16 @@
 注意：繁體中文字要清晰可讀，字體風格要統一<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
       <div class="box-tip">
-        <strong>💡 改字的訣竅</strong>
+        <strong>改字的訣竅</strong>
         <p style="margin: 0.4rem 0 0;">把主題換成你科別的內容試試：「大腸鏡檢查前準備」「正確量血壓」「疫苗接種須知」。注意這張海報刻意只放<strong>十幾個字</strong> — AI 生圖的中文字數愈多愈容易出錯，字少是它能成功的關鍵。生出來若有錯字，同一段 Prompt 再生一次即可，每次結果都不同。</p>
       </div>
     </section>
 
     <!-- ─── 觀念插播：生圖原理 ─── -->
     <section id="concept-image">
-      <h2>🧠 觀念插播　AI 是怎麼「畫」出圖的？</h2>
+      <h2><img class="doodle-ico" src="images/icons/brain.png" alt="">觀念插播　AI 是怎麼「畫」出圖的？</h2>
       <div class="analogy">
-        <strong>🩺 醫學類比</strong>
+        <strong><img class="doodle-ico" src="images/icons/stethoscope.png" alt="">醫學類比</strong>
         <p style="margin: 0.4rem 0 0;">課堂上說過，文字 AI 像一位「憑經驗接話」的總醫師。生圖 AI 是它的親戚：它從一片雜訊出發，依照你的描述一步步「猜」出整張圖 — 像顯影中的 X 光片逐漸清晰。因為每次都是重新猜，<strong>同一段描述每次生成的結果都不同</strong>；也因為它是「畫出印象」而不是「排版文字」，中文字對它來說只是形狀相似的圖案，筆畫常常出錯。</p>
       </div>
       <p>由此推出生圖的三個實用技巧，等一下實作 ② 就會用到：</p>
@@ -170,7 +165,7 @@
           <p>字多必錯。正式的衛教單張建議「圖歸圖、字歸字」：讓 AI 生成留白的圖，文字之後用 Canva 加上去最穩。</p>
         </div>
         <div class="card">
-          <h4>🎨 風格詞很好用</h4>
+          <h4><img class="doodle-ico" src="images/icons/pencil.png" alt="">風格詞很好用</h4>
           <p>「扁平設計」「水彩」「3D 公仔風」— 換一個詞，整張圖的氣質就完全不同。實作 ② 的長 Prompt 有一大半都在描述風格。</p>
         </div>
         <div class="card">
@@ -195,7 +190,7 @@
         <li>左下角選擇「建立圖像」，或按「＋」選擇「創作圖像」，送出並等待生成。</li>
       </ol>
       <div class="box-danger">
-        <h4>🔒 上傳照片前，停 3 秒</h4>
+        <h4><img class="doodle-ico" src="images/icons/shield.png" alt="">上傳照片前，停 3 秒</h4>
         <p style="margin: 0;">只上傳<strong>自己的</strong>生活照。病人照片、含病歷資訊的工作截圖、有同事入鏡且未經同意的照片 — 一律不上傳。免費版 AI 工具上傳的內容可能被用於模型訓練，送出前請當成「會被別人看到」來判斷。</p>
       </div>
       <div class="prompt-block" id="prompt4" style="scroll-margin-top: 80px;">
@@ -256,14 +251,14 @@ The poster should resemble a premium medical diary infographic with accurate cal
 Use clear directional arrows and UI connectors to avoid confusion.<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
       <div class="box-tip">
-        <strong>💡 為什麼要先「改寫」再生圖？</strong>
+        <strong>為什麼要先「改寫」再生圖？</strong>
         <p style="margin: 0.4rem 0 0;">這段 Prompt 裡的桌面道具、背景場景、八個小分身動作，都是針對「感染科醫師」設計的。與其自己逐項改，不如把改寫工作也交給 AI — 它會把培養皿換成藥櫃（藥師）或檢體架（醫檢師），連小分身的動作都一起換成你職業的日常。這就是課堂教的「對話式修改」：AI 的產出，可以再交給 AI 加工。改寫結果裡的小分身動作若不合你意，直接告訴它「第 3 個動作改成…」再要一版即可。</p>
       </div>
     </section>
 
     <!-- ─── 安全必修 ─── -->
     <section id="safety">
-      <h2>🚦 安全必修　三條紅線</h2>
+      <h2><img class="doodle-ico" src="images/icons/shield.png" alt="">安全必修　三條紅線</h2>
       <p>工具再方便，這三條底線不變 — 它們是今天這堂課<strong>最重要的八分鐘</strong>：</p>
       <div class="card-grid">
         <div class="card">
@@ -281,11 +276,11 @@ Use clear directional arrows and UI connectors to avoid confusion.<button class=
       </div>
       <p>想問臨床問題不是不行，而是先「去識別化」— 把「這個病人」變成「一種情境」再問：</p>
       <div class="box-danger">
-        <h4>❌ 不行</h4>
+        <h4><img class="doodle-ico" src="images/icons/cross.png" alt="">不行</h4>
         <p style="margin: 0;">「病人王○○，病歷號 1234567，肺炎住院中……幫我寫病摘」</p>
       </div>
       <div class="box-success">
-        <h4>✅ 可以</h4>
+        <h4><img class="doodle-ico" src="images/icons/check.png" alt="">可以</h4>
         <p style="margin: 0;">「一位 70 歲糖尿病患者因社區型肺炎住院，請列出出院衛教重點」</p>
       </div>
       <p>需要給 AI 看截圖時，先用網站的<a href="https://tingyudeco.com/tools/redact-image">「圖片去識別化」小工具</a>框選塗黑 — 全程在自己裝置上處理、不上傳。完整內容見 <a href="ai-safety.html">Part 3 — AI 安全與隱私</a>（本站唯一的必修頁）。</p>
@@ -330,11 +325,11 @@ End the video with every character still located in their original area and with
 Avoid scene changes, camera movement, large body movements, exaggerated gestures, dancing, characters walking across the frame, object relocation, new objects, disappearing objects, duplicated characters, identity drift, face changes, hairstyle changes, costume changes, body deformation, extra limbs, extra fingers, warped hands, melting objects, flickering textures, unstable lighting, background reconstruction, text deformation, changing letters, changing numbers, new subtitles, blur, or loss of detail.<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
       <div class="analogy">
-        <strong>🧠 觀念插播　為什麼這段 Prompt 一半都在「禁止」？</strong>
+        <strong><img class="doodle-ico" src="images/icons/brain.png" alt="">觀念插播　為什麼這段 Prompt 一半都在「禁止」？</strong>
         <p style="margin: 0.4rem 0 0;">AI 影片最常失敗的原因不是「動不起來」，而是<strong>「動太多」</strong>：鏡頭亂飄、人物走位、文字融化變形。所以這段 Prompt 的策略是「鎖鏡頭、鎖文字、只做微動作」— 眨眼、呼吸、咖啡冒煙，動得少反而像。這是圖生影片成功率最高的入門姿勢：先有一張好圖，再給它一點點生命。</p>
       </div>
       <div class="box-tip">
-        <strong>💡 額度與替代方案</strong>
+        <strong>額度與替代方案</strong>
         <p style="margin: 0.4rem 0 0;">影片生成消耗的運算量遠大於圖片，免費帳號有每日次數限制（以 App 顯示為準），生成一支約 8 秒。額度用完或想在電腦上操作，同一段 Prompt 也能貼到 Google Flow（免費層每日 50 credits），完整教學見 <a href="google-flow.html">Part 6 — Google Flow 實戰</a>；影片工具全覽見 <a href="ai-video.html">Part 5 — AI 影片製作</a>。</p>
       </div>
     </section>
@@ -358,11 +353,11 @@ Avoid scene changes, camera movement, large body movements, exaggerated gestures
         <li>完成後，打開資料夾裡的 index.html，就能開始玩。</li>
       </ol>
       <div class="box-tip">
-        <strong>⚠️ 額度提醒</strong>
+        <strong><img class="doodle-ico" src="images/icons/warning.png" alt="">額度提醒</strong>
         <p style="margin: 0.4rem 0 0;">「一次做完整個專案」的任務會讓 AI 連續工作一段時間，消耗的額度遠多於一般對話，免費帳號可能中途用罄。中斷了不必重來 — 等額度恢復後，回到<strong>同一個對話</strong>輸入「繼續」，它會接著上次的進度做。</p>
       </div>
       <div class="analogy">
-        <strong>🧠 觀念插播　這就是「Agent」</strong>
+        <strong><img class="doodle-ico" src="images/icons/brain.png" alt="">觀念插播　這就是「Agent」</strong>
         <p style="margin: 0.4rem 0 0;">前三個實作是「你問一句、它答一句」的聊天模式；這個作業不一樣 — 你交代一個<strong>目標</strong>，它自己拆步驟、寫程式、測試、修錯，直到完成。這種「替你做」而不只是「回答你」的工作方式叫 <strong>Agent（代理人）</strong>，是目前 AI 發展最快的方向。想深入了解，見 <a href="ai-agent.html">Part 7 — AI Agent 實作</a>。</p>
       </div>
       <div class="prompt-block" id="prompt6" style="scroll-margin-top: 80px;">
@@ -709,14 +704,14 @@ README.md 必須包含：
 現在請直接開始建立並測試這款遊戲。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
       <div class="box-tip">
-        <strong>💡 做出來之後</strong>
+        <strong>做出來之後</strong>
         <p style="margin: 0.4rem 0 0;">玩過一輪後，試著對它說「第 3 波太難了，快速型敵人減半」或「幫我加一種會分裂成兩台小坦克的敵人」— 它會直接修改程式。改造可以走多遠？老師把坦克遊戲的原始碼交給 AI 繼續改，成品是一款全新的醫院主題遊戲：<a href="https://game-pandemic.tingyudeco.com" target="_blank" rel="noopener"><strong>《醫院防疫大作戰》</strong></a> — 你扮演感染管制醫師，用感控工具阻擋病原體、守護 ICU 病人，連「抗生素不能治療病毒」的衛教提示都做了進去。不必從零開始，拿現成的原始碼繼續交給 AI 改，正是 Agent 最日常的用法。</p>
       </div>
 
       <h3>進階挑戰（選做）　《深夜醫院：遺失的病例》</h3>
       <p>想試更大的專案，這裡保留一份醫院主題的解謎遊戲 Prompt：四個關卡的場景、道具與謎題環環相扣，規模比坦克遊戲大得多。</p>
       <div class="box-danger">
-        <h4>⚠️ 額度預警</h4>
+        <h4><img class="doodle-ico" src="images/icons/warning.png" alt="">額度預警</h4>
         <p style="margin: 0;">這份 Prompt 會讓 AI 連續工作非常久，額度消耗是坦克遊戲的數倍，免費帳號幾乎必定中途用罄。建議把它當成分好幾天完成的長期作品：額度用完就暫停，恢復後回同一個對話輸入「繼續」。先完成坦克遊戲、熟悉流程之後再挑戰這一份。</p>
       </div>
       <p style="text-align: center; margin: 1.2rem 0 0.6rem;">
