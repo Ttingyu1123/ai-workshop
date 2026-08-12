@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI 安全與隱私 — 用 AI 之前一定要知道的事</title>
-  <meta name="description" content="醫療人員使用 AI 的安全與隱私必修課 — 病人隱私去識別化、AI 幻覺、免費工具資料使用、責任界線。">
+  <meta name="description" content="醫療人員使用 AI 的安全與隱私必修課 — 病人隱私去識別化、AI 幻覺、過度依賴與輸入安全、免費工具資料使用、責任界線，並整理衛福部生成式 AI 指引中與個人使用相關的條文。">
   <meta property="og:type" content="article">
   <meta property="og:title" content="AI 安全與隱私 — 用 AI 之前一定要知道的事">
-  <meta property="og:description" content="醫療人員使用 AI 的安全與隱私必修課 — 病人隱私去識別化、AI 幻覺、免費工具資料使用、責任界線。">
+  <meta property="og:description" content="醫療人員使用 AI 的安全與隱私必修課 — 病人隱私去識別化、AI 幻覺、過度依賴與輸入安全、免費工具資料使用、責任界線，並整理衛福部生成式 AI 指引中與個人使用相關的條文。">
   <meta property="og:url" content="https://workshop.tingyudeco.com/ai-safety.html">
   <meta property="og:image" content="https://workshop.tingyudeco.com/og-image.png">
   <meta name="twitter:card" content="summary">
@@ -20,7 +20,7 @@
     "@context": "https://schema.org",
     "@type": "LearningResource",
     "name": "AI 安全與隱私 — 用 AI 之前一定要知道的事",
-    "description": "醫療人員使用 AI 的安全與隱私必修課 — 病人隱私去識別化、AI 幻覺、免費工具資料使用、責任界線。",
+    "description": "醫療人員使用 AI 的安全與隱私必修課 — 病人隱私去識別化、AI 幻覺、過度依賴與輸入安全、免費工具資料使用、責任界線，並整理衛福部生成式 AI 指引中與個人使用相關的條文。",
     "url": "https://workshop.tingyudeco.com/ai-safety.html",
     "inLanguage": "zh-TW",
     "learningResourceType": "教學頁面",
@@ -95,7 +95,7 @@
     <div class="box-tip page-summary">
       <strong><img class="doodle-ico" src="images/icons/notepad.png" alt="">本頁重點</strong>
       <ul style="margin: 0.5rem 0 0;">
-        <li><strong>這頁教什麼：</strong>教病人隱私去識別化的判斷方式與實作範例、AI 幻覺的風險、ChatGPT／Claude／Gemini 免費版的資料使用政策，以及使用 AI 產出內容時的責任界線。</li>
+        <li><strong>這頁教什麼：</strong>教病人隱私去識別化的判斷方式與實作範例、AI 幻覺的風險、過度依賴與輸入安全、ChatGPT／Claude／Gemini 免費版的資料使用政策，以及使用 AI 產出內容時的責任界線；並整理衛福部《醫療機構應用生成式人工智慧指引》當中直接規範個人使用行為的條文。</li>
         <li><strong>適合誰：</strong>所有會在工作中使用 AI 的醫療人員，本工作坊的必修課，建議在 <a href="ai-writing.html">Part 2 — AI 文字應用</a> 之後、正式動手產出衛教或文書內容之前讀完。</li>
         <li><strong>注意：</strong>動手前先用 3 秒安全口訣自我檢查 —「有沒有病人資料？會不會給病人看？我能不能負責？」。</li>
       </ul>
@@ -104,8 +104,10 @@
     <nav class="toc" aria-label="目錄">
       <ol>
         <li><a href="#why">為什麼這是必修</a></li>
+        <li><a href="#guideline">衛福部指引怎麼說</a></li>
         <li><a href="#privacy">病人隱私與去識別化</a></li>
         <li><a href="#hallucination">AI 幻覺</a></li>
+        <li><a href="#overreliance">過度依賴與輸入安全</a></li>
         <li><a href="#data-usage">免費工具的資料使用</a></li>
         <li><a href="#responsibility">責任界線</a></li>
         <li><a href="#checklist">使用前檢查清單</a></li>
@@ -131,6 +133,43 @@
           <strong><img class="doodle-ico" src="images/icons/pill.png" alt="">錯誤的代價</strong>
           <p>AI 編個錯的旅遊景點沒關係；編錯藥物劑量或編出一篇不存在的文獻，代價完全不同等級。</p>
         </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ─── Guideline ─── -->
+    <section id="guideline">
+      <h2>衛福部指引怎麼說</h2>
+      <p>衛生福利部於 <strong>115 年 5 月 29 日</strong>以衛部醫字第 1151663164 號函頒布《醫療機構應用生成式人工智慧指引》，這是目前國內最直接規範醫療場域使用生成式 AI 的官方文件。</p>
+      <p>閱讀時要先掌握兩個前提，才不會誤解它的效力。第一，這份指引的<strong>對象是醫療機構</strong>，多數條文在談機構層級的導入程序，例如指派主責單位、完成資料保護評估、規範供應商契約、建立版本控制與稽核機制，這些是資訊室與醫療品質單位的職責。第二，指引<strong>屬行政指導性質，並非強制性規定</strong>，機構仍得依實際情況與相關法令採取適當措施。</p>
+      <p>不過其中有數條直接規範<strong>個別使用者的行為</strong>，那些就是這一頁其他章節的法規依據。</p>
+
+      <h3>指引列出的六類風險</h3>
+      <div class="card">
+        <ul>
+          <li><strong>基礎模型風險</strong> — 模型訓練階段就內嵌的系統性偏差，可能對特定疾病或族群產生判斷偏誤</li>
+          <li><strong>資料來源風險</strong> — 系統介接的知識庫或外部資料品質不一、時效過期，影響產出可信度</li>
+          <li><strong>輸出結果風險</strong> — 產出看似合理但實際錯誤的內容，也就是本頁<a href="#hallucination">幻覺</a>一節談的問題</li>
+          <li><strong>資安攻擊風險</strong> — 提示詞注入、資料中毒、模型竊取與資料外洩</li>
+          <li><strong>使用者依賴風險</strong> — 過度信任 AI 導致臨床判斷能力退化</li>
+          <li><strong>服務中斷風險</strong> — 外部模型服務停止、版本更新造成輸出漂移、定價政策調整</li>
+        </ul>
+      </div>
+      <p>其中<strong>輸出結果、資安攻擊、使用者依賴</strong>這三類，取決於使用者當下怎麼操作，不是機構買了什麼系統就能決定的，因此本頁各安排一節處理。其餘三類屬於機構在選型與維運階段的責任。</p>
+
+      <h3>課堂練習與實際導入的界線</h3>
+      <p>學員最常問的一題是：我在工作坊練習用 AI，是不是就要走完整套機構程序？指引對此有明確劃分。</p>
+
+      <div class="box-tip">
+        <p style="margin: 0 0 0.5rem;">指引第一章載明，<strong>個人研究、教育示範或僅限功能驗證之內部測試，可視情況參照本指引原則辦理</strong>；但是——</p>
+        <p style="margin: 0;">「<strong>若測試內容涉及真實病人資料或臨床作業流程</strong>，例如於門診或病房實際使用、系統與機構內資料介接，<strong>即屬生成式人工智慧系統導入之階段</strong>，仍建議依本指引相關規範執行。」</p>
+      </div>
+
+      <p>這條界線很實用：你在本工作坊做的練習、用假設情境產生的衛教圖文、拿公開演講錄音轉逐字稿，都落在教育示範的範圍。<strong>一旦你把同樣的工具接上真實病人資料或正式臨床流程，性質就變了</strong>——那不再是個人使用，而是機構導入，該走的評估、核准與監測程序一項都不能少。從練習跨到實際上線之前，先找單位的資訊室或醫療品質部門確認。</p>
+
+      <div class="analogy">
+        這跟新技術進臨床的規矩是同一套邏輯：你在模型上練習操作不需要送審，但要用在病人身上，就得走完該有的訓練認證與科內規範。工具換成 AI，程序的道理沒有變。
       </div>
     </section>
 
@@ -220,6 +259,44 @@
 
     <hr class="section-divider">
 
+    <!-- ─── Over-reliance ─── -->
+    <section id="overreliance">
+      <h2>過度依賴與輸入安全</h2>
+      <p>前一節談的是 AI 講錯話，這一節談兩件更難察覺的事：<strong>你太相信它</strong>，以及<strong>別人透過它影響你</strong>。衛福部指引把這兩項分別列為「使用者依賴風險」與「資安攻擊風險」，並明文要求機構的教育訓練必須涵蓋。</p>
+
+      <h3>能力退化（deskilling）</h3>
+      <p>指引指出，醫事人員可能因為對 AI 系統產生過度信任，而<strong>降低自主臨床判斷的審慎程度、忽略反常訊號，或將 AI 產出當作最終結論</strong>，長期下來造成臨床判斷能力退化，並在 AI 運作異常時無法有效回應。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong><img class="doodle-ico" src="images/icons/warning.png" alt="">警訊一</strong>
+          <p>看到 AI 的結論時，第一個反應是「應該對吧」，而不是「依據是什麼」。</p>
+        </div>
+        <div class="card">
+          <strong><img class="doodle-ico" src="images/icons/warning.png" alt="">警訊二</strong>
+          <p>AI 的說法跟你原本的判斷不同時，直接改成 AI 的版本，沒有再查一次原始資料。</p>
+        </div>
+        <div class="card">
+          <strong><img class="doodle-ico" src="images/icons/warning.png" alt="">警訊三</strong>
+          <p>工具當機或改版那天，你發現自己已經不太記得原本怎麼做這件事。</p>
+        </div>
+      </div>
+
+      <div class="box-tip">
+        <strong>維持能力的做法：先自己想過，再問 AI。</strong>順序反過來會有很大差別——先形成自己的判斷再拿 AI 對照，它是第二意見；一開始就問 AI 再找理由支持，它就變成你的判斷本身。前者能力會累積，後者會流失。
+      </div>
+
+      <h3>輸入安全（Prompting Safety）</h3>
+      <p>指引把「惡意指令植入」列為機構應建立防護的風險，說明攻擊者可透過<strong>精心設計的輸入內容，操控系統產生非預期或有害的輸出</strong>，可能導致錯誤醫療決策或資訊洩露，發生原因包括外部攻擊、跨系統資料污染，以及內部誤用。</p>
+      <p>對個人使用者來說，最實際的一條是：<strong>你交給 AI 的檔案，內容本身也可能是指令</strong>。從網路下載的 PDF、別人寄來的文件，內文可以夾帶寫給 AI 看的文字。單純聊天問答風險有限，但當你使用會讀取檔案、能上網、能操作電腦的工具時，風險等級完全不同。</p>
+
+      <div class="box-tip">
+        這個主題在 <a href="ai-agent.html">Part 7 — AI Agent</a> 有完整說明與防護做法（限制權限、專用工作資料夾、不要開啟全部自動允許）。現階段先記住原則：<strong>處理來路不明的內容時，給 AI 的權限越小越好。</strong>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
     <!-- ─── Data Usage ─── -->
     <section id="data-usage">
       <h2>免費工具的資料使用</h2>
@@ -269,6 +346,43 @@
         </ul>
       </div>
 
+      <h3>法規怎麼界定這條線</h3>
+      <p>上面三點不只是職業道德的提醒，衛福部指引把它們寫成了具體要求。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <strong><img class="doodle-ico" src="images/icons/scales.png" alt="">最終確認責任</strong>
+          <p>凡涉及臨床判斷、病人安全、病人溝通或醫療紀錄的使用情境，應由<strong>具相應專業資格且在其執業範圍內的醫事人員</strong>負最終確認、審核與責任。</p>
+        </div>
+        <div class="card">
+          <strong><img class="doodle-ico" src="images/icons/doc.png" alt="">病歷文書簽章</strong>
+          <p>以 AI 協助製作病歷文書時，醫事人員<strong>應遵守電子病歷製作規範確實審核與簽章</strong>。AI 草擬不減輕審核義務。</p>
+        </div>
+        <div class="card">
+          <strong><img class="doodle-ico" src="images/icons/handstop.png" alt="">醫療器材紅線</strong>
+          <p>若系統主要功能涉及<strong>診斷、治療、緩解或直接預防人類疾病</strong>，應注意是否屬醫療器材、是否符合核准用途，必要時須向食品藥物管理署申請屬性判斷。</p>
+        </div>
+      </div>
+
+      <div class="box-danger">
+        <h4>第三點對你的實際意義</h4>
+        <p style="margin: 0;">一般聊天型 AI 工具<strong>都不是核准的醫療器材</strong>。因此拿它輔助整理資料、草擬文字、提供思考角度沒有問題，但<strong>不能把它的輸出當成診斷或治療依據</strong>。指引也要求非醫療器材的系統應透過設計或管理措施避免輸出超出預定用途，並僅在人為監督或專業確認下使用。</p>
+      </div>
+
+      <h3>要讓病人知道的兩件事</h3>
+      <p>指引以「資訊透明以促進信任」為題，規範了兩個需要主動告知病人的情境。這兩條在你製作 AI 衛教內容或使用語音工具時都會碰到。</p>
+
+      <div class="card">
+        <ul>
+          <li><strong>AI 直接與民眾對話時要揭露</strong> — 以生成式 AI 系統直接和民眾對話互動的情境（例如衛教問答機器人、AI 語音客服），應<strong>主動揭露此係人工智慧系統運作</strong>，並提醒其輸出可能出現幻覺或錯誤、內容僅供參考，必要時應由醫事人員進一步確認。</li>
+          <li><strong>錄音錄影要先告知，病人拒絕就停止</strong> — 因使用 AI 系統而需在醫療照護過程中錄音、錄影時，應<strong>先以適當方式告知病人或家屬</strong>，說明必要性與用途限制；<strong>若病人或家屬明確拒絕，則應停止錄音、錄影</strong>。錄下的資料<strong>僅得用於所告知的目的範圍</strong>。</li>
+        </ul>
+      </div>
+
+      <div class="box-tip">
+        第二條在語音類工具上最容易踩到。<a href="ai-transcribe.html">語音轉文字</a>那一課的應用場景刻意限定在讀書會、課程與公開演講這類不含病人資料的內容，原因就在這裡：只要錄音發生在醫療照護過程中，事前告知與尊重拒絕都是必要程序，不是禮貌問題。
+      </div>
+
       <p>這個原則貫穿整個工作坊——<a href="ai-writing.html">Part 2 AI 文字應用</a>寫的病摘草稿、<a href="ai-image.html">Part 4 AI 圖像</a>生成的衛教插圖，都要回到這裡的驗收標準：你是最後一道關卡，不是 AI。</p>
     </section>
 
@@ -283,7 +397,7 @@
         <p style="margin: 0;"><strong>「有沒有病人資料？會不會給病人看？我能不能負責？」</strong>— 記不住下面五題沒關係，先把這三問變成反射動作。這個口訣會在圖像、影片、語音轉文字等每個會碰到資料的課程頁再出現。</p>
       </div>
 
-      <p>時間充裕時，把資料貼進 AI 或把 AI 產出用出去之前，花 30 秒問自己完整的 5 個問題：</p>
+      <p>時間充裕時，把資料貼進 AI 或把 AI 產出用出去之前，花 30 秒問自己完整的 6 個問題：</p>
 
       <div class="card">
         <ul style="list-style: none; padding-left: 0;">
@@ -291,12 +405,13 @@
           <li style="margin-bottom: 0.75rem;">☐ AI 給的數字和文獻引用，我核對過原始來源了嗎？</li>
           <li style="margin-bottom: 0.75rem;">☐ 這個用法符合我所屬機構的資訊安全政策嗎？</li>
           <li style="margin-bottom: 0.75rem;">☐ 如果這份產出出了錯，責任算在誰身上？我準備好承擔了嗎？</li>
-          <li style="margin-bottom: 0;">☐ 我用的這個工具，資料使用政策我知道嗎（免費版／機構版、會不會被用來訓練）？</li>
+          <li style="margin-bottom: 0.75rem;">☐ 我用的這個工具，資料使用政策我知道嗎（免費版／機構版、會不會被用來訓練）？</li>
+          <li style="margin-bottom: 0;">☐ 這個情境需要告知病人嗎？（AI 直接與病人對話、或在醫療照護過程中錄音錄影）</li>
         </ul>
       </div>
 
       <div class="box-success">
-        <h4>五個都打勾，才算準備好</h4>
+        <h4>六個都打勾，才算準備好</h4>
         <p>這份清單不是要拖慢你的工作，而是把原本容易忽略的判斷，變成一個固定的、幾秒鐘就能跑完的習慣。養成習慣之後，你會發現大部分時候答案都是「沒問題」——但那少數「有問題」的時候，這份清單就是擋下事故的最後一道防線。</p>
       </div>
     </section>
