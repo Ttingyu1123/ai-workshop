@@ -95,7 +95,7 @@
     <div class="box-tip page-summary">
       <strong><img class="doodle-ico" src="images/icons/notepad.png" alt="">本頁重點</strong>
       <ul style="margin: 0.5rem 0 0;">
-        <li><strong>這頁教什麼：</strong>教病人隱私去識別化的判斷方式與實作範例、AI 幻覺的風險、過度依賴與輸入安全、ChatGPT／Claude／Gemini 免費版的資料使用政策，以及使用 AI 產出內容時的責任界線；並整理衛福部《醫療機構應用生成式人工智慧指引》當中直接規範個人使用行為的條文。</li>
+        <li><strong>這頁教什麼：</strong>教病人隱私去識別化的判斷方式與實作範例、AI 幻覺的風險、過度依賴與輸入安全、ChatGPT／Claude／Gemini 免費版的資料使用政策、使用 AI 產出內容時的責任界線，以及 AI 深偽「名醫」詐騙的辨識與應對；並整理衛福部《醫療機構應用生成式人工智慧指引》當中直接規範個人使用行為的條文，與 2026 年新上路的《健保資料管理條例》、《人工智慧基本法》。</li>
         <li><strong>適合誰：</strong>所有會在工作中使用 AI 的醫療人員，本工作坊的必修課，建議在 <a href="ai-writing.html">Part 2 — AI 文字應用</a> 之後、正式動手產出衛教或文書內容之前讀完。</li>
         <li><strong>注意：</strong>動手前先用 3 秒安全口訣自我檢查 —「有沒有病人資料？會不會給病人看？我能不能負責？」。</li>
       </ul>
@@ -110,6 +110,7 @@
         <li><a href="#overreliance">過度依賴與輸入安全</a></li>
         <li><a href="#data-usage">免費工具的資料使用</a></li>
         <li><a href="#responsibility">責任界線</a></li>
+        <li><a href="#deepfake">深偽「名醫」詐騙</a></li>
         <li><a href="#checklist">使用前檢查清單</a></li>
       </ol>
     </nav>
@@ -223,6 +224,23 @@
           <img src="images/ai-safety/deidentify-first.webp" alt="去識別化教學海報：貼給 AI 之前先去識別化 — 姓名病歷號、出生日期、住址電話、臉部照片不能出現；示範把「王小明，病歷號 1234567」改寫成「65 歲男性，糖尿病 10 年」；一秒判斷：這段話能讓人認出他是誰嗎？能就不要貼" loading="lazy">
           <figcaption>本節一張圖總結 — 適合列印貼在工作站（點圖放大）</figcaption>
         </figure>
+      </div>
+
+      <h3>2026 年新上路的相關法規</h3>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 資訊更新於 2026 年 9 月 — 施行細則與主管機關解釋持續公布，以全國法規資料庫與衛福部公告為準。</p>
+      <p>除了衛福部指引，今年有兩部法律直接影響醫療資料與 AI 的使用。個人使用者不必逐條研讀，但至少要知道它們存在、管的是什麼：</p>
+      <div class="card-grid">
+        <div class="card">
+          <strong><img class="doodle-ico" src="images/icons/scroll.png" alt="">《全民健康保險資料管理條例》— 2026 年 8 月 10 日施行</strong>
+          <p>健保資料的目的外利用（學術研究、政策分析等）從此有明確法源。民眾取得<strong>退出權</strong>，可申請不讓自己的健保資料被用於特定目的外利用；<strong>禁止商業營利使用</strong>；未經核准擅自利用最高可處新台幣 1,000 萬元罰鍰。對臨床人員的意義：健保資料庫不是可以自行取用來餵 AI 的素材，研究用途一律要走申請程序，並尊重民眾退出的權利。</p>
+        </div>
+        <div class="card">
+          <strong><img class="doodle-ico" src="images/icons/scales.png" alt="">《人工智慧基本法》— 2025 年 12 月三讀，施行日由行政院另定</strong>
+          <p>全國性的 AI 上位法，共 20 條，明定國科會為主管機關，確立隱私保護與資料治理、透明可解釋、公平不歧視等基本原則，並授權各目的事業主管機關依風險分級訂定所轄領域的管理規範。衛福部的生成式 AI 指引可視為醫療領域的先行版本，未來醫療 AI 的規範會在這部法律的框架下細化。</p>
+        </div>
+      </div>
+      <div class="box-tip">
+        法規規範的是「合法可以做什麼」，不會替你判斷「這樣做安全嗎」。這兩部法律都沒有改變本頁的核心原則：可識別的病人資料不進外部 AI，去識別化的責任在使用者。
       </div>
     </section>
 
@@ -388,16 +406,73 @@
 
     <hr class="section-divider">
 
+    <!-- ─── Deepfake ─── -->
+    <section id="deepfake">
+      <h2>深偽「名醫」詐騙</h2>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 資訊更新於 2026 年 9 月 — 詐騙手法與平台政策持續變動，以 165 反詐騙專線與各院公告為準。</p>
+      <p>前面幾節談的是你使用 AI 的風險，這一節反過來：<strong>別人用 AI 冒用你，或冒用你的醫院</strong>。生成式 AI 讓合成人臉、複製聲音的成本降到接近零，「AI 假醫師」影片已成為 2026 年醫療詐騙的主要形式之一。醫療人員是最直接的受害者，也是病人拿著影片最先詢問的對象。</p>
+
+      <h3>已發生的樣態</h3>
+      <div class="card-grid">
+        <div class="card">
+          <strong><img class="doodle-ico" src="images/icons/masks.png" alt="">盜用真實醫師的臉與聲音</strong>
+          <p>國內已有醫學中心眼科教授的形象被合成進推銷保健品的影片，本人從未參與；國外 2026 年 8 月亦有心臟科醫師發現自己的臉與聲音被用來宣稱某種茶飲可治癒糖尿病。</p>
+        </div>
+        <div class="card">
+          <strong><img class="doodle-ico" src="images/icons/hospital.png" alt="">冒用醫院名義</strong>
+          <p>影片宣稱某醫學中心「發現糖尿病成因、可用革命性療法治療」，被冒名的醫院均公開澄清從未進行相關研究。</p>
+        </div>
+        <div class="card">
+          <strong><img class="doodle-ico" src="images/icons/person.png" alt="">查無此人的醫師</strong>
+          <p>完全由 AI 生成的「醫師」在影音平台講解疾病並導向購買連結，畫面有白袍、診間背景與院徽，外觀與真實醫師難以區分。</p>
+        </div>
+      </div>
+
+      <p>美國醫學會（AMA）於 2026 年發出警告，指出這類內容不只造成病人的金錢損失與延誤治療，更會<strong>侵蝕民眾對整體醫療體系的信任</strong>——當病人分不清哪位醫師是真的，最後連真醫師講的也不信。</p>
+
+      <h3>三個判斷原則</h3>
+      <p>當病人問「這位醫師說的是真的嗎」，或你在社群上看到疑似冒用的內容，用三個問題快速篩選：</p>
+      <div class="card">
+        <ul>
+          <li><strong>是否有專業來源</strong> — 講者是否查得到執業資訊？影片是否來自醫院、學會或本人經營的官方帳號？只在廣告或陌生帳號出現、查不到任何公開紀錄的「醫師」，先視為可疑。</li>
+          <li><strong>是否有臨床證據</strong> — 宣稱的療效有沒有可查證的研究、指引或仿單？「三天治好」「不用吃藥即可逆轉」這類說法，在正規醫療中幾乎不存在。</li>
+          <li><strong>是否過度誇大並導向購買</strong> — 「名醫推薦」「限時」「免手術」等字眼，加上結尾出現的購買連結或私訊引導，是詐騙影片最一致的特徵。真正的衛教內容不會在最後要求付費。</li>
+        </ul>
+      </div>
+
+      <div class="box-tip">
+        <strong>不要依賴「看起來假不假」。</strong>早期深偽影片有嘴型不同步、眨眼不自然等破綻，2026 年的生成品質已讓這些線索大多失效。可靠的判斷依據是<strong>來源與內容</strong>，不是畫質。
+      </div>
+
+      <h3>如果被冒用的是你或你的醫院</h3>
+      <div class="card">
+        <ul>
+          <li><strong>存證</strong> — 截圖、錄影，記下影片網址、帳號名稱與發布時間；先存證再檢舉，內容下架後就無法補救。</li>
+          <li><strong>通報</strong> — 向平台檢舉（多數平台有「冒充他人」專項）、撥打 165 反詐騙專線，並通知醫院公關或法務單位，由機構統一發布澄清。</li>
+          <li><strong>公開澄清</strong> — 透過本人或醫院的官方管道說明「未參與、未推薦」，讓病人搜尋時能找到正確資訊。</li>
+          <li><strong>提醒病人</strong> — 門診遇到病人拿出這類影片時，除了說明內容不實，也告知「醫師不會在網路上推銷產品」這個原則，比逐支影片反駁更有效。</li>
+        </ul>
+      </div>
+
+      <div class="analogy">
+        這與院內處理「假冒醫護人員」的邏輯相同：有人穿白袍出現在病房，你不會只看白袍就相信，而是確認識別證與人事系統。網路上的「醫師」也一樣——看的是身分能否查證，不是白袍像不像。
+      </div>
+
+      <p>本工作坊 <a href="ai-image.html">Part 4</a> 與 <a href="ai-video.html">Part 5</a> 教的圖像與影片生成，正是這類詐騙使用的同一套技術。學會製作，也就更容易理解它們如何被濫用——這是把這一節放在安全課、而不是影片課的原因。</p>
+    </section>
+
+    <hr class="section-divider">
+
     <!-- ─── Checklist ─── -->
     <section id="checklist">
       <h2>使用前檢查清單</h2>
 
       <div class="box-danger">
         <h4><img class="doodle-ico" src="images/icons/shield.png" alt="">3 秒安全口訣</h4>
-        <p style="margin: 0;"><strong>「有沒有病人資料？會不會給病人看？我能不能負責？」</strong>— 記不住下面五題沒關係，先把這三問變成反射動作。這個口訣會在圖像、影片、語音轉文字等每個會碰到資料的課程頁再出現。</p>
+        <p style="margin: 0;"><strong>「有沒有病人資料？會不會給病人看？我能不能負責？」</strong>— 記不住下面七題沒關係，先把這三問變成反射動作。這個口訣會在圖像、影片、語音轉文字等每個會碰到資料的課程頁再出現。</p>
       </div>
 
-      <p>時間充裕時，把資料貼進 AI 或把 AI 產出用出去之前，花 30 秒問自己完整的 6 個問題：</p>
+      <p>時間充裕時，把資料貼進 AI 或把 AI 產出用出去之前，花 30 秒問自己完整的 7 個問題：</p>
 
       <div class="card">
         <ul style="list-style: none; padding-left: 0;">
@@ -406,12 +481,13 @@
           <li style="margin-bottom: 0.75rem;">☐ 這個用法符合我所屬機構的資訊安全政策嗎？</li>
           <li style="margin-bottom: 0.75rem;">☐ 如果這份產出出了錯，責任算在誰身上？我準備好承擔了嗎？</li>
           <li style="margin-bottom: 0.75rem;">☐ 我用的這個工具，資料使用政策我知道嗎（免費版／機構版、會不會被用來訓練）？</li>
-          <li style="margin-bottom: 0;">☐ 這個情境需要告知病人嗎？（AI 直接與病人對話、或在醫療照護過程中錄音錄影）</li>
+          <li style="margin-bottom: 0.75rem;">☐ 這個情境需要告知病人嗎？（AI 直接與病人對話、或在醫療照護過程中錄音錄影）</li>
+          <li style="margin-bottom: 0;">☐ 病人拿來問的「名醫影片」，我用三個原則（專業來源、臨床證據、是否導向購買）看過了嗎？</li>
         </ul>
       </div>
 
       <div class="box-success">
-        <h4>六個都打勾，才算準備好</h4>
+        <h4>七個都打勾，才算準備好</h4>
         <p>這份清單不是要拖慢你的工作，而是把原本容易忽略的判斷，變成一個固定的、幾秒鐘就能跑完的習慣。養成習慣之後，你會發現大部分時候答案都是「沒問題」——但那少數「有問題」的時候，這份清單就是擋下事故的最後一道防線。</p>
       </div>
     </section>
