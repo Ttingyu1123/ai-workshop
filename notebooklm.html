@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NotebookLM 文獻閱讀 — 番外工具</title>
-  <meta name="description" content="NotebookLM 完整教學 — 只根據你上傳的文獻回答並附出處，讀 guideline、備讀書會、準備報告的最佳幫手。">
+  <title>Gemini Notebook（原 NotebookLM）文獻閱讀 — 番外工具</title>
+  <meta name="description" content="Gemini Notebook（原 NotebookLM）完整教學 — 只根據你上傳的文獻回答並附出處，讀 guideline、備讀書會、準備報告的最佳幫手。">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="NotebookLM 文獻閱讀 — 番外工具">
-  <meta property="og:description" content="NotebookLM 完整教學 — 只根據你上傳的文獻回答並附出處，讀 guideline、備讀書會、準備報告的最佳幫手。">
+  <meta property="og:title" content="Gemini Notebook（原 NotebookLM）文獻閱讀 — 番外工具">
+  <meta property="og:description" content="Gemini Notebook（原 NotebookLM）完整教學 — 只根據你上傳的文獻回答並附出處，讀 guideline、備讀書會、準備報告的最佳幫手。">
   <meta property="og:url" content="https://workshop.tingyudeco.com/notebooklm.html">
   <meta property="og:image" content="https://workshop.tingyudeco.com/og-image.png">
   <meta name="twitter:card" content="summary">
@@ -19,8 +19,8 @@
   {
     "@context": "https://schema.org",
     "@type": "LearningResource",
-    "name": "NotebookLM 文獻閱讀 — 番外工具",
-    "description": "NotebookLM 完整教學 — 只根據你上傳的文獻回答並附出處，讀 guideline、備讀書會、準備報告的最佳幫手。",
+    "name": "Gemini Notebook（原 NotebookLM）文獻閱讀 — 番外工具",
+    "description": "Gemini Notebook（原 NotebookLM）完整教學 — 只根據你上傳的文獻回答並附出處，讀 guideline、備讀書會、準備報告的最佳幫手。",
     "url": "https://workshop.tingyudeco.com/notebooklm.html",
     "inLanguage": "zh-TW",
     "learningResourceType": "教學頁面",
@@ -84,8 +84,8 @@
 
   <div class="hero">
     <div class="hero-badge">番外・文獻工具</div>
-    <h1>NotebookLM 文獻閱讀</h1>
-    <p>只根據你上傳的資料回答 — 讀 guideline、備讀書會、寫報告的可靠幫手</p>
+    <h1>Gemini Notebook 文獻閱讀</h1>
+    <p>原 NotebookLM，2026 年 7 月改名 — 只根據你上傳的資料回答，讀 guideline、備讀書會、寫報告的可靠幫手</p>
     <div class="squiggle"></div>
   </div>
 
@@ -95,7 +95,7 @@
     <div class="box-tip page-summary">
       <strong><img class="doodle-ico" src="images/icons/notepad.png" alt="">本頁重點</strong>
       <ul style="margin: 0.5rem 0 0;">
-        <li><strong>這頁教什麼：</strong>NotebookLM 的來源導向特性與背後的 RAG 運作原理、免費額度、基本操作、九種產出功能（語音摘要、簡報、心智圖、學習卡等）、Deep Research 等進階功能，以及讀 guideline、科內讀書會等醫療應用情境。</li>
+        <li><strong>這頁教什麼：</strong>Gemini Notebook 的來源導向特性與背後的 RAG 運作原理、免費額度、基本操作、九種產出功能（語音摘要、簡報、心智圖、學習卡等）、Deep Research 等進階功能，以及讀 guideline、科內讀書會等醫療應用情境。</li>
         <li><strong>適合誰：</strong>需要讀文獻、guideline、準備晨會或報告的醫療人員，不需要先修其他課即可上手。</li>
         <li><strong>注意：</strong>回答附出處不等於一定對，仍可能漏讀或摘錯，重要結論務必點回原文核對；病人資料、病歷號等可識別個資絕對不能作為來源上傳。</li>
       </ul>
@@ -103,7 +103,7 @@
 
     <nav class="toc" aria-label="目錄">
       <ol>
-        <li><a href="#what-is-notebooklm">NotebookLM 是什麼</a></li>
+        <li><a href="#what-is-notebooklm">Gemini Notebook 是什麼</a></li>
         <li><a href="#how-it-works">背後原理 — RAG</a></li>
         <li><a href="#credits">免費額度與方案</a></li>
         <li><a href="#basic-steps">基本操作</a></li>
@@ -119,10 +119,10 @@
       <p style="margin: 0;"><strong>有沒有病人資料？會不會給病人看？我能不能負責？</strong>— 上傳文件前先過這三關，任何一題讓你猶豫，先回 <a href="ai-safety.html">Part 3 — AI 安全與隱私</a>。</p>
     </div>
 
-    <!-- ─── What is NotebookLM ─── -->
+    <!-- ─── What is Gemini Notebook ─── -->
     <section id="what-is-notebooklm">
-      <h2>NotebookLM 是什麼</h2>
-      <p><a href="https://notebooklm.google.com" target="_blank">NotebookLM</a> 是 Google 推出的「來源導向」AI 筆記工具。跟 ChatGPT、Gemini 這類一般對話式 AI 最大的不同在於：一般 AI 是憑訓練時記住的資料回答（可能過時、可能幻覺），NotebookLM 則是<strong>主要根據你上傳的來源回答，並附上出處連結</strong>，點下去就能跳回原文對應段落。注意「有出處」不等於「一定對」— 它仍可能漏讀、摘錯或引用不完整，重要數字和建議還是要點回原文核對。</p>
+      <h2>Gemini Notebook 是什麼</h2>
+      <p><a href="https://notebooklm.google.com" target="_blank">Gemini Notebook</a> 是 Google 推出的「來源導向」AI 筆記工具，<strong>2026 年 7 月 16 日之前叫 NotebookLM</strong>——Google 官方說明這只是改名並納入 Gemini 產品家族，網址、既有筆記本與功能都不變，圖示改為 Gemini 的藍紫漸層。網路上絕大多數教學仍以舊名稱呼，搜尋資料時兩個名字都要試。跟 ChatGPT、Gemini 這類一般對話式 AI 最大的不同在於：一般 AI 是憑訓練時記住的資料回答（可能過時、可能幻覺），Gemini Notebook 則是<strong>主要根據你上傳的來源回答，並附上出處連結</strong>，點下去就能跳回原文對應段落。注意「有出處」不等於「一定對」— 它仍可能漏讀、摘錯或引用不完整，重要數字和建議還是要點回原文核對。</p>
 
       <div class="card-grid">
         <div class="card">
@@ -144,7 +144,7 @@
       </div>
 
       <div class="analogy">
-        一般 AI 像是「憑印象回答問題的學長」— 講得頭頭是道，但你不確定他是不是記錯了。NotebookLM 像是「手上拿著病歷、每句話都指給你看出處的專科護理師」— 你問一句，她翻到病歷的那一頁指給你看，講的都有憑有據，不會憑空掰。
+        一般 AI 像是「憑印象回答問題的學長」— 講得頭頭是道，但你不確定他是不是記錯了。Gemini Notebook 像是「手上拿著病歷、每句話都指給你看出處的專科護理師」— 你問一句，她翻到病歷的那一頁指給你看，講的都有憑有據，不會憑空掰。
       </div>
     </section>
 
@@ -153,7 +153,7 @@
     <!-- ─── How It Works (RAG) ─── -->
     <section id="how-it-works">
       <h2>背後原理 — RAG 檢索增強生成</h2>
-      <p>NotebookLM 的底層核心是一種叫 <strong>RAG</strong>（Retrieval-Augmented Generation，檢索增強生成）的架構。理解它的運作方式，就能明白這個工具為什麼可靠、又為什麼仍然會出錯 — 後面「限制與注意」列的每一條，都是這個架構的自然結果。</p>
+      <p>Gemini Notebook 的底層核心是一種叫 <strong>RAG</strong>（Retrieval-Augmented Generation，檢索增強生成）的架構。理解它的運作方式，就能明白這個工具為什麼可靠、又為什麼仍然會出錯 — 後面「限制與注意」列的每一條，都是這個架構的自然結果。</p>
 
       <p>你上傳的來源加總起來遠超過 AI 一次能讀的量（免費方案一本 Notebook 可放 50 個來源，每個來源上限約 50 萬字），所以它不可能每次回答都「重讀全部文件」。實際流程分三步：</p>
 
@@ -180,11 +180,11 @@
         <strong>所以它為什麼還是會錯？</strong>兩個環節都可能失手：<strong>檢索可能漏抓</strong> — 真正相關的段落沒被選進去，答案就不完整；<strong>模型可能誤讀</strong> — 段落抓對了，但摘要時簡化或曲解了原意。RAG 大幅降低的是「憑空編造」，降不掉「漏讀」和「摘錯」— 這正是本頁一再強調「重要結論要點回原文核對」的原因：核對出處，就是在人工補上這兩個環節的漏洞。
       </div>
 
-      <p>另外，NotebookLM 已把百萬 token 等級的長上下文開放給所有方案 — 來源不多的小型 Notebook（例如兩三份 guideline），可能整批直接讀入、不需要檢索篩選；來源越多，檢索環節的角色就越重，漏抓的風險也隨之增加。這也是「一個主題一本 Notebook、來源寧精不濫」的架構層理由。</p>
+      <p>另外，Gemini Notebook 已把百萬 token 等級的長上下文開放給所有方案 — 來源不多的小型 Notebook（例如兩三份 guideline），可能整批直接讀入、不需要檢索篩選；來源越多，檢索環節的角色就越重，漏抓的風險也隨之增加。這也是「一個主題一本 Notebook、來源寧精不濫」的架構層理由。</p>
 
       <div class="result-compare">
         <figure>
-          <img src="images/notebooklm/rag-overview.webp" alt="手繪風資訊圖：NotebookLM 為什麼比較可靠？以三步驟說明 RAG（切塊建索引、檢索相關段落、生成並附出處），搭配病歷調閱類比，並標出兩個出錯環節（檢索漏抓、模型誤讀），結論是 RAG 降低憑空編造但降不掉漏讀和摘錯" loading="lazy">
+          <img src="images/notebooklm/rag-overview.webp" alt="手繪風資訊圖：Gemini Notebook 為什麼比較可靠？以三步驟說明 RAG（切塊建索引、檢索相關段落、生成並附出處），搭配病歷調閱類比，並標出兩個出錯環節（檢索漏抓、模型誤讀），結論是 RAG 降低憑空編造但降不掉漏讀和摘錯" loading="lazy">
           <figcaption>一張圖看懂 RAG — 三步驟、病歷類比與兩個出錯環節（點擊放大）</figcaption>
         </figure>
       </div>
@@ -195,7 +195,7 @@
     <!-- ─── Credits ─── -->
     <section id="credits">
       <h2>免費額度與方案</h2>
-      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 資訊更新於 2026 年 7 月 — 額度與方案名稱可能調整，以官方公告為準。</p>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 資訊更新於 2026 年 9 月 — 額度與方案名稱可能調整，以官方公告為準。</p>
       <table>
         <thead>
           <tr><th>項目</th><th>免費方案</th><th>付費方案（Google AI Pro / Ultra）</th></tr>
@@ -209,7 +209,7 @@
         </tbody>
       </table>
       <div class="box-tip">
-        <strong>注意：</strong>免費額度已經足夠個人閱讀文獻、準備讀書會使用。付費方案是綁在 Google AI 訂閱（跟 Google Flow 用的是同一套方案，見 <a href="google-flow.html#credits">Part 6 — Google Flow 額度表</a>），主要差異在提高來源數上限與產出次數，不是解鎖全新功能。2026 年 6 月起，最高階方案（AI Ultra 與部分企業版）陸續開放代理式功能 — 自動搜尋網路來源、執行程式碼分析、輸出試算表與簡報檔案；免費方案目前尚未開放，本頁不展開介紹。實際額度數字請以 NotebookLM 官方說明頁為準，本表僅供概估。
+        <strong>注意：</strong>免費額度已經足夠個人閱讀文獻、準備讀書會使用。付費方案是綁在 Google AI 訂閱（跟 Google Flow 用的是同一套方案，見 <a href="google-flow.html#credits">Part 6 — Google Flow 額度表</a>），主要差異在提高來源數上限與產出次數，不是解鎖全新功能。2026 年 6 月起，最高階方案（AI Ultra 與部分企業版）陸續開放代理式功能 — 自動搜尋網路來源、執行程式碼分析、輸出試算表與簡報檔案；7 月改名為 Gemini Notebook 時，Google 進一步為每本筆記本配置一台「安全雲端電腦」，可直接在筆記本內執行程式碼、做資料分析並輸出圖表，先開放 AI Ultra、Workspace 企業版與網頁版 Pro 用戶，免費方案尚未開放，本頁不展開介紹。實際額度數字請以 Gemini Notebook 官方說明頁為準，本表僅供概估。
       </div>
     </section>
 
@@ -218,7 +218,7 @@
     <!-- ─── Basic Steps ─── -->
     <section id="basic-steps">
       <h2>基本操作</h2>
-      <p>NotebookLM 的操作流程很簡單，四步驟就能開始：</p>
+      <p>Gemini Notebook 的操作流程很簡單，四步驟就能開始：</p>
 
       <div class="card" style="border-left: 4px solid var(--primary);">
         <span class="step-badge">Step 1</span> <strong>建立 Notebook</strong>
@@ -242,7 +242,7 @@
 
       <div class="result-compare">
         <figure>
-          <img src="images/notebooklm/citation-source-check.webp" alt="NotebookLM 核對出處實際畫面：點擊回答表格中升壓藥建議旁的引用編號，彈出來源卡片顯示 Surviving Sepsis Campaign 2021 指引 PDF 的原文段落與「查看來源」連結，左側來源面板同步顯示指引原文" loading="lazy">
+          <img src="images/notebooklm/citation-source-check.webp" alt="Gemini Notebook 核對出處實際畫面：點擊回答表格中升壓藥建議旁的引用編號，彈出來源卡片顯示 Surviving Sepsis Campaign 2021 指引 PDF 的原文段落與「查看來源」連結，左側來源面板同步顯示指引原文" loading="lazy">
           <figcaption>Step 4 實際畫面 — 點引用編號彈出原文段落，再點「查看來源」跳到左側全文</figcaption>
         </figure>
       </div>
@@ -253,7 +253,7 @@
     <!-- ─── Studio Features ─── -->
     <section id="studio-features">
       <h2>產出功能</h2>
-      <p>除了問答，NotebookLM 的「工作室（Studio）」面板可以把來源轉換成不同形式的產出，方便用不同方式消化同一批資料。目前面板提供這 9 種：</p>
+      <p>除了問答，Gemini Notebook 的「工作室（Studio）」面板可以把來源轉換成不同形式的產出，方便用不同方式消化同一批資料。目前面板提供這 9 種：</p>
 
       <div class="card-grid">
         <div class="card">
@@ -296,7 +296,7 @@
 
       <div class="result-compare">
         <figure>
-          <img src="images/notebooklm/studio-panel.webp" alt="NotebookLM 工作室面板實際截圖：以彩色方塊排列九種產出工具 — 語音摘要、簡報、影片摘要、心智圖、報告、學習卡、測驗、資訊圖表、資料表" loading="lazy">
+          <img src="images/notebooklm/studio-panel.webp" alt="Gemini Notebook 工作室面板實際截圖：以彩色方塊排列九種產出工具 — 語音摘要、簡報、影片摘要、心智圖、報告、學習卡、測驗、資訊圖表、資料表" loading="lazy">
           <figcaption>工作室面板實際畫面 — 九種產出工具各佔一格，點選即可生成（點擊放大）</figcaption>
         </figure>
       </div>
@@ -311,7 +311,7 @@
     <!-- ─── Advanced Features ─── -->
     <section id="advanced-features">
       <h2>進階功能</h2>
-      <p>基本問答之外，這幾個功能能明顯改變 NotebookLM 的使用方式，而且免費方案都能使用：</p>
+      <p>基本問答之外，這幾個功能能明顯改變 Gemini Notebook 的使用方式，而且免費方案都能使用：</p>
 
       <div class="card-grid">
         <div class="card">
@@ -328,13 +328,13 @@
         </div>
         <div class="card">
           <strong><img class="doodle-ico" src="images/icons/globe.png" alt="">精選筆記本（Featured Notebooks）</strong>
-          <p>NotebookLM 首頁有官方與合作機構（學者、期刊、出版社）策劃的公開筆記本，可直接開啟提問。適合觀摩專業團隊如何組織來源，也能訂閱有興趣的主題。</p>
+          <p>Gemini Notebook 首頁有官方與合作機構（學者、期刊、出版社）策劃的公開筆記本，可直接開啟提問。適合觀摩專業團隊如何組織來源，也能訂閱有興趣的主題。</p>
         </div>
       </div>
 
       <div class="result-compare">
         <figure>
-          <img src="images/notebooklm/deep-research-entry.webp" alt="NotebookLM 來源面板截圖：查詢框輸入敗血症用藥時機的研究問題，下方展開 Fast Research（適合快速取得結果）與 Deep Research（深度報告和結果）兩種模式選單" loading="lazy">
+          <img src="images/notebooklm/deep-research-entry.webp" alt="Gemini Notebook 來源面板截圖：查詢框輸入敗血症用藥時機的研究問題，下方展開 Fast Research（適合快速取得結果）與 Deep Research（深度報告和結果）兩種模式選單" loading="lazy">
           <figcaption>入口 — 來源面板選「網路」，輸入研究問題後可選 Fast 或 Deep Research</figcaption>
         </figure>
         <figure>
@@ -374,7 +374,7 @@
         </div>
         <div class="card">
           <strong><img class="doodle-ico" src="images/icons/group.png" alt="">科內讀書會</strong>
-          <p>把當週要討論的多篇 paper 全部上傳，讀書會前先用 NotebookLM 交叉提問，抓出各篇論點的異同，會議上討論更有效率。</p>
+          <p>把當週要討論的多篇 paper 全部上傳，讀書會前先用 Gemini Notebook 交叉提問，抓出各篇論點的異同，會議上討論更有效率。</p>
         </div>
         <div class="card">
           <strong><img class="doodle-ico" src="images/icons/mic.png" alt="">晨會 / 報告準備</strong>
@@ -409,7 +409,7 @@
 
       <div class="result-compare">
         <figure>
-          <img src="images/notebooklm/guideline-compare.webp" alt="NotebookLM 實際回答截圖：以表格對比存活敗血症運動（SSC）指引 2012、2021、2026 三版在初始靜脈輸液量的建議、劑量與證據等級 — 從 Grade 1C 強烈建議、Weak 弱建議到 Conditional 有條件建議，每格附可點擊的引用編號" loading="lazy">
+          <img src="images/notebooklm/guideline-compare.webp" alt="Gemini Notebook 實際回答截圖：以表格對比存活敗血症運動（SSC）指引 2012、2021、2026 三版在初始靜脈輸液量的建議、劑量與證據等級 — 從 Grade 1C 強烈建議、Weak 弱建議到 Conditional 有條件建議，每格附可點擊的引用編號" loading="lazy">
           <figcaption>用上方問法實測 — 對比 SSC 指引三個版本的建議與等級，每格都帶引用編號可點回原文（點擊放大）</figcaption>
         </figure>
       </div>
@@ -423,16 +423,16 @@
       <p>這一節的每一條，都能從<a href="#how-it-works">背後原理</a>推出來 — 不是工具不成熟，而是 RAG 架構的固有特性。</p>
 
       <div class="box-tip">
-        <strong>回答品質取決於來源品質：</strong>NotebookLM 不會幫你判斷來源本身的正確性或權威性 — 上傳一份過時或有錯誤的文件，AI 照樣會根據它回答。重要的臨床結論，還是要回到原文、甚至查證原始文獻或指引本體再下判斷，不要把 AI 摘要當成最終答案。
+        <strong>回答品質取決於來源品質：</strong>Gemini Notebook 不會幫你判斷來源本身的正確性或權威性 — 上傳一份過時或有錯誤的文件，AI 照樣會根據它回答。重要的臨床結論，還是要回到原文、甚至查證原始文獻或指引本體再下判斷，不要把 AI 摘要當成最終答案。
       </div>
 
       <div class="box-danger">
-        <strong>病人資料不可上傳：</strong>NotebookLM 是雲端服務，上傳的內容會經過 Google 的伺服器處理。病歷、病人姓名、病歷號等可識別個資，絕對不能作為來源上傳。只用於閱讀公開文獻、guideline、paper 等不含病人資訊的資料。個資與病人隱私原則請見 <a href="ai-safety.html">Part 3 — AI 安全與隱私</a>。
+        <strong>病人資料不可上傳：</strong>Gemini Notebook 是雲端服務，上傳的內容會經過 Google 的伺服器處理。病歷、病人姓名、病歷號等可識別個資，絕對不能作為來源上傳。只用於閱讀公開文獻、guideline、paper 等不含病人資訊的資料。個資與病人隱私原則請見 <a href="ai-safety.html">Part 3 — AI 安全與隱私</a>。
       </div>
     </section>
 
     <div class="box-success">
-      <strong><img class="doodle-ico" src="images/icons/target.png" alt="">現在就做（10 分鐘）：</strong>上傳一份你科內常用的公開 guideline PDF，問它三個你臨床上真的想知道的問題，並逐一點開出處核對。核對出處這個動作，就是 NotebookLM 和一般 AI 的使用差異。
+      <strong><img class="doodle-ico" src="images/icons/target.png" alt="">現在就做（10 分鐘）：</strong>上傳一份你科內常用的公開 guideline PDF，問它三個你臨床上真的想知道的問題，並逐一點開出處核對。核對出處這個動作，就是 Gemini Notebook 和一般 AI 的使用差異。
     </div>
 
     <!-- ─── Navigation ─── -->
