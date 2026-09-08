@@ -383,12 +383,25 @@
       <h2>AI 音樂生成（BGM，Background Music）</h2>
       <p>影片的最後一塊聲音拼圖是背景音樂（BGM，Background Music）。找 BGM 有兩條路：<strong>現成音樂庫</strong>（快、授權明確）和 <strong>AI 生成</strong>（客製、獨一無二）。音樂庫找不到剛好符合氛圍與長度的曲子時，AI 生成就派上用場 — 用一句文字描述，就能做出專屬你影片的配樂。</p>
 
-      <p style="color: var(--text-light); font-size: 0.9em;">📅 資訊更新於 2026 年 7 月 — 額度與方案以官方公告為準</p>
+      <p style="color: var(--text-light); font-size: 0.9em;">📅 資訊更新於 2026 年 9 月 — 額度與方案以官方公告為準</p>
+
+      <h3>Gemini app 內建音樂生成（Lyria 3.5）— 免費、不用另開帳號</h3>
+      <div class="tool-card">
+        <div class="tool-header">
+          <span class="card-tag tag-recommend">2026 年 9 月新增</span>
+          <span class="tool-name"><a href="https://gemini.google.com" target="_blank">Gemini app ↗</a></span>
+        </div>
+        <div class="pros-cons">
+          <div><strong class="pro">優點</strong><ul><li>2026 年 9 月 4 日起所有用戶全球免費，網頁與手機 App 都有</li><li>在對話框直接描述曲風即可，或從內建範本挑「背景音樂」</li><li>可選人聲或純音樂、短片段或最長約 3 分鐘的完整曲目</li><li>與你上課已在用的 Google 帳號共用，不必再註冊</li></ul></div>
+          <div><strong class="con">缺點</strong><ul><li>輸出內嵌 SynthID 浮水印（聽不出來，但可被偵測）</li><li>Google 尚未公布明確的商用授權條款</li><li>每日生成次數上限未公開，以 App 內提示為準</li></ul></div>
+        </div>
+        <div class="tool-tip">做 BGM 一樣選<strong>純音樂</strong>。下方的兩段英文 Prompt 可以直接貼進 Gemini 使用，開頭加一句「請用 Lyria 生成一段背景音樂：」即可。生成後按下載圖示存成音檔，再匯入 CapCut。</div>
+      </div>
 
       <h3>Suno — 文字描述生成完整音樂</h3>
       <div class="tool-card">
         <div class="tool-header">
-          <span class="card-tag tag-recommend">免費首選</span>
+          <span class="card-tag tag-recommend">需要中文歌詞時</span>
           <span class="tool-name"><a href="https://suno.com" target="_blank">Suno ↗</a></span>
         </div>
         <div class="pros-cons">
@@ -403,7 +416,7 @@
       </div>
 
       <h3>BGM 生成 Prompt</h3>
-      <p>Suno 的風格描述用英文效果最穩定。以下範本可直接複製，再依主題調整形容詞：</p>
+      <p>Gemini 與 Suno 的風格描述都是用英文效果最穩定。以下範本可直接複製，再依主題調整形容詞：</p>
       <div class="prompt-block">
         <div class="prompt-label">衛教影片 BGM — 溫暖安心型（貼到 Suno，開 Instrumental）</div>
         <div class="prompt-content">Calm, warm acoustic background music. Gentle piano and soft strings, light percussion, around 90 BPM. Uplifting and reassuring mood, no vocals, smooth loopable structure. Suitable as background music for a healthcare educational video.<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
@@ -427,7 +440,7 @@
       </div>
 
       <div class="box-danger">
-        <strong><img class="doodle-ico" src="images/icons/warning.png" alt="">商用授權注意：</strong>以醫院、診所或機構名義對外發布的影片，可能被認定為商業用途。保守做法：這類影片的 BGM 用 <strong>YouTube Audio Library</strong>、<strong>Pixabay Music</strong> 這類明確標示可商用的免費音樂庫，或升級 Suno 付費方案取得商用授權。個人學習、內部教學用免費版沒問題。另外注意：CapCut 內建音樂庫部分曲目僅限在 CapCut／TikTok 生態內使用，跨平台發布前先確認曲目授權標示。
+        <strong><img class="doodle-ico" src="images/icons/warning.png" alt="">商用授權注意：</strong>以醫院、診所或機構名義對外發布的影片，可能被認定為商業用途。保守做法：這類影片的 BGM 用 <strong>YouTube Audio Library</strong>、<strong>Pixabay Music</strong> 這類明確標示可商用的免費音樂庫，或升級 Suno 付費方案取得商用授權。Gemini 內建的 Lyria 音樂目前也沒有明確的商用條款，同樣歸在「個人學習、內部教學可用，機構對外發布前先確認」這一類。個人學習、內部教學用免費版沒問題。另外注意：CapCut 內建音樂庫部分曲目僅限在 CapCut／TikTok 生態內使用，跨平台發布前先確認曲目授權標示。
       </div>
 
       <div class="result-compare">
@@ -573,7 +586,7 @@
           <tr><td><strong>AI 生影片</strong></td><td>Google Flow / Kling</td><td>Seedance（Dreamina）/ Runway / Pika</td></tr>
           <tr><td><strong>剪輯組裝</strong></td><td>CapCut</td><td>Premiere Pro</td></tr>
           <tr><td><strong>自動字幕</strong></td><td>CapCut</td><td>Premiere Pro</td></tr>
-          <tr><td><strong>背景音樂</strong></td><td>Suno（非商用）/ Pixabay / CapCut 內建</td><td>Suno Pro / Epidemic Sound</td></tr>
+          <tr><td><strong>背景音樂</strong></td><td>Gemini app（Lyria 3.5）/ Suno（非商用）/ Pixabay / CapCut 內建</td><td>Suno Pro / Epidemic Sound</td></tr>
         </tbody>
       </table>
 
