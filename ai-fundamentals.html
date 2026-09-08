@@ -296,7 +296,7 @@
       <ul>
         <li><strong>文字</strong>：閱讀、寫作、翻譯、摘要</li>
         <li><strong>圖片</strong>：看圖回答問題、描述圖片內容、生成圖片</li>
-        <li><strong>語音</strong>：聽語音訊息、用語音對話（如 ChatGPT 語音模式）</li>
+        <li><strong>語音</strong>：聽語音訊息、用語音對話（如 ChatGPT 語音模式——2026 年 7 月起改用能同時聽與說的 GPT-Live 模型，對話中可以直接插話，免費版用的是精簡版）</li>
         <li><strong>影片</strong>：分析影片內容（部分模型）、生成影片（Veo、Sora）</li>
         <li><strong>文件</strong>：讀取 PDF、Word、Excel（上傳後分析）</li>
       </ul>
@@ -444,7 +444,8 @@
     <section id="tools">
       <h2>主流 AI 工具比較</h2>
       <p>市面上的 AI 工具很多。對多數醫療人員而言，入門階段先認識這四個主流 AI 助手就足夠：</p>
-      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 工具資訊更新於 2026 年 7 月 — 各家模型與免費額度變動頻繁，使用前以官方公告為準。</p>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 工具資訊更新於 2026 年 9 月 — 各家模型與免費額度變動頻繁，使用前以官方公告為準。</p>
+      <p>表格刻意<strong>不寫模型版號</strong>，因為版號每隔幾週就會更動：光是 2026 年 8 月到 9 月初，Google 就推出 Gemini 3.7 Flash（8 月 13 日）、Anthropic 推出 Claude Fable 5.1（9 月 1 日，僅付費方案可用，免費版仍是較早的模型）、OpenAI 的 ChatGPT 也已換到 GPT-5.6 世代。比較的是各家長期穩定的定位與適用場景，這部分變動慢得多。</p>
       <table>
         <thead>
           <tr><th>工具</th><th>最強項</th><th>弱項</th><th>免費版</th><th>醫療適用場景</th></tr>
@@ -540,6 +541,23 @@
           <img src="images/ai-fundamentals/medical-use.webp" alt="醫療中的 AI 教學海報：不只聊天，而是日常工作的好幫手 — 四大場景：文書工作（病歷摘要、轉介信/出院摘要、會議紀錄整理、AI 跟診紀錄）、學術研究（文獻搜尋策略、論文重點整理、統計方法建議、英文潤稿）、衛教與溝通（衛教單張內容、插圖/infographic、短影片腳本、多語翻譯）、教學（教案設計、出題與評量、模擬病人練習、簡報大綱/講稿）；使用提醒：不輸入真實病人個資、AI 內容需人工審核、不可取代醫療決策；底部總結 AI 最擅長整理、摘要、表達" loading="lazy">
           <figcaption>醫療中的 AI — 四大應用場景（點圖放大）</figcaption>
         </figure>
+      </div>
+
+      <h3>趨勢觀察 — 專為醫療設計的 AI 產品</h3>
+      <p style="font-family: var(--font-hand); font-size: 0.95rem; color: var(--text-light);">📅 資訊更新於 2026 年 9 月 — 以下產品目前皆限美國，台灣尚未開放；列出是為了理解方向，不是推薦使用。</p>
+      <p>通用聊天工具之外，AI 公司開始推出<strong>直接面向病人與臨床人員</strong>的產品，2026 年下半年的動作最密集：</p>
+      <div class="card-grid">
+        <div class="card">
+          <strong><img class="doodle-ico" src="images/icons/person.png" alt="">ChatGPT Health（給病人）</strong>
+          <p>2026 年 7 月 23 日對美國 18 歲以上用戶開放。OpenAI 表示與醫師共同設計，協助民眾理解檢驗報告、管理健康，定位為「輔助而非取代」臨床照護。對你的意義：<strong>病人走進診間之前，可能已經用它讀過自己的報告</strong>，帶著 AI 給的解讀來提問。</p>
+        </div>
+        <div class="card">
+          <strong><img class="doodle-ico" src="images/icons/stethoscope.png" alt="">ChatGPT for Clinicians（給臨床人員）</strong>
+          <p>針對經身分驗證的美國醫師、專科護理師、醫師助理與藥師免費提供，用於文書與醫學查詢。2026 年 9 月 1 日進一步接上 Epic 電子病歷系統，可唯讀匯入病人資料提問，AI 不回寫病歷；機構須先簽訂符合美國醫療隱私法規的契約才能用於含病人資料的流程。</p>
+        </div>
+      </div>
+      <div class="box-tip">
+        <strong>與本工作坊的關係：</strong>這類產品的共同特徵是「機構簽約、身分驗證、資料唯讀、有合規框架」——正是<a href="ai-safety.html#guideline">衛福部指引</a>要求的機構導入程序。它們的存在<strong>不代表個人可以把病歷貼進一般版 ChatGPT</strong>，兩者的資料流向與責任歸屬完全不同。台灣若日後開放同類服務，也會是走機構採購，不是個人帳號。
       </div>
 
       <h3>對號入座 — 你的第一個 AI 任務</h3>
