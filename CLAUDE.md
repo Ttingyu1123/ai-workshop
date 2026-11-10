@@ -95,6 +95,7 @@ Base 18px / line-height 1.9；container max-width 900px；背景筆記本橫線�
 
 - **署名**：衛生福利部台中醫院 感染科 曾婷玉醫師（不放 IG/GitHub/個人網站）。改署名時螢幕 footer 與列印版權行（style.css `@media print`）兩處同步
 - **授權條款**：全站教材採 **CC BY-NC-SA 4.0**（正本 about.html）。改授權須同步四處：(1) 各頁 head `rel="license"` + JSON-LD `license` (2) footer `.footer-license` (3) style.css `body::after` (4) about.html 條款內文
+- **網站最後更新日期**：唯一正本在 style.css `.footer-license::after` 的 `content`（CSS 帶到 21 個教學頁 footer，小工具頁無 footer）。**內容有實質更新的 commit 同步改這個日期**，修錯字／調排版不改。勿改用 JS 抓 `document.lastModified`（GitHub Pages 每次部署全站時間一起刷新）或 GitHub API（課堂同一 NAT IP 會撞每小時 60 次上限）
 - 不要用 Delius Swash Caps（大寫 I 像 J，對 AI 主題致命）
 - **GA4**：獨立 property `544090519`（`G-L05KFZJS9L`），與 website（532664866）分開，`.env` 的 `GA4_PROPERTY_ID_WORKSHOP` 指向本站
 - og-image.png 與 website repo `public/images/insights/ai-workshop.png` 同一張圖，換圖兩邊同步

@@ -770,6 +770,13 @@ td {
   color: var(--primary);
 }
 
+/* 全站最後更新日期（唯一正本，內容更新時改這裡） */
+.footer-license::after {
+  content: "📅 網站最後更新：2026 年 11 月 10 日";
+  display: block;
+  margin-top: 0.3rem;
+}
+
 .footer-links {
   display: flex;
   align-items: center;
