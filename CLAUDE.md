@@ -89,6 +89,7 @@ Base 18px / line-height 1.9；container max-width 900px；背景筆記本橫線�
 - **Google Flow**：免費層每日 50 credits 不累計；Veo Lite 10 credits **不是 0**；影片固定 8 秒、下載僅 270p GIF/720p；口白引號會同義改寫，需逐字校對
 - **Kling**：每日贈靈感值約 66 點（政策常變，頁內標「以 App 顯示為準」）；免費層限 2.6，3.0 需 Pro
 - **ComfyUI**：Comfy Cloud 免費層已收；RunningHub 每日贈 100 credits 為入口
+- **Gemini Skills**（官方說明頁 2026-11 查證）：免費、須滿 18 歲、網頁／手機／Mac；可上傳 `SKILL.md`；對話輸入 `/`（新版 `@`）叫出；Gems 將轉為 Skills（日期未公布）。Canvas「匯出 HTML」無官方證據，頁面勿寫
 - **NotebookLM**：表格輸出露 `<br><br>`，提問加「儲存格不要用 HTML 標記」可解
 
 ## 注意事項
