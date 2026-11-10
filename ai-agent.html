@@ -265,6 +265,40 @@
 [貼上衛教文字稿內容]<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
       </div>
 
+      <h4>進階：讓簡報網頁動起來</h4>
+      <p>同一份網頁也可以加上動畫：標題淡入、重點逐條出現、數字跳動計數。這類效果不是用影片生成模型做的，而是 AI 寫程式碼「畫」出來的，畫面上的每個字都寫在檔案裡，可以逐字檢查與修改。要讓 AI 做出有節奏感的動畫，指令裡寫清楚三件事：</p>
+      <ol>
+        <li><strong>視覺風格</strong>：希望畫面看起來像什麼 — 清爽醫療風、極簡、科技感。描述越具體，AI 越能掌握方向。</li>
+        <li><strong>使用技術</strong>：不熟悉可以交給 AI 決定。常見名詞 <strong>GSAP</strong> 是專做網頁動畫的程式庫，效果細緻，但播放時需要連網載入。</li>
+        <li><strong>時間軸</strong>：每個元素第幾秒出現 — 例如「0–1 秒標題淡入，1–3 秒重點逐條出現」。寫得越精確，節奏越穩定。</li>
+      </ol>
+      <div class="prompt-block">
+        <div class="prompt-label">把簡報網頁改成動態版</div>
+        <div class="prompt-content">把剛剛做好的衛教簡報網頁，改成有動畫效果的版本。
+
+視覺風格：醫療藍白配色、大字體，動畫柔和不花俏
+使用技術：維持單一 HTML 檔，不要載入任何外部網路資源（醫院網路不通時也要能播放）
+動畫時間軸（每一頁）：
+- 0–1 秒：標題由下往上淡入
+- 1–3 秒：重點條列逐條出現
+- 頁面中的數字（例如「每天檢查 1 次」）用跳動計數的方式出現
+- 動畫結束後畫面保持靜止，方便長輩閱讀
+
+操作：按鍵盤左右鍵或點擊畫面換頁
+
+驗收標準：只能使用原本網頁中的文字與數字，不可新增任何數據或醫療建議。<button class="copy-btn" onclick="copyPrompt(this)">📋 複製</button></div>
+      </div>
+      <div class="box-tip">
+        <strong>一句話換整份設計：</strong>做好後直接說「改成普普風」「改成極簡風」「改成 Apple 發表會風格」，按鈕、背景、標題會一起換成該風格。這些是設計界沿用多年的視覺語言，AI 看過大量範例，只要說出風格名稱就知道各自的配色與排版特徵。衛教用途請優先挑字大、對比清楚的風格。
+      </div>
+      <div class="box-danger">
+        <h4>動畫越精緻，數字越要自己把關</h4>
+        <p style="margin: 0;">跳動的數字、會長高的長條圖看起來很有說服力，但如果你沒提供數據，AI 可能自行編造。每一個數字都必須來自你提供的資料，並在播放前逐一核對。另外，做出來的是<strong>網頁</strong>而不是 PowerPoint 檔；研討會或院內報告若規定繳交 PPT，無法直接替代。</p>
+      </div>
+      <div class="box-tip">
+        沒有安裝 Agent 也能做：在 ChatGPT、Gemini、Claude 的網頁版對話中，請它「輸出完整的單一 HTML 檔程式碼」，把程式碼存成 <code>.html</code> 檔，用瀏覽器打開即可播放。程式碼很長時用 Agent 會比較順手，它會直接把檔案存進你的資料夾。
+      </div>
+
       <h3>情境三：批次整理檔案／資料（已去識別化）</h3>
       <div class="prompt-block">
         <div class="prompt-label">批次重新命名與分類檔案</div>
@@ -372,6 +406,11 @@
           <p>Model Context Protocol，讓 Agent 接上外部系統（行事曆、雲端硬碟、文獻資料庫）的<strong>標準轉接頭</strong> — 各家工具、各種系統照同一個規格對接，不用每對組合都重做一次。</p>
           <p><a href="ai-fundamentals.html#harness">Part 1 講過</a>：harness 是包在 AI 模型外面的那層制度，決定它能用哪些工具。MCP 就是這層制度接外部工具用的標準插座。</p>
         </div>
+      </div>
+
+      <div class="box-tip">
+        <strong>Skill 的實用做法：讓強模型示範，便宜模型照做。</strong>先用能力最強的模型做出一份滿意的成品（例如上面的動態簡報），再對它說「把這次的製作方法整理成一份 Skill 檔案」。之後換成速度快、額度省的小模型，套用這份 Skill 也能做出接近的品質 — 小模型缺的往往不是能力，而是方向。簡報這類重排版、輕推理的工作，套用 Skill 後大小模型的差距特別小。
+        <br><br>Gemini 網頁版、手機 App 與 Mac App 也有 Skills 功能：不需付費訂閱、須年滿 18 歲，可以在對話中請 Gemini 建立，或上傳 <code>SKILL.md</code> 檔；使用時在對話框輸入 <code>/</code>（新版介面為 <code>@</code>）選取。<small>📅 資訊更新於 2026 年 11 月，以 <a href="https://support.google.com/gemini/answer/17094296" target="_blank" rel="noopener">Google 官方說明</a>為準</small>
       </div>
 
       <div class="box-tip">三者的共同點：<strong>把「每次口頭交代」變成「寫下來的制度」</strong>。你在醫院熟到不能再熟的那套 — 手冊、SOP、標準介接 — 搬到 AI 協作上一樣管用。名詞會退流行，這個原則不會。</div>
